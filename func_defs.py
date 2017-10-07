@@ -345,7 +345,7 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y ):
             if not row[a]:
                  pass
              #if age column not empty
-             else:
+            else:
 
                  #check if age is under 10
                  try:
@@ -518,6 +518,89 @@ def FamilyWriter1900(row, r,ym, the_file, idn,y):
 
      else:
          print("im lost")
+
+#-------------------------------------------------------------------#
+#---------------------------Family Writer 1880 format---------------#
+#-------------------------------------------------------------------#
+#row=row
+#r = relationship to head column
+#familynumber=familynumber
+#ym = Married in year
+#the_file = the_file
+#idn=idn
+#y = census year
+def FamilyWriter1880(row, r,ym, the_file, idn,y):
+     if not row[r]:
+         relation = 'head'
+         
+     else:
+         relation = row[r]
+         relation = relation.lower()
+     
+     if relation == 'head':
+         config.familynumber += 1
+         the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+         
+
+         with open('temporaryfamilies.txt', 'a') as new_file:
+             new_file.write('0 '+ '@F' + "{0:0=3d}".format(config.familynumber) + '@ FAM\n')
+             new_file.write('1 HUSB ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+        
+                         
+     elif relation != 'head':
+          if relation == 'wife':
+              if not row[ym]:
+                  the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+                  with open('temporaryfamilies.txt', 'a') as new_file:
+                     new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+                     new_file.write('1 MARR\n')
+
+              else:
+                  the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')          
+                  
+                  marriageyear = y
+
+             
+                  with open('temporaryfamilies.txt', 'a') as new_file:
+                     new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+                     new_file.write('1 MARR\n')
+                     new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
+          elif relation == 'son':
+
+             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+             with open('temporaryfamilies.txt', 'a') as new_file:
+                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+
+             #print('is son')
+                 
+          elif relation == 'daughter':
+
+             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+             with open('temporaryfamilies.txt', 'a') as new_file:
+                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+                 
+             #print('is daughter')
+                 
+          elif relation == 'child':
+
+             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+             with open('temporaryfamilies.txt', 'a') as new_file:
+                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+             
+             #print('is child')
+             
+          else:
+             print('Other Relation')
+         
+
+     else:
+         print("im lost")
+
+
 #-------------------------------------------------------------------#
 #---------------------------Army/Navy Writer------------------------#
 #-------------------------------------------------------------------#
@@ -545,7 +628,7 @@ def BlindWriter(row, b, the_file):
         the_file.write('1 DSCR Whether Blind: ' + blindness + '\n')
 
 #-------------------------------------------------------------------#
-#------------------------------Deaf Writer-------------------------#
+#------------------------------Deaf Writer--------------------------#
 #-------------------------------------------------------------------#        
 #row=row
 #d=Deaf cloumn
@@ -557,6 +640,73 @@ def DeafWriter(row, d, the_file):
         deafness = row[d]
         the_file.write('1 DSCR Whether Deaf: ' + deafness + '\n')
 
+#-------------------------------------------------------------------#
+#-------------------------Deaf Writer 1880--------------------------#
+#-------------------------------------------------------------------#        
+#row=row
+#d=Deaf cloumn
+#the-file=the_file
+def DeafWriter1880(row, d, the_file):
+    if not row[d]:
+        pass
+    else:
+        deafness = row[d]
+        the_file.write('1 DSCR Whether Deaf and Dumb: ' + deafness + '\n')
+
+#-------------------------------------------------------------------#
+#----------------------Sick or Disabled Writer----------------------#
+#-------------------------------------------------------------------#        
+#row=row
+#s=Sick or disabled column
+#the-file=the_file
+def SickOrDisabledWriter(row, s, the_file):
+    if not row[s]:
+        pass
+    else:
+        sick = row[s]
+        the_file.write('1 DSCR Whether Sick or Disabled: ' + sick + '\n')
+
+#-------------------------------------------------------------------#
+#---------------------------Idiotic Writer--------------------------#
+#-------------------------------------------------------------------#        
+#row=row
+#d= Idiotic column
+#the-file=the_file
+def IdioticWriter(row, d, the_file):
+    if not row[d]:
+        pass
+    else:
+        idiot = row[d]
+        the_file.write('1 DSCR Whether Idiotic: ' + idiot + '\n')
+
+#-------------------------------------------------------------------#
+#---------------------------Insane Writer---------------------------#
+#-------------------------------------------------------------------#        
+#row=row
+#n= Insane column
+#the-file=the_file
+def InsaneWriter(row, n, the_file):
+    if not row[n]:
+        pass
+    else:
+        insane = row[n]
+        the_file.write('1 DSCR Whether Insane: ' + insane + '\n')
+
+#-------------------------------------------------------------------#
+#---------------------------Maimed Writer---------------------------#
+#-------------------------------------------------------------------#        
+#row=row
+#m= Maimed column
+#the-file=the_file
+def MaimedWriter(row, m, the_file):
+    if not row[m]:
+        pass
+    else:
+        maimed = row[m]
+        the_file.write('1 DSCR Whether Maimed: ' + maimed + '\n')
+
+
+        
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#
 #-------------------------------------------------------------------#

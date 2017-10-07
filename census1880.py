@@ -4,7 +4,7 @@ import csv
 from func_defs import *
 
 
-def writeName1910 (c , g):
+def writeName1880 (c , g):
     idn = 0
     with open(g, 'a') as the_file:
         with open(c) as csvfile:
@@ -39,3 +39,28 @@ def writeName1910 (c , g):
 
                  #call LiteracyWriter1880 function
                  LiteracyWriter1880(row,'22-Cannot read','23-Cannot write', '6-Age', the_file, '1880')
+
+                 #call DeafWriter1880 function
+                 DeafWriter1880(row, '17-Deaf and Dumb', the_file)
+
+                 #call BlindWriter function
+                 BlindWriter(row,'16-Blind', the_file)
+
+                 #call SickOrDisabledWriter function
+                 SickOrDisabledWriter(row,'15-sick or disabled', the_file )
+
+                 #call IdioticWriter function
+                 IdioticWriter(row, '18-Idiotic', the_file)
+
+                 #call InsaneWriter function
+                 InsaneWriter(row, '19-Insane', the_file)
+
+                 #call MaimedWriter function
+                 MaimedWriter(row,'20-Maimed etc.' ,the_file)
+
+                 #call FamilyWriter1880 function
+                 FamilyWriter1880(row, '8-Relationship', '12-Married in Year.', the_file,idn, '1880')
+
+            #call endfile function
+             EndFile(the_file)
+                 
