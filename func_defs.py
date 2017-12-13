@@ -80,6 +80,55 @@ def YBdateWriter (row,a,y,the_file):
          except:
              print('False')
              the_file.write('2 DATE ABT ' + str(y) + '\n')
+#-------------------------------------------------------------------#
+#----------------Name Writer (No relationship required)-------------#
+#-------------------------------------------------------------------#
+#n = the Name column row
+#row = row
+#the_file = the_file
+def __Name_Writer_No_Relation__(row, n, the_file):
+    #separate values for firstname and lastname
+     name = str(row[n]).split()
+
+     if len(name)== 2:
+
+             firstname = name[1]
+             lastname = name[0]
+             #print "1 NAME (firstname) /(lastname)/"
+             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
+             #Print "2 GIVN (firstname)"
+             the_file.write('2 GIVN ' + firstname + '\n')
+
+             #Print "2 SURN (lastname)"
+             the_file.write('2 SURN ' + lastname + '\n')
+                     
+     elif len(name) == 3:
+
+             firstname = str(name[1] + ' ' + name[2])
+             lastname = name[0]
+             #print "1 NAME (firstname) /(lastname)/"
+             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
+             #Print "2 GIVN (firstname)"
+             the_file.write('2 GIVN ' + firstname + '\n')
+
+             #Print "2 SURN (lastname)"
+             the_file.write('2 SURN ' + lastname + '\n')
+
+     elif len(name) == 4:
+
+             firstname = str(name[1] + ' ' + name[2] + ' ' + name[3])
+             lastname = name[0]
+             
+             #print "1 NAME (firstname) /(lastname)/"
+             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
+             
+             #Print "2 GIVN (firstname)"
+             the_file.write('2 GIVN ' + firstname + '\n')
+
+             #Print "2 SURN (lastname)"
+             the_file.write('2 SURN ' + lastname + '\n')
+     else:
+         print('too many spaces in name')
 
 #-------------------------------------------------------------------#
 #-------------------Name Writer (Requires Relationship)-------------#
@@ -207,7 +256,7 @@ def NameWriter(row, n, r, the_file):
 #---------------------------Sex Writer------------------------------#
 #-------------------------------------------------------------------#
 #s is the sex column
-def SexWriter (row,s, the_file):
+def __Sex_Writer__ (row,s, the_file):
     #Print Sex
      if not row[s]:
          pass
@@ -389,7 +438,46 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y ):
             except:
                 pass
         
+#-------------------------------------------------------------------#
+#----------------------Literacy Writer 1860-------------------------#
+#-------------------------------------------------------------------#
+#row=row
+#r=read and write column
+#a = age column
+#the_file=the_file
+#y = census year
+def __Literacy_Writer_1860__ (row, r, a, the_file, y ):
+    canread = row[r]
+    age = row[a]
 
+    #if they can read
+    if not row[r]:
+
+        #if age column empty
+        if not row[a]:
+             pass
+         #if age column not empty
+        else:
+
+             #check if age is under 20
+             try:
+                 if age < int(20):
+                     pass
+                 else:
+                     the_file.write('1 DSCR Can Read and write: yes' + '\n')
+                     the_file.write('2 DATE '+ y +'\n')
+             except:
+                 pass
+    #if they cannot read        
+    else:
+        try:
+            if age < int(20):
+                pass
+            else:
+                the_file.write('1 DSCR Can Read and write: no'+ '\n')
+                the_file.write('2 DATE '+ y +'\n')
+        except:
+            pass
 #-------------------------------------------------------------------#
 #------------------------Child Number Writer------------------------#
 #-------------------------------------------------------------------#
@@ -443,6 +531,51 @@ def PropertyWriter(row, o , fm , fh , fs , the_file , y):
         the_file.write('1 PROP House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
         the_file.write('2 DATE '+ y +'\n')
 
+#-------------------------------------------------------------------#
+#------------------------Property Writer 1860-----------------------#
+#-------------------------------------------------------------------#
+#row=row
+#r= Real estate value column
+#p =personal estate column
+#the_file = the_file
+#y= Census Year
+def __Property_Writer_1860__(row, r, p, the_file , y):
+    realEstate = row[r]
+    personalEstate = row[p]
+
+    #doesn't have real estate
+    if not row[r]:
+        #doesn't have personal estate
+        if not row [p]:
+            pass
+        #has personal estate
+        else:
+            the_file.write('1 PROP Value of Personal Estate: ' + personalEstate + '\n')
+            the_file.write('2 DATE '+ y +'\n')
+    #has real estate
+    else:
+        #doesn't have personal estate
+        if not row [p]:
+            the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
+            the_file.write('2 DATE '+ y +'\n')
+        #has personal estate
+        else:
+            the_file.write('1 PROP Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
+            the_file.write('2 DATE '+ y +'\n')
+#-------------------------------------------------------------------#
+#------------------------Property Writer 1850-----------------------#
+#-------------------------------------------------------------------#
+#row=row
+#r= Real estate value column
+#the_file = the_file
+#y= Census Year
+def __Property_Writer_1850__(row, r, the_file , y):
+    realEstate = row[r]
+    if not row[r]:
+        pass
+    else:
+        the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
+        the_file.write('2 DATE '+ y +'\n')
 #-------------------------------------------------------------------#
 #---------------------------Family Writer 1900 format---------------#
 #-------------------------------------------------------------------#
@@ -706,7 +839,19 @@ def MaimedWriter(row, m, the_file):
         the_file.write('1 DSCR Whether Maimed: ' + maimed + '\n')
 
 
-        
+#-------------------------------------------------------------------#
+#---------------------Disabled Writer 1870--------------------------#
+#-------------------------------------------------------------------#        
+#row=row
+#d=disabled cloumn
+#the-file=the_file
+def __Disabled_Writer_1870__(row, d, the_file):
+    if not row[d]:
+        pass
+    else:
+        disability = row[d]
+        the_file.write('1 DSCR Disability: ' + Disability: + '\n')
+
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#
 #-------------------------------------------------------------------#

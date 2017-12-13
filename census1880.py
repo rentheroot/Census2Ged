@@ -20,7 +20,7 @@ def writeName1880 (c , g):
                  NameWriter(row,'3-Name','8-Relationship', the_file)
 
                  #Call SexWriter Function
-                 SexWriter(row,'5-Sex',the_file)
+                 __Sex_Writer__(row,'5-Sex',the_file)
 
                  #Call YBdateWriter function
                  YBdateWriter (row,'6-Age','1880',the_file)

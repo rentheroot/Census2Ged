@@ -19,7 +19,7 @@ def writeName1900 (c , g):
                  NameWriter(row,"3 NAME",'4 Relationship of each person to the head of the family.', the_file)
 
                  #Call SewWriter Function
-                 SexWriter(row,"6 Sex",the_file)
+                 __Sex_Writer__(row,"6 Sex",the_file)
 
                  #call YMBdateWriter function
                  YMBdateWriter(row,"7 Year","7 Month",the_file)
