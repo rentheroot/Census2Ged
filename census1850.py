@@ -20,7 +20,7 @@ def writeName1850 (c , g):
                  __Name_Writer_No_Relation__(row, 'Name', the_file)
 
                  #Call SexWriter Function
-                 __Sex_Writer__(row,'Sex',the_file)
+                 SexWriter(row,'Sex',the_file)
 
                  #Call YBdateWriter function
                  YBdateWriter (row,'Age','1850',the_file)
@@ -41,11 +41,11 @@ def writeName1850 (c , g):
                  __Literacy_Writer_1860__ (row, 'Read-Write', 'Age', the_file, '1850' )
 
                  #call Disabled Writer 1870 function
-                __Disabled_Writer_1870__(row, 'Deaf-Dumb-Blind-Etc', the_file)
+                 __Disabled_Writer_1870__(row, 'Deaf-Dumb-Blind-Etc', the_file)
 
-                #call Property writer 1850 function
-                __Property_Writer_1850__(row, 'Real-Estate', the_file , '1850')
+                 #call Property writer 1850 function
+                 __Property_Writer_1850__(row, 'Real-Estate', the_file , '1850')
 
-            #call endfile function
+             #call endfile function
              EndFile(the_file)
                  

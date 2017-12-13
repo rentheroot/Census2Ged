@@ -1,8 +1,6 @@
 #Imports
 import csv
 from easygui import *
-import tkinter as tk
-from tkinter import filedialog
 
 #import custom modules
 from header import *
@@ -35,15 +33,15 @@ while 1:
 print ("Reply was:", fieldValues[0], fieldValues[1])
 fieldValuesgedname = str(fieldValues[0])
 fieldValuesyear = str(fieldValues[1])
+file_path = fileopenbox(msg="Select a csv", title="csv selection", default='*', filetypes='*.csv', multiple=False)
 
 
-root = tk.Tk()
-root.withdraw()
+#root = tk.Tk()
+#root.withdraw()
 
 def main (g, y):
-    #x = startInterface()
+
     g = str(g +'.ged')
-    file_path = filedialog.askopenfilename()
     printHeader(g)
     if y == '1850':
         writeName1850(file_path , g)

@@ -256,7 +256,7 @@ def NameWriter(row, n, r, the_file):
 #---------------------------Sex Writer------------------------------#
 #-------------------------------------------------------------------#
 #s is the sex column
-def __Sex_Writer__ (row,s, the_file):
+def SexWriter(row,s, the_file):
     #Print Sex
      if not row[s]:
          pass
@@ -850,7 +850,7 @@ def __Disabled_Writer_1870__(row, d, the_file):
         pass
     else:
         disability = row[d]
-        the_file.write('1 DSCR Disability: ' + Disability: + '\n')
+        the_file.write('1 DSCR Disability: ' + disability + '\n')
 
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#

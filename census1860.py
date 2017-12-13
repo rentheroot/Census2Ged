@@ -5,8 +5,8 @@ from func_defs import *
 
 
 def writeName1860 (c , g):
-    idn = 0
-    with open(g, 'a') as the_file:
+     idn = 0
+     with open(g, 'a') as the_file:
         with open(c) as csvfile:
              reader = csv.DictReader(csvfile)
 
@@ -20,7 +20,7 @@ def writeName1860 (c , g):
                  __Name_Writer_No_Relation__(row, '3-name', the_file)
 
                  #Call SexWriter Function
-                 __Sex_Writer__(row,'5-Sex',the_file)
+                 SexWriter(row,'5-Sex',the_file)
 
                  #Call YBdateWriter function
                  YBdateWriter (row,'4-Age','1860',the_file)
@@ -41,11 +41,11 @@ def writeName1860 (c , g):
                  __Literacy_Writer_1860__ (row, '13-cannot-R&W', '4-Age', the_file, '1860' )
 
                  #call Disabled Writer 1870 function
-                __Disabled_Writer_1870__(row, '14-Deaf', the_file)
+                 __Disabled_Writer_1870__(row, '14-Deaf', the_file)
 
-                #call property writer 1860 function
-                __Property_Writer_1860__(row, '8-Real-Estate', '9-Personal-Estate', the_file , '1860')
+                 #call property writer 1860 function
+                 __Property_Writer_1860__(row, '8-Real-Estate', '9-Personal-Estate', the_file , '1860')
 
-            #call endfile function
+             #call endfile function
              EndFile(the_file)
                  
