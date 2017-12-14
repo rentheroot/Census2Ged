@@ -33,6 +33,16 @@ while 1:
 print ("Reply was:", fieldValues[0], fieldValues[1])
 fieldValuesgedname = str(fieldValues[0])
 fieldValuesyear = str(fieldValues[1])
+
+#checkbox gui for selecting specific things
+question = "What information would you like to include?"
+title = "This is your window title"
+listOfOptions = ["option 1", "option 2", "option 3"]
+
+choice = multchoicebox(question , title, listOfOptions)
+
+
+#open a file dialogue
 file_path = fileopenbox(msg="Select a csv", title="csv selection", default='*', filetypes='*.csv', multiple=False)
 
 
