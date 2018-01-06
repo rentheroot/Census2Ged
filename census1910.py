@@ -4,7 +4,7 @@ import csv
 from func_defs import *
 
 
-def writeName1910 (c , g):
+def writeName1910 (c , g, config_dict):
     idn = 0
     with open(g, 'a') as the_file:
         with open(c) as csvfile:
