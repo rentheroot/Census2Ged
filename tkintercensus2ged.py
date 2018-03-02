@@ -381,13 +381,21 @@ class Application(tk.Frame):
                         "Gedname" : self.gedNameSet.get(),
                         "Property" : self.optionProperty.get(),
                         "Language" : self.optionLanguage.get(),
-                        "Naturalize" : self.optionNaturalize.get()
+                        "Naturalize" : self.optionNaturalize.get(),
+                        "immigTag" : self.immigrationSet.get()
                         }
 
         print(variable_list)
         return (variable_list)
 
     def __Submit_Button__(self):
+
+        #Whether or not to use default immigration value
+        if len(self.immigrationSet.get()) == 0:
+            self.immigrationSet.insert(0, "IMMI")
+
+
+        #set the list of entries
         variable_list = self.__Update_Checkbox_List__()
         
         #save the current file configuration

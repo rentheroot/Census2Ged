@@ -33,7 +33,7 @@ def writeName1910 (c , g, config_dict):
 
                  #call ImmigYearWriter function
                  if config_dict["Immigration"] == 1:
-                    ImmigYearWriter(row,"15 Immigration",the_file)
+                    ImmigYearWriter(row,"15 Immigration", config_dict["immigTag"],the_file)
 
                  #call OccupationWriter1910 function
                  if config_dict["Occupation"] == 1:

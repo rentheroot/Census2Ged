@@ -271,14 +271,24 @@ def SexWriter(row,s, the_file):
 #row =row
 #I = Immigration Year column
 #the_file = the_file
-def ImmigYearWriter(row, I, the_file):
+#immigTag = Immigration tag to use
+def ImmigYearWriter(row, I, immigTag, the_file):
     if not row[I]:
         pass
 
     else:
-        immigyear = row[I]
-        the_file.write("1 IMMI\n")
-        the_file.write("2 DATE ABT " + immigyear + '\n')
+        if immigTag == "IMMI":
+            immigyear = row[I]
+            the_file.write("1 IMMI\n")
+            the_file.write("2 DATE ABT " + immigyear + '\n')
+        else:
+            immigyear = row[I]
+            the_file.write("1 EVEN\n")
+            the_file.write("2 TYPE " + immigTag + '\n')
+            the_file.write("2 DATE ABT " + immigyear + '\n')
+
+
+
 
 #-------------------------------------------------------------------#
 #-------------------------Census Year Writer------------------------#
