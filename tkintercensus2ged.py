@@ -281,6 +281,8 @@ class Application(tk.Frame):
                 self.CheckboxLanguage.select()
             if user_config ["immigTag"] != "IMMI":
                 self.immigrationSet.insert(0, user_config["immigTag"])
+            if user_config ["occuTag"] != "OCCU":
+                self.immigrationSet.insert(0, user_config["occuTag"])
 
         except:
             print("nope")
@@ -385,6 +387,7 @@ class Application(tk.Frame):
                         "Language" : self.optionLanguage.get(),
                         "Naturalize" : self.optionNaturalize.get(),
                         "immigTag" : self.immigrationSet.get()
+                        "occupTag" : self.occupationSet.get()
                         }
 
         print(variable_list)
@@ -395,6 +398,9 @@ class Application(tk.Frame):
         #Whether or not to use default immigration value
         if len(self.immigrationSet.get()) == 0:
             self.immigrationSet.insert(0, "IMMI")
+        #Whether or not to use default occupation value
+        if len(self.occupationSet.get()) == 0:
+            self.occupationSet.insert(0, "OCCU")
 
 
         #set the list of entries

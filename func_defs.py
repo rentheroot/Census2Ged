@@ -306,14 +306,18 @@ def CensusYearWriter(the_file, y):
 #o=occupation
 #the_file = the_file
 #y = census year
-def OccupationWriter(row, o, the_file, y):
+#occuTag = occupation tag to use
+def OccupationWriter(row, occuTag,o, the_file, y):
     if not row[o]:
          pass
 
     else:
-        occupation = row[o]
-        the_file.write("1 OCCU " + occupation + '\n')
-        the_file.write("2 DATE " + y +"\n")
+        if occuTag == "OCCU":
+            occupation = row[o]
+            the_file.write("1 OCCU " + occupation + '\n')
+            the_file.write("2 DATE " + y +"\n")
+        else:
+            
 
 #-------------------------------------------------------------------#
 #--------------------------Occupation Writer 1910-------------------#
