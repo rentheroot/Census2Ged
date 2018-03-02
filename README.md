@@ -1,2 +1,5 @@
 # Census2Ged
-Converts census transcriptions made in Genscriber to gedcom files
+
+## Purpose
+Converts census transcriptions made in [Genscriber](http://www.genscriber.com/genapps/) to gedcom files
+
