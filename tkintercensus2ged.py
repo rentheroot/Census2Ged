@@ -284,7 +284,7 @@ class Application(tk.Frame):
         print (Language)
         return(Language)
 
-    # create a dict with all the values of the fields
+    # create configDictionary with all the values of the fields
     def __Update_Checkbox_List__(self):
         variable_list ={"Country" : self.countrySelect.get() , 
                         "Year" : self.yearSelect.get(),
@@ -297,6 +297,8 @@ class Application(tk.Frame):
                         "Military" : self.optionMilitary.get(),
                         "Gedname" : self.gedNameSet.get(),
                         "Property" : self.optionProperty.get()
+                        "Language" : self.optionLanguage.get()
+
 
                         }
         print(variable_list)

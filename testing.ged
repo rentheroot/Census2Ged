@@ -1,0 +1,1513 @@
+0 HEAD
+1 SOUR 0
+1 SUBM @U@
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR ASCII
+0 @U@ SUBM
+1 NAME X
+0 TRLR
+0 @I001@ INDI
+1 NAME Alva/Holloway/
+2 GIVN Alva
+2 SURN Holloway
+1 SEX M
+1 BIRT
+2 DATE ABT 1897
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F000@
+0 @I002@ INDI
+1 NAME Lela/Holloway/
+2 GIVN Lela
+2 SURN Holloway
+1 SEX F
+1 BIRT
+2 DATE ABT 1898
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F000@
+0 @I003@ INDI
+1 NAME Allie/Holloway/
+2 GIVN Allie
+2 SURN Holloway
+1 SEX F
+1 BIRT
+2 DATE ABT 1901
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 FAMC @F000@
+0 @I004@ INDI
+1 NAME Harold/Holloway/
+2 GIVN Harold
+2 SURN Holloway
+1 SEX M
+1 BIRT
+2 DATE ABT 1903
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 FAMC @F000@
+0 @I005@ INDI
+1 NAME Ruth/Holloway/
+2 GIVN Ruth
+2 SURN Holloway
+1 SEX F
+1 BIRT
+2 DATE ABT 1905
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F000@
+0 @I006@ INDI
+1 NAME Walter/Holloway/
+2 GIVN Walter
+2 SURN Holloway
+1 SEX M
+1 BIRT
+2 DATE ABT 1906
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F000@
+0 @I007@ INDI
+1 NAME Edward C/Wilkes/
+2 GIVN Edward C
+2 SURN Wilkes
+1 SEX M
+1 BIRT
+2 DATE ABT 1865
+2 PLAC England
+1 CENS
+2 DATE 1910
+1 IMMI
+2 DATE ABT 1872
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F001@
+0 @I008@ INDI
+1 NAME Cora B//
+2 GIVN Cora B
+1 SEX F
+1 BIRT
+2 DATE ABT 1868
+2 PLAC Indiana
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F001@
+0 @I009@ INDI
+1 NAME Leslie/Wilkes/
+2 GIVN Leslie
+2 SURN Wilkes
+1 SEX M
+1 BIRT
+2 DATE ABT 1896
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F001@
+0 @I010@ INDI
+1 NAME Philip/Sargent/
+2 GIVN Philip
+2 SURN Sargent
+1 SEX M
+1 BIRT
+2 DATE ABT 1866
+2 PLAC Illinois
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F002@
+0 @I011@ INDI
+1 NAME Martha//
+2 GIVN Martha
+1 SEX F
+1 BIRT
+2 DATE ABT 1869
+2 PLAC Illinois
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F002@
+0 @I012@ INDI
+1 NAME Eva/Sargent/
+2 GIVN Eva
+2 SURN Sargent
+1 SEX F
+1 BIRT
+2 DATE ABT 1893
+2 PLAC Nebraska
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F002@
+0 @I013@ INDI
+1 NAME Walter/Sargent/
+2 GIVN Walter
+2 SURN Sargent
+1 SEX M
+1 BIRT
+2 DATE ABT 1895
+2 PLAC Nebraska
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F002@
+0 @I014@ INDI
+1 NAME Melvin/Sargent/
+2 GIVN Melvin
+2 SURN Sargent
+1 SEX M
+1 BIRT
+2 DATE ABT 1897
+2 PLAC Nebraska
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F002@
+0 @I015@ INDI
+1 NAME Laurence/Sargent/
+2 GIVN Laurence
+2 SURN Sargent
+1 SEX M
+1 BIRT
+2 DATE ABT 1903
+2 PLAC Missouri
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 FAMC @F002@
+0 @I016@ INDI
+1 NAME William B/White/
+2 GIVN William B
+2 SURN White
+1 SEX M
+1 BIRT
+2 DATE ABT 1866
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F003@
+0 @I017@ INDI
+1 NAME Carry//
+2 GIVN Carry
+1 SEX F
+1 BIRT
+2 DATE ABT 1870
+2 PLAC Missouri
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F003@
+0 @I018@ INDI
+1 NAME Terrence/White/
+2 GIVN Terrence
+2 SURN White
+1 SEX M
+1 BIRT
+2 DATE ABT 1892
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F003@
+0 @I019@ INDI
+1 NAME Floyd M./White/
+2 GIVN Floyd M.
+2 SURN White
+1 SEX M
+1 BIRT
+2 DATE ABT 1894
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F003@
+0 @I020@ INDI
+1 NAME Myrtle/White/
+2 GIVN Myrtle
+2 SURN White
+1 SEX F
+1 BIRT
+2 DATE ABT 1895
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F003@
+0 @I021@ INDI
+1 NAME Harry/White/
+2 GIVN Harry
+2 SURN White
+1 SEX M
+1 BIRT
+2 DATE ABT 1898
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F003@
+0 @I022@ INDI
+1 NAME Dorthea/White/
+2 GIVN Dorthea
+2 SURN White
+1 SEX F
+1 BIRT
+2 DATE ABT 1908
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F003@
+0 @I023@ INDI
+1 NAME Basil H/White/
+2 GIVN Basil H
+2 SURN White
+1 SEX M
+1 BIRT
+2 DATE ABT 1829
+2 PLAC Ohio
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+0 @I024@ INDI
+1 NAME Holger J/Tholstsap/
+2 GIVN Holger J
+2 SURN Tholstsap
+1 SEX M
+1 BIRT
+2 DATE ABT 1870
+2 PLAC Illinois
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F004@
+0 @I025@ INDI
+1 NAME Lizzie M//
+2 GIVN Lizzie M
+1 SEX F
+1 BIRT
+2 DATE ABT 1871
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F004@
+0 @I026@ INDI
+1 NAME Harry G. S./Tholstsap/
+2 GIVN Harry G. S.
+2 SURN Tholstsap
+1 SEX M
+1 BIRT
+2 DATE ABT 1895
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F004@
+0 @I027@ INDI
+1 NAME Daniel E./Tholstsap/
+2 GIVN Daniel E.
+2 SURN Tholstsap
+1 SEX M
+1 BIRT
+2 DATE ABT 1899
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F004@
+0 @I028@ INDI
+1 NAME Mabel S./Tholstsap/
+2 GIVN Mabel S.
+2 SURN Tholstsap
+1 SEX F
+1 BIRT
+2 DATE ABT 1900
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F004@
+0 @I029@ INDI
+1 NAME Walter J. R./Tholstsap/
+2 GIVN Walter J. R.
+2 SURN Tholstsap
+1 SEX M
+1 BIRT
+2 DATE ABT 1903
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 FAMC @F004@
+0 @I030@ INDI
+1 NAME Alice E. O./Tholstsap/
+2 GIVN Alice E. O.
+2 SURN Tholstsap
+1 SEX F
+1 BIRT
+2 DATE ABT 1905
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F004@
+0 @I031@ INDI
+1 NAME Josephine L/Tholstsap/
+2 GIVN Josephine L
+2 SURN Tholstsap
+1 SEX F
+1 BIRT
+2 DATE ABT 1907
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F004@
+0 @I032@ INDI
+1 NAME Riley E./Moore/
+2 GIVN Riley E.
+2 SURN Moore
+1 SEX M
+1 BIRT
+2 DATE ABT 1875
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F005@
+0 @I033@ INDI
+1 NAME Alta O.//
+2 GIVN Alta O.
+1 SEX F
+1 BIRT
+2 DATE ABT 1876
+2 PLAC Illinois
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F005@
+0 @I034@ INDI
+1 NAME Fred/Hoffhines/
+2 GIVN Fred
+2 SURN Hoffhines
+1 SEX M
+1 BIRT
+2 DATE ABT 1878
+2 PLAC Ohio
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F006@
+0 @I035@ INDI
+1 NAME Margaret//
+2 GIVN Margaret
+1 SEX F
+1 BIRT
+2 DATE ABT 1874
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F006@
+0 @I036@ INDI
+1 NAME Joseph C./Slattery/
+2 GIVN Joseph C.
+2 SURN Slattery
+1 SEX M
+1 BIRT
+2 DATE ABT 1880
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F007@
+0 @I037@ INDI
+1 NAME Roy/Heaton/
+2 GIVN Roy
+2 SURN Heaton
+1 SEX M
+1 BIRT
+2 DATE ABT 1892
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+0 @I038@ INDI
+1 NAME William J./Lawson/
+2 GIVN William J.
+2 SURN Lawson
+1 SEX M
+1 BIRT
+2 DATE ABT 1858
+2 PLAC Pennsylvania
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F008@
+0 @I039@ INDI
+1 NAME Jamie M//
+2 GIVN Jamie M
+1 SEX F
+1 BIRT
+2 DATE ABT 1864
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F008@
+0 @I040@ INDI
+1 NAME William F/Buyers/
+2 GIVN William F
+2 SURN Buyers
+1 SEX M
+1 BIRT
+2 DATE ABT 1857
+2 PLAC Illinois
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F009@
+0 @I041@ INDI
+1 NAME Anna//
+2 GIVN Anna
+1 SEX F
+1 BIRT
+2 DATE ABT 1869
+2 PLAC Illinois
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F009@
+0 @I042@ INDI
+1 NAME Floyd/Buyers/
+2 GIVN Floyd
+2 SURN Buyers
+1 SEX M
+1 BIRT
+2 DATE ABT 1889
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F009@
+0 @I043@ INDI
+1 NAME Raymond/Buyers/
+2 GIVN Raymond
+2 SURN Buyers
+1 SEX M
+1 BIRT
+2 DATE ABT 1891
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F009@
+0 @I044@ INDI
+1 NAME Sylvia/Buyers/
+2 GIVN Sylvia
+2 SURN Buyers
+1 SEX F
+1 BIRT
+2 DATE ABT 1893
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F009@
+0 @I045@ INDI
+1 NAME Alva/Buyers/
+2 GIVN Alva
+2 SURN Buyers
+1 SEX M
+1 BIRT
+2 DATE ABT 1895
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F009@
+0 @I046@ INDI
+1 NAME Wilton/Buyers/
+2 GIVN Wilton
+2 SURN Buyers
+1 SEX M
+1 BIRT
+2 DATE ABT 1900
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F009@
+0 @I047@ INDI
+1 NAME Winnie/Buyers/
+2 GIVN Winnie
+2 SURN Buyers
+1 SEX F
+1 BIRT
+2 DATE ABT 1900
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F009@
+0 @I048@ INDI
+1 NAME Opal/Buyers/
+2 GIVN Opal
+2 SURN Buyers
+1 SEX F
+1 BIRT
+2 DATE ABT 1904
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 FAMC @F009@
+0 @I049@ INDI
+1 NAME Rhuben/Buyers/
+2 GIVN Rhuben
+2 SURN Buyers
+1 SEX M
+1 BIRT
+2 DATE ABT 1906
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F009@
+0 @I050@ INDI
+1 NAME Ruth/Buyers/
+2 GIVN Ruth
+2 SURN Buyers
+1 SEX F
+1 BIRT
+2 DATE ABT 1906
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F009@
+0 @I051@ INDI
+1 NAME Fern/Buyers/
+2 GIVN Fern
+2 SURN Buyers
+1 SEX F
+1 BIRT
+2 DATE ABT 1907
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F009@
+0 @I052@ INDI
+1 NAME Ed/Slattery/
+2 GIVN Ed
+2 SURN Slattery
+1 SEX M
+1 BIRT
+2 DATE ABT 1885
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F010@
+0 @I053@ INDI
+1 NAME James/Slattery/
+2 GIVN James
+2 SURN Slattery
+1 SEX M
+1 BIRT
+2 DATE ABT 1843
+2 PLAC Ireland
+1 CENS
+2 DATE 1910
+1 IMMI
+2 DATE ABT 1848
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 DSCR Army or Navy: UA
+0 @I054@ INDI
+1 NAME Francis A./Slattery/
+2 GIVN Francis A.
+2 SURN Slattery
+1 SEX M
+1 BIRT
+2 DATE ABT 1893
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+0 @I055@ INDI
+1 NAME Willard R./Ingham/
+2 GIVN Willard R.
+2 SURN Ingham
+1 SEX M
+1 BIRT
+2 DATE ABT 1880
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F011@
+0 @I056@ INDI
+1 NAME Viola//
+2 GIVN Viola
+1 SEX F
+1 BIRT
+2 DATE ABT 1887
+2 PLAC Missouri
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F011@
+0 @I057@ INDI
+1 NAME Luella/Ingham/
+2 GIVN Luella
+2 SURN Ingham
+1 SEX F
+1 BIRT
+2 DATE ABT 1909
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F011@
+0 @I058@ INDI
+1 NAME Laurence/Ingham/
+2 GIVN Laurence
+2 SURN Ingham
+1 SEX M
+1 BIRT
+2 DATE ABT 1910
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F011@
+0 @I059@ INDI
+1 NAME Jospeh R./McDill/
+2 GIVN Jospeh R.
+2 SURN McDill
+1 SEX M
+1 BIRT
+2 DATE ABT 1842
+2 PLAC Ohio
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 DSCR Army or Navy: UA
+1 FAMS @F012@
+0 @I060@ INDI
+1 NAME Amanda//
+2 GIVN Amanda
+1 SEX F
+1 BIRT
+2 DATE ABT 1848
+2 PLAC Ohio
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F012@
+0 @I061@ INDI
+1 NAME Joseph E./McDill/
+2 GIVN Joseph E.
+2 SURN McDill
+1 SEX M
+1 BIRT
+2 DATE ABT 1894
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F012@
+0 @I062@ INDI
+1 NAME Lem/Dukes/
+2 GIVN Lem
+2 SURN Dukes
+1 SEX M
+1 BIRT
+2 DATE ABT 1826
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F013@
+0 @I063@ INDI
+1 NAME Lizzie//
+2 GIVN Lizzie
+1 SEX F
+1 BIRT
+2 DATE ABT 1877
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F013@
+0 @I064@ INDI
+1 NAME Elsie/Dukes/
+2 GIVN Elsie
+2 SURN Dukes
+1 SEX F
+1 BIRT
+2 DATE ABT 1897
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F013@
+0 @I065@ INDI
+1 NAME Gracie/Dukes/
+2 GIVN Gracie
+2 SURN Dukes
+1 SEX F
+1 BIRT
+2 DATE ABT 1910
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F013@
+0 @I066@ INDI
+1 NAME Lorenzo/Dukes/
+2 GIVN Lorenzo
+2 SURN Dukes
+1 SEX M
+1 BIRT
+2 DATE ABT 1843
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+0 @I067@ INDI
+1 NAME William B/McDill/
+2 GIVN William B
+2 SURN McDill
+1 SEX M
+1 BIRT
+2 DATE ABT 1873
+2 PLAC Ohio
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F014@
+0 @I068@ INDI
+1 NAME Fanny//
+2 GIVN Fanny
+1 SEX F
+1 BIRT
+2 DATE ABT 1872
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F014@
+0 @I069@ INDI
+1 NAME Hazel/McDill/
+2 GIVN Hazel
+2 SURN McDill
+1 SEX F
+1 BIRT
+2 DATE ABT 1902
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 FAMC @F014@
+0 @I070@ INDI
+1 NAME Olive/McDill/
+2 GIVN Olive
+2 SURN McDill
+1 SEX F
+1 BIRT
+2 DATE ABT 1906
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 FAMC @F014@
+0 @I071@ INDI
+1 NAME Charles/Holloway/
+2 GIVN Charles
+2 SURN Holloway
+1 SEX M
+1 BIRT
+2 DATE ABT 1885
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F015@
+0 @I072@ INDI
+1 NAME Effie P.//
+2 GIVN Effie P.
+1 SEX F
+1 BIRT
+2 DATE ABT 1887
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F015@
+0 @I073@ INDI
+1 NAME Charles/Kruse/
+2 GIVN Charles
+2 SURN Kruse
+1 SEX M
+1 BIRT
+2 DATE ABT 1841
+2 PLAC Ger German
+1 CENS
+2 DATE 1910
+1 IMMI
+2 DATE ABT 1861
+1 DSCR Naturalization Status: Na
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 DSCR Army or Navy: Ua
+1 FAMS @F016@
+0 @I074@ INDI
+1 NAME Liddy//
+2 GIVN Liddy
+1 SEX F
+1 BIRT
+2 DATE ABT 1847
+2 PLAC Ger German
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F016@
+0 @I075@ INDI
+1 NAME Charles jr./Kruse/
+2 GIVN Charles jr.
+2 SURN Kruse
+1 SEX M
+1 BIRT
+2 DATE ABT 1885
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F016@
+0 @I076@ INDI
+1 NAME William H/Loomis/
+2 GIVN William H
+2 SURN Loomis
+1 SEX M
+1 BIRT
+2 DATE ABT 1849
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F017@
+0 @I077@ INDI
+1 NAME Josephine//
+2 GIVN Josephine
+1 SEX F
+1 BIRT
+2 DATE ABT 1848
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F017@
+0 @I078@ INDI
+1 NAME Tracy/Loomis/
+2 GIVN Tracy
+2 SURN Loomis
+1 SEX F
+1 BIRT
+2 DATE ABT 1890
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F017@
+0 @I079@ INDI
+1 NAME John/Bowman/
+2 GIVN John
+2 SURN Bowman
+1 SEX M
+1 BIRT
+2 DATE ABT 1857
+2 PLAC Illinois
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F018@
+0 @I080@ INDI
+1 NAME Hattie//
+2 GIVN Hattie
+1 SEX F
+1 BIRT
+2 DATE ABT 1864
+2 PLAC Ohio
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F018@
+0 @I081@ INDI
+1 NAME Lottie/Bowman/
+2 GIVN Lottie
+2 SURN Bowman
+1 SEX F
+1 BIRT
+2 DATE ABT 1891
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F018@
+0 @I082@ INDI
+1 NAME Robert/Bowman/
+2 GIVN Robert
+2 SURN Bowman
+1 SEX M
+1 BIRT
+2 DATE ABT 1893
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F018@
+0 @I083@ INDI
+1 NAME George/Bowman/
+2 GIVN George
+2 SURN Bowman
+1 SEX M
+1 BIRT
+2 DATE ABT 1895
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F018@
+0 @I084@ INDI
+1 NAME Hugh/Bowman/
+2 GIVN Hugh
+2 SURN Bowman
+1 SEX M
+1 BIRT
+2 DATE ABT 1897
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F018@
+0 @I085@ INDI
+1 NAME Sadie/Bowman/
+2 GIVN Sadie
+2 SURN Bowman
+1 SEX F
+1 BIRT
+2 DATE ABT 1899
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F018@
+0 @I086@ INDI
+1 NAME Aila/Bowman/
+2 GIVN Aila
+2 SURN Bowman
+1 SEX F
+1 BIRT
+2 DATE ABT 1902
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: En
+2 DATE 1910
+1 FAMC @F018@
+0 @I087@ INDI
+1 NAME John W./McClure/
+2 GIVN John W.
+2 SURN McClure
+1 SEX M
+1 BIRT
+2 DATE ABT 1882
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F019@
+0 @I088@ INDI
+1 NAME Ethel E.//
+2 GIVN Ethel E.
+1 SEX F
+1 BIRT
+2 DATE ABT 1888
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F019@
+0 @I089@ INDI
+1 NAME Martha J/Crites/
+2 GIVN Martha J
+2 SURN Crites
+1 SEX F
+1 BIRT
+2 DATE ABT 1866
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F020@
+0 @I090@ INDI
+1 NAME Mary P/Crites/
+2 GIVN Mary P
+2 SURN Crites
+1 SEX F
+1 BIRT
+2 DATE ABT 1888
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F020@
+0 @I091@ INDI
+1 NAME Ollie O/Crites/
+2 GIVN Ollie O
+2 SURN Crites
+1 SEX F
+1 BIRT
+2 DATE ABT 1893
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F020@
+0 @I092@ INDI
+1 NAME Minnie E/Crites/
+2 GIVN Minnie E
+2 SURN Crites
+1 SEX F
+1 BIRT
+2 DATE ABT 1896
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F020@
+0 @I093@ INDI
+1 NAME Linus R/Crites/
+2 GIVN Linus R
+2 SURN Crites
+1 SEX M
+1 BIRT
+2 DATE ABT 1898
+2 PLAC Kansas
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMC @F020@
+0 @I094@ INDI
+1 NAME Harry/Fields/
+2 GIVN Harry
+2 SURN Fields
+1 SEX M
+1 BIRT
+2 DATE ABT 1889
+2 PLAC Illinois
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: yes Can Write: yes
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F021@
+0 @I095@ INDI
+1 NAME John E/Dukes/
+2 GIVN John E
+2 SURN Dukes
+1 SEX M
+1 BIRT
+2 DATE ABT 1867
+2 PLAC Iowa
+1 CENS
+2 DATE 1910
+1 DSCR Can Read: no Can Write: no
+2 DATE 1910
+1 DSCR Able to speak English: English
+2 DATE 1910
+1 FAMS @F022@
+1 CHIL @I001@
+1 CHIL @I002@
+1 CHIL @I003@
+1 CHIL @I004@
+1 CHIL @I005@
+1 CHIL @I006@
+0 @F001@ FAM
+1 HUSB @I007@
+1 WIFE @I008@
+1 MARR
+2 DATE ABT 1894
+1 CHIL @I009@
+0 @F002@ FAM
+1 HUSB @I010@
+1 WIFE @I011@
+1 MARR
+2 DATE ABT 1890
+1 CHIL @I012@
+1 CHIL @I013@
+1 CHIL @I014@
+1 CHIL @I015@
+0 @F003@ FAM
+1 HUSB @I016@
+1 WIFE @I017@
+1 MARR
+2 DATE ABT 1890
+1 CHIL @I018@
+1 CHIL @I019@
+1 CHIL @I020@
+1 CHIL @I021@
+1 CHIL @I022@
+0 @F004@ FAM
+1 HUSB @I024@
+1 WIFE @I025@
+1 MARR
+2 DATE ABT 1891
+1 CHIL @I026@
+1 CHIL @I027@
+1 CHIL @I028@
+1 CHIL @I029@
+1 CHIL @I030@
+1 CHIL @I031@
+0 @F005@ FAM
+1 HUSB @I032@
+1 WIFE @I033@
+1 MARR
+2 DATE ABT 1903
+0 @F006@ FAM
+1 HUSB @I034@
+1 WIFE @I035@
+1 MARR
+2 DATE ABT 1903
+0 @F007@ FAM
+1 HUSB @I036@
+0 @F008@ FAM
+1 HUSB @I038@
+1 WIFE @I039@
+1 MARR
+2 DATE ABT 1903
+0 @F009@ FAM
+1 HUSB @I040@
+1 WIFE @I041@
+1 MARR
+2 DATE ABT 1886
+1 CHIL @I042@
+1 CHIL @I043@
+1 CHIL @I044@
+1 CHIL @I045@
+1 CHIL @I046@
+1 CHIL @I047@
+1 CHIL @I048@
+1 CHIL @I049@
+1 CHIL @I050@
+1 CHIL @I051@
+0 @F010@ FAM
+1 HUSB @I052@
+0 @F011@ FAM
+1 HUSB @I055@
+1 WIFE @I056@
+1 MARR
+2 DATE ABT 1907
+1 CHIL @I057@
+1 CHIL @I058@
+0 @F012@ FAM
+1 HUSB @I059@
+1 WIFE @I060@
+1 MARR
+2 DATE ABT 1868
+1 CHIL @I061@
+0 @F013@ FAM
+1 HUSB @I062@
+1 WIFE @I063@
+1 MARR
+2 DATE ABT 1898
+1 CHIL @I064@
+1 CHIL @I065@
+0 @F014@ FAM
+1 HUSB @I067@
+1 WIFE @I068@
+1 MARR
+2 DATE ABT 1895
+1 CHIL @I069@
+1 CHIL @I070@
+0 @F015@ FAM
+1 HUSB @I071@
+1 WIFE @I072@
+1 MARR
+2 DATE ABT 1908
+0 @F016@ FAM
+1 HUSB @I073@
+1 WIFE @I074@
+1 MARR
+2 DATE ABT 1866
+1 CHIL @I075@
+0 @F017@ FAM
+1 HUSB @I076@
+1 WIFE @I077@
+1 MARR
+2 DATE ABT 1871
+1 CHIL @I078@
+0 @F018@ FAM
+1 HUSB @I079@
+1 WIFE @I080@
+1 MARR
+2 DATE ABT 1882
+1 CHIL @I081@
+1 CHIL @I082@
+1 CHIL @I083@
+1 CHIL @I084@
+1 CHIL @I085@
+1 CHIL @I086@
+0 @F019@ FAM
+1 HUSB @I087@
+1 WIFE @I088@
+1 MARR
+2 DATE ABT 1910
+0 @F020@ FAM
+1 HUSB @I089@
+1 CHIL @I090@
+1 CHIL @I091@
+1 CHIL @I092@
+1 CHIL @I093@
+0 @F021@ FAM
+1 HUSB @I094@
+0 @F022@ FAM
+1 HUSB @I095@
+TRLR

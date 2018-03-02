@@ -32,7 +32,8 @@ def writeName1910 (c , g, config_dict):
                  CensusYearWriter(the_file, '1910')
 
                  #call ImmigYearWriter function
-                 ImmigYearWriter(row,"15 Immigration",the_file)
+                 if config_dict["Immigration"] == 1:
+                    ImmigYearWriter(row,"15 Immigration",the_file)
 
                  #call OccupationWriter1910 function
                  if config_dict["Occupation"] == 1:
@@ -46,26 +47,31 @@ def writeName1910 (c , g, config_dict):
                  NaturalizedWriter(row, the_file,'16 Naturalized?', '1910' )
 
                  #call LiteracyWriter function
-                 LiteracyWriter(row,'23 Read','24 Write', the_file, '1910')
+                 if config_dict["Literacy"] == 1:
+                    LiteracyWriter(row,'23 Read','24 Write', the_file, '1910')
 
                  #call ChildNoWriter function
                  if config_dict["Children Born"] == 1:
                     ChildNoWriter(row,'10 Children born','11 Still living',the_file, '1910')
 
                  #call SpeakEnglishWriter function
-                 SpeakEnglishWriter(row,'17 English', the_file, '1910')
+                 if config_dict["Language"] == 1:
+                    SpeakEnglishWriter(row,'17 English', the_file, '1910')
 
                  #call ArmyWriter function
-                 ArmyWriter(row, '30 Army or Navy.', the_file)
+                 if config_dict["Military"] == 1:
+                    ArmyWriter(row, '30 Army or Navy.', the_file)
 
                  #call BlindWriter function
-                 BlindWriter(row, '31 Blind', the_file)
+                 if config_dict["Disability"] == 1:
+                    BlindWriter(row, '31 Blind', the_file)
 
                  #call DeafWriter finction
-                 DeafWriter(row, '32 Deaf, etc.', the_file)
+                 if config_dict["Disability"] == 1:
+                    DeafWriter(row, '32 Deaf, etc.', the_file)
 
                  #call PropertyWriter function
-                 if config_dict["PropertyWriter"] == 1:
+                 if config_dict["Property"] == 1:
                     PropertyWriter(row,'26 Owned/Rented', '27 Free/Mortgage','28 Farm/house','29 # farm', the_file, '1910' )
 
                  #call FamilyWriter1900 function
