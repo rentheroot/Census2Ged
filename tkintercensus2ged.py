@@ -65,6 +65,14 @@ class Application(tk.Frame):
         includeTagLabel.grid(row = 4, sticky="w")
 
 
+        #label for custom tagging
+        includeCustomLabel = tk.Label(self, text="Custom tag name",font = "Helvetica 10 bold underline")
+        #render on left side of screen
+        includeCustomLabel.grid(row = 4, column = 1, sticky="w")
+
+
+
+
         #country selector
         self.countrySelect = tk.StringVar(self)
         #year selector
@@ -182,7 +190,7 @@ class Application(tk.Frame):
         #Disability
         self.CheckboxDisability = tk.Checkbutton(self, text = "Disability", variable = self.optionDisability)
         self.CheckboxDisability.grid(row = 7, sticky = "w")
-
+        
         #Disability tag entry box
         self.disabilitySet = tk.Entry(self)
         self.disabilitySet.grid(row=7,column=1, sticky = "w")
@@ -199,13 +207,25 @@ class Application(tk.Frame):
         self.CheckboxMilitary = tk.Checkbutton(self, text="Military", variable=self.optionMilitary)
         self.CheckboxMilitary.grid(row=8,sticky="w")
 
+        #Military tag entry box
+        self.militarySet = tk.Entry(self)
+        self.militarySet.grid(row=8,column=1, sticky = "w")
+
         #Property
         self.CheckboxProperty = tk.Checkbutton(self, text = "Property", variable=self.optionProperty)
-        self.CheckboxProperty.grid(row=8,column=1,sticky="w")
+        self.CheckboxProperty.grid(row=8,column=2,sticky="w")
+
+        #Property tag entry box
+        self.propertySet = tk.Entry(self)
+        self.propertySet.grid(row=8,column=3, sticky = "w")
 
         #Language
         self.CheckboxLanguage = tk.Checkbutton(self,text="Language", variable=self.optionLanguage)
         self.CheckboxLanguage.grid(row=9,sticky="w")
+
+        #Language tag entry box
+        self.languageSet = tk.Entry(self)
+        self.languageSet.grid(row=9,column=1, sticky = "w")
 
         #CSV file select label
         self.PathLabel = tk.Label(self)
