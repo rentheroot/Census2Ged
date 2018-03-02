@@ -29,6 +29,7 @@ class Application(tk.Frame):
 
 
 
+
     def create_widgets(self):
 
         #dictionary of countries
@@ -37,29 +38,29 @@ class Application(tk.Frame):
                     'Sweden':['1','2','3']}
 
         #Label for the whole thing
-        wholeLabel = tk.Label(self, text="Welcome to Census2Ged")
+        wholeLabel = tk.Label(self, text="Census2Ged", font = ("Lobster", 14, "bold italic"))
         wholeLabel.grid(row=0)
 
         #gedcom name label
-        gednameLabel = tk.Label(self, text="Choose a name for the final gedcom")
-        gednameLabel.grid(row=1, sticky ="w")
+        gednameLabel = tk.Label(self, text="Gedcom Name:", font = "Helvetica 10 bold")
+        gednameLabel.grid(row=1, column=1, sticky ="w")
         #gedcom name selector
         self.gedNameSet = tk.Entry(self)
-        self.gedNameSet.grid(row=1,column=1, sticky = "w")
+        self.gedNameSet.grid(row=1,column=2, sticky = "w")
         
         #label for country selector
-        countryLabel = tk.Label(self, text="Select a country:")
+        countryLabel = tk.Label(self, text="Country:", font = "Helvetica 10 bold")
         #render on left side of screen
-        countryLabel.grid(row = 2, sticky="w")
+        countryLabel.grid(row = 2,column=1, sticky="w")
         
 
         #label for year selector
-        countryLabel = tk.Label(self, text="Select a census year:")
+        countryLabel = tk.Label(self, text="Census year:",font = "Helvetica 10 bold")
         #render on left side of screen
-        countryLabel.grid(row = 3, sticky="w")
+        countryLabel.grid(row = 3, column=1, sticky="w")
 
         #label for Tag Inclusion
-        includeTagLabel = tk.Label(self, text="Tags to include")
+        includeTagLabel = tk.Label(self, text="Tags to include",font = "Helvetica 10 bold underline")
         #render on left side of screen
         includeTagLabel.grid(row = 4, sticky="w")
 
@@ -136,8 +137,8 @@ class Application(tk.Frame):
 
 
         #render on right side of widget
-        self.countryOptions.grid(row = 2, column = 1, sticky="w")
-        self.yearOptions.grid(row=3,column=1, sticky="w")
+        self.countryOptions.grid(row = 2, column = 2, sticky="w")
+        self.yearOptions.grid(row=3,column=2, sticky="w")
 
         # #renders a separation line between widgets
         #separator = tk.Frame(height=2, bd=1, relief= tk.SUNKEN)
@@ -148,26 +149,51 @@ class Application(tk.Frame):
         #Immigration
         self.CheckboxImmigration = tk.Checkbutton(self, text="Immigration Year", variable=self.optionImmigration)
         self.CheckboxImmigration.grid(row=5, sticky="w")
+
+        #Immigration tag entry box
+        self.immigrationSet = tk.Entry(self)
+        self.immigrationSet.grid(row=5,column=1, sticky = "w")
         
         #Occupation
         self.CheckboxOccupation = tk.Checkbutton(self, text="Occupation", variable=self.optionOccupation)
-        self.CheckboxOccupation.grid(row=5,column=1, sticky="w")
+        self.CheckboxOccupation.grid(row=5,column=2, sticky="w")
+
+        #Occupation tag entry box
+        self.occupationSet = tk.Entry(self)
+        self.occupationSet.grid(row=5,column=3, sticky = "w")
 
         #Race
         self.CheckboxRace = tk.Checkbutton(self,text="Race", variable=self.optionRace)
         self.CheckboxRace.grid(row=6, sticky="w")
 
+        #Race tag entry box
+        self.raceSet = tk.Entry(self)
+        self.raceSet.grid(row=6,column=1, sticky = "w")
+
         #Literacy
         self.CheckboxLiteracy = tk.Checkbutton(self, text = "Literacy", variable=self.optionLiteracy)
-        self.CheckboxLiteracy.grid(row=6, column = 1, sticky = "w")
+        self.CheckboxLiteracy.grid(row=6, column = 2, sticky = "w")
+        
+        #Literacy tag entry box
+        self.literacySet = tk.Entry(self)
+        self.literacySet.grid(row=6,column=3, sticky = "w")
+
 
         #Disability
         self.CheckboxDisability = tk.Checkbutton(self, text = "Disability", variable = self.optionDisability)
         self.CheckboxDisability.grid(row = 7, sticky = "w")
 
+        #Disability tag entry box
+        self.disabilitySet = tk.Entry(self)
+        self.disabilitySet.grid(row=7,column=1, sticky = "w")
+
         #Children Born
         self.CheckboxChildrenBorn = tk.Checkbutton(self, text="Children Born", variable = self.optionChildrenBorn)
-        self.CheckboxChildrenBorn.grid(row=7, column=1, sticky="w")
+        self.CheckboxChildrenBorn.grid(row=7, column=2, sticky="w")
+
+        #Children Born tag entry box
+        self.childrenBornSet = tk.Entry(self)
+        self.childrenBornSet.grid(row=7,column=3, sticky = "w")
 
         #Military
         self.CheckboxMilitary = tk.Checkbutton(self, text="Military", variable=self.optionMilitary)
@@ -186,7 +212,7 @@ class Application(tk.Frame):
         self.PathLabel.grid(row=10,column=1, sticky="w")
 
         #CSV file select button
-        self.BrowseButton = tk.Button(self, text="Input CSV", command=self.browse_func)
+        self.BrowseButton = tk.Button(self, text="Input CSV",font = "Helvetica 10 bold", command=self.browse_func)
         self.BrowseButton.grid(row=10, sticky ="w")
 
         #submit button
@@ -363,7 +389,11 @@ class Application(tk.Frame):
 #Run the Gui
 root = tk.Tk()
 root.minsize(225, 225)
+
+#background color
 app = Application(master=root)
+
+
 app.mainloop()
 
     
