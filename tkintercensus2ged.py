@@ -279,6 +279,8 @@ class Application(tk.Frame):
                 self.CheckboxProperty.select()
             if user_config["Language"] == 1:
                 self.CheckboxLanguage.select()
+            if user_config ["immigTag"] != "IMMI":
+                self.immigrationSet.insert(0, user_config["immigTag"])
 
         except:
             print("nope")
