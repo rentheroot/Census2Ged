@@ -96,6 +96,8 @@ class Application(tk.Frame):
         self.optionProperty=tk.IntVar(self)
         #checkbox Language
         self.optionLanguage=tk.IntVar(self)
+        #checkbox Naturalization
+        self.optionNaturalize=tk.IntVar(self)
 
 
         #update year select based on country select
@@ -134,6 +136,9 @@ class Application(tk.Frame):
 
         #update Language variable
         self.optionLanguage.trace('w', self.__update_language__)
+
+        #update Naturalization variable
+        self.optionNaturalize.trace('w', self.__update_naturalize__)
 
         #render the country options menu
         self.countryOptions = tk.OptionMenu(self, self.countrySelect, *self.dict.keys())
@@ -227,6 +232,14 @@ class Application(tk.Frame):
         #Language tag entry box
         self.languageSet = tk.Entry(self)
         self.languageSet.grid(row=9,column=1, sticky = "w")
+
+        #Naturalization
+        self.CheckboxNaturalize = tk.Checkbutton(self,text="Naturalization", variable=self.optionNaturalize)
+        self.CheckboxNaturalize.grid(row=9, column=2,sticky="w")
+
+        #Naturalization tag entry box
+        self.naturalizeSet = tk.Entry(self)
+        self.naturalizeSet.grid(row=9,column=3, sticky = "w")
 
         #CSV file select label
         self.PathLabel = tk.Label(self)
@@ -349,6 +362,11 @@ class Application(tk.Frame):
         print (Language)
         return(Language)
 
+    def __update_naturalize__(self, *args):
+        Naturalize = self.optionNaturalize.get()
+        print (Naturalize)
+        return(Naturalize)
+
     # create configDictionary with all the values of the fields
     def __Update_Checkbox_List__(self):
         variable_list ={"Country" : self.countrySelect.get() , 
@@ -362,7 +380,8 @@ class Application(tk.Frame):
                         "Military" : self.optionMilitary.get(),
                         "Gedname" : self.gedNameSet.get(),
                         "Property" : self.optionProperty.get(),
-                        "Language" : self.optionLanguage.get()
+                        "Language" : self.optionLanguage.get(),
+                        "Naturalize" : self.optionNaturalize.get()
                         }
 
         print(variable_list)

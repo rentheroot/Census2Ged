@@ -44,7 +44,8 @@ def writeName1910 (c , g, config_dict):
                     RaceWriter(row,'6 Color', the_file, '1910')
 
                  #call NaturalizedWriter function
-                 NaturalizedWriter(row, the_file,'16 Naturalized?', '1910' )
+                 if config_dict["Naturalize"] == 1:
+                    NaturalizedWriter(row, the_file,'16 Naturalized?', '1910' )
 
                  #call LiteracyWriter function
                  if config_dict["Literacy"] == 1:
