@@ -200,8 +200,28 @@ class Application(tk.Frame):
         self.quit.grid(row =11, column =2,sticky="w")
 
         #set up previous user configurations
-        if user_config["Race"] == 1:
+        try:
+            if user_config["Race"] == 1:
                 self.CheckboxRace.select()
+            if user_config["Military"] == 1:
+                self.CheckboxMilitary.select()
+            if user_config["Literacy"] == 1:
+                self.CheckboxLiteracy.select()
+            if user_config["Immigration"] == 1:
+                self.CheckboxImmigration.select()
+            if user_config["Disability"] == 1:
+                self.CheckboxDisability.select()
+            if user_config["Children Born"] == 1:
+                self.CheckboxChildrenBorn.select()
+            if user_config["Occupation"] == 1:
+                self.CheckboxOccupation.select()
+            if user_config["Property"] == 1:
+                self.CheckboxProperty.select()
+            if user_config["Language"] == 1:
+                self.CheckboxLanguage.select()
+
+        except:
+            print("nope")
 
     
 
