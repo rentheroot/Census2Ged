@@ -1,6 +1,7 @@
 #Imports
 import csv
 import tkinter as tk
+import pickle
 
 #import custom modules
 from header import *
@@ -11,34 +12,21 @@ from census1880 import *
 from census1900 import *
 from census1910 import *
 
-#Variable setting
-
-#Country
-global Country
-Country = "United States"
-
-#Year
-global Year
-Year = '1850'
-
-#Immigration
-global Immigration
-Immigration = '0'
-
-#Occupation
-global Occupation
-Occupation = '0'
-
-#Race
-global Race
-Race = '0'
-
+#load up that pickle
+try:
+    with open('config.pickle', 'rb') as handle:
+        user_config = pickle.load(handle)
+        print (user_config)
+except:
+    print("couldn't load user config")
 class Application(tk.Frame):
+
     def __init__(self, master=None):
         super().__init__(master)
         self.pack()
 
         self.create_widgets()
+
 
 
     def create_widgets(self):
@@ -145,6 +133,8 @@ class Application(tk.Frame):
         #set United States as the default value
         self.countrySelect.set("United States")
 
+
+
         #render on right side of widget
         self.countryOptions.grid(row = 2, column = 1, sticky="w")
         self.yearOptions.grid(row=3,column=1, sticky="w")
@@ -209,11 +199,14 @@ class Application(tk.Frame):
                              command= self.quit_sequence)
         self.quit.grid(row =11, column =2,sticky="w")
 
-    #save configuration to json document and quit
+        #set up previous user configurations
+        if user_config["Race"] == 1:
+                self.CheckboxRace.select()
+
+    
+
+    #quit
     def quit_sequence(self, *args):
-        unformattedConfig = self.__Update_Checkbox_List__()
-        preformat_dict = dict([('Country', self.countrySelect.get)])
-        print(unformattedConfig)
         root.destroy()
 
 #var.get() ---checked / 1
@@ -312,8 +305,8 @@ class Application(tk.Frame):
         variable_list = self.__Update_Checkbox_List__()
         
         #save the current file configuration
-        with open ("config", 'w') as config_file:
-            config_file.write(variable_list)
+        with open ("config.pickle", 'wb') as config_file:
+            pickle.dump(variable_list, config_file, protocol=pickle.HIGHEST_PROTOCOL)
         
         #run the main function
         self.main(variable_list)
