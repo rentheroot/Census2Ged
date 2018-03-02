@@ -70,7 +70,12 @@ class Application(tk.Frame):
         #render on left side of screen
         countryLabel.grid(row = 3, sticky="w")
 
-        
+        #label for Tag Inclusion
+        includeTagLabel = tk.Label(self, text="Tags to include")
+        #render on left side of screen
+        includeTagLabel.grid(row = 4, sticky="w")
+
+
         #country selector
         self.countrySelect = tk.StringVar(self)
         #year selector
@@ -152,57 +157,57 @@ class Application(tk.Frame):
 
         #Immigration
         self.CheckboxImmigration = tk.Checkbutton(self, text="Immigration Year", variable=self.optionImmigration)
-        self.CheckboxImmigration.grid(row=4, sticky="w")
+        self.CheckboxImmigration.grid(row=5, sticky="w")
         
         #Occupation
         self.CheckboxOccupation = tk.Checkbutton(self, text="Occupation", variable=self.optionOccupation)
-        self.CheckboxOccupation.grid(row=4,column=1, sticky="w")
+        self.CheckboxOccupation.grid(row=5,column=1, sticky="w")
 
         #Race
         self.CheckboxRace = tk.Checkbutton(self,text="Race", variable=self.optionRace)
-        self.CheckboxRace.grid(row=5, sticky="w")
+        self.CheckboxRace.grid(row=6, sticky="w")
 
         #Literacy
         self.CheckboxLiteracy = tk.Checkbutton(self, text = "Literacy", variable=self.optionLiteracy)
-        self.CheckboxLiteracy.grid(row=5, column = 1, sticky = "w")
+        self.CheckboxLiteracy.grid(row=6, column = 1, sticky = "w")
 
         #Disability
         self.CheckboxDisability = tk.Checkbutton(self, text = "Disability", variable = self.optionDisability)
-        self.CheckboxDisability.grid(row = 6, sticky = "w")
+        self.CheckboxDisability.grid(row = 7, sticky = "w")
 
         #Children Born
         self.CheckboxChildrenBorn = tk.Checkbutton(self, text="Children Born", variable = self.optionChildrenBorn)
-        self.CheckboxChildrenBorn.grid(row=6, column=1, sticky="w")
+        self.CheckboxChildrenBorn.grid(row=7, column=1, sticky="w")
 
         #Military
         self.CheckboxMilitary = tk.Checkbutton(self, text="Military", variable=self.optionMilitary)
-        self.CheckboxMilitary.grid(row=7,sticky="w")
+        self.CheckboxMilitary.grid(row=8,sticky="w")
 
         #Property
         self.CheckboxProperty = tk.Checkbutton(self, text = "Property", variable=self.optionProperty)
-        self.CheckboxProperty.grid(row=7,column=1,sticky="w")
+        self.CheckboxProperty.grid(row=8,column=1,sticky="w")
 
         #Language
         self.CheckboxLanguage = tk.Checkbutton(self,text="Language", variable=self.optionLanguage)
-        self.CheckboxLanguage.grid(row=8,sticky="w")
+        self.CheckboxLanguage.grid(row=9,sticky="w")
 
         #CSV file select label
         self.PathLabel = tk.Label(self)
-        self.PathLabel.grid(row=9,column=1, sticky="w")
+        self.PathLabel.grid(row=10,column=1, sticky="w")
 
         #CSV file select button
         self.BrowseButton = tk.Button(self, text="Input CSV", command=self.browse_func)
-        self.BrowseButton.grid(row=9, sticky ="w")
+        self.BrowseButton.grid(row=10, sticky ="w")
 
         #submit button
         self.submit = tk.Button(self, text="Submit",
                                 command = self.__Submit_Button__)
         #,Literacy,Disability,Children,Military,Property,Language
-        self.submit.grid(row=10,column=1, sticky="w")
+        self.submit.grid(row=11,column=1, sticky="w")
         #Quit button
         self.quit = tk.Button(self, text="QUIT", fg="red",
                              command= self.quit_sequence)
-        self.quit.grid(row =10, column =2,sticky="w")
+        self.quit.grid(row =11, column =2,sticky="w")
 
     #save configuration to json document and quit
     def quit_sequence(self, *args):
@@ -296,17 +301,24 @@ class Application(tk.Frame):
                         "Children Born" : self.optionChildrenBorn.get(),
                         "Military" : self.optionMilitary.get(),
                         "Gedname" : self.gedNameSet.get(),
-                        "Property" : self.optionProperty.get()
+                        "Property" : self.optionProperty.get(),
                         "Language" : self.optionLanguage.get()
-
-
                         }
+
         print(variable_list)
         return (variable_list)
 
     def __Submit_Button__(self):
         variable_list = self.__Update_Checkbox_List__()
+        
+        #save the current file configuration
+        with open ("config", 'w') as config_file:
+            config_file.write(variable_list)
+        
+        #run the main function
         self.main(variable_list)
+
+
     #based on the name of the gedcom file and year
     def main (self, configDictionary):
         g = configDictionary["Gedname"]
