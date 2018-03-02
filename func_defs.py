@@ -349,7 +349,7 @@ def NaturalizedWriter (row, the_file, n, y):
     if not row[n]:
      pass
     else:
-        the_file.write('1 DSCR Naturalization Status: ' + naturalized +'\n')
+        the_file.write('1 NATU Naturalization Status: ' + naturalized +'\n')
         the_file.write('2 DATE ' + y +'\n')
 
 #-------------------------------------------------------------------#
