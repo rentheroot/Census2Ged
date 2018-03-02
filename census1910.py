@@ -35,10 +35,12 @@ def writeName1910 (c , g, config_dict):
                  ImmigYearWriter(row,"15 Immigration",the_file)
 
                  #call OccupationWriter1910 function
-                 OccupationWriter1910(row, "18 Occupation",'19 Industry/busines', the_file, '1910')
+                 if config_dict["Occupation"] == 1:
+                    OccupationWriter1910(row, "18 Occupation",'19 Industry/busines', the_file, '1910')
 
                  #call RaceWriter function
-                 RaceWriter(row,'6 Color', the_file, '1910')
+                 if config_dict["Race"] == 1:
+                    RaceWriter(row,'6 Color', the_file, '1910')
 
                  #call NaturalizedWriter function
                  NaturalizedWriter(row, the_file,'16 Naturalized?', '1910' )
@@ -47,7 +49,8 @@ def writeName1910 (c , g, config_dict):
                  LiteracyWriter(row,'23 Read','24 Write', the_file, '1910')
 
                  #call ChildNoWriter function
-                 ChildNoWriter(row,'10 Children born','11 Still living',the_file, '1910')
+                 if config_dict["Children Born"] == 1:
+                    ChildNoWriter(row,'10 Children born','11 Still living',the_file, '1910')
 
                  #call SpeakEnglishWriter function
                  SpeakEnglishWriter(row,'17 English', the_file, '1910')
@@ -62,7 +65,8 @@ def writeName1910 (c , g, config_dict):
                  DeafWriter(row, '32 Deaf, etc.', the_file)
 
                  #call PropertyWriter function
-                 PropertyWriter(row,'26 Owned/Rented', '27 Free/Mortgage','28 Farm/house','29 # farm', the_file, '1910' )
+                 if config_dict["PropertyWriter"] == 1:
+                    PropertyWriter(row,'26 Owned/Rented', '27 Free/Mortgage','28 Farm/house','29 # farm', the_file, '1910' )
 
                  #call FamilyWriter1900 function
                  FamilyWriter1900(row, '4 Relationship','9 Years married.', the_file,idn, '1910')

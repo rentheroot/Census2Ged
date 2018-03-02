@@ -295,7 +295,10 @@ class Application(tk.Frame):
                         "Disability" : self.optionDisability.get(),
                         "Children Born" : self.optionChildrenBorn.get(),
                         "Military" : self.optionMilitary.get(),
-                        "Gedname" : self.gedNameSet.get()}
+                        "Gedname" : self.gedNameSet.get(),
+                        "Property" : self.optionProperty.get()
+
+                        }
         print(variable_list)
         return (variable_list)
 
@@ -306,6 +309,7 @@ class Application(tk.Frame):
     def main (self, configDictionary):
         g = configDictionary["Gedname"]
         y = configDictionary["Year"]
+
         g = str(g +'.ged')
 
         file_path = self.PathLabel.cget("text")
