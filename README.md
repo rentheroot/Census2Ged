@@ -12,7 +12,7 @@ Converts census transcriptions made in [Genscriber](http://www.genscriber.com/ge
 | Immigration Year | IMMI        | Don't Change          |
 | Occupation       | OCCU        | Don't Change          |
 | Race             | DSCR        | Race                  |
-| Naturalize       | NATU        | Naturalization Status |
+| Naturalization   | NATU        | Naturalization Status |
 
 
 
