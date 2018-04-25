@@ -2,7 +2,7 @@
 import csv
 from func_defs import *
 
-def writeName1900 (c , g):
+def writeName1900 (c , g, config_dict):
     idn = 0
     
     with open(g, 'a') as the_file:
@@ -34,7 +34,8 @@ def writeName1900 (c , g):
                  ImmigYearWriter(row,"16 Year of immigration to the United States.",the_file)
 
                  #call OccupationWriter function
-                 OccupationWriter(row, "19 Occupation", the_file, '1900')
+                 if config_dict["Occupation"] == 1:
+                    OccupationWriter(row, config_dict["occuTag"], "19 Occupation", the_file, '1900')
 
                  #call RaceWriter function
                  RaceWriter(row,'5 Color or race', the_file, '1900')

@@ -1,0 +1,7 @@
+
+config.pickle
+*.pyc
+*.pyc
+__pycache__/func_defs.cpython-35.pyc
+config.pickle
+test2.ged

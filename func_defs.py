@@ -316,7 +316,13 @@ def OccupationWriter(row, occuTag,o, the_file, y):
             occupation = row[o]
             the_file.write("1 OCCU " + occupation + '\n')
             the_file.write("2 DATE " + y +"\n")
+
+        #if user has selected a custom tag, use it
         else:
+            occupation = row[o]
+            the_file.write("1 EVEN " + occupation + '\n')
+            the_file.write("2 TYPE " + occuTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
             
 
 #-------------------------------------------------------------------#
@@ -326,15 +332,26 @@ def OccupationWriter(row, occuTag,o, the_file, y):
 #o=occupation
 #the_file = the_file
 #y = census year
-def OccupationWriter1910(row, o,I, the_file, y):
+#occuTag = occupation tag to use
+def OccupationWriter1910(row, occuTag, o, I, the_file, y):
     if not row[o]:
          pass
 
     else:
-        occupation = row[o]
-        industry = row[I]
-        the_file.write("1 OCCU " + 'Occupation: '+occupation + ' Industry: '+ industry+'\n')
-        the_file.write("2 DATE " + y +"\n")
+        if occuTag == "OCCU":
+
+            occupation = row[o]
+            industry = row[I]
+            the_file.write("1 OCCU " + 'Occupation: '+occupation + ' Industry: '+ industry+'\n')
+            the_file.write("2 DATE " + y +"\n")
+
+        #if user has selected a custom tag, use it
+        else:
+            occupation = row[o]
+            industry = row[I]
+            the_file.write("1 EVEN " + 'Occupation: '+occupation + ' Industry: '+ industry+'\n' )
+            the_file.write("2 TYPE " + occuTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
 
 #-------------------------------------------------------------------#
 #-----------------------------Race Writer---------------------------#
@@ -347,9 +364,15 @@ def RaceWriter(row, r, the_file, y):
     race = row[r]
     if not row[r]:
         pass
+
     else:
-        the_file.write('1 DSCR Race: ' + race + '\n')
-        the_file.write('2 DATE ' + y +'\n')
+
+        if raceTag == "DSCR":
+            the_file.write('1 DSCR Race: ' + race + '\n')
+            the_file.write('2 DATE ' + y +'\n')
+        #if user has selected a custom tag, use it
+    else:
+        
 
 #-------------------------------------------------------------------#
 #-------------------Naturalization Status Writer--------------------#

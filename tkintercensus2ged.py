@@ -281,8 +281,10 @@ class Application(tk.Frame):
                 self.CheckboxLanguage.select()
             if user_config ["immigTag"] != "IMMI":
                 self.immigrationSet.insert(0, user_config["immigTag"])
-            if user_config ["occuTag"] != "OCCU":
-                self.immigrationSet.insert(0, user_config["occuTag"])
+            if user_config ["occupTag"] != "OCCU":
+                self.occupationSet.insert(0, user_config["occupTag"])
+            if user_config ["raceTag"] != "OCCU":
+                self.occupationSet.insert(0, user_config["raceTag"])
 
         except:
             print("nope")
@@ -386,8 +388,9 @@ class Application(tk.Frame):
                         "Property" : self.optionProperty.get(),
                         "Language" : self.optionLanguage.get(),
                         "Naturalize" : self.optionNaturalize.get(),
-                        "immigTag" : self.immigrationSet.get()
+                        "immigTag" : self.immigrationSet.get(),
                         "occupTag" : self.occupationSet.get()
+                        "raceTag" : self.raceSet.get()
                         }
 
         print(variable_list)
@@ -401,6 +404,9 @@ class Application(tk.Frame):
         #Whether or not to use default occupation value
         if len(self.occupationSet.get()) == 0:
             self.occupationSet.insert(0, "OCCU")
+        #Whether or not to use default race value (physical decription tag)
+        if len(self.raceSet.get()) == 0:
+            self.paceSet.insert(0, "DSCR")
 
 
         #set the list of entries
@@ -432,7 +438,7 @@ class Application(tk.Frame):
         elif y == '1880':
             writeName1880(file_path , g)
         elif y == '1900':
-            writeName1900(file_path , g)
+            writeName1900(file_path , g, configDictionary)
         elif y == '1910':
             writeName1910(file_path, g, configDictionary)
 

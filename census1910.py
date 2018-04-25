@@ -37,7 +37,7 @@ def writeName1910 (c , g, config_dict):
 
                  #call OccupationWriter1910 function
                  if config_dict["Occupation"] == 1:
-                    OccupationWriter1910(row, "18 Occupation",'19 Industry/busines', the_file, '1910')
+                    OccupationWriter1910(row, config_dict["occupTag"], "18 Occupation","19 Industry/busines", the_file, '1910')
 
                  #call RaceWriter function
                  if config_dict["Race"] == 1:
