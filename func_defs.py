@@ -360,7 +360,8 @@ def OccupationWriter1910(row, occuTag, o, I, the_file, y):
 #r = race column
 #the_file=the_file
 #y = census year
-def RaceWriter(row, r, the_file, y):
+#raceTag = race tag to use
+def RaceWriter(row, r, raceTag, the_file, y):
     race = row[r]
     if not row[r]:
         pass
@@ -370,9 +371,14 @@ def RaceWriter(row, r, the_file, y):
         if raceTag == "DSCR":
             the_file.write('1 DSCR Race: ' + race + '\n')
             the_file.write('2 DATE ' + y +'\n')
+
         #if user has selected a custom tag, use it
-    else:
-        
+        else:
+
+            the_file.write("1 EVEN " + race +'\n' )
+            the_file.write("2 TYPE " + raceTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
+
 
 #-------------------------------------------------------------------#
 #-------------------Naturalization Status Writer--------------------#

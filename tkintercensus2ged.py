@@ -283,8 +283,10 @@ class Application(tk.Frame):
                 self.immigrationSet.insert(0, user_config["immigTag"])
             if user_config ["occupTag"] != "OCCU":
                 self.occupationSet.insert(0, user_config["occupTag"])
-            if user_config ["raceTag"] != "OCCU":
+            if user_config ["raceTag"] != "DSCR":
                 self.occupationSet.insert(0, user_config["raceTag"])
+            if user_config ["naturalizeTag"] != "NATU":
+                self.naturalizeSet.insert(0, user_config["naturalizeTag"])
 
         except:
             print("nope")
@@ -389,8 +391,9 @@ class Application(tk.Frame):
                         "Language" : self.optionLanguage.get(),
                         "Naturalize" : self.optionNaturalize.get(),
                         "immigTag" : self.immigrationSet.get(),
-                        "occupTag" : self.occupationSet.get()
-                        "raceTag" : self.raceSet.get()
+                        "occupTag" : self.occupationSet.get(),
+                        "raceTag" : self.raceSet.get(),
+                        "naturalizeTag" : self.naturalizeSet.get()
                         }
 
         print(variable_list)
@@ -406,7 +409,10 @@ class Application(tk.Frame):
             self.occupationSet.insert(0, "OCCU")
         #Whether or not to use default race value (physical decription tag)
         if len(self.raceSet.get()) == 0:
-            self.paceSet.insert(0, "DSCR")
+            self.raceSet.insert(0, "DSCR")
+        #Whether or not to use default Naturalize value
+        if len(self.naturalizeSet.get()) == 0:
+            self.naturalizeSet.insert(0, "NATU")
 
 
         #set the list of entries

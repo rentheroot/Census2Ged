@@ -5,3 +5,6 @@ config.pickle
 __pycache__/func_defs.cpython-35.pyc
 config.pickle
 test2.ged
+*.pyc
+*.pyc
+*.pyc

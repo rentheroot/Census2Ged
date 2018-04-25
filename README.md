@@ -7,11 +7,12 @@ Converts census transcriptions made in [Genscriber](http://www.genscriber.com/ge
 ![Screenshot of Census2Ged](https://raw.githubusercontent.com/xXReneeXx/Census2Ged/master/screenshot.PNG)
 
 ## Default Tags
-| Option Name      | Default Tag | Suggested Tag |
-|------------------|-------------|---------------|
-| Immigration Year | IMMI        | Don't Change  |
-| Occupation       | OCCU        | Don't Change  |
-| Race             | DSCR        | Race          |
+| Option Name      | Default Tag | Suggested Tag         |
+|------------------|-------------|-----------------------|
+| Immigration Year | IMMI        | Don't Change          |
+| Occupation       | OCCU        | Don't Change          |
+| Race             | DSCR        | Race                  |
+| Naturalize       | NATU        | Naturalization Status |
 
 
 
