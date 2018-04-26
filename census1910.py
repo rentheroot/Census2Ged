@@ -65,11 +65,11 @@ def writeName1910 (c , g, config_dict):
 
                  #call BlindWriter function
                  if config_dict["Disability"] == 1:
-                    BlindWriter(row, '31 Blind', the_file)
+                    BlindWriter(row, '31 Blind', config_dict["disiTag"], the_file)
 
                  #call DeafWriter finction
                  if config_dict["Disability"] == 1:
-                    DeafWriter(row, '32 Deaf, etc.', the_file)
+                    DeafWriter(row, '32 Deaf, etc.', config_dict["disiTag"], the_file)
 
                  #call PropertyWriter function
                  if config_dict["Property"] == 1:

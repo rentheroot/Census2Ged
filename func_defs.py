@@ -844,12 +844,20 @@ def ArmyWriter(row, a, militTag, the_file):
 #row=row
 #b=Blind cloumn
 #the-file=the_file
-def BlindWriter(row, b, the_file):
+#disiTag = tag to use for disability
+def BlindWriter(row, b, disiTag, the_file):
     if not row[b]:
         pass
     else:
-        blindness = row[b]
-        the_file.write('1 DSCR Whether Blind: ' + blindness + '\n')
+        if disiTag == "DSCR":
+            blindness = row[b]
+            the_file.write('1 DSCR Whether Blind: ' + blindness + '\n')
+        else:
+            blindness = row[b]
+            the_file.write('1 EVEN Whether Blind: ' + blindness + '\n')
+            the_file.write("2 TYPE " + disiTag + '\n')
+
+
 
 #-------------------------------------------------------------------#
 #------------------------------Deaf Writer--------------------------#
@@ -857,12 +865,19 @@ def BlindWriter(row, b, the_file):
 #row=row
 #d=Deaf cloumn
 #the-file=the_file
-def DeafWriter(row, d, the_file):
+#disiTag = tag to use for disability
+def DeafWriter(row, d, disiTag, the_file):
     if not row[d]:
         pass
     else:
-        deafness = row[d]
-        the_file.write('1 DSCR Whether Deaf: ' + deafness + '\n')
+        if disiTag == "DSCR":
+            deafness = row[d]
+            the_file.write('1 DSCR Whether Deaf: ' + deafness + '\n')
+        else:
+            deafness = row[d]
+            the_file.write('1 EVEN Whether Deaf: ' + deafness + '\n')
+            the_file.write("2 TYPE " + disiTag + '\n')
+
 
 #-------------------------------------------------------------------#
 #-------------------------Deaf Writer 1880--------------------------#
@@ -883,12 +898,22 @@ def DeafWriter1880(row, d, the_file):
 #row=row
 #s=Sick or disabled column
 #the-file=the_file
-def SickOrDisabledWriter(row, s, the_file):
+#disiTag = tag to use for disabilty writer
+def SickOrDisabledWriter(row, s,disiTag, the_file):
     if not row[s]:
         pass
     else:
-        sick = row[s]
-        the_file.write('1 DSCR Whether Sick or Disabled: ' + sick + '\n')
+        if disiTag == "DSCR":
+
+            sick = row[s]
+            the_file.write('1 DSCR Whether Sick or Disabled: ' + sick + '\n')
+            
+
+        else:
+
+            the_file.write("1 EVEN Whether Sick or Disabled: " + sick + '\n')
+            the_file.write("2 TYPE " + sick + '\n')
+            
 
 #-------------------------------------------------------------------#
 #---------------------------Idiotic Writer--------------------------#
