@@ -10,6 +10,7 @@ Converts census transcriptions made in [Genscriber](http://www.genscriber.com/ge
 
 ## Default Tags
 Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information for you, however you may wish to change these (they will still be gedcom 5.5.1 compliant, but they will use EVEN and TYPE tags instead).
+
 | Option Name      | Default Tag | Suggested Tag         |
 |------------------|-------------|-----------------------|
 | Immigration Year | IMMI        | Don't Change          |
@@ -17,6 +18,7 @@ Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information f
 | Race             | DSCR        | Race                  |
 | Naturalization   | NATU        | Naturalization Status |
 | Literacy         | EDUC        | Literacy              |
+
 
 ## Handling of Custom Tags
 The program handles custom tags as recommended in the Gedcom 5.5.1 standard. This will allow them to be compatible with virtually every genealogy program available.
