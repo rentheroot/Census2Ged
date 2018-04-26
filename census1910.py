@@ -49,7 +49,7 @@ def writeName1910 (c , g, config_dict):
 
                  #call LiteracyWriter function
                  if config_dict["Literacy"] == 1:
-                    LiteracyWriter(row,'23 Read','24 Write', the_file, '1910')
+                    LiteracyWriter(row,'23 Read','24 Write', config_dict["literTag"] the_file, '1910')
 
                  #call ChildNoWriter function
                  if config_dict["Children Born"] == 1:

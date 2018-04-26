@@ -9,6 +9,7 @@ Converts census transcriptions made in [Genscriber](http://www.genscriber.com/ge
 ![Screenshot of Census2Ged](https://raw.githubusercontent.com/xXReneeXx/Census2Ged/master/screenshot.PNG)
 
 ## Default Tags
+Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information for you, however you may wish to change these (they will still be gedcom 5.5.1 compliant, but they will use EVEN and TYPE tags instead).
 | Option Name      | Default Tag | Suggested Tag         |
 |------------------|-------------|-----------------------|
 | Immigration Year | IMMI        | Don't Change          |
