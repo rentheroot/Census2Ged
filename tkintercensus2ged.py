@@ -462,7 +462,7 @@ class Application(tk.Frame):
         elif y == '1870':
             writeName1870(file_path , g)
         elif y == '1880':
-            writeName1880(file_path , g)
+            writeName1880(file_path , g, configDictionary)
         elif y == '1900':
             writeName1900(file_path , g, configDictionary)
         elif y == '1910':

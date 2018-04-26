@@ -105,3 +105,57 @@ PLACE OF BIRTH OF EACH PERSON AND PARENTS OF EACH PERSON ENUMERATED. IF BORN IN 
 - [X] Whether a survivor of the Union or Confederate Army or Navy
 - [X] Whether blind (both eyes).
 - [X] Whether deaf and dumb.
+
+### 1900 Census
+
+**LOCATION:
+IN CITIES: STREET; HOUSE NUMBER**
+
+- [ ] Number of dwelling-houses in the order of visitation
+- [ ] Number of family, in order of visitation
+- [X] Name of each person whose place of abode on June 1, 1900, was in this family. Enter surname first, then the given name and middle initial, if any. Include every person living on June 1, 1900. Omit children born since June 1, 1900
+- [X] Relationship of this person to the head of the family
+
+**PERSONAL DESCRIPTION:**
+
+- [X] Color or race
+- [X] Sex
+- [X] Date of birth: month, year
+- [X] Age at last birthday (partially supported through calculation of aprox. date of birth)
+- [ ] Whether single, married, widowed, or divorced
+- [X] Number of years married (partially supported through calculation of aprox. date of marriage)
+- [X] Mother of how many children
+- [X] Number of these children living
+
+**NATIVITY:**
+PLACE OF BIRTH OF EACH PERSON AND PARENTS OF EACH PERSON ENUMERATED. IF BORN IN THE UNITED STATES, GIVE THE STATE OR TERRITORY; IF OF FOREIGN BIRTH, GIVE THE COUNTRY ONLY.**
+
+- [X] Place of birth of this person
+- [ ] Place of birth of father of this person
+- [ ] Place of birth of mother of this person
+
+**CITIZENSHIP:**
+
+- [X] Year of immigration to the United States
+- [ ] Number of years in the United States
+- [X] Naturalization
+
+**OCCUPATION, TRADE OR PROFESSION:
+OF EACH PERSON TEN YEARS OF AGE AND OVER:**
+
+- [X] Occupation
+- [ ] Months not employed
+
+**EDUCATION:**
+
+- [ ] Attended school (in months)
+- [X] Can read
+- [X] Can write
+- [X] Can speak English
+
+**OWNERSHIP OF HOME:**
+- [X] Owned or rented
+- [X] Owned free or mortgaged
+- [X] Farm or house
+- [X] Number of farm schedule.
+ 
