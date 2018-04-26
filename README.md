@@ -1,5 +1,5 @@
 # Census2Ged
-
+Like this project? Send a couple dollars my way! [Paypal](https://www.paypal.me/ReneeSchmidt)
 ## Purpose
 Converts census transcriptions made in [Genscriber](http://www.genscriber.com/genapps/) to gedcom files. You can see some of my posts about Census2Ged [here](https://famgenealogy.blogspot.com/p/my-programs.html)
 
