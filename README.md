@@ -20,7 +20,7 @@ The program handles custom tags as recommended in the Gedcom 5.5.1 standard. Thi
 The following is the format the program writes these custom tags in. It uses an 'EVEN' (event) tag, then modifies it with a 'TYPE' tag.
 
 ```
-1 EVEN value of tag
+1 EVEN description of event
 2 TYPE new tag name
 ```
 
