@@ -61,7 +61,7 @@ def writeName1910 (c , g, config_dict):
 
                  #call ArmyWriter function
                  if config_dict["Military"] == 1:
-                    ArmyWriter(row, '30 Army or Navy.', the_file)
+                    ArmyWriter(row, '30 Army or Navy.', config_dict["militTag"], the_file)
 
                  #call BlindWriter function
                  if config_dict["Disability"] == 1:

@@ -19,6 +19,7 @@ Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information f
 | Naturalization   | NATU        | Naturalization Status |
 | Literacy         | EDUC        | Literacy              |
 | Children Born    | DSCR        | Number of Children    |
+| Language         | DSCR        | Language              |
 
 
 ## Handling of Custom Tags

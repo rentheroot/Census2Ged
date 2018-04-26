@@ -295,6 +295,8 @@ class Application(tk.Frame):
                 self.childrenBornSet.insert(0, user_config["chilTag"])
             if user_config ["langTag"] != "DSCR":
                 self.languageSet.insert(0, user_config["langTag"])
+            if user_config ["militTag"] != "DSCR":
+                self.militarySet.insert(0, user_config["militTag"])
 
         except:
             print("nope")
@@ -404,7 +406,8 @@ class Application(tk.Frame):
                         "natuTag" : self.naturalizeSet.get(),
                         "literTag" : self.literacySet.get(),
                         "chilTag" : self.childrenBornSet.get(),
-                        "langTag" : self.languageSet.get()
+                        "langTag" : self.languageSet.get(),
+                        "militTag" : self.militarySet.get()
                         }
 
         print(variable_list)
