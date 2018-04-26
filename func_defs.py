@@ -556,6 +556,8 @@ def ChildNoWriter (row, n,l, chilTag, the_file,y):
              livingchildren = row[l]
              the_file.write('1 DSCR Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
              the_file.write('2 DATE '+y +'\n')
+
+        #if user has selected a custom tag, use it
         else:
             childrenborn = row[n]
             livingchildren = row[l]
@@ -571,13 +573,23 @@ def ChildNoWriter (row, n,l, chilTag, the_file,y):
 #e=Speaks English? row
 #the_file=the_file
 #y= census year
-def SpeakEnglishWriter (row, e, the_file,y):
+#langTag = language spoken Tag to use
+
+def SpeakEnglishWriter (row, e, langTag, the_file,y):
     speaksenglish = row[e]
     if not row[e]:
         pass
+
     else:
-        the_file.write('1 DSCR Able to speak English: ' + speaksenglish + '\n')
-        the_file.write('2 DATE ' + y + '\n')
+        if langTag == "DSCR":
+            the_file.write('1 DSCR Able to speak English: ' + speaksenglish + '\n')
+            the_file.write('2 DATE ' + y + '\n')
+
+        #if user has selected a custom tag, use it
+        else:
+            the_file.write('1 EVEN Able to speak English: ' + speaksenglish + '\n')
+            the_file.write("2 TYPE " + langTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
 
 #-------------------------------------------------------------------#
 #-----------------------------Property Writer-----------------------#

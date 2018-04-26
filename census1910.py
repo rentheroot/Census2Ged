@@ -57,7 +57,7 @@ def writeName1910 (c , g, config_dict):
 
                  #call SpeakEnglishWriter function
                  if config_dict["Language"] == 1:
-                    SpeakEnglishWriter(row,'17 English', the_file, '1910')
+                    SpeakEnglishWriter(row,'17 English', config_dict["langTag"], the_file, '1910')
 
                  #call ArmyWriter function
                  if config_dict["Military"] == 1:
