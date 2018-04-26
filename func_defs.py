@@ -386,14 +386,22 @@ def RaceWriter(row, r, raceTag, the_file, y):
 #row=row
 #the_file=the_file
 #n=naturalization column
-def NaturalizedWriter (row, the_file, n, y):
+#natuTag = Naturalization tag to use
+def NaturalizedWriter (row, the_file, natuTag,n, y):
     naturalized = row[n]
 
     if not row[n]:
      pass
     else:
-        the_file.write('1 NATU Naturalization Status: ' + naturalized +'\n')
-        the_file.write('2 DATE ' + y +'\n')
+        if natuTag == "NATU":
+            the_file.write('1 NATU Naturalization Status: ' + naturalized +'\n')
+            the_file.write('2 DATE ' + y +'\n')
+
+        #if user has selected a custom tag, use it
+        else:
+            the_file.write("1 EVEN " + naturalized +'\n' )
+            the_file.write("2 TYPE " + natuTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
 
 #-------------------------------------------------------------------#
 #---------------------------Literacy Writer-------------------------#

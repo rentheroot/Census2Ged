@@ -279,14 +279,16 @@ class Application(tk.Frame):
                 self.CheckboxProperty.select()
             if user_config["Language"] == 1:
                 self.CheckboxLanguage.select()
+            if user_config["Naturalize"] == 1:
+                self.CheckboxNaturalize.select()
             if user_config ["immigTag"] != "IMMI":
                 self.immigrationSet.insert(0, user_config["immigTag"])
             if user_config ["occupTag"] != "OCCU":
                 self.occupationSet.insert(0, user_config["occupTag"])
             if user_config ["raceTag"] != "DSCR":
                 self.occupationSet.insert(0, user_config["raceTag"])
-            if user_config ["naturalizeTag"] != "NATU":
-                self.naturalizeSet.insert(0, user_config["naturalizeTag"])
+            if user_config ["natuTag"] != "NATU":
+                self.naturalizeSet.insert(0, user_config["natuTag"])
 
         except:
             print("nope")
@@ -393,7 +395,7 @@ class Application(tk.Frame):
                         "immigTag" : self.immigrationSet.get(),
                         "occupTag" : self.occupationSet.get(),
                         "raceTag" : self.raceSet.get(),
-                        "naturalizeTag" : self.naturalizeSet.get()
+                        "natuTag" : self.naturalizeSet.get()
                         }
 
         print(variable_list)
