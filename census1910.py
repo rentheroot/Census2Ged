@@ -53,7 +53,7 @@ def writeName1910 (c , g, config_dict):
 
                  #call ChildNoWriter function
                  if config_dict["Children Born"] == 1:
-                    ChildNoWriter(row,'10 Children born','11 Still living',the_file, '1910')
+                    ChildNoWriter(row,'10 Children born','11 Still living',  config_dict["chilTag"], the_file, '1910')
 
                  #call SpeakEnglishWriter function
                  if config_dict["Language"] == 1:

@@ -546,14 +546,24 @@ def __Literacy_Writer_1860__ (row, r, a, the_file, y ):
 #l= Living Children column
 #the_file=the_file
 #y=census year
-def ChildNoWriter (row, n,l, the_file,y):
+#chilTag = Children Born Tag to use
+def ChildNoWriter (row, n,l, chilTag, the_file,y):
      if not row[n]:
          pass
      else:
-         childrenborn = row[n]
-         livingchildren = row[l]
-         the_file.write('1 DSCR Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
-         the_file.write('2 DATE '+y +'\n')
+        if chilTag == "DSCR":
+             childrenborn = row[n]
+             livingchildren = row[l]
+             the_file.write('1 DSCR Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
+             the_file.write('2 DATE '+y +'\n')
+        else:
+            childrenborn = row[n]
+            livingchildren = row[l]
+            the_file.write('1 EVEN Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
+            the_file.write("2 TYPE " + chilTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
+
+
 #-------------------------------------------------------------------#
 #------------------------English Ability Writer---------------------#
 #-------------------------------------------------------------------#

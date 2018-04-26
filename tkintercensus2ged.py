@@ -286,11 +286,13 @@ class Application(tk.Frame):
             if user_config ["occupTag"] != "OCCU":
                 self.occupationSet.insert(0, user_config["occupTag"])
             if user_config ["raceTag"] != "DSCR":
-                self.occupationSet.insert(0, user_config["raceTag"])
+                self.raceSet.insert(0, user_config["raceTag"])
             if user_config ["natuTag"] != "NATU":
                 self.naturalizeSet.insert(0, user_config["natuTag"])
             if user_config ["literTag"] != "EDUC":
                 self.literacySet.insert(0, user_config["literTag"])
+            if user_config ["chilTag"] != "DSCR":
+                self.childrenBornSet.insert(0, user_config["chilTag"])
 
         except:
             print("nope")
@@ -398,7 +400,8 @@ class Application(tk.Frame):
                         "occupTag" : self.occupationSet.get(),
                         "raceTag" : self.raceSet.get(),
                         "natuTag" : self.naturalizeSet.get(),
-                        "literTag" : self.literacySet.get()
+                        "literTag" : self.literacySet.get(),
+                        "chilTag" : self.childrenBornSet.get()
                         }
 
         print(variable_list)
