@@ -24,3 +24,19 @@ The following is the format the program writes these custom tags in. It uses an 
 2 TYPE new tag name
 ```
 
+## Supported Relationship Types
+Census2Ged currently supports the following relationship types:
+- Head
+- Wife
+- Son
+- Daughter
+- Child
+
+## Types of Data (Supported and Unsupported) For Each Census
+The goal is to eventually present every piece of information in some way for every census. I have copied the names of each of the fields from the [IPUMS enumeration forms](https://usa.ipums.org/usa/voliii/tEnumForm.shtml)
+### 1910 Census
+-[ ] Number of dwelling in order of visitation
+-[ ] Number of family, in order of visitation
+-[X] Name of each person whose place of abode on April 15, 1910, was in this family. Enter surname first, then the given name and middle initial, if any. Include every person living on April 15, 1910. Omit children born since April 15, 1910
+-[X] Relationship of this person to the head of the family
+
