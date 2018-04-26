@@ -37,38 +37,54 @@ Census2Ged currently supports the following relationship types:
 ## Types of Data (Supported and Unsupported) For Each Census
 The goal is to eventually present every piece of information in some way for every census. I have copied the names of each of the fields from the [IPUMS enumeration forms](https://usa.ipums.org/usa/voliii/tEnumForm.shtml)
 ### 1910 Census
+
 LOCATION:
 STREET, AVENUE, ROAD, ETC.
 HOUSE NUMBER (IN CITIES AND TOWNS)
+
 - [ ] Number of dwelling in order of visitation
 - [ ] Number of family, in order of visitation
 - [X] Name of each person whose place of abode on April 15, 1910, was in this family. Enter surname first, then the given name and middle initial, if any. Include every person living on April 15, 1910. Omit children born since April 15, 1910
 - [X] Relationship of this person to the head of the family
+
 PERSONAL DESCRIPTION:
+
 - [X] Sex
 - [X] Color or Race
 - [X] Age at last birthday (partially supported through calculation of aprox. date of birth)
 - [ ] Whether single, married, widowed, or divorced
 - [X] Number of years of present marriage (partially supported through calculation of aprox. date of marriage)
 - [X] Mother of how many children, Number born, Number now living
+
 NATIVITY:
 PLACE OF BIRTH OF EACH PERSON AND PARENTS OF EACH PERSON ENUMERATED. IF BORN IN THE UNITED STATES, GIVE THE STATE OR TERRITORY. IF OF FOREIGN BIRTH, GIVE THE COUNTRY
+
 - [X] Place of birth of this person
 - [ ] Place of birth of father of this person
 - [ ] Place of birth of mother of this person
+
 CITIZENSHIP
+
 - [X] Year of immigration to the United States
 - [X] Whether naturalized or alien
 - [X] Whether able to speak English; or, if not, give language spoken
+
 OCCUPATION:
+
 - [X] Trade or profession of, or particular kind of work done by this person, as spinner, salesman, laborer, etc.
 - [X] General nature of industry, business, or establishment in which this person works, as cotton mill, dry goods store, farm, etc.
 - [ ] Whether an employer, employee, or working on own account.
+
 IF AN EMPLOYEE:
+
 - [ ] Whether out of work on April 15, 1910
 - [ ] Number of weeks out of work during year 1909
+
 EDUCATION:
+
 - [X] Whether able to read, Whether able to write
 - [ ] Attended school any time since September 1, 1909
+
 OWNERSHIP OF HOME:
+
 - [X] Owned or rented
