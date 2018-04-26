@@ -822,12 +822,21 @@ def FamilyWriter1880(row, r,ym, the_file, idn,y):
 #row=row
 #a= Army or Navy column
 #the_file=the_file
-def ArmyWriter(row, a, the_file):
+#militTag = tag to use for military service information
+
+def ArmyWriter(row, a, militTag, the_file):
     if not row[a]:
         pass
     else:
-        militarystatus = row[a]
-        the_file.write('1 DSCR Army or Navy: ' + militarystatus + '\n')
+
+        if militTag == "DSCR":
+            militarystatus = row[a]
+            the_file.write('1 DSCR Army or Navy: ' + militarystatus + '\n')
+        else:
+            militarystatus = row[a]
+            the_file.write('1 EVEN Army or Navy: ' + militarystatus + '\n')
+            the_file.write("2 TYPE " + militTag + '\n')
+            
 
 #-------------------------------------------------------------------#
 #------------------------------Blind Writer-------------------------#
