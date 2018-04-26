@@ -31,29 +31,36 @@ def writeName1900 (c , g, config_dict):
                  CensusYearWriter(the_file, '1900')
 
                  #call ImmigYearWriter function
-                 ImmigYearWriter(row,"16 Year of immigration to the United States.",the_file)
+                 if config_dict["Immigration"] == 1:
+                    ImmigYearWriter(row,"16 Year of immigration to the United States.",config_dict["immigTag"],the_file)
 
                  #call OccupationWriter function
                  if config_dict["Occupation"] == 1:
                     OccupationWriter(row, config_dict["occuTag"], "19 Occupation", the_file, '1900')
 
                  #call RaceWriter function
-                 RaceWriter(row,'5 Color or race', the_file, '1900')
+                 if config_dict["Race"] == 1:
+                    RaceWriter(row,'5 Color or race',config_dict["raceTag"], the_file, '1900')
 
                  #call NaturalizedWriter function
-                 NaturalizedWriter(row, the_file,'18 Naturalization.', '1900' )
+                 if config_dict["Naturalize"] == 1:
+                    NaturalizedWriter(row, the_file,config_dict["natuTag"],'18 Naturalization.', '1900' )
 
                  #call LiteracyWriter function
-                 LiteracyWriter(row,'22 Can read','23 Can write', the_file, '1900')
+                 if config_dict["Literacy"] == 1:
+                    LiteracyWriter(row,'22 Can read','23 Can write', config_dict["literTag"], the_file, '1900')
 
                  #call ChildNoWriter function
-                 ChildNoWriter(row,'11 Mother of how many children.','12 Number living.',the_file, '1900')
+                 if config_dict["Children Born"] == 1:
+                    ChildNoWriter(row,'11 Mother of how many children.','12 Number living.', config_dict["chilTag"],the_file, '1900')
 
                  #call SpeakEnglishWriter function
-                 SpeakEnglishWriter(row,'24 Can speak English', the_file, '1900')
+                 if config_dict["Language"] == 1:
+                    SpeakEnglishWriter(row,'24 Can speak English', config_dict["langTag"], the_file, '1900')
 
                  #call PropertyWriter function
-                 PropertyWriter(row,'25 Owned or rented', '26 Owned free or mortgaged.','27 Farm or home','28 Number of farm schedule.', the_file, '1900' )
+                 if config_dict["Property"] == 1:
+                    PropertyWriter(row,'25 Owned or rented', '26 Owned free or mortgaged.','27 Farm or home','28 Number of farm schedule.', config_dict["propTag"],the_file, '1900' )
 
                  #call FamilyWriter1900 function
                  FamilyWriter1900(row, '4 Relationship of each person to the head of the family.','10 Years married.', the_file,idn, '1900')
