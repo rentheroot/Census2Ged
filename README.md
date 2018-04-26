@@ -88,3 +88,9 @@ PLACE OF BIRTH OF EACH PERSON AND PARENTS OF EACH PERSON ENUMERATED. IF BORN IN 
 **OWNERSHIP OF HOME:**
 
 - [X] Owned or rented
+- [X] Owned free or mortgaged
+- [X] Farm or house
+- [X] Number of farm schedule.
+- [X] Whether a survivor of the Union or Confederate Army or Navy
+- [X] Whether blind (both eyes).
+- [X] Whether deaf and dumb.
