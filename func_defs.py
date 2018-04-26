@@ -601,7 +601,8 @@ def SpeakEnglishWriter (row, e, langTag, the_file,y):
 #fs = No. of Farm Schedule column
 #the_file = the_file
 #y= Census Year
-def PropertyWriter(row, o , fm , fh , fs , the_file , y):
+#propTag = tag to use for the property information
+def PropertyWriter(row, o , fm , fh , fs , propTag, the_file , y):
     ownorrent = row[o]
     freeormort = row[fm]
     farmorhome = row[fh]
@@ -610,8 +611,13 @@ def PropertyWriter(row, o , fm , fh , fs , the_file , y):
     if not row[o]:
         pass
     else:
-        the_file.write('1 PROP House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
-        the_file.write('2 DATE '+ y +'\n')
+        if propTag == "PROP":
+            the_file.write('1 PROP House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
+            the_file.write('2 DATE '+ y +'\n')
+        else:
+            the_file.write('1 EVEN House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
+            the_file.write("2 TYPE " + propTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
 
 #-------------------------------------------------------------------#
 #------------------------Property Writer 1860-----------------------#

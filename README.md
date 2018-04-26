@@ -22,6 +22,7 @@ Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information f
 | Language         | DSCR        | Language              |
 | Military         | DSCR        | Military              |
 | Disability       | DSCR        | Disability            |
+| Property         | PROP        | Don't Change          |
 
 
 ## Handling of Custom Tags

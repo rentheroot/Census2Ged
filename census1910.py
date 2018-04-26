@@ -73,7 +73,7 @@ def writeName1910 (c , g, config_dict):
 
                  #call PropertyWriter function
                  if config_dict["Property"] == 1:
-                    PropertyWriter(row,'26 Owned/Rented', '27 Free/Mortgage','28 Farm/house','29 # farm', the_file, '1910' )
+                    PropertyWriter(row,'26 Owned/Rented', '27 Free/Mortgage','28 Farm/house','29 # farm', config_dict["propTag"], the_file, '1910' )
 
                  #call FamilyWriter1900 function
                  FamilyWriter1900(row, '4 Relationship','9 Years married.', the_file,idn, '1910')

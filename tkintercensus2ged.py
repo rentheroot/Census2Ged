@@ -299,6 +299,8 @@ class Application(tk.Frame):
                 self.militarySet.insert(0, user_config["militTag"])
             if user_config ["disiTag"] != "DSCR":
                 self.disabilitySet.insert(0, user_config["disiTag"])
+            if user_config ["propTag"] != "PROP":
+                self.propertySet.insert(0, user_config["propTag"])
 
         except:
             print("nope")
@@ -410,7 +412,8 @@ class Application(tk.Frame):
                         "chilTag" : self.childrenBornSet.get(),
                         "langTag" : self.languageSet.get(),
                         "militTag" : self.militarySet.get(),
-                        "disiTag" : self.disabilitySet.get()
+                        "disiTag" : self.disabilitySet.get(),
+                        "propTag" : self.propertySet.get()
                         }
 
         print(variable_list)
