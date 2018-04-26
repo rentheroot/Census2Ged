@@ -411,15 +411,24 @@ def NaturalizedWriter (row, the_file, natuTag,n, y):
 #w=write column
 #the_file=the_file
 #y = census year
-def LiteracyWriter (row, r,w,the_file, y ):
+#literTag = Literacy tag to use
+def LiteracyWriter (row, r,w,literTag, the_file, y ):
     canread = row[r]
     canwrite = row[w]
     if not row[r]:
         pass
     else:
-        
-        the_file.write('1 DSCR Can Read: ' + canread + ' Can Write: ' + canwrite + '\n')
-        the_file.write('2 DATE '+ y +'\n')
+        if literTag == "EDUC":
+
+            the_file.write('1 DSCR Can Read: ' + canread + ' Can Write: ' + canwrite + '\n')
+            the_file.write('2 DATE '+ y +'\n')
+
+        #if user has selected a custom tag, use it
+        else:
+            the_file.write("1 EVEN Can Read: " + canread + ' Can Write: ' + canwrite + '\n' )
+            the_file.write("2 TYPE " + literTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
+
 
 #-------------------------------------------------------------------#
 #----------------------Literacy Writer 1880-------------------------#

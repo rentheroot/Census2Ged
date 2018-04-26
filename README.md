@@ -16,6 +16,7 @@ Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information f
 | Occupation       | OCCU        | Don't Change          |
 | Race             | DSCR        | Race                  |
 | Naturalization   | NATU        | Naturalization Status |
+| Literacy         | EDUC        | Literacy              |
 
 ## Handling of Custom Tags
 The program handles custom tags as recommended in the Gedcom 5.5.1 standard. This will allow them to be compatible with virtually every genealogy program available.

@@ -289,6 +289,8 @@ class Application(tk.Frame):
                 self.occupationSet.insert(0, user_config["raceTag"])
             if user_config ["natuTag"] != "NATU":
                 self.naturalizeSet.insert(0, user_config["natuTag"])
+            if user_config ["literTag"] != "EDUC":
+                self.literacySet.insert(0, user_config["literTag"])
 
         except:
             print("nope")
@@ -395,7 +397,8 @@ class Application(tk.Frame):
                         "immigTag" : self.immigrationSet.get(),
                         "occupTag" : self.occupationSet.get(),
                         "raceTag" : self.raceSet.get(),
-                        "natuTag" : self.naturalizeSet.get()
+                        "natuTag" : self.naturalizeSet.get(),
+                        "literTag" : self.literacySet.get()
                         }
 
         print(variable_list)
