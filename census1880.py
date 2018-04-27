@@ -32,31 +32,40 @@ def writeName1880 (c , g, config_dict):
                  CensusYearWriter(the_file, '1880')
 
                  #call OccupationWriter function
-                 OccupationWriter(row, '13-Occupation', the_file, '1880')
+                 if config_dict["Occupation"] == 1:
+                    OccupationWriter(row, config_dict["occupTag"], '13-Occupation', the_file, '1880')
 
                  #call RaceWriter function
-                 RaceWriter(row,'4-Color', the_file, '1880')
+                 if config_dict["Race"] == 1:
+                    RaceWriter(row,'4-Color', config_dict["raceTag"], the_file, '1880')
 
                  #call LiteracyWriter1880 function
-                 LiteracyWriter1880(row,'22-Cannot read','23-Cannot write', '6-Age', the_file, '1880')
+                 if config_dict["Literacy"] == 1:
+                    LiteracyWriter1880(row,'22-Cannot read','23-Cannot write', '6-Age',config_dict["literTag"], the_file, '1880')
 
                  #call DeafWriter1880 function
-                 DeafWriter1880(row, '17-Deaf and Dumb', the_file)
+                 if config_dict["Disability"] == 1:
+                    DeafWriter1880(row, '17-Deaf and Dumb',config_dict["disiTag"], the_file)
 
                  #call BlindWriter function
-                 BlindWriter(row,'16-Blind', the_file)
+                 if config_dict["Disability"] == 1:
+                    BlindWriter(row,'16-Blind', config_dict["disiTag"],the_file)
 
                  #call SickOrDisabledWriter function
-                 SickOrDisabledWriter(row,'15-sick or disabled', the_file )
+                 if config_dict["Disability"] == 1:
+                    SickOrDisabledWriter(row,'15-sick or disabled', config_dict["disiTag"],the_file )
 
                  #call IdioticWriter function
-                 IdioticWriter(row, '18-Idiotic', the_file)
+                 if config_dict["Disability"] == 1:
+                    IdioticWriter(row, '18-Idiotic', config_dict["disiTag"],the_file)
 
                  #call InsaneWriter function
-                 InsaneWriter(row, '19-Insane', the_file)
+                 if config_dict["Disability"] == 1:
+                    InsaneWriter(row, '19-Insane', config_dict["disiTag"],the_file)
 
                  #call MaimedWriter function
-                 MaimedWriter(row,'20-Maimed etc.' ,the_file)
+                 if config_dict["Disability"] == 1:
+                    MaimedWriter(row,'20-Maimed etc.' ,config_dict["disiTag"],the_file)
 
                  #call FamilyWriter1880 function
                  FamilyWriter1880(row, '8-Relationship', '12-Married in Year.', the_file,idn, '1880')

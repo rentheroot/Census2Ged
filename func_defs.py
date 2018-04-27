@@ -891,12 +891,19 @@ def DeafWriter(row, d, disiTag, the_file):
 #row=row
 #d=Deaf cloumn
 #the-file=the_file
-def DeafWriter1880(row, d, the_file):
+#disiTag = tag to use for disabilty writer
+def DeafWriter1880(row, d,disiTag, the_file):
     if not row[d]:
         pass
     else:
-        deafness = row[d]
-        the_file.write('1 DSCR Whether Deaf and Dumb: ' + deafness + '\n')
+         if disiTag == "DSCR":
+            deafness = row[d]
+            the_file.write('1 DSCR Whether Deaf and Dumb: ' + deafness + '\n')
+
+         else:
+            deafness = row[d]
+            the_file.write('1 EVEN Whether Deaf: ' + deafness + '\n')
+            the_file.write("2 TYPE " + disiTag + '\n')
 
 #-------------------------------------------------------------------#
 #----------------------Sick or Disabled Writer----------------------#
@@ -916,7 +923,7 @@ def SickOrDisabledWriter(row, s,disiTag, the_file):
             
 
         else:
-
+            sick = row[s]
             the_file.write("1 EVEN Whether Sick or Disabled: " + sick + '\n')
             the_file.write("2 TYPE " + sick + '\n')
             
@@ -927,12 +934,19 @@ def SickOrDisabledWriter(row, s,disiTag, the_file):
 #row=row
 #d= Idiotic column
 #the-file=the_file
-def IdioticWriter(row, d, the_file):
+#disiTag = tag to use for disabilty writer
+def IdioticWriter(row, d, disiTag, the_file):
     if not row[d]:
         pass
     else:
-        idiot = row[d]
-        the_file.write('1 DSCR Whether Idiotic: ' + idiot + '\n')
+        if disiTag == "DSCR":
+            idiot = row[d]
+            the_file.write('1 DSCR Whether Idiotic: ' + idiot + '\n')
+
+        else:
+            idiot = row[d]
+            the_file.write("1 EVEN Whether Idiotic: " + idiot + '\n')
+            the_file.write("2 TYPE " + idiot + '\n')
 
 #-------------------------------------------------------------------#
 #---------------------------Insane Writer---------------------------#
@@ -940,12 +954,18 @@ def IdioticWriter(row, d, the_file):
 #row=row
 #n= Insane column
 #the-file=the_file
-def InsaneWriter(row, n, the_file):
+#disiTag = tag to use for disabilty writer
+def InsaneWriter(row, n, disiTag, the_file):
     if not row[n]:
         pass
     else:
-        insane = row[n]
-        the_file.write('1 DSCR Whether Insane: ' + insane + '\n')
+        if disiTag == "DSCR":
+            insane = row[n]
+            the_file.write('1 DSCR Whether Insane: ' + insane + '\n')
+        else:
+            insane = row[n]
+            the_file.write("1 EVEN Whether Insane: " + insane + '\n')
+            the_file.write("2 TYPE " + insane + '\n')
 
 #-------------------------------------------------------------------#
 #---------------------------Maimed Writer---------------------------#
@@ -953,12 +973,18 @@ def InsaneWriter(row, n, the_file):
 #row=row
 #m= Maimed column
 #the-file=the_file
-def MaimedWriter(row, m, the_file):
+#disiTag = tag to use for disabilty writer
+def MaimedWriter(row, m, disiTag, the_file):
     if not row[m]:
         pass
     else:
-        maimed = row[m]
-        the_file.write('1 DSCR Whether Maimed: ' + maimed + '\n')
+        if disiTag == "DSCR":
+            maimed = row[m]
+            the_file.write('1 DSCR Whether Maimed: ' + maimed + '\n')
+        else:
+            maimed = row[m]
+            the_file.write("1 EVEN Whether Maimed: " + maimed + '\n')
+            the_file.write("2 TYPE " + maimed + '\n')
 
 
 #-------------------------------------------------------------------#
@@ -967,12 +993,18 @@ def MaimedWriter(row, m, the_file):
 #row=row
 #d=disabled cloumn
 #the-file=the_file
-def __Disabled_Writer_1870__(row, d, the_file):
+#disiTag = tag to use for disabilty writer
+def __Disabled_Writer_1870__(row, d, disiTag, the_file):
     if not row[d]:
         pass
     else:
-        disability = row[d]
-        the_file.write('1 DSCR Disability: ' + disability + '\n')
+        if disiTag == "DSCR":
+            disability = row[d]
+            the_file.write('1 DSCR Disability: ' + disability + '\n')
+        else:
+            disability = row[d]
+            the_file.write("1 EVEN Disability: " + disability + '\n')
+            the_file.write("2 TYPE " + disability + '\n')
 
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#
