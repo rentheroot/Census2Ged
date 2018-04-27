@@ -627,7 +627,8 @@ def PropertyWriter(row, o , fm , fh , fs , propTag, the_file , y):
 #p =personal estate column
 #the_file = the_file
 #y= Census Year
-def __Property_Writer_1860__(row, r, p, the_file , y):
+#propTag = tag to use for the property information
+def __Property_Writer_1860__(row, r, p, the_file , propTag, y):
     realEstate = row[r]
     personalEstate = row[p]
 
@@ -638,18 +639,36 @@ def __Property_Writer_1860__(row, r, p, the_file , y):
             pass
         #has personal estate
         else:
-            the_file.write('1 PROP Value of Personal Estate: ' + personalEstate + '\n')
-            the_file.write('2 DATE '+ y +'\n')
+            if propTag == "PROP":
+                the_file.write('1 PROP Value of Personal Estate: ' + personalEstate + '\n')
+                the_file.write('2 DATE '+ y +'\n')
+            else:
+                the_file.write('1 EVEN Value of Personal Estate: ' + personalEstate + '\n')
+                the_file.write("2 TYPE " + propTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+
     #has real estate
     else:
         #doesn't have personal estate
         if not row [p]:
-            the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
-            the_file.write('2 DATE '+ y +'\n')
+            if propTag == "PROP":
+
+                the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
+                the_file.write('2 DATE '+ y +'\n')
+            else:
+                the_file.write('1 EVEN Value of Real Estate: ' + realEstate + '\n')
+                the_file.write("2 TYPE " + propTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
         #has personal estate
         else:
-            the_file.write('1 PROP Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
-            the_file.write('2 DATE '+ y +'\n')
+            if propTag == "PROP":
+                the_file.write('1 PROP Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
+                the_file.write('2 DATE '+ y +'\n')
+            else:
+                the_file.write('1 EVEN Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
+                the_file.write("2 TYPE " + propTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+
 #-------------------------------------------------------------------#
 #------------------------Property Writer 1850-----------------------#
 #-------------------------------------------------------------------#

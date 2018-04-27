@@ -208,4 +208,40 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 - [ ] Place of birth of the father of this person, naming State or Territory of United States, or the country, if of foreign birth
 - [ ] Place of birth of the mother of this person, naming State or Territory of United States, or the country, if of foreign birth
 
+ ### 1870 Census
 
+ - [ ] Dwelling houses and number in order of visitation.
+ - [ ] Families numbered in the order of visitation.
+ - [X] The name of every person whose place of abode on the 1st day of June, 1870, was in this family.
+
+ **DESCRIPTION:**
+
+ - [X] Age at last birthday. If under 1 year, give months in fractions, thus, 3/12. (partially supported through calculation of aprox. date of birth)
+ - [X] Sex - Males (M), females (F).
+ - [X] Color - White (W), black (B), mulatto (M), Chinese (C), Indian (I).
+ - [X] Profession, occupation, or trade of each person, male or female.
+
+**VALUE OF REAL ESTATE OWNED:**
+
+- [X] Value of real estate.
+- [X] Value of personal estate.
+- [X] Place of birth, naming the state or territory of the United States, or the country, if of foreign birth.
+
+**PARENTAGE:**
+
+- [ ] Father of foreign birth.
+- [ ] Mother of foreign birth.
+- [ ] If born within the year, state month (Jan., Feb., etc.).
+- [ ] If married within the year, state month (Jan., Feb., etc.)
+
+**EDUCATION:**
+
+- [ ] Attended school within the year.
+- [X] Can not read.
+- [X] Can not write.
+- [X] Whether deaf and dumb, blind, insane, or idiotic.
+
+**CONSTITUTIONAL RELATIONS:**
+
+-[ ] Male citizens of United States of 21 years of age and upwards.
+-[ ] Male citizens of United States of 21 years of age and upwards, whose right to vote is denied or abridged on other grounds than rebellion or other crime.

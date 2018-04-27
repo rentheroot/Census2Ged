@@ -7,7 +7,7 @@ import csv
 from func_defs import *
 
 
-def writeName1870 (c , g):
+def writeName1870 (c , g, config_dict):
      idn = 0
      with open(g, 'a') as the_file:
         with open(c) as csvfile:
@@ -35,19 +35,24 @@ def writeName1870 (c , g):
                  CensusYearWriter(the_file, '1870')
 
                  #call OccupationWriter function
-                 OccupationWriter(row, '7-Occupation', the_file, '1870')
+                 if config_dict["Occupation"] == 1:
+                    OccupationWriter(row, config_dict["occupTag"], '7-Occupation', the_file, '1870')
 
                  #call RaceWriter function
-                 RaceWriter(row,'6-Color', the_file, '1870')
+                 if config_dict["Race"] == 1:
+                    RaceWriter(row,'6-Color', config_dict["raceTag"], the_file, '1870')
 
                  #call LiteracyWriter1880 function
-                 LiteracyWriter1880(row,'16-Read','17-Write', '4-Age', the_file, '1870')
+                 if config_dict["Literacy"] == 1:
+                    LiteracyWriter1880(row,'16-Read','17-Write', '4-Age', config_dict["literTag"], the_file, '1870')
 
                  #call Disabled Writer 1870 function
-                 __Disabled_Writer_1870__(row, '18-deaf-and-dumb', the_file)
+                 if config_dict["Disability"] == 1:
+                    __Disabled_Writer_1870__(row, '18-deaf-and-dumb', config_dict["disiTag"],the_file)
 
                  #call property writer 1860 function
-                 __Property_Writer_1860__(row, '7-Real-Estate', '9-Personal-Estate', the_file , '1860')
+                 if config_dict["Property"] == 1:
+                    __Property_Writer_1860__(row, '7-Real-Estate', '9-Personal-Estate', config_dict["propTag"],the_file , '1860')
 
              #call endfile function
              EndFile(the_file)

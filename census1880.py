@@ -65,7 +65,7 @@ def writeName1880 (c , g, config_dict):
 
                  #call MaimedWriter function
                  if config_dict["Disability"] == 1:
-                    MaimedWriter(row,'20-Maimed etc.' ,config_dict["disiTag"],the_file)
+                    MaimedWriter(row,'20-Maimed etc.' ,config_dict["disiTag"],config_dict["propTag"],the_file)
 
                  #call FamilyWriter1880 function
                  FamilyWriter1880(row, '8-Relationship', '12-Married in Year.', the_file,idn, '1880')
