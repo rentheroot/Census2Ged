@@ -159,3 +159,53 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 - [X] Farm or house
 - [X] Number of farm schedule.
  
+ ### 1880 Census
+
+**IN CITIES: NAME OF STREET; HOUSE NUMBER**
+
+- [ ] Dwelling houses numbered in order of visitation.
+- [ ] Families numbered in order of visitation.
+- [X] The name of every person whose place of abode on the 1st day of June, 1880, was in this family.
+
+**PERSONAL DESCRIPTION:**
+
+- [X] Color - White, W; black, B; Mulatto, Mu; Chinese, C; Indian, I.
+- [X] Sex - Males (M), females (F)
+- [X] Age at last birthday prior to June 1, 1880. If under 1 year, give months in fractions, thus, 3/12. (partially supported through calculation of aprox. date of birth)
+- [ ] If born within the census year, give the month.
+- [X] Relationship of each person to the head of this family - whether wife, son, daughter, servant, boarder, or other.
+
+**CIVIL CONDITION:**
+
+- [ ] Single.
+- [ ] Married.
+- [ ] Widowed; divorced.
+- [ ] Married during census year.
+
+**OCCUPATION:**
+
+- [X] Profession, occupation, or trade of each person, male or female.
+- [ ] Number of months this person has been unemployed during the census year.
+
+**HEALTH:**
+
+- [X] Is the person (on the day of the enumerator's visit) sick or temporarily disabled, so as to be unable to attend to ordinary business or duties? Is so, what is the sickness or disability?
+- [X] Blind.
+- [X] Deaf and dumb.
+- [X] Idiotic.
+- [X] Insane
+- [X] Maimed, crippled, bedridden, or otherwise disabled.
+
+**EDUCATION:**
+
+- [X] Attended school within the census year.
+- [X] Can not read.
+- [X] Can not write.
+
+**NATIVITY:**
+
+- [X] Place of birth of this person, naming State or Territory of United States, or the country, if of foreign birth.
+- [ ] Place of birth of the father of this person, naming State or Territory of United States, or the country, if of foreign birth
+- [ ] Place of birth of the mother of this person, naming State or Territory of United States, or the country, if of foreign birth
+
+
