@@ -247,3 +247,24 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 - [ ] Male citizens of United States of 21 years of age and upwards, whose right to vote is denied or abridged on other grounds than rebellion or other crime.
 
  ### 1860 Census
+
+ - [ ] Dwelling houses and number in order of visitation
+ - [ ] Families numbered in the order of visitation
+ - [X] The name of every person whose usual place of abode on the 1st day of June, 1860, was in this family
+
+ **DESCRIPTION:**
+
+ - [X] Age (partially supported through calculation of aprox. date of birth)
+ - [X] Sex
+ - [X] Color - White, black, or mulatto
+ - [X] Profession, occupation, or trade of each person, male or female, over 15 years of age
+
+ **VALUE OF REAL ESTATE OWNED:**
+
+- [X] Value of real estate
+- [X] Value of personal estate
+- [X] Place of birth, naming the state, territory, or country
+- [ ] Married within the year
+- [ ] Attended school within the year
+- [X] Persons over 20 years of age who can not read and write
+- [X] Whether deaf and dumb, blind, insane, idiotic, pauper or convict
