@@ -243,5 +243,7 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 
 **CONSTITUTIONAL RELATIONS:**
 
--[ ] Male citizens of United States of 21 years of age and upwards.
--[ ] Male citizens of United States of 21 years of age and upwards, whose right to vote is denied or abridged on other grounds than rebellion or other crime.
+- [ ] Male citizens of United States of 21 years of age and upwards.
+- [ ] Male citizens of United States of 21 years of age and upwards, whose right to vote is denied or abridged on other grounds than rebellion or other crime.
+
+ ### 1860 Census
