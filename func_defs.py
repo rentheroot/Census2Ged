@@ -676,13 +676,20 @@ def __Property_Writer_1860__(row, r, p, the_file , propTag, y):
 #r= Real estate value column
 #the_file = the_file
 #y= Census Year
-def __Property_Writer_1850__(row, r, the_file , y):
+#propTag = tag to use for the property information
+def __Property_Writer_1850__(row, r, the_file , propTag, y):
     realEstate = row[r]
     if not row[r]:
         pass
     else:
-        the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
-        the_file.write('2 DATE '+ y +'\n')
+        if propTag == "PROP":
+            the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
+            the_file.write('2 DATE '+ y +'\n')
+
+        else:
+            the_file.write('1 EVEN Value of Real Estate: ' + realEstate + '\n')
+            the_file.write("2 TYPE " + propTag + '\n')
+            the_file.write("2 DATE " + y + '\n')
 #-------------------------------------------------------------------#
 #---------------------------Family Writer 1900 format---------------#
 #-------------------------------------------------------------------#

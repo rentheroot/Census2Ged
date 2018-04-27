@@ -456,9 +456,9 @@ class Application(tk.Frame):
         file_path = self.PathLabel.cget("text")
         printHeader(g)
         if y == '1850':
-            writeName1850(file_path , g)
+            writeName1850(file_path , g, configDictionary)
         elif y == '1860':
-            writeName1860(file_path , g)
+            writeName1860(file_path , g, configDictionary)
         elif y == '1870':
             writeName1870(file_path , g, configDictionary)
         elif y == '1880':
