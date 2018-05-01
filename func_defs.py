@@ -998,7 +998,7 @@ def InsaneWriter(row, n, disiTag, the_file):
 #-------------------------------------------------------------------#        
 #row=row
 #m= Maimed column
-#the-file=the_file
+#the_file=the_file
 #disiTag = tag to use for disabilty writer
 def MaimedWriter(row, m, disiTag, the_file):
     if not row[m]:
@@ -1018,7 +1018,7 @@ def MaimedWriter(row, m, disiTag, the_file):
 #-------------------------------------------------------------------#        
 #row=row
 #d=disabled cloumn
-#the-file=the_file
+#the_file=the_file
 #disiTag = tag to use for disabilty writer
 def __Disabled_Writer_1870__(row, d, disiTag, the_file):
     if not row[d]:
