@@ -36,7 +36,7 @@ class Application(tk.Frame):
         #dictionary of countries
         self.dict = {'United States': ['1850', '1860', '1870', '1880','1900','1910'],
                     'England': ['1', '2', '3'],
-                    'Sweden':['1','2','3']}
+                    'Sweden':['1881-1885','2','3']}
 
         #Label for the whole thing
         wholeLabel = tk.Label(self, text="Census2Ged", font = ("Lobster", 14, "bold italic"))
