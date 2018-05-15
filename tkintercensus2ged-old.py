@@ -24,142 +24,14 @@ class Application(tk.Frame):
 
     def __init__(self, master=None):
         super().__init__(master)
-        self.grid()
+        self.pack()
 
         self.create_widgets()
 
 
     #change the gui based on the option selected
     def guiUpdate(self, value):
-        
-        #gui updated to US options
-        if value == "United States":
-
-            print("switched to USA")
-
-            try:
-                self.frame.grid_forget()
-            except:
-                pass
-
-            self.frame = tk.Frame(root)
-            self.frame.grid(sticky = 'nsew')
-
-            #Immigration
-            self.CheckboxImmigration = tk.Checkbutton(self.frame, text="Immigration Year", variable=self.optionImmigration)
-            self.CheckboxImmigration.grid(row=5, sticky="w")    
-                    
-            #Immigration tag entry box
-            self.immigrationSet = tk.Entry(self.frame)
-            self.immigrationSet.grid(row=5,column=1, sticky = "w")
-            
-            #Occupation
-            self.CheckboxOccupation = tk.Checkbutton(self.frame, text="Occupation", variable=self.optionOccupation)
-            self.CheckboxOccupation.grid(row=5,column=2, sticky="w")
-
-            #Occupation tag entry box
-            self.occupationSet = tk.Entry(self.frame)
-            self.occupationSet.grid(row=5,column=3, sticky = "w")
-
-            #Race
-            self.CheckboxRace = tk.Checkbutton(self.frame,text="Race", variable=self.optionRace)
-            self.CheckboxRace.grid(row=6, sticky="w")
-
-            #Race tag entry box
-            self.raceSet = tk.Entry(self.frame)
-            self.raceSet.grid(row=6,column=1, sticky = "w")
-
-            #Literacy
-            self.CheckboxLiteracy = tk.Checkbutton(self.frame, text = "Literacy", variable=self.optionLiteracy)
-            self.CheckboxLiteracy.grid(row=6, column = 2, sticky = "w")
-            
-            #Literacy tag entry box
-            self.literacySet = tk.Entry(self.frame)
-            self.literacySet.grid(row=6,column=3, sticky = "w")
-
-
-            #Disability
-            self.CheckboxDisability = tk.Checkbutton(self.frame, text = "Disability", variable = self.optionDisability)
-            self.CheckboxDisability.grid(row = 7, sticky = "w")
-            
-            #Disability tag entry box
-            self.disabilitySet = tk.Entry(self.frame)
-            self.disabilitySet.grid(row=7,column=1, sticky = "w")
-
-            #Children Born
-            self.CheckboxChildrenBorn = tk.Checkbutton(self.frame, text="Children Born", variable = self.optionChildrenBorn)
-            self.CheckboxChildrenBorn.grid(row=7, column=2, sticky="w")
-
-            #Children Born tag entry box
-            self.childrenBornSet = tk.Entry(self.frame)
-            self.childrenBornSet.grid(row=7,column=3, sticky = "w")
-
-            #Military
-            self.CheckboxMilitary = tk.Checkbutton(self.frame, text="Military", variable=self.optionMilitary)
-            self.CheckboxMilitary.grid(row=8,sticky="w")
-
-            #Military tag entry box
-            self.militarySet = tk.Entry(self.frame)
-            self.militarySet.grid(row=8,column=1, sticky = "w")
-
-            #Property
-            self.CheckboxProperty = tk.Checkbutton(self.frame, text = "Property", variable=self.optionProperty)
-            self.CheckboxProperty.grid(row=8,column=2,sticky="w")
-
-            #Property tag entry box
-            self.propertySet = tk.Entry(self.frame)
-            self.propertySet.grid(row=8,column=3, sticky = "w")
-
-            #Language
-            self.CheckboxLanguage = tk.Checkbutton(self.frame,text="Language", variable=self.optionLanguage)
-            self.CheckboxLanguage.grid(row=9,sticky="w")
-
-            #Language tag entry box
-            self.languageSet = tk.Entry(self.frame)
-            self.languageSet.grid(row=9,column=1, sticky = "w")
-
-            #Naturalization
-            self.CheckboxNaturalize = tk.Checkbutton(self.frame,text="Naturalization", variable=self.optionNaturalize)
-            self.CheckboxNaturalize.grid(row=9, column=2,sticky="w")
-
-            #Naturalization tag entry box
-            self.naturalizeSet = tk.Entry(self.frame)
-            self.naturalizeSet.grid(row=9,column=3, sticky = "w")
-
-            #CSV file select label
-            self.PathLabel = tk.Label(self.frame)
-            self.PathLabel.grid(row=10,column=1, sticky="w")
-
-            #CSV file select button
-            self.BrowseButton = tk.Button(self.frame, text="Input CSV",font = "Helvetica 10 bold", command=self.browse_func)
-            self.BrowseButton.grid(row=10, sticky ="w")
-
-            #submit button
-            self.submit = tk.Button(self.frame, text="Submit",
-                                    command = self.__Submit_Button__)
-            #,Literacy,Disability,Children,Military,Property,Language
-            self.submit.grid(row=11,column=1, sticky="w")
-            #Quit button
-            self.quit = tk.Button(self.frame, text="QUIT", fg="red",
-                                 command= self.quit_sequence)
-            self.quit.grid(row =11, column =2,sticky="w")
-        
-        #gui updated to English Options
-        if value == "England":
-            print("Switched to England")
-            try:
-                self.frame.grid_forget()
-            except:
-                pass
-
-
-        #gui updated to Swedish Options
-        if value == "Sweden":
-            print("Switched to Sweden")
-
- 
-
-
+        pass
 
     def create_widgets(self):
 
@@ -167,7 +39,6 @@ class Application(tk.Frame):
         self.dict = {'United States': ['1850', '1860', '1870', '1880','1900','1910'],
                     'England': ['1', '2', '3'],
                     'Sweden':['1881-1885','2','3']}
-
 
         #Label for the whole thing
         wholeLabel = tk.Label(self, text="Census2Ged", font = ("Lobster", 14, "bold italic"))
@@ -272,7 +143,7 @@ class Application(tk.Frame):
         self.optionNaturalize.trace('w', self.__update_naturalize__)
 
         #render the country options menu
-        self.countryOptions = tk.OptionMenu(self, self.countrySelect, *self.dict.keys(), command= self.guiUpdate)
+        self.countryOptions = tk.OptionMenu(self, self.countrySelect, *self.dict.keys(), command=self.guiUpdate)
         self.yearOptions = tk.OptionMenu(self, self.yearSelect, '')
 
 
@@ -291,9 +162,104 @@ class Application(tk.Frame):
 
         #checkbutton widgets
 
+        #Immigration
+        self.CheckboxImmigration = tk.Checkbutton(self, text="Immigration Year", variable=self.optionImmigration)
+        self.CheckboxImmigration.grid(row=5, sticky="w")
+
+        #Immigration tag entry box
+        self.immigrationSet = tk.Entry(self)
+        self.immigrationSet.grid(row=5,column=1, sticky = "w")
+        
+        #Occupation
+        self.CheckboxOccupation = tk.Checkbutton(self, text="Occupation", variable=self.optionOccupation)
+        self.CheckboxOccupation.grid(row=5,column=2, sticky="w")
+
+        #Occupation tag entry box
+        self.occupationSet = tk.Entry(self)
+        self.occupationSet.grid(row=5,column=3, sticky = "w")
+
+        #Race
+        self.CheckboxRace = tk.Checkbutton(self,text="Race", variable=self.optionRace)
+        self.CheckboxRace.grid(row=6, sticky="w")
+
+        #Race tag entry box
+        self.raceSet = tk.Entry(self)
+        self.raceSet.grid(row=6,column=1, sticky = "w")
+
+        #Literacy
+        self.CheckboxLiteracy = tk.Checkbutton(self, text = "Literacy", variable=self.optionLiteracy)
+        self.CheckboxLiteracy.grid(row=6, column = 2, sticky = "w")
+        
+        #Literacy tag entry box
+        self.literacySet = tk.Entry(self)
+        self.literacySet.grid(row=6,column=3, sticky = "w")
 
 
+        #Disability
+        self.CheckboxDisability = tk.Checkbutton(self, text = "Disability", variable = self.optionDisability)
+        self.CheckboxDisability.grid(row = 7, sticky = "w")
+        
+        #Disability tag entry box
+        self.disabilitySet = tk.Entry(self)
+        self.disabilitySet.grid(row=7,column=1, sticky = "w")
 
+        #Children Born
+        self.CheckboxChildrenBorn = tk.Checkbutton(self, text="Children Born", variable = self.optionChildrenBorn)
+        self.CheckboxChildrenBorn.grid(row=7, column=2, sticky="w")
+
+        #Children Born tag entry box
+        self.childrenBornSet = tk.Entry(self)
+        self.childrenBornSet.grid(row=7,column=3, sticky = "w")
+
+        #Military
+        self.CheckboxMilitary = tk.Checkbutton(self, text="Military", variable=self.optionMilitary)
+        self.CheckboxMilitary.grid(row=8,sticky="w")
+
+        #Military tag entry box
+        self.militarySet = tk.Entry(self)
+        self.militarySet.grid(row=8,column=1, sticky = "w")
+
+        #Property
+        self.CheckboxProperty = tk.Checkbutton(self, text = "Property", variable=self.optionProperty)
+        self.CheckboxProperty.grid(row=8,column=2,sticky="w")
+
+        #Property tag entry box
+        self.propertySet = tk.Entry(self)
+        self.propertySet.grid(row=8,column=3, sticky = "w")
+
+        #Language
+        self.CheckboxLanguage = tk.Checkbutton(self,text="Language", variable=self.optionLanguage)
+        self.CheckboxLanguage.grid(row=9,sticky="w")
+
+        #Language tag entry box
+        self.languageSet = tk.Entry(self)
+        self.languageSet.grid(row=9,column=1, sticky = "w")
+
+        #Naturalization
+        self.CheckboxNaturalize = tk.Checkbutton(self,text="Naturalization", variable=self.optionNaturalize)
+        self.CheckboxNaturalize.grid(row=9, column=2,sticky="w")
+
+        #Naturalization tag entry box
+        self.naturalizeSet = tk.Entry(self)
+        self.naturalizeSet.grid(row=9,column=3, sticky = "w")
+
+        #CSV file select label
+        self.PathLabel = tk.Label(self)
+        self.PathLabel.grid(row=10,column=1, sticky="w")
+
+        #CSV file select button
+        self.BrowseButton = tk.Button(self, text="Input CSV",font = "Helvetica 10 bold", command=self.browse_func)
+        self.BrowseButton.grid(row=10, sticky ="w")
+
+        #submit button
+        self.submit = tk.Button(self, text="Submit",
+                                command = self.__Submit_Button__)
+        #,Literacy,Disability,Children,Military,Property,Language
+        self.submit.grid(row=11,column=1, sticky="w")
+        #Quit button
+        self.quit = tk.Button(self, text="QUIT", fg="red",
+                             command= self.quit_sequence)
+        self.quit.grid(row =11, column =2,sticky="w")
 
         #set up previous user configurations
         try:
