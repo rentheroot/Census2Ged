@@ -37,13 +37,27 @@ class Application(tk.Frame):
 
             print("switched to USA")
 
+            #if there is already a grid, forget it
             try:
                 self.frame.grid_forget()
             except:
                 pass
 
+            #create the frame
             self.frame = tk.Frame(root)
             self.frame.grid(sticky = 'nsew')
+
+            #label for Tag Inclusion
+            includeTagLabel = tk.Label(self.frame, text="Tags to include",font = "Helvetica 10 bold underline")
+            #render on left side of screen
+            includeTagLabel.grid(row = 4, sticky="w")
+
+            #label for custom tagging
+            includeCustomLabel = tk.Label(self.frame, text="Custom tag name",font = "Helvetica 10 bold underline")
+            #render on left side of screen
+            includeCustomLabel.grid(row = 4, column = 1, sticky="w")
+
+            #checkbutton widgets
 
             #Immigration
             self.CheckboxImmigration = tk.Checkbutton(self.frame, text="Immigration Year", variable=self.optionImmigration)
@@ -146,16 +160,52 @@ class Application(tk.Frame):
         
         #gui updated to English Options
         if value == "England":
+
             print("Switched to England")
+
+            #if grid already exists, forget it
             try:
                 self.frame.grid_forget()
             except:
                 pass
 
+            self.frame = tk.Frame(root)
+            self.frame.grid(sticky = 'nsew')
+
+            #label for Tag Inclusion
+            includeTagLabel = tk.Label(self.frame, text="Tags to include",font = "Helvetica 10 bold underline")
+            #render on left side of screen
+            includeTagLabel.grid(row = 4, sticky="w")
+
+            #label for custom tagging
+            includeCustomLabel = tk.Label(self.frame, text="Custom tag name",font = "Helvetica 10 bold underline")
+            #render on left side of screen
+            includeCustomLabel.grid(row = 4, column = 1, sticky="w")
+
 
         #gui updated to Swedish Options
         if value == "Sweden":
+
             print("Switched to Sweden")
+
+            #if grid already exists, forget it
+            try:
+                self.frame.grid_forget()
+            except:
+                pass
+
+            self.frame = tk.Frame(root)
+            self.frame.grid(sticky = 'nsew')
+
+            #label for Tag Inclusion
+            includeTagLabel = tk.Label(self.frame, text="Tags to include",font = "Helvetica 10 bold underline")
+            #render on left side of screen
+            includeTagLabel.grid(row = 4, sticky="w")
+
+            #label for custom tagging
+            includeCustomLabel = tk.Label(self.frame, text="Custom tag name",font = "Helvetica 10 bold underline")
+            #render on left side of screen
+            includeCustomLabel.grid(row = 4, column = 1, sticky="w")
 
  
 
@@ -175,7 +225,7 @@ class Application(tk.Frame):
 
         #gedcom name label
         gednameLabel = tk.Label(self, text="Gedcom Name:", font = "Helvetica 10 bold")
-        gednameLabel.grid(row=1, column=1, sticky ="w")
+        gednameLabel.grid(row=1, column=1, sticky ="e")
         #gedcom name selector
         self.gedNameSet = tk.Entry(self)
         self.gedNameSet.grid(row=1,column=2, sticky = "w")
@@ -183,27 +233,13 @@ class Application(tk.Frame):
         #label for country selector
         countryLabel = tk.Label(self, text="Country:", font = "Helvetica 10 bold")
         #render on left side of screen
-        countryLabel.grid(row = 2,column=1, sticky="w")
+        countryLabel.grid(row = 2,column=1, sticky="e")
         
 
         #label for year selector
         countryLabel = tk.Label(self, text="Census year:",font = "Helvetica 10 bold")
         #render on left side of screen
-        countryLabel.grid(row = 3, column=1, sticky="w")
-
-        #label for Tag Inclusion
-        includeTagLabel = tk.Label(self, text="Tags to include",font = "Helvetica 10 bold underline")
-        #render on left side of screen
-        includeTagLabel.grid(row = 4, sticky="w")
-
-
-        #label for custom tagging
-        includeCustomLabel = tk.Label(self, text="Custom tag name",font = "Helvetica 10 bold underline")
-        #render on left side of screen
-        includeCustomLabel.grid(row = 4, column = 1, sticky="w")
-
-
-
+        countryLabel.grid(row = 3, column=1, sticky="e")
 
         #country selector
         self.countrySelect = tk.StringVar(self)
@@ -285,16 +321,9 @@ class Application(tk.Frame):
         self.countryOptions.grid(row = 2, column = 2, sticky="w")
         self.yearOptions.grid(row=3,column=2, sticky="w")
 
-        # #renders a separation line between widgets
-        #separator = tk.Frame(height=2, bd=1, relief= tk.SUNKEN)
-        #separator.pack(fill= tk.X, padx=5, pady=5)
-
-        #checkbutton widgets
-
-
-
-
-
+        #instantiate the frames
+        self.guiUpdate("United States")
+        
         #set up previous user configurations
         try:
             if user_config["Race"] == 1:
