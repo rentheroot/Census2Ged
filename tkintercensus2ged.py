@@ -169,6 +169,7 @@ class Application(tk.Frame):
             except:
                 pass
 
+            #create the frame
             self.frame = tk.Frame(root)
             self.frame.grid(sticky = 'nsew')
 
@@ -194,20 +195,48 @@ class Application(tk.Frame):
             except:
                 pass
 
+            #create the frame
             self.frame = tk.Frame(root)
             self.frame.grid(sticky = 'nsew')
 
-            #label for Tag Inclusion
-            includeTagLabel = tk.Label(self.frame, text="Tags to include",font = "Helvetica 10 bold underline")
-            #render on left side of screen
-            includeTagLabel.grid(row = 4, sticky="w")
+            #First selector
+            self.firstSelect = tk.StringVar(self)
+            #First selector 2
+            self.first2Select = tk.StringVar(self)
+            #Second selector
+            self.secondSelect = tk.StringVar(self)
+            #Second selector 2
+            self.second2Select = tk.StringVar(self)
+            #Third selector
+            self.thirdSelect = tk.StringVar(self)
 
-            #label for custom tagging
-            includeCustomLabel = tk.Label(self.frame, text="Custom tag name",font = "Helvetica 10 bold underline")
-            #render on left side of screen
-            includeCustomLabel.grid(row = 4, column = 1, sticky="w")
+            #label for Adult name structure
+            adultNameLabel = tk.Label(self.frame, text="Structure of Name Field for Adults",font = "Helvetica 10 bold underline")
+            adultNameLabel.grid(row = 4, column = 2, sticky="ew")
 
- 
+            #label for child name structure
+            childNameLabel = tk.Label(self.frame, text="Structure of Name Field for Children",font = "Helvetica 10 bold underline")
+            childNameLabel.grid(row = 6, column = 2, sticky="ew")
+
+            #options
+            optionsList = "Person's Name", "Occupation", "Relationship", "Disability","n/a"
+            #the first field
+            self.firstOption = tk.OptionMenu(self.frame, self.firstSelect, *optionsList)
+            self.firstOption.grid(row=5, column=1,sticky="w")
+
+            #the second field
+            self.secondOption = tk.OptionMenu(self.frame, self.secondSelect, *optionsList)
+            self.secondOption.grid(row=5, column=2,sticky="w")
+
+            #the first field 2
+            self.firstOption2 = tk.OptionMenu(self.frame, self.first2Select, *optionsList)
+            self.firstOption2.grid(row=7, column=1,sticky="w")
+
+            #the second field 2
+            self.secondOption2 = tk.OptionMenu(self.frame, self.second2Select, *optionsList)
+            self.secondOption2.grid(row=7, column=2,sticky="w")
+
+
 
 
 
@@ -245,6 +274,7 @@ class Application(tk.Frame):
         self.countrySelect = tk.StringVar(self)
         #year selector
         self.yearSelect = tk.StringVar(self)
+
         #checkbox Immigration
         self.optionImmigration = tk.IntVar(self)
         #checkbox Occupation
@@ -315,16 +345,14 @@ class Application(tk.Frame):
         #set United States as the default value
         self.countrySelect.set("United States")
 
-
-
         #render on right side of widget
         self.countryOptions.grid(row = 2, column = 2, sticky="w")
         self.yearOptions.grid(row=3,column=2, sticky="w")
 
         #instantiate the frames
         self.guiUpdate("United States")
-        
-        #set up previous user configurations
+
+        #set up previous user configurations for USA
         try:
             if user_config["Race"] == 1:
                 self.CheckboxRace.select()
