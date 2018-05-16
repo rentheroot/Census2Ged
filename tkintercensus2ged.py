@@ -57,7 +57,7 @@ class Application(tk.Frame):
             #render on left side of screen
             includeCustomLabel.grid(row = 4, column = 1, sticky="w")
 
-            #checkbutton widgets
+            #---checkbutton widgets---#
 
             #Immigration
             self.CheckboxImmigration = tk.Checkbutton(self.frame, text="Immigration Year", variable=self.optionImmigration)
@@ -151,8 +151,8 @@ class Application(tk.Frame):
             #submit button
             self.submit = tk.Button(self.frame, text="Submit",
                                     command = self.__Submit_Button__)
-            #,Literacy,Disability,Children,Military,Property,Language
             self.submit.grid(row=11,column=1, sticky="w")
+
             #Quit button
             self.quit = tk.Button(self.frame, text="QUIT", fg="red",
                                  command= self.quit_sequence)
@@ -201,44 +201,68 @@ class Application(tk.Frame):
 
             #First selector
             self.firstSelect = tk.StringVar(self)
-            #First selector 2
-            self.first2Select = tk.StringVar(self)
             #Second selector
             self.secondSelect = tk.StringVar(self)
-            #Second selector 2
-            self.second2Select = tk.StringVar(self)
             #Third selector
             self.thirdSelect = tk.StringVar(self)
+            #Fourth selector
+            self.fourthSelect = tk.StringVar(self)
+
 
             #label for Adult name structure
-            adultNameLabel = tk.Label(self.frame, text="Structure of Name Field for Adults",font = "Helvetica 10 bold underline")
-            adultNameLabel.grid(row = 4, column = 2, sticky="ew")
+            adultNameLabel = tk.Label(self.frame, text='''Type of information included
+in census name field''',font = "Helvetica 10 bold underline")
+            adultNameLabel.grid(row = 4, column = 0, columnspan= 4,sticky="ew")
 
-            #label for child name structure
-            childNameLabel = tk.Label(self.frame, text="Structure of Name Field for Children",font = "Helvetica 10 bold underline")
-            childNameLabel.grid(row = 6, column = 2, sticky="ew")
 
             #options
             optionsList = "Person's Name", "Occupation", "Relationship", "Disability","n/a"
-            #the first field
-            self.firstOption = tk.OptionMenu(self.frame, self.firstSelect, *optionsList)
-            self.firstOption.grid(row=5, column=1,sticky="w")
+            
+            #checkbox vars
 
-            #the second field
-            self.secondOption = tk.OptionMenu(self.frame, self.secondSelect, *optionsList)
-            self.secondOption.grid(row=5, column=2,sticky="w")
+            #checkbox PName
+            self.optionPName = tk.IntVar(self)
+            #checkbox SwedOccupation
+            self.optionSwedOccupation = tk.IntVar(self)
+            #checkbox SwedRelationship
+            self.optionSwedRelationship = tk.IntVar(self)
+            #checkbox SwedDisability
+            self.optionSwedDisability = tk.IntVar(self)
 
-            #the first field 2
-            self.firstOption2 = tk.OptionMenu(self.frame, self.first2Select, *optionsList)
-            self.firstOption2.grid(row=7, column=1,sticky="w")
+            #checkboxes
 
-            #the second field 2
-            self.secondOption2 = tk.OptionMenu(self.frame, self.second2Select, *optionsList)
-            self.secondOption2.grid(row=7, column=2,sticky="w")
+            #Person's Name
+            self.CheckboxPName = tk.Checkbutton(self.frame, text="Person's Name", variable=self.optionPName)
+            self.CheckboxPName.grid(row=5, sticky="w") 
 
+            #Occupation
+            self.CheckboxSwedOccupation = tk.Checkbutton(self.frame, text="Occupation", variable=self.optionSwedOccupation)
+            self.CheckboxSwedOccupation.grid(row=6, sticky="w") 
 
+            #Relationship
+            self.CheckboxSwedRelationship = tk.Checkbutton(self.frame, text="Relationship", variable=self.optionSwedRelationship)
+            self.CheckboxSwedRelationship.grid(row=7, sticky="w")
 
+            #Disability
+            self.CheckboxSwedDisability = tk.Checkbutton(self.frame, text="Disability", variable=self.optionSwedDisability)
+            self.CheckboxSwedDisability.grid(row=8, sticky="w")
 
+            #CSV file select label
+            self.PathLabel = tk.Label(self.frame)
+            self.PathLabel.grid(row=10,column=1, sticky="w")
+
+            #CSV file select button
+            self.BrowseButton = tk.Button(self.frame, text="Input CSV",font = "Helvetica 10 bold", command=self.browse_func)
+            self.BrowseButton.grid(row=10, sticky ="w")
+            #submit button
+            self.submit = tk.Button(self.frame, text="Submit",
+                                    command = self.__Submit_Button__)
+            self.submit.grid(row=11,column=1, sticky="w")
+            
+            #Quit button
+            self.quit = tk.Button(self.frame, text="QUIT", fg="red",
+                                 command= self.quit_sequence)
+            self.quit.grid(row =11, column =2,sticky="w")
 
     def create_widgets(self):
 
