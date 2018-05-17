@@ -1,9 +1,3 @@
-#Swedish Female Given Names List
-#Source: https://en.wiktionary.org/wiki/Category:Swedish_female_given_names
-#Source: https://en.wiktionary.org/wiki/Category:Swedish_diminutives_of_female_given_names
-#Source: https://en.wikipedia.org/wiki/Category:Swedish_feminine_given_names
-#Source: https://www.nordicnames.de/w/index.php?title=Category:Old_Swedish_Female_Names&pagefrom=Margareta#mw-pages
-#Source: https://www.familysearch.org/wiki/en/Sweden_Names,_Personal
 Ada
 Adolfina
 Agda

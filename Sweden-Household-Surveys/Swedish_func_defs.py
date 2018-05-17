@@ -1,4 +1,5 @@
 import csv
+import codecs
 familynumber = 0
 
 #-------------------------------------------------------------------#
@@ -18,32 +19,35 @@ def wordListSetup(relaName, occuName, malName, femName, surName):
 	surList = []
 
 	#relationship list
-	with open (relaName, 'r') as the_file:
+	with open (relaName, 'r', encoding='utf-8') as the_file:
 		for line in the_file:
-			relaList = relaList.append(line)
+			relaList.append(line.encode('utf-8'))
 
 	#Occupation list
-	with open (occuName, 'r') as the_file:
+	with open (occuName, 'r', encoding='utf-8') as the_file:
 		for line in the_file:
-			occuList = occuList.append(line)
+			occuList.append(line.encode('utf-8'))
 
 	#Male First Name list
-	with open (malName, 'r') as the_file:
+	with open (malName, 'r', encoding='utf-8') as the_file:
 		for line in the_file:
-			malList = malList.append(line)
+			malList.append(line.encode('utf-8'))
 
 	#Female First Name list
-	with open (femName, 'r') as the_file:
+	with open (femName, 'r', encoding='utf-8') as the_file:
 		for line in the_file:
-			femList = femList.append(line)
+			femList.append(line.encode('utf-8'))
 
 	#Surname list
-	with open (surName, 'r') as the_file:
+	with open (surName, 'r', encoding='utf-8') as the_file:
 		for line in the_file:
-			surList = surList.append(line)
+			surList.append(line.encode('utf-8'))
 	#return all the lists
 	return(set(relaList), set(occuList), set(malList), set(femList), set(surList))
-
+with open ('test.txt', 'w', encoding='utf-8') as the_file:
+	a,b,c,d,e = wordListSetup('./Word-Lists/Relationships.txt','./Word-Lists/Occupations.txt', './Word-Lists/Swedish-First-Names-Male.txt', './Word-Lists/Swedish-First-Names-Female.txt', './Word-Lists/Swedish-last-Names.txt')
+	for item in a:
+		the_file.write(item.decode('utf-8'))
 #-------------------------------------------------------------------#
 #-------------------Name Writer (universal)-------------------------#
 #-------------------------------------------------------------------#
@@ -57,5 +61,5 @@ def swedNameWriter(row,n, the_file):
 		pass
 	else:
 		name = row[n]
-		name = list(name)
-		for i in name:
+		name = set(name)
+		
