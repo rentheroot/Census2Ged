@@ -125,7 +125,7 @@ class Application(tk.Frame):
             self.propertySet.grid(row=8,column=3, sticky = "w")
 
             #Language
-            self.CheckboxLanguage = tk.Checkbutton(self.frame,text="Language", variable=self.optionLanguage)
+            self.CheckboxLanguage = tk.Checkbutton(self.frame,text="Language", variable=self.optionLanguage)1111
             self.CheckboxLanguage.grid(row=9,sticky="w")
 
             #Language tag entry box
