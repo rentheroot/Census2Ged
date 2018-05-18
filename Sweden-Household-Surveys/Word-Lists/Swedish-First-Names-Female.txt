@@ -27,7 +27,6 @@ Ann-Marie
 Ann-Sofi
 Ann-Sofie
 Anna
-Anne
 Anne-Marie
 Anneli
 Annelie
@@ -123,7 +122,6 @@ Ester
 Estrid
 Eugenia
 Eva
-Eve
 Evelina
 Evy
 Fanny
@@ -228,7 +226,6 @@ Katrina
 Kerstin
 Kia
 Kicki
-Kim
 Klara
 Kristin
 Kristina
@@ -366,7 +363,6 @@ Ros-Mari
 Ros-Marie
 Rosa
 Rose-Marie
-Rut
 Ruth
 Sabina
 Saga
@@ -416,7 +412,6 @@ Tindra
 Titti
 Tora
 Tova
-Tove
 Tuva
 Tyra
 Ulla
@@ -449,7 +444,6 @@ Wilhelmina
 Wilma
 Ylva
 Yvonne
-Zlatan
 Åsa
 Öda
 Bibbi
@@ -476,8 +470,6 @@ Karen
 Krista
 Kristi
 Lotte
-Love
-Nanne
 Pearl
 Petunia
 Richenza
@@ -555,7 +547,6 @@ Aleka
 Alet
 Aleta
 Aleydis
-Alfred
 Alfridh
 Algunna
 Alhect
@@ -640,9 +631,6 @@ Dordi
 Dorede
 Dorete
 Dorothea
-Dota
-Doter
-Dottir
 Edela
 Eirny
 Eldridh
@@ -730,7 +718,6 @@ Haferdh
 Hafridh
 Hafrik
 Hafuidh
-Halffred
 Hamfrid
 Hedendis
 Hedevi
@@ -809,7 +796,6 @@ Kirstin
 Kiäli
 Kjellu
 Kætilfridh
-Kætilløgh
 Kätilrun
 Kätilvi
 Kætilø
@@ -835,20 +821,15 @@ Mechthild
 Mechtild
 Metta
 Mette
-Moder
 Modher
 Moiken
 Mundgärdh
-Myskia
 Märeta
 Mæreta
 Mæretta
 Märita
 Mærætha
 Mätta
-Olaf
-Olef
-Olof
 Ormlög
 Othindisa
 Petronilla
@@ -882,7 +863,6 @@ Runälf
 Sibilla
 Sigborg
 Sighborgh
-Sighfridh
 Sighløgh
 Sighne
 Sighni
@@ -892,7 +872,6 @@ Sighrun
 Siglög
 Signild
 Skärlog
-Sommar
 Stena
 Stenborg
 Stenborgh
@@ -906,14 +885,11 @@ Svenborg
 Säborg
 Thiudhborg
 Thora
-Thorfridh
 Thorgun
 Thorgärdh
 Thorgærdh
-Thorlef
 Thorlof
 Thorlög
-Thorløgh
 Thorridh
 Thorun
 Thorälf

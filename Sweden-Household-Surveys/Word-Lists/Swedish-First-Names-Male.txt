@@ -67,7 +67,6 @@ Niklas
 Nils
 Olaus
 Ola
-Olof
 Oscar
 Otto
 Paul
@@ -151,12 +150,10 @@ Albin
 Alex
 Alexander
 Alfons
-Alfred
 Allan
 Alrik
 Alvar
 André
-Anne
 Anton
 Arnold
 Aron
@@ -222,7 +219,6 @@ Erling
 Esaias
 Eugen
 Evald
-Eve
 Evert
 Fabian
 Felix
@@ -306,7 +302,6 @@ Kenny
 Kent
 Kenth
 Kevin
-Kim
 Kjell
 Konrad
 Konstantin
@@ -323,7 +318,6 @@ Leon
 Liam
 Linus
 Loke
-Love
 Lucas
 Ludvig
 Lukas
@@ -459,7 +453,6 @@ William
 Willy
 Yngve
 Zakarias
-Zlatan
 Örjan
 Örn
 Östen
@@ -475,8 +468,6 @@ Eldar
 Klaus
 Lauritz
 Matias
-Nanne
-Olaf
 Orvar
 Owe
 Ralph
@@ -981,7 +972,6 @@ Diærf
 Domar
 Domare
 Dome
-Dota
 Drosbo
 Dræng
 Drænge
@@ -1268,7 +1258,6 @@ Halbiorn
 Haldan
 Halden
 Halfdan
-Halffred
 Hallbiorn
 Halle
 Haller
@@ -1578,7 +1567,6 @@ Käller
 Kätil
 Kætil
 Kætilbiorn
-Kætilløgh
 Kætilmund
 Kætilvast
 Kättil
@@ -1675,7 +1663,6 @@ Morthen
 Mule
 Mundo
 Mýr
-Myskia
 Mæghinbiorn
 Mäginvast
 Nafne
@@ -1742,7 +1729,6 @@ Okæ
 Olaff
 Olauer
 Ole
-Olef
 Oleff
 Olf
 Oluff
@@ -1887,7 +1873,6 @@ Runsten
 Runulf
 Runvast
 Runvidh
-Rut
 Rysia
 Ræv
 Rødh
@@ -1923,7 +1908,6 @@ Sighbiorn
 Sighdan
 Sighdiærf
 Sighfast
-Sighfridh
 Sighhiælm
 Sighhvat
 Sighmar
@@ -1983,7 +1967,6 @@ Skærlak
 Slodhe
 Smidh
 Snare
-Sommar
 Sot
 Sote
 Spa
@@ -2095,7 +2078,6 @@ Thordo
 Thorer
 Thorfast
 Thorfin
-Thorfridh
 Thorgardh
 Thorger
 Thorgils
@@ -2109,8 +2091,6 @@ Thorirus
 Thorketil
 Thorkil
 Thorlak
-Thorlef
-Thorløgh
 Thormodh
 Thormund
 Thorn
@@ -2155,7 +2135,6 @@ Torgisl
 Toste
 Tote
 Totte
-Tove
 Trana
 Trion
 Troels

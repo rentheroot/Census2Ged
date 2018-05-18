@@ -197,7 +197,6 @@ bössmed
 cantor
 curatus
 custod
-d.
 dr.
 dagkarl
 daglönare
@@ -245,7 +244,6 @@ friborgare
 frihandlare
 friherre
 friherrinna
-fru
 frälse
 frälsebonde
 frälsetorpare
@@ -341,18 +339,15 @@ hovman
 hudafdragare
 husbonde
 husdräng
-husfader
 husflicka
 husfolk
 hushållare
 husjungfru
 husmamsell
 husman
-husmoder
 huspiga
 huspredikant
 hustjänare
-hustru
 hyttarbetare
 hållkarl
 hårarbetare

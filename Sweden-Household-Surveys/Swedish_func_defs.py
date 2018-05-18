@@ -46,15 +46,17 @@ def wordListSetup(relaName, occuName, malName, femName, surName):
 	return(set(relaList), set(occuList), set(malList), set(femList), set(surList))
 with open ('test.txt', 'w', encoding='utf-8') as the_file:
 	a,b,c,d,e = wordListSetup('./Word-Lists/Relationships.txt','./Word-Lists/Occupations.txt', './Word-Lists/Swedish-First-Names-Male.txt', './Word-Lists/Swedish-First-Names-Female.txt', './Word-Lists/Swedish-last-Names.txt')
-	for item in a:
+	f = a.intersection(b)
+	for item in f:
 		the_file.write(item.decode('utf-8'))
 #-------------------------------------------------------------------#
 #-------------------Name Writer (universal)-------------------------#
 #-------------------------------------------------------------------#
 #row = row
 #n = name row
+#wordLists = the word lists
 #the_file = the_file
-def swedNameWriter(row,n, the_file):
+def swedNameWriter(row,n, wordLists,the_file):
 
 	#if name row doesn't exist do nothing
 	if not row[n]:
@@ -63,3 +65,18 @@ def swedNameWriter(row,n, the_file):
 		name = row[n]
 		name = set(name)
 		
+#-------------------------------------------------------------------#
+#--------------------------------End File---------------------------#
+#-------------------------------------------------------------------#
+def EndFile(the_file):
+    #print family records
+    with open('temporaryfamilies.txt', 'r') as new_file:
+        familesfinal = new_file.read()
+        the_file.write(familesfinal)
+
+    #clear temporaryfamilies.txt
+    with open('temporaryfamilies.txt', 'w') as new_file:
+        new_file.close
+
+    #Print Trailer
+    the_file.write('TRLR\n')
