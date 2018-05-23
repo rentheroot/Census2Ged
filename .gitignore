@@ -19,3 +19,10 @@ __pycache__/func_defs.cpython-35.pyc
 Word-Lists/surname-wikipedia-fixer.py
 test.py
 tempsurnames.txt
+Sweden-Household-Surveys/Swedish_func_defs.py
+Sweden-Household-Surveys/TempBothFirsts.txt
+Sweden-Household-Surveys/TempFemaleFirsts.txt
+Sweden-Household-Surveys/TempMaleFirsts.txt
+Sweden-Household-Surveys/TempOccupations.txt
+Sweden-Household-Surveys/TempRelationships.txt
+Sweden-Household-Surveys/test.txt

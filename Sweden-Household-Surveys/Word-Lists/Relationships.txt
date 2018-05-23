@@ -44,3 +44,6 @@ s.
 änka
 änkl.
 änkling
+eg.
+egare
+ägare
