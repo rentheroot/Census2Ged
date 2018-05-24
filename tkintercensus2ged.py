@@ -3,6 +3,11 @@ import csv
 import tkinter as tk
 from tkinter import filedialog
 import pickle
+import sys
+
+#modify system path
+sys.path.insert(0, "./Sweden-Household-Surveys")
+sys.path.insert(0, "./Sweden-Household-Surveys/Word-Lists")
 
 #import custom modules
 from header import *
@@ -12,6 +17,7 @@ from census1870 import *
 from census1880 import *
 from census1900 import *
 from census1910 import *
+from household1881_1885 import *
 
 #load up that pickle
 try:
@@ -125,7 +131,7 @@ class Application(tk.Frame):
             self.propertySet.grid(row=8,column=3, sticky = "w")
 
             #Language
-            self.CheckboxLanguage = tk.Checkbutton(self.frame,text="Language", variable=self.optionLanguage)1111
+            self.CheckboxLanguage = tk.Checkbutton(self.frame,text="Language", variable=self.optionLanguage)
             self.CheckboxLanguage.grid(row=9,sticky="w")
 
             #Language tag entry box
@@ -216,12 +222,10 @@ in census name field''',font = "Helvetica 10 bold underline")
 
 
             #options
-            optionsList = "Person's Name", "Occupation", "Relationship", "Disability","n/a"
+            optionsList = "Occupation", "Relationship", "Disability","n/a"
             
             #checkbox vars
 
-            #checkbox PName
-            self.optionPName = tk.IntVar(self)
             #checkbox SwedOccupation
             self.optionSwedOccupation = tk.IntVar(self)
             #checkbox SwedRelationship
@@ -230,10 +234,6 @@ in census name field''',font = "Helvetica 10 bold underline")
             self.optionSwedDisability = tk.IntVar(self)
 
             #checkboxes
-
-            #Person's Name
-            self.CheckboxPName = tk.Checkbutton(self.frame, text="Person's Name", variable=self.optionPName)
-            self.CheckboxPName.grid(row=5, sticky="w") 
 
             #Occupation
             self.CheckboxSwedOccupation = tk.Checkbutton(self.frame, text="Occupation", variable=self.optionSwedOccupation)

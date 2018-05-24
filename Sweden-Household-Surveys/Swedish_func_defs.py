@@ -297,13 +297,20 @@ def swedNameWriter(row,n, wordLists,g, idn):
 
 			#if the person is the child, make them the child
 			if isChild:
-				
+
 				the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 				with open('temporaryfamilies.txt', 'a') as new_file:
 					new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
-			
 
+#-------------------------------------------------------------------#
+#----------------------------Birth Writer---------------------------#
+#-------------------------------------------------------------------#
+#row = current row
+#y = birth year column
+#md = month and day column
+#g = the gedcom file
+def BDateWriter(row, y, md, g):			
 
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#
