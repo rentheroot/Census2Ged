@@ -98,7 +98,6 @@ def __Name_Writer_No_Relation__(row, n, the_file):
              the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
              #Print "2 GIVN (firstname)"
              the_file.write('2 GIVN ' + firstname + '\n')
-
              #Print "2 SURN (lastname)"
              the_file.write('2 SURN ' + lastname + '\n')
                      
@@ -106,11 +105,11 @@ def __Name_Writer_No_Relation__(row, n, the_file):
 
              firstname = str(name[1] + ' ' + name[2])
              lastname = name[0]
+
              #print "1 NAME (firstname) /(lastname)/"
              the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
              #Print "2 GIVN (firstname)"
              the_file.write('2 GIVN ' + firstname + '\n')
-
              #Print "2 SURN (lastname)"
              the_file.write('2 SURN ' + lastname + '\n')
 
@@ -121,12 +120,11 @@ def __Name_Writer_No_Relation__(row, n, the_file):
              
              #print "1 NAME (firstname) /(lastname)/"
              the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
-             
              #Print "2 GIVN (firstname)"
              the_file.write('2 GIVN ' + firstname + '\n')
-
              #Print "2 SURN (lastname)"
              the_file.write('2 SURN ' + lastname + '\n')
+             
      else:
          print('too many spaces in name')
 
@@ -712,8 +710,6 @@ def FamilyWriter1900(row, r,ym, the_file, idn,y):
          config.familynumber += 1
          the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-         
-
          with open('temporaryfamilies.txt', 'a') as new_file:
              new_file.write('0 '+ '@F' + "{0:0=3d}".format(config.familynumber) + '@ FAM\n')
              new_file.write('1 HUSB ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
@@ -732,6 +728,7 @@ def FamilyWriter1900(row, r,ym, the_file, idn,y):
                  new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
                  new_file.write('1 MARR\n')
                  new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
+                 
           elif relation == 'son':
 
              the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')

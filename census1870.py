@@ -3,7 +3,6 @@
 
 #imports
 import csv
-
 from func_defs import *
 
 
