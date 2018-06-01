@@ -4,6 +4,25 @@ import config
 import calendar
 
 #-------------------------------------------------------------------#
+#----------------------------Date Formatter-------------------------#
+#-------------------------------------------------------------------#
+#fullMonthDay = the day and month
+#year = year of event
+def dateFormatter(fullMonthDay,year):
+
+    #month and day assignment
+    fullMonthDay = fullMonthDay.split('/')
+    day = int(fullMonthDay[0])
+    month = int(fullMonthDay[1])
+
+    monthName = calendar.month_name[month]
+    monthName = monthName[:3].upper()
+
+    #full date formatted
+    fullDate = str(day) + ' ' + str(monthName) + ' ' + str(year)
+    #return the fully formatted date
+    return(fullDate)
+#-------------------------------------------------------------------#
 #----------------Word lists to python lists-------------------------#
 #-------------------------------------------------------------------#
 #relaName - relationship word list
@@ -304,18 +323,12 @@ def swedNameWriter(row,n, wordLists,the_file, idn, drange1, drange2, mYear):
 					married = married.split(' ')
 
 					monthDate = married[0]
-					monthDate = monthDate.split('/')
-
-					day =  monthDate[0]
-
-					month = monthDate[1]
-					month = calendar.month_name[int(month)]
-					month = month[:3].upper()
-
 					year = married[1]
 
+					fullDate = dateFormatter(monthDate, year)
+
 					new_file.write('1 MARR\n')
-					new_file.write('2 DATE ' + str(day) + ' ' + str(month) + ' ' + str(year) + '\n')
+					new_file.write('2 DATE ' + fullDate + '\n')
 
 		#if the person is the child, make them the child
 		if isChild:
@@ -346,16 +359,11 @@ def BDateWriter(row, y, md, bplace, cYear, g):
     	bYear = str(cYear) + str(bYear)
 
 
-    #birth month and birth day assignment
-    bMonthDayList = bMonthDay.split('/')
-    bDay = int(bMonthDayList[0])
-    month = int(bMonthDayList[1])
-
-    monthName = calendar.month_name[month]
-    monthName = monthName[:3].upper()
+    #format date
+    fullDate = dateFormatter(bMonthDay,bYear)
 
     #write full date to file
-    g.write('2 DATE ' + str(bDay) + ' ' + str(monthName) + ' ' + str(bYear) +'\n')
+    g.write('2 DATE ' + fullDate +'\n')
     #write birth place
     if len(list(bPlace)) != 0:
     	g.write('2 PLAC ' + bPlace + '\n')
@@ -373,19 +381,13 @@ def DDateWriter(row, dy, g):
 		deathYear = row[dy]
 		deathYear = deathYear.split(' ')
 
-		monthDate = deathYear[0]
-		monthDate = monthDate.split('/')
-
-		day =  monthDate[0]
-
-		month = monthDate[1]
-		month = calendar.month_name[int(month)]
-		month = month[:3].upper()
-
 		year = deathYear[1]
 
+		monthDate = deathYear[0]
+		fullDate = dateFormatter(monthDate, year)
+
 		g.write('1 DEAT\n')
-		g.write('2 DATE ' + str(day) + ' ' + str(month) + ' ' + str(year) + '\n')
+		g.write('2 DATE ' + fullDate + '\n')
 
 #-------------------------------------------------------------------#
 #------------------------Ordinance Writer---------------------------#
@@ -404,18 +406,12 @@ def OrdiWriter(row,examinations,communions,g):
 			examinationDate = row[exam]
 			examYear = exam.replace('Examination','')
 
-			#separate month and day
-			examinationDate = examinationDate.split('/')
-
-			day = examinationDate[0]
-
-			month = examinationDate[1]
-			month = calendar.month_name[int(month)]
-			month = month[:3].upper()
+			#format the date
+			fullDate = dateFormatter(examinationDate, examYear)
 
 			#write in as ordinance fact
 			g.write('1 ORDI Attended Examination\n')
-			g.write('2 DATE ' + str(day) + ' ' + str(month) + ' ' + str(examYear) + '\n')
+			g.write('2 DATE ' + fullDate + '\n')
 	
 	for communion in communions:
 		if not row[communion]:
@@ -425,18 +421,11 @@ def OrdiWriter(row,examinations,communions,g):
 			communionDate = row[communion]
 			communionYear = communion.replace('Communion','')
 
-			#separate month and day
-			communionDate = communionDate.split('/')
-
-			day = communionDate[0]
-
-			month = communionDate[1]
-			month = calendar.month_name[int(month)]
-			month = month[:3].upper()
+			fullDate = dateFormatter(communionDate, communionYear)
 
 			#write in as ordinance fact
 			g.write('1 ORDI Received Holy Communion\n')
-			g.write('2 DATE ' + str(day) + ' ' + str(month) + ' ' + str(examYear) + '\n')
+			g.write('2 DATE ' + fullDate + '\n')
 
 #-------------------------------------------------------------------#
 #----------------------Immigration Writer---------------------------#
@@ -450,7 +439,18 @@ def ImmiWriter(row, immiPlace, immiDate, g):
 	if not row[immiPlace] and not row[immiDate]:
 		pass
 	else:
+		#set up vars
+		immiPlace = row[immiPlace]
+		immiDate= row[immiDate]
 		
+		#separate month/day from year
+		immiDate = immiDate.split(' ')
+
+		#format the date
+		dateFormatter(immiDate[0], immiDate[1])
+
+		#write the pertinent information to file
+		the_file.write('1 IMMI ')
 
 
 #-------------------------------------------------------------------#
