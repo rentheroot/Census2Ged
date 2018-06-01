@@ -200,7 +200,8 @@ def swedNameWriter(row,n, wordLists,the_file, idn, drange1, drange2, mYear):
 		#Print "2 GIVN (firstname)"
 		the_file.write('2 GIVN ' + firstNames.decode('utf-8') + '\n')
 		#Print "2 SURN (lastname)"
-		the_file.write('2 SURN ' + lastNames.decode('utf-8') + '\n')
+		if len(lastNames) != 0:
+			the_file.write('2 SURN ' + lastNames.decode('utf-8') + '\n')
 
 		#-------Gender Writer-------#
 		genderValue = 0
@@ -360,9 +361,104 @@ def BDateWriter(row, y, md, bplace, cYear, g):
     	g.write('2 PLAC ' + bPlace + '\n')
 
 #-------------------------------------------------------------------#
+#----------------------------Death Writer---------------------------#
+#-------------------------------------------------------------------#
+#row = current row
+#dy= death year row
+#g= the gedcom file
+def DDateWriter(row, dy, g):
+	if not row[dy]:
+		pass
+	else:
+		deathYear = row[dy]
+		deathYear = deathYear.split(' ')
+
+		monthDate = deathYear[0]
+		monthDate = monthDate.split('/')
+
+		day =  monthDate[0]
+
+		month = monthDate[1]
+		month = calendar.month_name[int(month)]
+		month = month[:3].upper()
+
+		year = deathYear[1]
+
+		g.write('1 DEAT\n')
+		g.write('2 DATE ' + str(day) + ' ' + str(month) + ' ' + str(year) + '\n')
+
+#-------------------------------------------------------------------#
+#------------------------Ordinance Writer---------------------------#
+#-------------------------------------------------------------------#
+#row = current row
+#examinations = the rows for the date of examination
+#communions = the rows for the date of the communion
+def OrdiWriter(row,examinations,communions,g):
+	for exam in examinations:
+		#if nothing is recorded in the exam column, do nothing
+		if not row[exam]:
+			pass
+
+		else:
+			#set up vars for exam date and year
+			examinationDate = row[exam]
+			examYear = exam.replace('Examination','')
+
+			#separate month and day
+			examinationDate = examinationDate.split('/')
+
+			day = examinationDate[0]
+
+			month = examinationDate[1]
+			month = calendar.month_name[int(month)]
+			month = month[:3].upper()
+
+			#write in as ordinance fact
+			g.write('1 ORDI Attended Examination\n')
+			g.write('2 DATE ' + str(day) + ' ' + str(month) + ' ' + str(examYear) + '\n')
+	
+	for communion in communions:
+		if not row[communion]:
+			pass
+		else:
+			#set up vars for communion date and year
+			communionDate = row[communion]
+			communionYear = communion.replace('Communion','')
+
+			#separate month and day
+			communionDate = communionDate.split('/')
+
+			day = communionDate[0]
+
+			month = communionDate[1]
+			month = calendar.month_name[int(month)]
+			month = month[:3].upper()
+
+			#write in as ordinance fact
+			g.write('1 ORDI Received Holy Communion\n')
+			g.write('2 DATE ' + str(day) + ' ' + str(month) + ' ' + str(examYear) + '\n')
+
+#-------------------------------------------------------------------#
+#----------------------Immigration Writer---------------------------#
+#-------------------------------------------------------------------#
+#row = current row in file
+#immiPlace = place related information row
+#immiDate = immigration date row
+#the gedcom file
+def ImmiWriter(row, immiPlace, immiDate, g):
+	#check if rows are blank or not
+	if not row[immiPlace] and not row[immiDate]:
+		pass
+	else:
+		
+
+
+#-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#
 #-------------------------------------------------------------------#
+#the_file = the gedcom file
 #g = the gedcom name
+#idn= the unique individual identifier
 def EndFile(the_file,g, idn):
     #print family records
     with open('TemporaryFamilies.txt', 'r') as new_file:
@@ -428,7 +524,7 @@ def EndFile(the_file,g, idn):
 
         if "@F" in newItem:
             toRemove2.append(newItem)
-
+    print(toRemove2)
     the_file.close()
 
     #fix family groups

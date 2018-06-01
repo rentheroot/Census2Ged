@@ -50,5 +50,13 @@ def writeName1881_1885 (c , g):
                     #birth date (month, day, and year) writer
                     BDateWriter(row, 'Birth-Year', 'Birth-Month-Day', 'Birth-Place', '18', the_file)
 
+                    #Religious ordinance writer (examination and communion)
+                    examinations = ['Examination1881', 'Examination1882','Examination1883','Examination1884', 'Examination1885']
+                    communions = ['Communion1881', 'Communion1882','Communion1883','Communion1884', 'Communion1885']
+                    OrdiWriter(row,examinations,communions,the_file)
+
+                    #Death date writer
+                    DDateWriter(row,'Death',the_file)
+
              #call endfile function
              EndFile(the_file,g, idn)

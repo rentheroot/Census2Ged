@@ -17,6 +17,10 @@
 1 FAMS @F002@
 1 BIRT
 2 DATE 25 JAN 1830
+1 ORDI Attended Examination
+2 DATE 07 JUN 1883
+1 DEAT
+2 DATE 24 MAR 1884
 0 @I002@ INDI
 1 NAME Johanna Karolina/Johannesdr/
 2 GIVN Johanna Karolina
@@ -28,30 +32,41 @@
 1 BIRT
 2 DATE 9 MAR 1848
 2 PLAC Linderås
+1 ORDI Attended Examination
+2 DATE 30 JUN 1881
+1 ORDI Attended Examination
+2 DATE 26 JUN 1882
+1 ORDI Attended Examination
+2 DATE 9 JUN 1884
+1 ORDI Attended Examination
+2 DATE 19 JUN 1885
 0 @I003@ INDI
 1 NAME Frans Oskar Vilhelm//
 2 GIVN Frans Oskar Vilhelm
-2 SURN 
 1 SEX M
 1 OCCU S.
 2 DATE BET 1881 AND 1885
 1 FAMC @F002@
 1 BIRT
 2 DATE 28 OCT 1868
+1 ORDI Attended Examination
+2 DATE 9 JUN 1884
+1 ORDI Attended Examination
+2 DATE 19 JUN 1885
 0 @I004@ INDI
 1 NAME Johan Hjalmar//
 2 GIVN Johan Hjalmar
-2 SURN 
 1 SEX M
 1 OCCU S.
 2 DATE BET 1881 AND 1885
 1 FAMC @F002@
 1 BIRT
 2 DATE 6 JUN 1870
+1 ORDI Attended Examination
+2 DATE 19 JUN 1885
 0 @I005@ INDI
 1 NAME Gustaf Albert Teodor//
 2 GIVN Gustaf Albert Teodor
-2 SURN 
 1 SEX M
 1 OCCU S.
 2 DATE BET 1881 AND 1885
@@ -61,7 +76,6 @@
 0 @I006@ INDI
 1 NAME Johanna Kristina Josefina//
 2 GIVN Johanna Kristina Josefina
-2 SURN 
 1 SEX F
 1 OCCU D.
 2 DATE BET 1881 AND 1885
@@ -71,7 +85,6 @@
 0 @I007@ INDI
 1 NAME Jakob Alfrid//
 2 GIVN Jakob Alfrid
-2 SURN 
 1 SEX M
 1 OCCU S.
 2 DATE BET 1881 AND 1885
@@ -81,7 +94,6 @@
 0 @I008@ INDI
 1 NAME Karl Emil//
 2 GIVN Karl Emil
-2 SURN 
 1 SEX M
 1 OCCU S.
 2 DATE BET 1881 AND 1885
@@ -91,7 +103,6 @@
 0 @I009@ INDI
 1 NAME Hilma Louisa//
 2 GIVN Hilma Louisa
-2 SURN 
 1 SEX F
 1 OCCU D.
 2 DATE BET 1881 AND 1885
@@ -101,7 +112,6 @@
 0 @I010@ INDI
 1 NAME David Robert//
 2 GIVN David Robert
-2 SURN 
 1 SEX M
 1 OCCU S.
 2 DATE BET 1881 AND 1885
@@ -117,6 +127,8 @@
 2 DATE BET 1881 AND 1885
 1 BIRT
 2 DATE 10 NOV 1862
+1 ORDI Attended Examination
+2 DATE 30 JUN 1881
 0 @I012@ INDI
 1 NAME Sven Johan/Israilsson/
 2 GIVN Sven Johan
@@ -126,6 +138,8 @@
 2 DATE BET 1881 AND 1885
 1 BIRT
 2 DATE 5 MAR 1858
+1 ORDI Attended Examination
+2 DATE 26 JUN 1882
 0 @I013@ INDI
 1 NAME Ida Matilda/Gustafsdr/
 2 GIVN Ida Matilda
@@ -136,6 +150,8 @@
 1 BIRT
 2 DATE 14 MAY 1861
 2 PLAC St. Åby
+1 ORDI Attended Examination
+2 DATE 30 JUN 1881
 0 @I014@ INDI
 1 NAME Anna Louisa/Johansdr/
 2 GIVN Anna Louisa
@@ -146,10 +162,11 @@
 1 BIRT
 2 DATE 23 APR 1857
 2 PLAC St. Åby
+1 ORDI Attended Examination
+2 DATE 27 JUN 1883
 0 @I015@ INDI
 1 NAME Johan Albin//
 2 GIVN Johan Albin
-2 SURN 
 1 SEX M
 1 OCCU oäkta son
 2 DATE BET 1881 AND 1885
@@ -166,6 +183,8 @@
 1 BIRT
 2 DATE 9 SEP 1857
 2 PLAC Grenna
+1 ORDI Attended Examination
+2 DATE 19 JUN 1885
 0 @I017@ INDI
 1 NAME Hedda Lena/Andersdr/
 2 GIVN Hedda Lena
@@ -179,7 +198,6 @@
 0 @I018@ INDI
 1 NAME Anders David//
 2 GIVN Anders David
-2 SURN 
 1 SEX M
 1 OCCU S.
 2 DATE BET 1881 AND 1885
@@ -190,7 +208,6 @@
 0 @I019@ INDI
 1 NAME Karl Johan Valfrid//
 2 GIVN Karl Johan Valfrid
-2 SURN 
 1 SEX M
 1 OCCU S.
 2 DATE BET 1881 AND 1885
