@@ -129,7 +129,7 @@
 2 DATE 10 NOV 1862
 1 ORDI Attended Examination
 2 DATE 30 JUN 1881
-1 IMMI Extra Information: pag. 39; Moving out certificate number: 
+1 IMMI Extra Information: pag. 39; Moving certificate number: 
 2 DATE 10 NOV 1881
 0 @I012@ INDI
 1 NAME Sven Johan/Israilsson/
@@ -142,8 +142,10 @@
 2 DATE 5 MAR 1858
 1 ORDI Attended Examination
 2 DATE 26 JUN 1882
-1 IMMI Extra Information: pag. 175; Moving out certificate number: 
+1 IMMI Extra Information: pag. 175; Moving certificate number: 
 2 DATE 9 NOV 1882
+1 IMMI Extra Information: St. Åby; Moving certificate number: 46
+2 DATE 15 NOV 1881
 0 @I013@ INDI
 1 NAME Ida Matilda/Gustafsdr/
 2 GIVN Ida Matilda
@@ -156,7 +158,7 @@
 2 PLAC St. Åby
 1 ORDI Attended Examination
 2 DATE 30 JUN 1881
-1 IMMI Extra Information: Grenna; Moving out certificate number: 64
+1 IMMI Extra Information: Grenna; Moving certificate number: 64
 2 DATE 22 OCT 1881
 0 @I014@ INDI
 1 NAME Anna Louisa/Johansdr/
@@ -170,8 +172,10 @@
 2 PLAC St. Åby
 1 ORDI Attended Examination
 2 DATE 27 JUN 1883
-1 IMMI Extra Information: pag. 94; Moving out certificate number: 
+1 IMMI Extra Information: pag. 94; Moving certificate number: 
 2 DATE 13 NOV 1883
+1 IMMI Extra Information: pag 358; Moving certificate number: 
+2 DATE 10 NOV 1881
 0 @I015@ INDI
 1 NAME Johan Albin//
 2 GIVN Johan Albin
@@ -193,6 +197,8 @@
 2 PLAC Grenna
 1 ORDI Attended Examination
 2 DATE 19 JUN 1885
+1 IMMI Extra Information: Grenna; Moving certificate number: 4
+2 DATE 22 MAR 1885
 0 @I017@ INDI
 1 NAME Hedda Lena/Andersdr/
 2 GIVN Hedda Lena

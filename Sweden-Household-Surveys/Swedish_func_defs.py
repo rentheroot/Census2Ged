@@ -451,9 +451,8 @@ def ImmiWriter(row, immiPlace, immiDate, movingNumber, g):
 		fullDate = dateFormatter(immiDate[0], immiDate[1])
 
 		#write the pertinent information to file
-		g.write('1 IMMI Extra Information: ' + immiPlace + '; Moving out certificate number: ' + row[movingNumber] +'\n')
+		g.write('1 IMMI Extra Information: ' + immiPlace + '; Moving certificate number: ' + row[movingNumber] +'\n')
 		g.write('2 DATE ' + fullDate + '\n')
-
 
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#

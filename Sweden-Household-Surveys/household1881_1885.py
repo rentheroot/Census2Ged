@@ -57,7 +57,7 @@ def writeName1881_1885 (c , g):
 
                     #immigration writer
                     ImmiWriter(row, 'MovedToPlace&Page', 'MovedDate', 'MovingOutNumber', the_file)
-
+                    ImmiWriter(row, 'Moved-Here-From', 'Moved-Date', 'MovingInNumber', the_file)
 
                     #Death date writer
                     DDateWriter(row,'Death',the_file)
