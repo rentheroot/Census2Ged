@@ -598,9 +598,6 @@ in census name field''',font = "Helvetica 10 bold underline")
         else:
             print('not USA')
                
-
-
-
 #Run the Gui
 root = tk.Tk()
 root.minsize(225, 225)

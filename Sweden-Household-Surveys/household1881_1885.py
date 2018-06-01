@@ -4,6 +4,7 @@ from Swedish_func_defs import *
 import os
 
 def writeName1881_1885 (c , g):
+    childSurnames = ["UnknownSurname"]
     idn = 0
 
     #get current working directory path
@@ -45,7 +46,7 @@ def writeName1881_1885 (c , g):
 
 
                     #name, occupation, relationship writer
-                    swedNameWriter(row,"Name", wordLists, the_file, idn, '1881', '1885', 'Marriage-Married')
+                    childSurnames = swedNameWriter(row,"Name", wordLists, the_file, idn, '1881', '1885', 'Marriage-Married', childSurnames)
 
                     #birth date (month, day, and year) writer
                     BDateWriter(row, 'Birth-Year', 'Birth-Month-Day', 'Birth-Place', '18', the_file)
@@ -61,6 +62,6 @@ def writeName1881_1885 (c , g):
 
                     #Death date writer
                     DDateWriter(row,'Death',the_file)
-
+             print(childSurnames)
              #call endfile function
-             EndFile(the_file,g, idn)
+             EndFile(the_file,g, idn, childSurnames)
