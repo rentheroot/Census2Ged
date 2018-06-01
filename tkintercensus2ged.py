@@ -573,6 +573,7 @@ in census name field''',font = "Helvetica 10 bold underline")
 
         file_path = self.PathLabel.cget("text")
         printHeader(g)
+
         if c == 'United States':
             if y == '1850':
                 writeName1850(file_path , g, configDictionary)
@@ -586,9 +587,14 @@ in census name field''',font = "Helvetica 10 bold underline")
                 writeName1900(file_path , g, configDictionary)
             elif y == '1910':
                 writeName1910(file_path, g, configDictionary)
-
             else:
                 pass
+
+        elif c == "Sweden":
+            if y == "1881-1885":
+                writeName1881_1885(file_path , g)
+
+                
         else:
             print('not USA')
                

@@ -19,7 +19,7 @@ def writeName1900 (c , g, config_dict):
                  NameWriter(row,"3 NAME",'4 Relationship of each person to the head of the family.', the_file)
 
                  #Call SexWriter Function
-                 SexWriter(row,"6 Sex",the_file)
+                 sex = SexWriter(row,"6 Sex",the_file)
 
                  #call YMBdateWriter function
                  YMBdateWriter(row,"7 Year","7 Month",the_file)
@@ -63,8 +63,8 @@ def writeName1900 (c , g, config_dict):
                     PropertyWriter(row,'25 Owned or rented', '26 Owned free or mortgaged.','27 Farm or home','28 Number of farm schedule.', config_dict["propTag"],the_file, '1900' )
 
                  #call FamilyWriter1900 function
-                 FamilyWriter1900(row, '4 Relationship of each person to the head of the family.','10 Years married.', the_file,idn, '1900')
+                 FamilyWriter1900(row, '4 Relationship of each person to the head of the family.','10 Years married.', the_file,idn, '1900',sex)
                    
              #call EndFile function
-             EndFile(the_file)
+             EndFile(the_file,g)
         

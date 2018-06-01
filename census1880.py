@@ -70,5 +70,5 @@ def writeName1880 (c , g, config_dict):
                  FamilyWriter1880(row, '8-Relationship', '12-Married in Year.', the_file,idn, '1880')
 
             #call endfile function
-             EndFile(the_file)
+             EndFile(the_file,g)
                  

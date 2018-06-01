@@ -262,6 +262,8 @@ def SexWriter(row,s, the_file):
          sex = row[s]
          sex = sex[:1]
          the_file.write("1 SEX " + sex + '\n')
+         print(sex.lower())
+         return(sex)
 
 #-------------------------------------------------------------------#
 #--------------------Immigration Year Writer------------------------#
@@ -698,7 +700,7 @@ def __Property_Writer_1850__(row, r, the_file , propTag, y):
 #the_file = the_file
 #idn=idn
 #y = census year
-def FamilyWriter1900(row, r,ym, the_file, idn,y):
+def FamilyWriter1900(row, r,ym, the_file, idn,y,sex):
      if not row[r]:
          relation = 'head'
          
@@ -712,7 +714,10 @@ def FamilyWriter1900(row, r,ym, the_file, idn,y):
 
          with open('temporaryfamilies.txt', 'a') as new_file:
              new_file.write('0 '+ '@F' + "{0:0=3d}".format(config.familynumber) + '@ FAM\n')
-             new_file.write('1 HUSB ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+             if sex.lower() == 'm':
+                new_file.write('1 HUSB ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+             else:
+                new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
         
                          
      elif relation != 'head':
@@ -763,6 +768,7 @@ def FamilyWriter1900(row, r,ym, the_file, idn,y):
      else:
          print("im lost")
 
+     return(config.familynumber)
 #-------------------------------------------------------------------#
 #---------------------------Family Writer 1880 format---------------#
 #-------------------------------------------------------------------#
@@ -844,7 +850,7 @@ def FamilyWriter1880(row, r,ym, the_file, idn,y):
      else:
          print("im lost")
 
-
+     return(config.familynumber)
 #-------------------------------------------------------------------#
 #---------------------------Army/Navy Writer------------------------#
 #-------------------------------------------------------------------#
@@ -1032,15 +1038,82 @@ def __Disabled_Writer_1870__(row, d, disiTag, the_file):
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#
 #-------------------------------------------------------------------#
-def EndFile(the_file):
+def EndFile(the_file,g, idn):
     #print family records
     with open('temporaryfamilies.txt', 'r') as new_file:
-        familesfinal = new_file.read()
-        the_file.write(familesfinal)
+
+        lines = new_file.readlines()
+        toRemove = []
+        toRemove2 = []
+
+        for i in range(0,len(lines)):
+            line = lines[i]
+
+            if i == 0:
+                if "CHIL" in line:
+
+                    #write the unknown father in
+                    the_file.write("0 @I" + str(idn+1) + "@ INDI\n" + "1 NAME Unknown//\n" +"2 GIVN Unknown\n" + "1 SEX M\n" + "1 FAMS @F001@\n")
+
+                    #write the unknown mother in
+                    the_file.write("0 @I" + str(idn+2) + "@ INDI\n" + "1 NAME Unknown//\n" +"2 GIVN Unknown\n" + "1 SEX F\n" + "1 FAMS @F001@\n")
+
+                    #write the parents in
+
+                    the_file.write("0 @F001@ FAM\n" + "1 HUSB @I" + str(idn+1) +'@\n' + "1 WIFE @I" + str(idn+2) +'@\n')
+
+            else:
+                pass
+
+            #check if husb in line
+            if "HUSB" in line:
+                try:
+                    if "WIFE" not in lines[i+1] and "CHIL" not in lines[i+1]:
+                        toRemove.append(line)
+                    else:
+                        the_file.write(line)
+                except:
+                    the_file.write(line)
+
+            #check if fam in line        
+            elif "FAM" in line:
+                try:
+                    if "HUSB" in lines[i+1] and "WIFE" not in lines[i+2] and "CHIL" not in lines[i+2]:
+                        toRemove.append(line)
+                    else:
+                        the_file.write(line)
+                except:
+                    the_file.write(line)
+            else:
+                the_file.write(line)
+
 
     #clear temporaryfamilies.txt
     with open('temporaryfamilies.txt', 'w') as new_file:
         new_file.close
-
+  
     #Print Trailer
-    the_file.write('TRLR\n')
+    the_file.write('0 TRLR\n')
+
+    #format toRemove list
+    for item in toRemove:
+
+        newItem = item.strip('\n').split()
+        newItem = newItem[1]
+
+        if "@F" in newItem:
+            toRemove2.append(newItem)
+
+    the_file.close()
+
+    #fix family groups
+    with open (g, 'r', encoding='utf-8') as read_file:
+        fixFams = read_file.readlines()
+        
+    with open(g, 'w', encoding='utf-8') as in_file:
+        for line in fixFams:
+            
+            if any(x in str(line) for x in toRemove2):
+                pass
+            else:
+                in_file.write(line)

@@ -52,5 +52,5 @@ def writeName1850 (c , g, config_dict):
                     __Property_Writer_1850__(row, 'Real-Estate', config_dict["propTag"], the_file , '1850')
 
              #call endfile function
-             EndFile(the_file)
+             EndFile(the_file,g)
                  
