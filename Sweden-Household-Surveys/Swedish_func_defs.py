@@ -433,10 +433,11 @@ def OrdiWriter(row,examinations,communions,g):
 #row = current row in file
 #immiPlace = place related information row
 #immiDate = immigration date row
+#movingNumber = moving certificate number row
 #the gedcom file
-def ImmiWriter(row, immiPlace, immiDate, g):
+def ImmiWriter(row, immiPlace, immiDate, movingNumber, g):
 	#check if rows are blank or not
-	if not row[immiPlace] and not row[immiDate]:
+	if not row[immiPlace] and not row[immiDate] and not row[movingNumber]:
 		pass
 	else:
 		#set up vars
@@ -447,10 +448,11 @@ def ImmiWriter(row, immiPlace, immiDate, g):
 		immiDate = immiDate.split(' ')
 
 		#format the date
-		dateFormatter(immiDate[0], immiDate[1])
+		fullDate = dateFormatter(immiDate[0], immiDate[1])
 
 		#write the pertinent information to file
-		the_file.write('1 IMMI ')
+		g.write('1 IMMI Extra Information: ' + immiPlace + '; Moving out certificate number: ' + row[movingNumber] +'\n')
+		g.write('2 DATE ' + fullDate + '\n')
 
 
 #-------------------------------------------------------------------#

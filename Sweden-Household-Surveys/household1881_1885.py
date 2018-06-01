@@ -55,6 +55,10 @@ def writeName1881_1885 (c , g):
                     communions = ['Communion1881', 'Communion1882','Communion1883','Communion1884', 'Communion1885']
                     OrdiWriter(row,examinations,communions,the_file)
 
+                    #immigration writer
+                    ImmiWriter(row, 'MovedToPlace&Page', 'MovedDate', 'MovingOutNumber', the_file)
+
+
                     #Death date writer
                     DDateWriter(row,'Death',the_file)
 
