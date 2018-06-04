@@ -481,77 +481,62 @@ class Application(tk.Frame):
 
     def __update_country__(self, *args):
         Country = self.countrySelect.get()
-        print (Country)
         return(Country)
     
     def __update_year__(self, *args):
         Year = self.yearSelect.get()
-        print (Year)
         return(Year)
 
     def __update_immigration__(self, *args):
         Immigration = self.optionImmigration.get()
-        print (Immigration)
         return(Immigration)
 
     def __update_occupation__(self, *args):
         Occupation = self.optionOccupation.get()
-        print (Occupation)
         return(Occupation)
 
     def __update_race__(self, *args):
         Race = self.optionRace.get()
-        print (Race)
         return(Race)
 
     def __update_literacy__(self, *args):
         Literacy = self.optionLiteracy.get()
-        print (Literacy)
         return(Literacy)
 
     def __update_disability__(self, *args):
         Disability = self.optionDisability.get()
-        print (Disability)
         return(Disability)
 
     def __update_children__(self, *args):
         Children = self.optionChildrenBorn.get()
-        print (Children)
         return(Children)
 
     def __update_military__(self, *args):
         Military = self.optionMilitary.get()
-        print (Military)
         return(Military)
 
     def __update_property__(self, *args):
         Property = self.optionProperty.get()
-        print (Property)
         return(Property)
 
     def __update_language__(self, *args):
         Language = self.optionLanguage.get()
-        print (Language)
         return(Language)
 
     def __update_naturalize__(self, *args):
         Naturalize = self.optionNaturalize.get()
-        print (Naturalize)
         return(Naturalize)
 
     def __update_swedOccupation__(self, *args):
         swedOccupation = self.optionSwedOccupation.get()
-        print (swedOccupation)
         return(swedOccupation)
 
     def __update_swedCommunion__(self, *args):
         swedCommunion = self.optionSwedCommunion.get()
-        print (swedCommunion)
         return(swedCommunion)
 
     def __update_swedExamination__(self, *args):
         swedExamination = self.optionSwedExamination.get()
-        print (swedExamination)
         return(swedExamination)
 
     # create configDictionary with all the values of the fields
