@@ -99,6 +99,8 @@ The Swedish Section Supports the following relationship types:
 
 ## Types of Data (Supported and Unsupported) For Each Census
 The goal is to eventually present every piece of information in some way for every census. I have copied the names of each of the fields from the [IPUMS enumeration forms](https://usa.ipums.org/usa/voliii/tEnumForm.shtml)
+
+## United States Censuses 
 ### 1910 Census
 
 **LOCATION:
@@ -320,3 +322,51 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 - [ ] Attended school within the year
 - [X] Persons over 20 years of age who can not read and write
 - [X] Whether deaf and dumb, blind, insane, idiotic, pauper or convict
+
+## Swedish Household Examinations
+Note that the program automatically adds the last name of children based on what it determines to be the father's first name.
+
+### 1881-1885
+
+**THE NAME COLUMN**
+
+- [X] Personernas namn / Person's Name
+- [X] Stånd / Position
+- [X] Embete / State
+- [X] Yrke och Näringsfång / Occupation and Trade
+
+**FÖDELSE (BIRTH)**
+
+- [X] År / Year
+- [X] Mån. och dag. / Month and Day
+- [X] Ort, (Socken i Län Stad). / Place (Parish in county, city)
+
+**ÄKTENSKAP (Marriage)**
+
+- [X] Gift / Married
+- [ ] Enkling eller Enka / Widower or Widowed
+
+**KOPPOR (SMALLPOX)**
+
+- [ ] Koppor / Smallpox
+
+**HITFLYTTAD (MOVED HERE)**
+
+- [X] Från (Socken i Län, Stad, eller pagina i Husförhörsboken). / From (Parish in county, City or page in Household examination book)
+- [X] År, månad och dag / Year, month and day
+- [X] Inflyttningsattestens nummer / Moving In Certificate Number
+
+**DÖD (Death)**
+
+- [X] Död / Death
+
+**Tests**
+
+- [ ] Innanläsning / Reading
+- [ ] Kristendomkunskap / Scripture
+
+**Bevistat Förhör och Begått / Attended Examination and Received Holy Communion**
+
+- [X] Years 1881-1885 for both Examination and Communion
+
+
