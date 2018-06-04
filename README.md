@@ -11,7 +11,7 @@ Converts census transcriptions and household examinations made in [Genscriber](h
 ## Character Encoding
 Currently only the Swedish Household Examination part of the program includes support for **utf-8**, however I hope to change this in the future so all parts of the program support it.
 
-All gedcoms (regardless of country) are identified as **utf-8** encoded in the *header*.
+All gedcoms (regardless of country) are identified as **utf-8** encoded in the **header**.
 
 ## Default Tags
 Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information for you, however you may wish to change these (they will still be gedcom 5.5.1 compliant, but they will use EVEN and TYPE tags instead).
