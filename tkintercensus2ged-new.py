@@ -53,6 +53,60 @@ class Application(tk.Frame):
             self.frame = tk.Frame(root)
             self.frame.grid(sticky = 'nsew')
 
+            #United States Vars
+
+            #checkbox Immigration
+            self.optionImmigration = tk.IntVar(self)
+            #checkbox Occupation
+            self.optionOccupation = tk.IntVar(self)
+            #checkbox Race
+            self.optionRace = tk.IntVar(self)
+            #checkbox literacy
+            self.optionLiteracy=tk.IntVar(self)
+            #checkbox Disability
+            self.optionDisability=tk.IntVar(self)
+            #checkbox Children Born
+            self.optionChildrenBorn=tk.IntVar(self)
+            #checkbox Military
+            self.optionMilitary=tk.IntVar(self)
+            #checkbox Property
+            self.optionProperty=tk.IntVar(self)
+            #checkbox Language
+            self.optionLanguage=tk.IntVar(self)
+            #checkbox Naturalization
+            self.optionNaturalize=tk.IntVar(self)
+
+            #update Immigration variable
+            self.optionImmigration.trace('w', self.__update_immigration__)
+
+            #update Occupation variable
+            self.optionOccupation.trace('w', self.__update_occupation__)
+            
+            #update Race variable
+            self.optionRace.trace('w', self.__update_race__)
+
+            #update Literacy variable
+            self.optionLiteracy.trace('w', self.__update_literacy__)
+
+            #update disability variable
+            self.optionDisability.trace('w', self.__update_disability__)
+
+            #update children variable
+            self.optionChildrenBorn.trace('w', self.__update_children__)
+
+            #update Military variable
+            self.optionMilitary.trace('w', self.__update_military__)
+
+            #update Property variable
+            self.optionProperty.trace('w', self.__update_property__)
+
+            #update Language variable
+            self.optionLanguage.trace('w', self.__update_language__)
+
+            #update Naturalization variable
+            self.optionNaturalize.trace('w', self.__update_naturalize__)
+
+
             #label for Tag Inclusion
             includeTagLabel = tk.Label(self.frame, text="Tags to include",font = "Helvetica 10 bold underline")
             #render on left side of screen
@@ -145,6 +199,52 @@ class Application(tk.Frame):
             #Naturalization tag entry box
             self.naturalizeSet = tk.Entry(self.frame)
             self.naturalizeSet.grid(row=9,column=3, sticky = "w")
+
+            #set up previous user configurations for USA
+            try:
+                if user_config["Race"] == 1:
+                    self.CheckboxRace.select()
+                if user_config["Military"] == 1:
+                    self.CheckboxMilitary.select()
+                if user_config["Literacy"] == 1:
+                    self.CheckboxLiteracy.select()
+                if user_config["Immigration"] == 1:
+                    self.CheckboxImmigration.select()
+                if user_config["Disability"] == 1:
+                    self.CheckboxDisability.select()
+                if user_config["Children Born"] == 1:
+                    self.CheckboxChildrenBorn.select()
+                if user_config["Occupation"] == 1:
+                    self.CheckboxOccupation.select()
+                if user_config["Property"] == 1:
+                    self.CheckboxProperty.select()
+                if user_config["Language"] == 1:
+                    self.CheckboxLanguage.select()
+                if user_config["Naturalize"] == 1:
+                    self.CheckboxNaturalize.select()
+                if user_config ["immigTag"] != "IMMI":
+                    self.immigrationSet.insert(0, user_config["immigTag"])
+                if user_config ["occupTag"] != "OCCU":
+                    self.occupationSet.insert(0, user_config["occupTag"])
+                if user_config ["raceTag"] != "DSCR":
+                    self.raceSet.insert(0, user_config["raceTag"])
+                if user_config ["natuTag"] != "NATU":
+                    self.naturalizeSet.insert(0, user_config["natuTag"])
+                if user_config ["literTag"] != "EDUC":
+                    self.literacySet.insert(0, user_config["literTag"])
+                if user_config ["chilTag"] != "DSCR":
+                    self.childrenBornSet.insert(0, user_config["chilTag"])
+                if user_config ["langTag"] != "DSCR":
+                    self.languageSet.insert(0, user_config["langTag"])
+                if user_config ["militTag"] != "DSCR":
+                    self.militarySet.insert(0, user_config["militTag"])
+                if user_config ["disiTag"] != "DSCR":
+                    self.disabilitySet.insert(0, user_config["disiTag"])
+                if user_config ["propTag"] != "PROP":
+                    self.propertySet.insert(0, user_config["propTag"])
+
+            except:
+                print("nope")
 
             #CSV file select label
             self.PathLabel = tk.Label(self.frame)
@@ -329,28 +429,7 @@ class Application(tk.Frame):
         #year selector
         self.yearSelect = tk.StringVar(self)
 
-        #United States Vars
 
-        #checkbox Immigration
-        self.optionImmigration = tk.IntVar(self)
-        #checkbox Occupation
-        self.optionOccupation = tk.IntVar(self)
-        #checkbox Race
-        self.optionRace = tk.IntVar(self)
-        #checkbox literacy
-        self.optionLiteracy=tk.IntVar(self)
-        #checkbox Disability
-        self.optionDisability=tk.IntVar(self)
-        #checkbox Children Born
-        self.optionChildrenBorn=tk.IntVar(self)
-        #checkbox Military
-        self.optionMilitary=tk.IntVar(self)
-        #checkbox Property
-        self.optionProperty=tk.IntVar(self)
-        #checkbox Language
-        self.optionLanguage=tk.IntVar(self)
-        #checkbox Naturalization
-        self.optionNaturalize=tk.IntVar(self)
 
 
 
@@ -363,38 +442,6 @@ class Application(tk.Frame):
 
         #update year variable
         self.yearSelect.trace('w', self.__update_year__)
-
-        #update Immigration variable
-        self.optionImmigration.trace('w', self.__update_immigration__)
-
-        #update Occupation variable
-        self.optionOccupation.trace('w', self.__update_occupation__)
-        
-        #update Race variable
-        self.optionRace.trace('w', self.__update_race__)
-
-        #update Literacy variable
-        self.optionLiteracy.trace('w', self.__update_literacy__)
-
-        #update disability variable
-        self.optionDisability.trace('w', self.__update_disability__)
-
-        #update children variable
-        self.optionChildrenBorn.trace('w', self.__update_children__)
-
-        #update Military variable
-        self.optionMilitary.trace('w', self.__update_military__)
-
-        #update Property variable
-        self.optionProperty.trace('w', self.__update_property__)
-
-        #update Language variable
-        self.optionLanguage.trace('w', self.__update_language__)
-
-        #update Naturalization variable
-        self.optionNaturalize.trace('w', self.__update_naturalize__)
-
-
 
 
         #render the country options menu
@@ -412,51 +459,6 @@ class Application(tk.Frame):
         #instantiate the frames
         self.guiUpdate("United States")
 
-        #set up previous user configurations for USA
-        try:
-            if user_config["Race"] == 1:
-                self.CheckboxRace.select()
-            if user_config["Military"] == 1:
-                self.CheckboxMilitary.select()
-            if user_config["Literacy"] == 1:
-                self.CheckboxLiteracy.select()
-            if user_config["Immigration"] == 1:
-                self.CheckboxImmigration.select()
-            if user_config["Disability"] == 1:
-                self.CheckboxDisability.select()
-            if user_config["Children Born"] == 1:
-                self.CheckboxChildrenBorn.select()
-            if user_config["Occupation"] == 1:
-                self.CheckboxOccupation.select()
-            if user_config["Property"] == 1:
-                self.CheckboxProperty.select()
-            if user_config["Language"] == 1:
-                self.CheckboxLanguage.select()
-            if user_config["Naturalize"] == 1:
-                self.CheckboxNaturalize.select()
-            if user_config ["immigTag"] != "IMMI":
-                self.immigrationSet.insert(0, user_config["immigTag"])
-            if user_config ["occupTag"] != "OCCU":
-                self.occupationSet.insert(0, user_config["occupTag"])
-            if user_config ["raceTag"] != "DSCR":
-                self.raceSet.insert(0, user_config["raceTag"])
-            if user_config ["natuTag"] != "NATU":
-                self.naturalizeSet.insert(0, user_config["natuTag"])
-            if user_config ["literTag"] != "EDUC":
-                self.literacySet.insert(0, user_config["literTag"])
-            if user_config ["chilTag"] != "DSCR":
-                self.childrenBornSet.insert(0, user_config["chilTag"])
-            if user_config ["langTag"] != "DSCR":
-                self.languageSet.insert(0, user_config["langTag"])
-            if user_config ["militTag"] != "DSCR":
-                self.militarySet.insert(0, user_config["militTag"])
-            if user_config ["disiTag"] != "DSCR":
-                self.disabilitySet.insert(0, user_config["disiTag"])
-            if user_config ["propTag"] != "PROP":
-                self.propertySet.insert(0, user_config["propTag"])
-
-        except:
-            print("nope")
 
     #quit
     def quit_sequence(self, *args):
@@ -557,34 +559,43 @@ class Application(tk.Frame):
 
     # create configDictionary with all the values of the fields
     def __Update_Checkbox_List__(self):
-        variable_list ={"Country" : self.countrySelect.get() , 
-                        "Year" : self.yearSelect.get(),
-                        "Immigration" : self.optionImmigration.get(),
-                        "Occupation" : self.optionOccupation.get(),
-                        "Race" : self.optionRace.get(),
-                        "Literacy" : self.optionLiteracy.get(),
-                        "Disability" : self.optionDisability.get(),
-                        "Children Born" : self.optionChildrenBorn.get(),
-                        "Military" : self.optionMilitary.get(),
-                        "Gedname" : self.gedNameSet.get(),
-                        "Property" : self.optionProperty.get(),
-                        "Language" : self.optionLanguage.get(),
-                        "Naturalize" : self.optionNaturalize.get(),
-                        "immigTag" : self.immigrationSet.get(),
-                        "occupTag" : self.occupationSet.get(),
-                        "raceTag" : self.raceSet.get(),
-                        "natuTag" : self.naturalizeSet.get(),
-                        "literTag" : self.literacySet.get(),
-                        "chilTag" : self.childrenBornSet.get(),
-                        "langTag" : self.languageSet.get(),
-                        "militTag" : self.militarySet.get(),
-                        "disiTag" : self.disabilitySet.get(),
-                        "propTag" : self.propertySet.get(),
-                        #swedish
-                        "swedOccupation" : self.optionSwedOccupation.get(),
-                        "swedCommunion" : self.optionSwedCommunion.get(),
-                        "swedExamination" : self.optionSwedExamination.get()
-                        }
+        if self.countrySelect.get() == "United States":
+            variable_list ={"Country" : self.countrySelect.get() , 
+                            "Year" : self.yearSelect.get(),
+                            "Immigration" : self.optionImmigration.get(),
+                            "Occupation" : self.optionOccupation.get(),
+                            "Race" : self.optionRace.get(),
+                            "Literacy" : self.optionLiteracy.get(),
+                            "Disability" : self.optionDisability.get(),
+                            "Children Born" : self.optionChildrenBorn.get(),
+                            "Military" : self.optionMilitary.get(),
+                            "Gedname" : self.gedNameSet.get(),
+                            "Property" : self.optionProperty.get(),
+                            "Language" : self.optionLanguage.get(),
+                            "Naturalize" : self.optionNaturalize.get(),
+                            "immigTag" : self.immigrationSet.get(),
+                            "occupTag" : self.occupationSet.get(),
+                            "raceTag" : self.raceSet.get(),
+                            "natuTag" : self.naturalizeSet.get(),
+                            "literTag" : self.literacySet.get(),
+                            "chilTag" : self.childrenBornSet.get(),
+                            "langTag" : self.languageSet.get(),
+                            "militTag" : self.militarySet.get(),
+                            "disiTag" : self.disabilitySet.get(),
+                            "propTag" : self.propertySet.get(),
+                            }
+
+        if self.countrySelect.get() == "Sweden":
+            variable_list ={"Country" : self.countrySelect.get() ,
+                            "Year" : self.yearSelect.get(),           
+                            "swedOccupation" : self.optionSwedOccupation.get(),
+                            "swedCommunion" : self.optionSwedCommunion.get(),
+                            "swedExamination" : self.optionSwedExamination.get()
+
+
+
+            }
+
 
         print(variable_list)
         return (variable_list)

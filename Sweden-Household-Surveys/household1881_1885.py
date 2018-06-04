@@ -3,7 +3,7 @@ import csv
 from Swedish_func_defs import *
 import os
 
-def writeName1881_1885 (c , g):
+def writeName1881_1885 (c , g, configDict):
     childSurnames = ["UnknownSurname"]
     idn = 0
 

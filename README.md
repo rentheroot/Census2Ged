@@ -3,13 +3,15 @@ Like this project? Send a couple dollars my way and/or visit my blog to see what
 - [Paypal](https://www.paypal.me/ReneeSchmidt)
 - [Blog](https://famgenealogy.blogspot.com/)
 ## Purpose
-Converts census transcriptions made in [Genscriber](http://www.genscriber.com/genapps/) to gedcom files. You can see some of my posts about Census2Ged [here](https://famgenealogy.blogspot.com/p/my-programs.html)
+Converts census transcriptions and household examinations made in [Genscriber](http://www.genscriber.com/genapps/) to gedcom files. You can see some of my posts about Census2Ged [here](https://famgenealogy.blogspot.com/p/my-programs.html)
 
 ## Screenshots
 ![Screenshot of Census2Ged](https://raw.githubusercontent.com/xXReneeXx/Census2Ged/master/screenshot.PNG)
 
 ## Default Tags
 Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information for you, however you may wish to change these (they will still be gedcom 5.5.1 compliant, but they will use EVEN and TYPE tags instead).
+
+#English Census Tags
 
 | Option Name      | Default Tag | Suggested Tag         |
 |------------------|-------------|-----------------------|
@@ -24,6 +26,8 @@ Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information f
 | Disability       | DSCR        | Disability            |
 | Property         | PROP        | Don't Change          |
 
+#Swedish Census Tags
+(to add soon)
 
 ## Handling of Custom Tags
 The program handles custom tags as recommended in the Gedcom 5.5.1 standard. This will allow them to be compatible with virtually every genealogy program available.

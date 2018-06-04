@@ -66,5 +66,5 @@ def writeName1900 (c , g, config_dict):
                  FamilyWriter1900(row, '4 Relationship of each person to the head of the family.','10 Years married.', the_file,idn, '1900',sex)
                    
              #call EndFile function
-             EndFile(the_file,g)
+             EndFile(the_file,g,idn)
         
