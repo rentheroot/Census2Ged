@@ -48,17 +48,32 @@ The following is the format the program writes these custom tags in. It uses an 
 Approximate birth dates are calculated using the year of the census - age of the person at the time if the birth date is not explicitly specified. If the age of a person is a fraction it is changed to 0. Year of the census is attached to all of the applicable facts.
 
 ### Swedish Household Examinations
-Assumes a date structure of 
+Assumes a date structures which fit either of the following
 
 ```
-day/month year
-```
+dd/mm yyyy
+dd/m yyyy
+d/mm yyyy
+d/m yyyy
 
-for instance:
+dd/mm yy
+dd/m yy
+d/mm yy
+d/m yy
+
 ```
-31/12 1867
+for instance, the date March 7, 1867 could be written in the following ways:
 ```
-Would be a valid date.
+07/03 1867
+07/3 1867
+7/03 1867
+7/3 1867
+
+07/03 67
+07/3 67
+7/03 67
+7/3 67
+```
 ## Supported Relationship Types
 Census2Ged currently supports the following relationship types:
 - Head
