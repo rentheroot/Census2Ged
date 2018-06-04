@@ -430,9 +430,6 @@ class Application(tk.Frame):
         self.yearSelect = tk.StringVar(self)
 
 
-
-
-
         #update year select based on country select
         self.countrySelect.trace('w', self.update_options)
         
