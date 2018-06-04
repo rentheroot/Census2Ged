@@ -11,7 +11,7 @@ Converts census transcriptions and household examinations made in [Genscriber](h
 ## Default Tags
 Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information for you, however you may wish to change these (they will still be gedcom 5.5.1 compliant, but they will use EVEN and TYPE tags instead).
 
-# English Census Tags
+### English Census Tags
 
 | Option Name      | Default Tag | Suggested Tag         |
 |------------------|-------------|-----------------------|
@@ -26,7 +26,7 @@ Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information f
 | Disability       | DSCR        | Disability            |
 | Property         | PROP        | Don't Change          |
 
-# Swedish Census Tags
+### Swedish Census Tags
 
 | Option Name      | Default Tag | Suggested Tag         |
 |------------------|-------------|-----------------------|
