@@ -75,13 +75,16 @@ for instance, the date March 7, 1867 could be written in the following ways:
 7/3 67
 ```
 ## Supported Relationship Types
-Census2Ged currently supports the following relationship types:
+The United States section supports the following relationship types:
 - Head
 - Wife
 - Son
 - Daughter
 - Child
-
+The Swedish Section Supports the following relationship types:
+- Head
+	- far, pappa, fader, man, husfader, enkl., enkeman, änkl., änkling, eg., egare, ägare
+	
 ## Types of Data (Supported and Unsupported) For Each Census
 The goal is to eventually present every piece of information in some way for every census. I have copied the names of each of the fields from the [IPUMS enumeration forms](https://usa.ipums.org/usa/voliii/tEnumForm.shtml)
 ### 1910 Census
