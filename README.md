@@ -49,14 +49,15 @@ Approximate birth dates are calculated using the year of the census - age of the
 
 ### Swedish Household Examinations
 Assumes a date structure of 
-'''
+
+```
 day/month year
-'''
+```
 
 for instance:
-'''
+```
 31/12 1867
-'''
+```
 Would be a valid date.
 ## Supported Relationship Types
 Census2Ged currently supports the following relationship types:
