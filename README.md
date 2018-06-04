@@ -26,7 +26,7 @@ Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information f
 | Disability       | DSCR        | Disability            |
 | Property         | PROP        | Don't Change          |
 
-### Swedish Census Tags
+### Swedish Household Examination Tags
 
 | Option Name      | Default Tag | Suggested Tag         |
 |------------------|-------------|-----------------------|
@@ -43,8 +43,21 @@ The following is the format the program writes these custom tags in. It uses an 
 2 TYPE new tag name
 ```
 ## Handling of Dates, Years, and Ages
+
+### English Censuses
 Approximate birth dates are calculated using the year of the census - age of the person at the time if the birth date is not explicitly specified. If the age of a person is a fraction it is changed to 0. Year of the census is attached to all of the applicable facts.
 
+### Swedish Household Examinations
+Assumes a date structure of 
+'''
+day/month year
+'''
+
+for instance:
+'''
+31/12 1867
+'''
+Would be a valid date.
 ## Supported Relationship Types
 Census2Ged currently supports the following relationship types:
 - Head
