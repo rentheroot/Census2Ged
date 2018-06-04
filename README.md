@@ -380,3 +380,6 @@ Note that the program automatically adds the last name of children based on what
 
 **BORTFLYTTAD / MOVING OUT**
 
+- [X] Till socken i Län, stad eller pag. i Husförhörsboken / To parish in county, City or page in Household examination book
+- [X] År, månad och dag / 	Year, month and day
+- [X] Utflyttningsattestens nummer / Moving Out Certificate Number
