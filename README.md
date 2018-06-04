@@ -8,6 +8,11 @@ Converts census transcriptions and household examinations made in [Genscriber](h
 ## Screenshots
 ![Screenshot of Census2Ged](https://raw.githubusercontent.com/xXReneeXx/Census2Ged/master/screenshot.PNG)
 
+## Character Encoding
+Currently only the Swedish Household Examination part of the program includes support for utf-8, however I hope to change this in the future so all parts of the program support it.
+
+All gedcoms (regardless of country) are identified as utf-8 encoded in the header.
+
 ## Default Tags
 Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information for you, however you may wish to change these (they will still be gedcom 5.5.1 compliant, but they will use EVEN and TYPE tags instead).
 
@@ -85,6 +90,12 @@ The United States section supports the following relationship types:
 The Swedish Section Supports the following relationship types:
 - Head
 	- far, pappa, fader, man, husfader, enkl., enkeman, änkl., änkling, eg., egare, ägare
+- Wife Married to head
+	- mamma, mor,moder, hustru, fru, maka, enka, enk.,husmoder, änka, änk., d.h., desshustru, dess hustru, h.
+- Children
+	- barn, son, dotter, d., dtr., s.
+- Illegitimate Children (Puts these children in their own family for the sake of clarity)
+	- antenuptius, ante nuptius, a.n., oä., oäkta
 
 ## Types of Data (Supported and Unsupported) For Each Census
 The goal is to eventually present every piece of information in some way for every census. I have copied the names of each of the fields from the [IPUMS enumeration forms](https://usa.ipums.org/usa/voliii/tEnumForm.shtml)
