@@ -341,7 +341,7 @@ Note that the program automatically adds the last name of children based on what
 - [X] Mån. och dag. / Month and Day
 - [X] Ort, (Socken i Län Stad). / Place (Parish in county, city)
 
-**ÄKTENSKAP (Marriage)**
+**ÄKTENSKAP (MARRIAGE)**
 
 - [X] Gift / Married
 - [ ] Enkling eller Enka / Widower or Widowed
@@ -356,17 +356,27 @@ Note that the program automatically adds the last name of children based on what
 - [X] År, månad och dag / Year, month and day
 - [X] Inflyttningsattestens nummer / Moving In Certificate Number
 
-**DÖD (Death)**
+**DÖD (DEATH)**
 
 - [X] Död / Death
 
-**Tests**
+**TESTS**
 
 - [ ] Innanläsning / Reading
 - [ ] Kristendomkunskap / Scripture
 
-**Bevistat Förhör och Begått / Attended Examination and Received Holy Communion**
+**BEVISTAT FÖRHÖR OCH BEGÅTT / ATTENDED EXAMINATION AND RECEIVED HOLY COMMUNION**
 
 - [X] Years 1881-1885 for both Examination and Communion
 
+**BEVISTAT BEVÄRINGSMÖTE / ATTENDED MILITARY MEETING**
+
+- [ ] 1
+- [ ] 2
+
+**REMARKS**
+
+- [ ] Frägd och särskilda anteckningar / Character and Individual Remarks
+
+**BORTFLYTTAD / MOVING OUT**
 
