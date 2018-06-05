@@ -27,7 +27,7 @@ def BPlaceWriter(row,b, the_file,idn):
 
         except:
 
-            logging.info("Could Not Recognize Birthplace: " + row[b] + " for person on line " + str(idn + 1))
+            logging.info("Could Not Recognize Birthplace: " + row[b] + " for person on line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #----------------Birth Year and Month Writer------------------------#
@@ -53,7 +53,7 @@ def YMBdateWriter (row,y,m,the_file,idn):
                 full = '2 DATE ABT ' + str(fulldate) + '\n'
                 the_file.write(full)
             except:
-                logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line " + str(idn + 1))
+                logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line: " + str(idn + 1))
 
     else:
         year = row[y]
@@ -69,7 +69,7 @@ def YMBdateWriter (row,y,m,the_file,idn):
                     full = '2 DATE ABT ' + str(fulldate) + '\n'
                     the_file.write(full)
                 except:
-                    logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line " + str(idn + 1))
+                    logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line: " + str(idn + 1))
 
             else:
                 try:
@@ -82,14 +82,14 @@ def YMBdateWriter (row,y,m,the_file,idn):
                     the_file.write("1 BIRT" + '\n')
                     the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
                 except:
-                    logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line " + str(idn + 1))
+                    logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line: " + str(idn + 1))
         else:
             try:  
                 #print birth information
                 the_file.write("1 BIRT" + '\n')
                 the_file.write('2 DATE ABT ' + str(year) + '\n')
             except:
-                logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line " + str(idn + 1))
+                logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #-----------------Birth Year Writer (Requires Age)------------------#
@@ -121,25 +121,27 @@ def YBdateWriter (row,a,y,the_file):
 #n = the Name column row
 #row = row
 #the_file = the_file
-def __Name_Writer_No_Relation__(row, n, the_file):
+def __Name_Writer_No_Relation__(row, n, the_file,idn):
     #separate values for firstname and lastname
     name = str(row[n]).split()
+    try:
+        #set last name to first word in full name
+        lastname = name[0]
 
-    #set last name to first word in full name
-    lastname = name[0]
+        #delete the lastname from the full name
+        del name[0]
 
-    #delete the lastname from the full name
-    del name[0]
-
-    firstname = (' ').join(name)
+        firstname = (' ').join(name)
 
 
-    #print "1 NAME (firstname) /(lastname)/"
-    the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
-    #Print "2 GIVN (firstname)"
-    the_file.write('2 GIVN ' + firstname + '\n')
-    #Print "2 SURN (lastname)"
-    the_file.write('2 SURN ' + lastname + '\n')
+        #print "1 NAME (firstname) /(lastname)/"
+        the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
+        #Print "2 GIVN (firstname)"
+        the_file.write('2 GIVN ' + firstname + '\n')
+        #Print "2 SURN (lastname)"
+        the_file.write('2 SURN ' + lastname + '\n')
+    except:
+        logging.info("Could Not Recognize Name: " + row[n] + " for person on line: " + str(idn + 1))
 
 
 #-------------------------------------------------------------------#
@@ -149,11 +151,11 @@ def __Name_Writer_No_Relation__(row, n, the_file):
 #r = relationship row
 #row = row
 #the_file = the_file
-def NameWriter(row, n, r, the_file):
+def NameWriter(row, n, r, the_file, idn):
     #separate values for firstname and lastname
     name = str(row[n]).split()
 
-    if len(name)== 2:
+    try:
         relation = row[r].lower()
 
         #if they are the wife of the head
@@ -188,19 +190,21 @@ def NameWriter(row, n, r, the_file):
             the_file.write('2 GIVN ' + firstname + '\n')
             #Print "2 SURN (lastname)"
             the_file.write('2 SURN ' + lastname + '\n')
-
+    except:
+        logging.info("Could Not Recognize Name: " + row[n] + " for person on line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #---------------------------Sex Writer------------------------------#
 #-------------------------------------------------------------------#
 #s is the sex column
-def SexWriter(row,s, the_file):
+def SexWriter(row,s, the_file,idn):
     #Print Sex
     if not row[s]:
-        pass
+        the_file.write("1 SEX U" + '\n')
+        logging.info("Could not recognize sex of person on line: " + str(idn+1))
     else:
         sex = row[s]
-        sex = sex[:1]
+        sex = sex[:1].upper()
         the_file.write("1 SEX " + sex + '\n')
         return(sex)
 

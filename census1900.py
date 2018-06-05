@@ -16,10 +16,10 @@ def writeName1900 (c , g, config_dict):
                  the_file.write('0 ' + '@I' + "{0:0=3d}".format(idn) + '@' + ' INDI\n')
 
                  #Call NameWriter Function
-                 NameWriter(row,"3 NAME",'4 Relationship of each person to the head of the family.', the_file)
+                 NameWriter(row,"3 NAME",'4 Relationship of each person to the head of the family.', the_file,idn)
 
                  #Call SexWriter Function
-                 sex = SexWriter(row,"6 Sex",the_file)
+                 sex = SexWriter(row,"6 Sex",the_file,idn)
 
                  #call YMBdateWriter function
                  YMBdateWriter(row,"7 Year","7 Month",the_file,idn)

@@ -19,7 +19,7 @@ def writeName1860 (c , g, config_dict):
                  __Name_Writer_No_Relation__(row, '3-name', the_file,idn)
 
                  #Call SexWriter Function
-                 SexWriter(row,'5-Sex',the_file)
+                 SexWriter(row,'5-Sex',the_file,idn)
 
                  #Call YBdateWriter function
                  YBdateWriter (row,'4-Age','1860',the_file)
