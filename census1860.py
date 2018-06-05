@@ -25,7 +25,7 @@ def writeName1860 (c , g, config_dict):
                  YBdateWriter (row,'4-Age','1860',the_file)
 
                  #call BPlaceWriter function
-                 BPlaceWriter(row,'10-POB',the_file)
+                 BPlaceWriter(row,'10-POB',the_file,idn)
 
                  #call CensusYearWriter function
                  CensusYearWriter(the_file, '1860')

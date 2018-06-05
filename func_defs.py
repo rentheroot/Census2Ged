@@ -34,9 +34,8 @@ def BPlaceWriter(row,b, the_file,idn):
 #-------------------------------------------------------------------#
 #y = birth year column
 #m = birth month column
-def YMBdateWriter (row,y,m,the_file):
-    #print birth information
-     the_file.write("1 BIRT" + '\n')
+def YMBdateWriter (row,y,m,the_file,idn):
+
 
     #birthdate
      if not row[y]:
@@ -47,6 +46,8 @@ def YMBdateWriter (row,y,m,the_file):
              month = month[:3]
              month = month.upper()
              fulldate = str(month)
+             #print birth information
+             the_file.write("1 BIRT" + '\n')
              the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
       
      else:
@@ -56,6 +57,8 @@ def YMBdateWriter (row,y,m,the_file):
 
              if not row[m]:
                  fulldate = str(year)
+                     #print birth information
+                     the_file.write("1 BIRT" + '\n')
                  the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
         
              else:
@@ -64,9 +67,12 @@ def YMBdateWriter (row,y,m,the_file):
                  month = month.upper()
 
                  fulldate = (str(month) +' ' + str(year))
-             
+                 #print birth information
+                 the_file.write("1 BIRT" + '\n')
                  the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
          else:
+             #print birth information
+             the_file.write("1 BIRT" + '\n')
              the_file.write('2 DATE ABT ' + str(year) + '\n')
 
 #-------------------------------------------------------------------#
