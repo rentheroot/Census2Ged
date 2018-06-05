@@ -1,5 +1,10 @@
 import csv
 import config
+import logging
+
+
+logging.basicConfig(filename='myapp.log', level=logging.DEBUG)
+logging.info('Imported func_defs.py')
 
 #-------------------------------------------------------------------#
 #-------------------Birth Place Writer (Universal)------------------#
@@ -7,14 +12,22 @@ import config
 #row = row
 #b = POB column
 #the_file = the_file
-def BPlaceWriter(row,b, the_file):
+def BPlaceWriter(row,b, the_file,idn):
     if not row [b]:
-         pass
+         logging.info("Birthplace nonexistant for individual on line: " + str(idn + 1))
 
     else:
-         birthplace = row[b]
+        try:
 
-         the_file.write('2 PLAC ' + birthplace + '\n')
+            birthplace = row[b]
+            full = '2 PLAC ' + birthplace + '\n'
+
+            #write to file and log
+            the_file.write(full)
+
+        except:
+
+            logging.error("Could Not Recognize Birthplace: " + full.strip('\n') + " for person on line " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #----------------Birth Year and Month Writer------------------------#

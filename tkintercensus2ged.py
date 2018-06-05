@@ -1,3 +1,10 @@
+#clear the log file
+try:
+    with open("myapp.log", 'w') as the_file:
+        the_file.close()
+except:
+    pass
+
 #Imports
 import csv
 import tkinter as tk
@@ -19,6 +26,8 @@ from census1880 import *
 from census1900 import *
 from census1910 import *
 from household1881_1885 import *
+
+
 
 #load up that pickle
 try:
