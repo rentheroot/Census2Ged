@@ -103,7 +103,8 @@ def wordListSetup(relaName, occuName, malName, femName, bothName, surName):
 #drange1 = start of range of dates covered by survey
 #drange2 = end of range of dates covered by survey
 #mYear = marriage year
-def swedNameWriter(row,n, wordLists,the_file, idn, drange1, drange2, mYear, childSurnames):
+#configDictOccu = the occupation tag in config dict
+def swedNameWriter(row,n, wordLists,the_file, idn, drange1, drange2, mYear, childSurnames, configDictOccu):
 
 	#if name row doesn't exist do nothing
 	if not row[n]:
@@ -256,9 +257,10 @@ def swedNameWriter(row,n, wordLists,the_file, idn, drange1, drange2, mYear, chil
 				occupationNames.append(nameList2[n])
 
 		occupationNames = b' '.join(occupationNames)
-		if len(occupationNames) != 0:
-			the_file.write("1 OCCU " + occupationNames.decode('utf-8') + '\n')
-			the_file.write('2 DATE BET ' + str(drange1) + ' AND ' +str(drange2) + '\n')
+		if configDictOccu == 1:
+			if len(occupationNames) != 0:
+				the_file.write("1 OCCU " + occupationNames.decode('utf-8') + '\n')
+				the_file.write('2 DATE BET ' + str(drange1) + ' AND ' +str(drange2) + '\n')
 
 		#-------Relationships writer-------#
 		headOfHouseTitles = {b'far', b'pappa', b'fader', b'man', b'husfader', b'enkl.', b'enkeman', 'änkl.'.encode('utf-8'), 'änkling'.encode('utf-8'), b'eg.', b'egare', 'ägare'.encode('utf-8')}

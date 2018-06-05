@@ -46,22 +46,28 @@ def writeName1881_1885 (c , g, configDict):
 
 
                     #name, occupation, relationship writer
-                    childSurnames = swedNameWriter(row,"Name", wordLists, the_file, idn, '1881', '1885', 'Marriage-Married', childSurnames)
+                    childSurnames = swedNameWriter(row,"Name", wordLists, the_file, idn, '1881', '1885', 'Marriage-Married', childSurnames,  configDict["swedOccupation"])
 
                     #birth date (month, day, and year) writer
                     BDateWriter(row, 'Birth-Year', 'Birth-Month-Day', 'Birth-Place', '18', the_file)
 
                     #Religious ordinance writer (examination and communion)
-                    examinations = ['Examination1881', 'Examination1882','Examination1883','Examination1884', 'Examination1885']
-                    communions = ['Communion1881', 'Communion1882','Communion1883','Communion1884', 'Communion1885']
+                    if configDict ["swedExamination"] == 1:
+                        examinations = ['Examination1881', 'Examination1882','Examination1883','Examination1884', 'Examination1885']
+                    if configDict["swedCommunion"] == 1:
+                        communions = ['Communion1881', 'Communion1882','Communion1883','Communion1884', 'Communion1885']
+                    
                     OrdiWriter(row,examinations,communions,the_file)
 
                     #immigration writer
-                    ImmiWriter(row, 'MovedToPlace&Page', 'MovedDate', 'MovingOutNumber', the_file)
-                    ImmiWriter(row, 'Moved-Here-From', 'Moved-Date', 'MovingInNumber', the_file)
+                    if configDict["swedMovingOut"] == 1:
+                        ImmiWriter(row, 'MovedToPlace&Page', 'MovedDate', 'MovingOutNumber', the_file)
+                    if configDict["swedMovingIn"] == 1:
+                        ImmiWriter(row, 'Moved-Here-From', 'Moved-Date', 'MovingInNumber', the_file)
 
                     #Death date writer
-                    DDateWriter(row,'Death',the_file)
-             print(childSurnames)
+                    if configDict["swedDeath"] == 1:
+                        DDateWriter(row,'Death',the_file)
+             
              #call endfile function
              EndFile(the_file,g, idn, childSurnames)

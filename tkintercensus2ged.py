@@ -2,6 +2,7 @@
 import csv
 import tkinter as tk
 from tkinter import filedialog
+from tkinter import messagebox
 import pickle
 import sys
 
@@ -316,6 +317,15 @@ class Application(tk.Frame):
             #checkbox Swedish Examination
             self.optionSwedExamination=tk.IntVar(self)
 
+            #checkbox Swedish moving in records
+            self.optionSwedMovingIn= tk.IntVar(self)
+
+            #checkbox Swedish moving out records
+            self.optionSwedMovingOut= tk.IntVar(self)
+
+            #checkbox Swedish death records
+            self.optionSwedDeath= tk.IntVar(self)
+
             #Swedish vars
 
             #update occupation value
@@ -326,6 +336,15 @@ class Application(tk.Frame):
 
             #update Examination value
             self.optionSwedExamination.trace('w', self.__update_swedExamination__)
+
+            #update Moving In value
+            self.optionSwedMovingIn.trace('w', self.__update_swedMovingIn__)
+
+            #update Moving Out value
+            self.optionSwedMovingOut.trace('w', self.__update_swedMovingOut__)
+
+            #update Death value
+            self.optionSwedDeath.trace('w', self.__update_swedDeath__)
 
             #label for Swedish tags to include
             swedishTagLabel = tk.Label(self.frame, text='Tags to include',font = "Helvetica 10 bold underline")
@@ -360,6 +379,30 @@ class Application(tk.Frame):
             self.swedExaminationSet = tk.Entry(self.frame)
             self.swedExaminationSet.grid(row=8,column=1, sticky = "w")
 
+            #Moving In
+            self.CheckboxSwedMovingIn = tk.Checkbutton(self.frame, text="Moving In Records", variable=self.optionSwedMovingIn)
+            self.CheckboxSwedMovingIn.grid(row=9, sticky="w")
+
+            #Moving in tag entry box
+            self.swedMovingInSet = tk.Entry(self.frame)
+            self.swedMovingInSet.grid(row=9,column=1, sticky = "w")
+
+            #Moving Out
+            self.CheckboxSwedMovingOut = tk.Checkbutton(self.frame, text="Moving Out Records", variable=self.optionSwedMovingOut)
+            self.CheckboxSwedMovingOut.grid(row=10, sticky="w")
+
+            #Moving Out tag entry box
+            self.swedMovingOutSet = tk.Entry(self.frame)
+            self.swedMovingOutSet.grid(row=10,column=1, sticky = "w")
+
+            #Death
+            self.CheckboxSwedDeath = tk.Checkbutton(self.frame, text="Death", variable=self.optionSwedDeath)
+            self.CheckboxSwedDeath.grid(row=11, sticky="w")
+
+            #Death tag entry box
+            self.swedDeathSet = tk.Entry(self.frame)
+            self.swedDeathSet.grid(row=11,column=1, sticky = "w")
+
             #set up previous user configurations for Sweden
             try:
                 #Swedish Occupation
@@ -373,26 +416,38 @@ class Application(tk.Frame):
                 #Swedish Examination
                 if user_config["swedExamination"] == 1:
                     self.CheckboxSwedExamination.select()
+
+                #Swedish moving in
+                if user_config["swedMovingIn"] == 1:
+                    self.CheckboxSwedMovingIn.select()
+
+                #Swedish moving out
+                if user_config["swedMovingOut"] == 1:
+                    self.CheckboxSwedMovingOut.select()
+
+                #Swedish death
+                if user_config["swedDeath"] == 1:
+                    self.CheckboxSwedDeath.select()
             except:
                 pass
 
 
             #CSV file select label
             self.PathLabel = tk.Label(self.frame)
-            self.PathLabel.grid(row=10,column=1, sticky="w")
+            self.PathLabel.grid(row=12,column=1, sticky="w")
 
             #CSV file select button
             self.BrowseButton = tk.Button(self.frame, text="Input CSV",font = "Helvetica 10 bold", command=self.browse_func)
-            self.BrowseButton.grid(row=10, sticky ="w")
+            self.BrowseButton.grid(row=12, sticky ="w")
             #submit button
             self.submit = tk.Button(self.frame, text="Submit",
                                     command = self.__Submit_Button__)
-            self.submit.grid(row=11,column=1, sticky="w")
+            self.submit.grid(row=13,column=1, sticky="w")
             
             #Quit button
             self.quit = tk.Button(self.frame, text="QUIT", fg="red",
                                  command= self.quit_sequence)
-            self.quit.grid(row =11, column =2,sticky="w")
+            self.quit.grid(row =13, column =2,sticky="w")
 
     def create_widgets(self):
 
@@ -539,6 +594,18 @@ class Application(tk.Frame):
         swedExamination = self.optionSwedExamination.get()
         return(swedExamination)
 
+    def __update_swedMovingIn__(self, *args):
+        swedMovingIn = self.optionSwedMovingIn.get()
+        return(swedMovingIn)
+
+    def __update_swedMovingOut__(self, *args):
+        swedMovingOut = self.optionSwedMovingOut.get()
+        return(swedMovingOut)
+
+    def __update_swedDeath__(self, *args):
+        swedDeath = self.optionSwedDeath.get()
+        return(swedDeath)
+
     # create configDictionary with all the values of the fields
     def __Update_Checkbox_List__(self):
         if self.countrySelect.get() == "United States":
@@ -567,12 +634,16 @@ class Application(tk.Frame):
                             "propTag" : self.propertySet.get(),
                             }
 
-        if self.countrySelect.get() == "Sweden":
+        elif self.countrySelect.get() == "Sweden":
             variable_list ={"Country" : self.countrySelect.get() ,
-                            "Year" : self.yearSelect.get(),           
+                            "Year" : self.yearSelect.get(), 
+                            "Gedname" : self.gedNameSet.get(),          
                             "swedOccupation" : self.optionSwedOccupation.get(),
                             "swedCommunion" : self.optionSwedCommunion.get(),
-                            "swedExamination" : self.optionSwedExamination.get()
+                            "swedExamination" : self.optionSwedExamination.get(),
+                            "swedMovingIn" : self.optionSwedMovingIn.get(),
+                            "swedMovingOut": self.optionSwedMovingOut.get(),
+                            "swedDeath": self.optionSwedDeath.get()
 
 
 
@@ -623,26 +694,30 @@ class Application(tk.Frame):
         if c == 'United States':
             if y == '1850':
                 writeName1850(file_path , g, configDictionary)
+                tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1860':
                 writeName1860(file_path , g, configDictionary)
+                tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1870':
                 writeName1870(file_path , g, configDictionary)
+                tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1880':
                 writeName1880(file_path , g, configDictionary)
+                tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1900':
                 writeName1900(file_path , g, configDictionary)
+                tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1910':
                 writeName1910(file_path, g, configDictionary)
+                tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             else:
                 pass
 
         elif c == "Sweden":
             if y == "1881-1885":
                 writeName1881_1885(file_path , g, configDictionary)
+                tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
 
-                
-        else:
-            print('not USA')
                
 #Run the Gui
 root = tk.Tk()
