@@ -14,7 +14,7 @@ logging.info('Imported func_defs.py')
 #the_file = the_file
 def BPlaceWriter(row,b, the_file,idn):
     if not row [b]:
-         logging.info("Birthplace nonexistant for individual on line: " + str(idn + 1))
+        logging.info("Birthplace nonexistant for individual on line: " + str(idn + 1))
 
     else:
         try:
@@ -27,7 +27,7 @@ def BPlaceWriter(row,b, the_file,idn):
 
         except:
 
-            logging.error("Could Not Recognize Birthplace: " + full.strip('\n') + " for person on line " + str(idn + 1))
+            logging.info("Could Not Recognize Birthplace: " + row[b] + " for person on line " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #----------------Birth Year and Month Writer------------------------#
@@ -38,42 +38,58 @@ def YMBdateWriter (row,y,m,the_file,idn):
 
 
     #birthdate
-     if not row[y]:
-         if not row [m]:
-             pass
-         else:
-             month = row[m]
-             month = month[:3]
-             month = month.upper()
-             fulldate = str(month)
-             #print birth information
-             the_file.write("1 BIRT" + '\n')
-             the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
-      
-     else:
-         year = row[y]
+    if not row[y]:
+        if not row [m]:
+            logging.info("Birthdate information nonexistant for individual on line: " + str(idn + 1))
 
-         if isinstance( year, int ):
+        else:
+            try:
+                month = row[m]
+                month = month[:3]
+                month = month.upper()
+                fulldate = str(month)
+                #print birth information
+                the_file.write("1 BIRT" + '\n')
+                full = '2 DATE ABT ' + str(fulldate) + '\n'
+                the_file.write(full)
+            except:
+                logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line " + str(idn + 1))
 
-             if not row[m]:
-                 fulldate = str(year)
-                     #print birth information
-                     the_file.write("1 BIRT" + '\n')
-                 the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
-        
-             else:
-                 month = row[m]
-                 month = month[:3]
-                 month = month.upper()
+    else:
+        year = row[y]
 
-                 fulldate = (str(month) +' ' + str(year))
-                 #print birth information
-                 the_file.write("1 BIRT" + '\n')
-                 the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
-         else:
-             #print birth information
-             the_file.write("1 BIRT" + '\n')
-             the_file.write('2 DATE ABT ' + str(year) + '\n')
+
+        if isinstance( year, int ):
+
+            if not row[m]:
+                try:
+                    fulldate = str(year)
+                    #print birth information
+                    the_file.write("1 BIRT" + '\n')
+                    full = '2 DATE ABT ' + str(fulldate) + '\n'
+                    the_file.write(full)
+                except:
+                    logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line " + str(idn + 1))
+
+            else:
+                try:
+                    month = row[m]
+                    month = month[:3]
+                    month = month.upper()
+
+                    fulldate = (str(month) +' ' + str(year))
+                    #print birth information
+                    the_file.write("1 BIRT" + '\n')
+                    the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
+                except:
+                    logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line " + str(idn + 1))
+        else:
+            try:  
+                #print birth information
+                the_file.write("1 BIRT" + '\n')
+                the_file.write('2 DATE ABT ' + str(year) + '\n')
+            except:
+                logging.info("Could Not Recognize Birthdate: " + row[y] + ' ' + row[m] + " for person on line " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #-----------------Birth Year Writer (Requires Age)------------------#
@@ -82,23 +98,23 @@ def YMBdateWriter (row,y,m,the_file,idn):
 #y = census year
 def YBdateWriter (row,a,y,the_file):
     #print birth information
-     the_file.write("1 BIRT" + '\n')
+    the_file.write("1 BIRT" + '\n')
 
     #birthdate
-     if not row[a]:
-         pass
-      
-     else:
-         age = row[a]
+    if not row[a]:
+        pass
 
-         try:
-             year = int(y) - int(age)
+    else:
+        age = row[a]
 
-             fulldate = str(year)        
-             the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
-         except:
-             print('False')
-             the_file.write('2 DATE ABT ' + str(y) + '\n')
+        try:
+            year = int(y) - int(age)
+
+            fulldate = str(year)
+            the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
+        except:
+
+            the_file.write('2 DATE ABT ' + str(y) + '\n')
 #-------------------------------------------------------------------#
 #----------------Name Writer (No relationship required)-------------#
 #-------------------------------------------------------------------#
@@ -107,45 +123,24 @@ def YBdateWriter (row,a,y,the_file):
 #the_file = the_file
 def __Name_Writer_No_Relation__(row, n, the_file):
     #separate values for firstname and lastname
-     name = str(row[n]).split()
+    name = str(row[n]).split()
 
-     if len(name)== 2:
+    #set last name to first word in full name
+    lastname = name[0]
 
-             firstname = name[1]
-             lastname = name[0]
-             #print "1 NAME (firstname) /(lastname)/"
-             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
-             #Print "2 SURN (lastname)"
-             the_file.write('2 SURN ' + lastname + '\n')
-                     
-     elif len(name) == 3:
+    #delete the lastname from the full name
+    del name[0]
 
-             firstname = str(name[1] + ' ' + name[2])
-             lastname = name[0]
+    firstname = (' ').join(name)
 
-             #print "1 NAME (firstname) /(lastname)/"
-             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
-             #Print "2 SURN (lastname)"
-             the_file.write('2 SURN ' + lastname + '\n')
 
-     elif len(name) == 4:
+    #print "1 NAME (firstname) /(lastname)/"
+    the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
+    #Print "2 GIVN (firstname)"
+    the_file.write('2 GIVN ' + firstname + '\n')
+    #Print "2 SURN (lastname)"
+    the_file.write('2 SURN ' + lastname + '\n')
 
-             firstname = str(name[1] + ' ' + name[2] + ' ' + name[3])
-             lastname = name[0]
-             
-             #print "1 NAME (firstname) /(lastname)/"
-             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
-             #Print "2 SURN (lastname)"
-             the_file.write('2 SURN ' + lastname + '\n')
-             
-     else:
-         print('too many spaces in name')
 
 #-------------------------------------------------------------------#
 #-------------------Name Writer (Requires Relationship)-------------#
@@ -156,118 +151,44 @@ def __Name_Writer_No_Relation__(row, n, the_file):
 #the_file = the_file
 def NameWriter(row, n, r, the_file):
     #separate values for firstname and lastname
-     name = str(row[n]).split()
+    name = str(row[n]).split()
 
-     if len(name)== 2:
-         relation = row[r]
-         relation = relation.lower()
-
-        #if they are the wife of the head
-         if relation == 'wife':
-             firstname = name[1]
-             #print "1 NAME (firstname) //"
-             the_file.write('1 NAME ' + firstname + '//\n')
-
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
-
-        #if they are the mother of the head
-         elif relation == 'mother':
-             firstname = name[1]
-             #print "1 NAME (firstname) //"
-             the_file.write('1 NAME ' + firstname + '//\n')
-
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
-
-         else:
-             firstname = name[1]
-             lastname = name[0]
-             #print "1 NAME (firstname) /(lastname)/"
-             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
-
-             #Print "2 SURN (lastname)"
-             the_file.write('2 SURN ' + lastname + '\n')
-             
-             
-             
-         
-     elif len(name) == 3:
-
-         relation = row[r]
-         relation = relation.lower()
+    if len(name)== 2:
+        relation = row[r].lower()
 
         #if they are the wife of the head
-         if relation == 'wife':
-             firstname = str(name[1] + ' ' + name[2])
-             #print "1 NAME (firstname) //"
-             the_file.write('1 NAME ' + firstname + '//\n')
+        if relation == 'wife' or relation == 'mother':
+            #set last name to first word in full name
+            lastname = name[0]
 
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
+            #delete the lastname from the full name
+            del name[0]
 
-        #if they are the mother of the head
-         elif relation == 'mother':
-             firstname = str(name[1] + ' ' + name[2])
-             #print "1 NAME (firstname) //"
-             the_file.write('1 NAME ' + firstname + '//\n')
+            firstname = (' ').join(name)
 
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
+            #print "1 NAME (firstname) //"
+            the_file.write('1 NAME ' + firstname + '//\n')
 
-         else:
-             firstname = str(name[1] + ' ' + name[2])
-             lastname = name[0]
-             #print "1 NAME (firstname) /(lastname)/"
-             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
+            #Print "2 GIVN (firstname)"
+            the_file.write('2 GIVN ' + firstname + '\n')
 
-             #Print "2 SURN (lastname)"
-             the_file.write('2 SURN ' + lastname + '\n')
+        else:
 
-     elif len(name) == 4:
-         relation = row[r]
-         relation = relation.lower()
+            #set last name to first word in full name
+            lastname = name[0]
 
-        #if they are the wife of the head
-         if relation == 'wife':
-             firstname = str(name[1] + ' ' + name[2] + ' ' + name[3])
-             #print "1 NAME (firstname) //"
-             the_file.write('1 NAME ' + firstname + '//\n')
+            #delete the lastname from the full name
+            del name[0]
 
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
+            firstname = (' ').join(name)
 
-             
+            #print "1 NAME (firstname) /(lastname)/"
+            the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
+            #Print "2 GIVN (firstname)"
+            the_file.write('2 GIVN ' + firstname + '\n')
+            #Print "2 SURN (lastname)"
+            the_file.write('2 SURN ' + lastname + '\n')
 
-        #if they are the mother of the head
-         elif relation == 'mother':
-             firstname = str(name[1] + ' ' + name[2] + ' ' + name[3])
-             #print "1 NAME (firstname) //"
-             the_file.write('1 NAME ' + firstname + '//\n')
-
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
-
-             
-
-         else:
-             firstname = str(name[1] + ' ' + name[2] + ' ' + name[3])
-             lastname = name[0]
-             
-             #print "1 NAME (firstname) /(lastname)/"
-             the_file.write('1 NAME ' + firstname + '/' + lastname + '/\n')
-             
-             #Print "2 GIVN (firstname)"
-             the_file.write('2 GIVN ' + firstname + '\n')
-
-             #Print "2 SURN (lastname)"
-             the_file.write('2 SURN ' + lastname + '\n')
-     else:
-         print('too many spaces in name')
 
 #-------------------------------------------------------------------#
 #---------------------------Sex Writer------------------------------#
@@ -275,14 +196,13 @@ def NameWriter(row, n, r, the_file):
 #s is the sex column
 def SexWriter(row,s, the_file):
     #Print Sex
-     if not row[s]:
-         pass
-     else:
-         sex = row[s]
-         sex = sex[:1]
-         the_file.write("1 SEX " + sex + '\n')
-         print(sex.lower())
-         return(sex)
+    if not row[s]:
+        pass
+    else:
+        sex = row[s]
+        sex = sex[:1]
+        the_file.write("1 SEX " + sex + '\n')
+        return(sex)
 
 #-------------------------------------------------------------------#
 #--------------------Immigration Year Writer------------------------#
@@ -317,7 +237,7 @@ def ImmigYearWriter(row, I, immigTag, the_file):
 def CensusYearWriter(the_file, y):
     the_file.write("1 CENS\n")
     the_file.write("2 DATE " + y +"\n")
-    
+
 #-------------------------------------------------------------------#
 #--------------------------Occupation Writer------------------------#
 #-------------------------------------------------------------------#
@@ -328,7 +248,7 @@ def CensusYearWriter(the_file, y):
 #occuTag = occupation tag to use
 def OccupationWriter(row, occuTag,o, the_file, y):
     if not row[o]:
-         pass
+        pass
 
     else:
         if occuTag == "OCCU":
@@ -342,7 +262,7 @@ def OccupationWriter(row, occuTag,o, the_file, y):
             the_file.write("1 EVEN " + occupation + '\n')
             the_file.write("2 TYPE " + occuTag + '\n')
             the_file.write("2 DATE " + y + '\n')
-            
+
 
 #-------------------------------------------------------------------#
 #--------------------------Occupation Writer 1910-------------------#
@@ -354,7 +274,7 @@ def OccupationWriter(row, occuTag,o, the_file, y):
 #occuTag = occupation tag to use
 def OccupationWriter1910(row, occuTag, o, I, the_file, y):
     if not row[o]:
-         pass
+        pass
 
     else:
         if occuTag == "OCCU":
@@ -410,7 +330,7 @@ def NaturalizedWriter (row, the_file, natuTag,n, y):
     naturalized = row[n]
 
     if not row[n]:
-     pass
+        pass
     else:
         if natuTag == "NATU":
             the_file.write('1 NATU Naturalization Status: ' + naturalized +'\n')
@@ -471,20 +391,20 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y ):
 
             #if age column empty
             if not row[a]:
-                 pass
-             #if age column not empty
+                pass
+            #if age column not empty
             else:
 
-                 #check if age is under 10
-                 try:
-                     if age < int(10):
-                         pass
-                     else:
-                         the_file.write('1 DSCR Can Read: yes' + ' Can Write: yes' + '\n')
-                         the_file.write('2 DATE '+ y +'\n')
-                 except:
-                     pass
-        #if they cannot write             
+                #check if age is under 10
+                try:
+                    if age < int(10):
+                        pass
+                    else:
+                        the_file.write('1 DSCR Can Read: yes' + ' Can Write: yes' + '\n')
+                        the_file.write('2 DATE '+ y +'\n')
+                except:
+                    pass
+        #if they cannot write
         else:
             try:
                 if age < int(10):
@@ -494,7 +414,7 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y ):
                     the_file.write('2 DATE '+ y +'\n')
             except:
                 pass
-    #if they cannot read        
+    #if they cannot read
     else:
         #if they can write
         if not row[w]:
@@ -516,7 +436,7 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y ):
                     the_file.write('2 DATE '+ y +'\n')
             except:
                 pass
-        
+
 #-------------------------------------------------------------------#
 #----------------------Literacy Writer 1860-------------------------#
 #-------------------------------------------------------------------#
@@ -534,20 +454,20 @@ def __Literacy_Writer_1860__ (row, r, a, the_file, y ):
 
         #if age column empty
         if not row[a]:
-             pass
-         #if age column not empty
+            pass
+        #if age column not empty
         else:
 
-             #check if age is under 20
-             try:
-                 if age < int(20):
-                     pass
-                 else:
-                     the_file.write('1 DSCR Can Read and write: yes' + '\n')
-                     the_file.write('2 DATE '+ y +'\n')
-             except:
-                 pass
-    #if they cannot read        
+            #check if age is under 20
+            try:
+                if age < int(20):
+                    pass
+                else:
+                    the_file.write('1 DSCR Can Read and write: yes' + '\n')
+                    the_file.write('2 DATE '+ y +'\n')
+            except:
+                pass
+    #if they cannot read
     else:
         try:
             if age < int(20):
@@ -567,14 +487,14 @@ def __Literacy_Writer_1860__ (row, r, a, the_file, y ):
 #y=census year
 #chilTag = Children Born Tag to use
 def ChildNoWriter (row, n,l, chilTag, the_file,y):
-     if not row[n]:
-         pass
-     else:
+    if not row[n]:
+        pass
+    else:
         if chilTag == "DSCR":
-             childrenborn = row[n]
-             livingchildren = row[l]
-             the_file.write('1 DSCR Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
-             the_file.write('2 DATE '+y +'\n')
+            childrenborn = row[n]
+            livingchildren = row[l]
+            the_file.write('1 DSCR Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
+            the_file.write('2 DATE '+y +'\n')
 
         #if user has selected a custom tag, use it
         else:
@@ -720,74 +640,71 @@ def __Property_Writer_1850__(row, r, the_file , propTag, y):
 #idn=idn
 #y = census year
 def FamilyWriter1900(row, r,ym, the_file, idn,y,sex):
-     if not row[r]:
-         relation = 'head'
-         
-     else:
-         relation = row[r]
-         relation = relation.lower()
-     
-     if relation == 'head':
-         config.familynumber += 1
-         the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+    if not row[r]:
+        relation = 'head'
 
-         with open('temporaryfamilies.txt', 'a') as new_file:
-             new_file.write('0 '+ '@F' + "{0:0=3d}".format(config.familynumber) + '@ FAM\n')
-             if sex.lower() == 'm':
+    else:
+        relation = row[r]
+        relation = relation.lower()
+
+    if relation == 'head':
+        config.familynumber += 1
+        the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('0 '+ '@F' + "{0:0=3d}".format(config.familynumber) + '@ FAM\n')
+            if sex.lower() == 'm':
                 new_file.write('1 HUSB ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-             else:
+            else:
                 new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-        
-                         
-     elif relation != 'head':
-          if relation == 'wife':
-              yrsmarried = row[ym]
-              marriageyear = int(yrsmarried)
-              marriageyear = int(y) - marriageyear
 
-              the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
-             
 
-              with open('temporaryfamilies.txt', 'a') as new_file:
-                 new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-                 new_file.write('1 MARR\n')
-                 new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
-                 
-          elif relation == 'son':
+    elif relation != 'head':
+        if relation == 'wife':
+            yrsmarried = row[ym]
+            marriageyear = int(yrsmarried)
+            marriageyear = int(y) - marriageyear
 
-             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+            the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-             with open('temporaryfamilies.txt', 'a') as new_file:
-                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
-             #print('is son')
-                 
-          elif relation == 'daughter':
+            with open('temporaryfamilies.txt', 'a') as new_file:
+                new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+                new_file.write('1 MARR\n')
+                new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
 
-             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+        elif relation == 'son':
 
-             with open('temporaryfamilies.txt', 'a') as new_file:
-                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-                 
-             #print('is daughter')
-                 
-          elif relation == 'child':
+            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+            with open('temporaryfamilies.txt', 'a') as new_file:
+                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
-             with open('temporaryfamilies.txt', 'a') as new_file:
-                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-             
-             #print('is child')
-             
-          else:
-             print('Other Relation')
-         
 
-     else:
-         print("im lost")
+        elif relation == 'daughter':
 
-     return(config.familynumber)
+            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+            with open('temporaryfamilies.txt', 'a') as new_file:
+                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+
+
+        elif relation == 'child':
+
+            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+            with open('temporaryfamilies.txt', 'a') as new_file:
+                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+
+
+        else:
+            print('Other Relation')
+
+
+    else:
+        print("im lost")
+
+    return(config.familynumber)
 #-------------------------------------------------------------------#
 #---------------------------Family Writer 1880 format---------------#
 #-------------------------------------------------------------------#
@@ -799,77 +716,75 @@ def FamilyWriter1900(row, r,ym, the_file, idn,y,sex):
 #idn=idn
 #y = census year
 def FamilyWriter1880(row, r,ym, the_file, idn,y):
-     if not row[r]:
-         relation = 'head'
-         
-     else:
-         relation = row[r]
-         relation = relation.lower()
-     
-     if relation == 'head':
-         config.familynumber += 1
-         the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+    if not row[r]:
+        relation = 'head'
 
-         
+    else:
+        relation = row[r]
+        relation = relation.lower()
 
-         with open('temporaryfamilies.txt', 'a') as new_file:
-             new_file.write('0 '+ '@F' + "{0:0=3d}".format(config.familynumber) + '@ FAM\n')
-             new_file.write('1 HUSB ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-        
-                         
-     elif relation != 'head':
-          if relation == 'wife':
-              if not row[ym]:
-                  the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
-                  with open('temporaryfamilies.txt', 'a') as new_file:
-                     new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-                     new_file.write('1 MARR\n')
+    if relation == 'head':
+        config.familynumber += 1
+        the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-              else:
-                  the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')          
-                  
-                  marriageyear = y
 
-             
-                  with open('temporaryfamilies.txt', 'a') as new_file:
-                     new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-                     new_file.write('1 MARR\n')
-                     new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
-          elif relation == 'son':
 
-             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('0 '+ '@F' + "{0:0=3d}".format(config.familynumber) + '@ FAM\n')
+            new_file.write('1 HUSB ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
-             with open('temporaryfamilies.txt', 'a') as new_file:
-                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
-             #print('is son')
-                 
-          elif relation == 'daughter':
+    elif relation != 'head':
+        if relation == 'wife':
+            if not row[ym]:
+                the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+                with open('temporaryfamilies.txt', 'a') as new_file:
+                    new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+                    new_file.write('1 MARR\n')
 
-             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+            else:
+                the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-             with open('temporaryfamilies.txt', 'a') as new_file:
-                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-                 
-             #print('is daughter')
-                 
-          elif relation == 'child':
+                marriageyear = y
 
-             the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-             with open('temporaryfamilies.txt', 'a') as new_file:
-                 new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-             
-             #print('is child')
-             
-          else:
-             print('Other Relation')
-         
+                with open('temporaryfamilies.txt', 'a') as new_file:
+                    new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+                    new_file.write('1 MARR\n')
+                    new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
+        elif relation == 'son':
 
-     else:
-         print("im lost")
+            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-     return(config.familynumber)
+            with open('temporaryfamilies.txt', 'a') as new_file:
+                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+
+
+
+        elif relation == 'daughter':
+
+            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+            with open('temporaryfamilies.txt', 'a') as new_file:
+                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+
+
+        elif relation == 'child':
+
+            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+
+            with open('temporaryfamilies.txt', 'a') as new_file:
+                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+
+
+        else:
+            print('Other Relation')
+
+
+    else:
+        print("im lost")
+
+    return(config.familynumber)
 #-------------------------------------------------------------------#
 #---------------------------Army/Navy Writer------------------------#
 #-------------------------------------------------------------------#
@@ -890,11 +805,11 @@ def ArmyWriter(row, a, militTag, the_file):
             militarystatus = row[a]
             the_file.write('1 EVEN Army or Navy: ' + militarystatus + '\n')
             the_file.write("2 TYPE " + militTag + '\n')
-            
+
 
 #-------------------------------------------------------------------#
 #------------------------------Blind Writer-------------------------#
-#-------------------------------------------------------------------#        
+#-------------------------------------------------------------------#
 #row=row
 #b=Blind cloumn
 #the-file=the_file
@@ -915,7 +830,7 @@ def BlindWriter(row, b, disiTag, the_file):
 
 #-------------------------------------------------------------------#
 #------------------------------Deaf Writer--------------------------#
-#-------------------------------------------------------------------#        
+#-------------------------------------------------------------------#
 #row=row
 #d=Deaf cloumn
 #the-file=the_file
@@ -935,7 +850,7 @@ def DeafWriter(row, d, disiTag, the_file):
 
 #-------------------------------------------------------------------#
 #-------------------------Deaf Writer 1880--------------------------#
-#-------------------------------------------------------------------#        
+#-------------------------------------------------------------------#
 #row=row
 #d=Deaf cloumn
 #the-file=the_file
@@ -944,18 +859,18 @@ def DeafWriter1880(row, d,disiTag, the_file):
     if not row[d]:
         pass
     else:
-         if disiTag == "DSCR":
+        if disiTag == "DSCR":
             deafness = row[d]
             the_file.write('1 DSCR Whether Deaf and Dumb: ' + deafness + '\n')
 
-         else:
+        else:
             deafness = row[d]
             the_file.write('1 EVEN Whether Deaf: ' + deafness + '\n')
             the_file.write("2 TYPE " + disiTag + '\n')
 
 #-------------------------------------------------------------------#
 #----------------------Sick or Disabled Writer----------------------#
-#-------------------------------------------------------------------#        
+#-------------------------------------------------------------------#
 #row=row
 #s=Sick or disabled column
 #the-file=the_file
@@ -968,17 +883,17 @@ def SickOrDisabledWriter(row, s,disiTag, the_file):
 
             sick = row[s]
             the_file.write('1 DSCR Whether Sick or Disabled: ' + sick + '\n')
-            
+
 
         else:
             sick = row[s]
             the_file.write("1 EVEN Whether Sick or Disabled: " + sick + '\n')
             the_file.write("2 TYPE " + sick + '\n')
-            
+
 
 #-------------------------------------------------------------------#
 #---------------------------Idiotic Writer--------------------------#
-#-------------------------------------------------------------------#        
+#-------------------------------------------------------------------#
 #row=row
 #d= Idiotic column
 #the-file=the_file
@@ -998,7 +913,7 @@ def IdioticWriter(row, d, disiTag, the_file):
 
 #-------------------------------------------------------------------#
 #---------------------------Insane Writer---------------------------#
-#-------------------------------------------------------------------#        
+#-------------------------------------------------------------------#
 #row=row
 #n= Insane column
 #the-file=the_file
@@ -1017,7 +932,7 @@ def InsaneWriter(row, n, disiTag, the_file):
 
 #-------------------------------------------------------------------#
 #---------------------------Maimed Writer---------------------------#
-#-------------------------------------------------------------------#        
+#-------------------------------------------------------------------#
 #row=row
 #m= Maimed column
 #the_file=the_file
@@ -1037,7 +952,7 @@ def MaimedWriter(row, m, disiTag, the_file):
 
 #-------------------------------------------------------------------#
 #---------------------Disabled Writer 1870--------------------------#
-#-------------------------------------------------------------------#        
+#-------------------------------------------------------------------#
 #row=row
 #d=disabled cloumn
 #the_file=the_file
@@ -1094,7 +1009,7 @@ def EndFile(the_file,g, idn):
                 except:
                     the_file.write(line)
 
-            #check if fam in line        
+            #check if fam in line
             elif "FAM" in line:
                 try:
                     if "HUSB" in lines[i+1] and "WIFE" not in lines[i+2] and "CHIL" not in lines[i+2]:
@@ -1110,7 +1025,7 @@ def EndFile(the_file,g, idn):
     #clear temporaryfamilies.txt
     with open('temporaryfamilies.txt', 'w') as new_file:
         new_file.close
-  
+
     #Print Trailer
     the_file.write('0 TRLR\n')
 
@@ -1128,10 +1043,10 @@ def EndFile(the_file,g, idn):
     #fix family groups
     with open (g, 'r', encoding='utf-8') as read_file:
         fixFams = read_file.readlines()
-        
+
     with open(g, 'w', encoding='utf-8') as in_file:
         for line in fixFams:
-            
+
             if any(x in str(line) for x in toRemove2):
                 pass
             else:

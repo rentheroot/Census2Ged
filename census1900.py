@@ -22,7 +22,7 @@ def writeName1900 (c , g, config_dict):
                  sex = SexWriter(row,"6 Sex",the_file)
 
                  #call YMBdateWriter function
-                 YMBdateWriter(row,"7 Year","7 Month",the_file)
+                 YMBdateWriter(row,"7 Year","7 Month",the_file,idn)
 
                  #call BPlaceWriter function
                  BPlaceWriter(row,"13 POB",the_file,idn)

@@ -19,7 +19,7 @@ def writeName1870 (c , g, config_dict):
                  the_file.write('0 ' + '@I' + "{0:0=3d}".format(idn) + '@' + ' INDI\n')
 
                  #Call NameWriter Function
-                 __Name_Writer_No_Relation__(row, '3-Name', the_file)
+                 __Name_Writer_No_Relation__(row, '3-Name', the_file,idn)
 
                  #Call SexWriter Function
                  SexWriter(row,'5-Sex',the_file)
