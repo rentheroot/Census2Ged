@@ -23,7 +23,7 @@ def writeName1910 (c , g, config_dict):
                  sex = SexWriter(row,"5 Sex",the_file,idn)
 
                  #Call YBdateWriter function
-                 YBdateWriter (row,"7 Age",'1910',the_file)
+                 YBdateWriter (row,"7 Age",'1910',the_file, idn)
 
                  #call BPlaceWriter function
                  BPlaceWriter(row,"12 POB",the_file,idn)
@@ -33,23 +33,23 @@ def writeName1910 (c , g, config_dict):
 
                  #call ImmigYearWriter function
                  if config_dict["Immigration"] == 1:
-                    ImmigYearWriter(row,"15 Immigration", config_dict["immigTag"],the_file)
+                    ImmigYearWriter(row,"15 Immigration", config_dict["immigTag"],the_file,idn)
 
                  #call OccupationWriter1910 function
                  if config_dict["Occupation"] == 1:
-                    OccupationWriter1910(row, config_dict["occupTag"], "18 Occupation","19 Industry/busines", the_file, '1910')
+                    OccupationWriter1910(row, config_dict["occupTag"], "18 Occupation","19 Industry/busines", the_file, '1910',idn)
 
                  #call RaceWriter function
                  if config_dict["Race"] == 1:
-                    RaceWriter(row,'6 Color',config_dict["raceTag"], the_file, '1910')
+                    RaceWriter(row,'6 Color',config_dict["raceTag"], the_file, '1910',idn)
 
                  #call NaturalizedWriter function
                  if config_dict["Naturalize"] == 1:
-                    NaturalizedWriter(row, the_file, config_dict["natuTag"],'16 Naturalized?', '1910' )
+                    NaturalizedWriter(row, the_file, config_dict["natuTag"],'16 Naturalized?', '1910', idn )
 
                  #call LiteracyWriter function
                  if config_dict["Literacy"] == 1:
-                    LiteracyWriter(row,'23 Read','24 Write', config_dict["literTag"], the_file, '1910')
+                    LiteracyWriter(row,'23 Read','24 Write', config_dict["literTag"], the_file, '1910', idn)
 
                  #call ChildNoWriter function
                  if config_dict["Children Born"] == 1:

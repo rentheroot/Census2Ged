@@ -96,25 +96,31 @@ def YMBdateWriter (row,y,m,the_file,idn):
 #-------------------------------------------------------------------#
 #a = age column
 #y = census year
-def YBdateWriter (row,a,y,the_file):
-    #print birth information
-    the_file.write("1 BIRT" + '\n')
+def YBdateWriter (row,a,y,the_file,idn):
 
+    age = row[a]
     #birthdate
     if not row[a]:
-        pass
+        logging.info("Birthplace nonexistant for individual on line: " + str(idn + 1))
 
     else:
-        age = row[a]
-
         try:
-            year = int(y) - int(age)
+            try:
+                year = int(y) - int(age)
 
-            fulldate = str(year)
-            the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
+                fulldate = str(year)
+                
+                #print birth information
+                the_file.write("1 BIRT" + '\n')
+                the_file.write('2 DATE ABT ' + str(fulldate) + '\n')
+
+            except:
+                #print birth information
+                the_file.write("1 BIRT" + '\n')
+                the_file.write('2 DATE ABT ' + str(y) + '\n')
         except:
+            logging.info("Could Not Recognize Birthdate for the : " + row[a] + " year old person on line: " + str(idn + 1))
 
-            the_file.write('2 DATE ABT ' + str(y) + '\n')
 #-------------------------------------------------------------------#
 #----------------Name Writer (No relationship required)-------------#
 #-------------------------------------------------------------------#
@@ -201,12 +207,16 @@ def SexWriter(row,s, the_file,idn):
     #Print Sex
     if not row[s]:
         the_file.write("1 SEX U" + '\n')
-        logging.info("Could not recognize sex of person on line: " + str(idn+1))
+        logging.info("Sex information nonexistant for person on line: " + str(idn+1))
     else:
-        sex = row[s]
-        sex = sex[:1].upper()
-        the_file.write("1 SEX " + sex + '\n')
-        return(sex)
+        try:
+            sex = row[s]
+            sex = sex[:1].upper()
+            the_file.write("1 SEX " + sex + '\n')
+            return(sex)
+        except:
+            the_file.write("1 SEX U" + '\n')
+            logging.info("Could not recognize sex of person on line: " + str(idn+1))
 
 #-------------------------------------------------------------------#
 #--------------------Immigration Year Writer------------------------#
@@ -215,20 +225,23 @@ def SexWriter(row,s, the_file,idn):
 #I = Immigration Year column
 #the_file = the_file
 #immigTag = Immigration tag to use
-def ImmigYearWriter(row, I, immigTag, the_file):
+def ImmigYearWriter(row, I, immigTag, the_file,idn):
     if not row[I]:
-        pass
+        logging.info("Immigration information nonexistant for person on line: " + str(idn+1))
 
     else:
-        if immigTag == "IMMI":
-            immigyear = row[I]
-            the_file.write("1 IMMI\n")
-            the_file.write("2 DATE ABT " + immigyear + '\n')
-        else:
-            immigyear = row[I]
-            the_file.write("1 EVEN\n")
-            the_file.write("2 TYPE " + immigTag + '\n')
-            the_file.write("2 DATE ABT " + immigyear + '\n')
+        try:
+            if immigTag == "IMMI":
+                immigyear = row[I]
+                the_file.write("1 IMMI\n")
+                the_file.write("2 DATE ABT " + immigyear + '\n')
+            else:
+                immigyear = row[I]
+                the_file.write("1 EVEN\n")
+                the_file.write("2 TYPE " + immigTag + '\n')
+                the_file.write("2 DATE ABT " + immigyear + '\n')
+        except:
+            logging.info("Could not recognize immigration information: " + row[I] + " of person on line: " + str(idn+1))
 
 
 
@@ -250,22 +263,25 @@ def CensusYearWriter(the_file, y):
 #the_file = the_file
 #y = census year
 #occuTag = occupation tag to use
-def OccupationWriter(row, occuTag,o, the_file, y):
+def OccupationWriter(row, occuTag,o, the_file, y, idn):
     if not row[o]:
-        pass
+        logging.info("Occupation information is nonexistant for person on line: " + str(idn+1))
 
     else:
-        if occuTag == "OCCU":
-            occupation = row[o]
-            the_file.write("1 OCCU " + occupation + '\n')
-            the_file.write("2 DATE " + y +"\n")
+        try:
+            if occuTag == "OCCU":
+                occupation = row[o]
+                the_file.write("1 OCCU " + occupation + '\n')
+                the_file.write("2 DATE " + y +"\n")
 
-        #if user has selected a custom tag, use it
-        else:
-            occupation = row[o]
-            the_file.write("1 EVEN " + occupation + '\n')
-            the_file.write("2 TYPE " + occuTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
+            #if user has selected a custom tag, use it
+            else:
+                occupation = row[o]
+                the_file.write("1 EVEN " + occupation + '\n')
+                the_file.write("2 TYPE " + occuTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+        except:
+            logging.info("Could not recognize occupation of person on line: " + str(idn+1))
 
 
 #-------------------------------------------------------------------#
@@ -276,25 +292,28 @@ def OccupationWriter(row, occuTag,o, the_file, y):
 #the_file = the_file
 #y = census year
 #occuTag = occupation tag to use
-def OccupationWriter1910(row, occuTag, o, I, the_file, y):
+def OccupationWriter1910(row, occuTag, o, I, the_file, y, idn):
     if not row[o]:
-        pass
+        logging.info("Occupation information is nonexistant for person on line: " + str(idn+1))
 
     else:
-        if occuTag == "OCCU":
+        try:
+            if occuTag == "OCCU":
 
-            occupation = row[o]
-            industry = row[I]
-            the_file.write("1 OCCU " + 'Occupation: '+occupation + ' Industry: '+ industry+'\n')
-            the_file.write("2 DATE " + y +"\n")
+                occupation = row[o]
+                industry = row[I]
+                the_file.write("1 OCCU " + 'Occupation: '+occupation + ' Industry: '+ industry+'\n')
+                the_file.write("2 DATE " + y +"\n")
 
-        #if user has selected a custom tag, use it
-        else:
-            occupation = row[o]
-            industry = row[I]
-            the_file.write("1 EVEN " + 'Occupation: '+occupation + ' Industry: '+ industry+'\n' )
-            the_file.write("2 TYPE " + occuTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
+            #if user has selected a custom tag, use it
+            else:
+                occupation = row[o]
+                industry = row[I]
+                the_file.write("1 EVEN " + 'Occupation: '+occupation + ' Industry: '+ industry+'\n' )
+                the_file.write("2 TYPE " + occuTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+        except:
+            logging.info("Could not recognize occupation of person on line: " + str(idn+1))
 
 #-------------------------------------------------------------------#
 #-----------------------------Race Writer---------------------------#
@@ -304,23 +323,28 @@ def OccupationWriter1910(row, occuTag, o, I, the_file, y):
 #the_file=the_file
 #y = census year
 #raceTag = race tag to use
-def RaceWriter(row, r, raceTag, the_file, y):
+def RaceWriter(row, r, raceTag, the_file, y,idn):
     race = row[r]
     if not row[r]:
-        pass
+        logging.info("Race information is nonexistant for person on line: " + str(idn+1))
 
     else:
 
-        if raceTag == "DSCR":
-            the_file.write('1 DSCR Race: ' + race + '\n')
-            the_file.write('2 DATE ' + y +'\n')
+        try:
 
-        #if user has selected a custom tag, use it
-        else:
+            if raceTag == "DSCR":
+                the_file.write('1 DSCR Race: ' + race + '\n')
+                the_file.write('2 DATE ' + y +'\n')
 
-            the_file.write("1 EVEN " + race +'\n' )
-            the_file.write("2 TYPE " + raceTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
+            #if user has selected a custom tag, use it
+            else:
+
+                the_file.write("1 EVEN " + race +'\n' )
+                the_file.write("2 TYPE " + raceTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+
+        except:
+            logging.info("Could not recognize race of person on line: " + str(idn+1))
 
 
 #-------------------------------------------------------------------#
@@ -330,21 +354,24 @@ def RaceWriter(row, r, raceTag, the_file, y):
 #the_file=the_file
 #n=naturalization column
 #natuTag = Naturalization tag to use
-def NaturalizedWriter (row, the_file, natuTag,n, y):
+def NaturalizedWriter (row, the_file, natuTag, n, y, idn):
     naturalized = row[n]
 
     if not row[n]:
-        pass
+        logging.info("Naturalization information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if natuTag == "NATU":
-            the_file.write('1 NATU Naturalization Status: ' + naturalized +'\n')
-            the_file.write('2 DATE ' + y +'\n')
+        try:
+            if natuTag == "NATU":
+                the_file.write('1 NATU Naturalization Status: ' + naturalized +'\n')
+                the_file.write('2 DATE ' + y +'\n')
 
-        #if user has selected a custom tag, use it
-        else:
-            the_file.write("1 EVEN " + naturalized +'\n' )
-            the_file.write("2 TYPE " + natuTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
+            #if user has selected a custom tag, use it
+            else:
+                the_file.write("1 EVEN " + naturalized +'\n' )
+                the_file.write("2 TYPE " + natuTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+        except:
+            logging.info("Could not recognize naturalization information: " + row[n] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #---------------------------Literacy Writer-------------------------#
@@ -355,22 +382,25 @@ def NaturalizedWriter (row, the_file, natuTag,n, y):
 #the_file=the_file
 #y = census year
 #literTag = Literacy tag to use
-def LiteracyWriter (row, r,w,literTag, the_file, y ):
+def LiteracyWriter (row, r,w,literTag, the_file, y, idn ):
     canread = row[r]
     canwrite = row[w]
     if not row[r]:
-        pass
+        logging.info("Literacy information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if literTag == "EDUC":
+        try:
+            if literTag == "EDUC":
 
-            the_file.write('1 DSCR Can Read: ' + canread + ' Can Write: ' + canwrite + '\n')
-            the_file.write('2 DATE '+ y +'\n')
+                the_file.write('1 DSCR Can Read: ' + canread + ' Can Write: ' + canwrite + '\n')
+                the_file.write('2 DATE '+ y +'\n')
 
-        #if user has selected a custom tag, use it
-        else:
-            the_file.write("1 EVEN Can Read: " + canread + ' Can Write: ' + canwrite + '\n' )
-            the_file.write("2 TYPE " + literTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
+            #if user has selected a custom tag, use it
+            else:
+                the_file.write("1 EVEN Can Read: " + canread + ' Can Write: ' + canwrite + '\n' )
+                the_file.write("2 TYPE " + literTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+        except:
+            logging.info("Could not recognize literacy information: " + row[r] + ' ' + row[w] + " for person in line: " + str(idn + 1))
 
 
 #-------------------------------------------------------------------#
@@ -382,64 +412,46 @@ def LiteracyWriter (row, r,w,literTag, the_file, y ):
 #a = age column
 #the_file=the_file
 #y = census year
-def LiteracyWriter1880 (row, r,w, a, the_file, y ):
+def LiteracyWriter1880 (row, r,w, a, the_file, y, idn ):
     canread = row[r]
     canwrite = row[w]
     age = row[a]
 
-    #if they can read
-    if not row[r]:
+    try:
+        #if they can read
+        if not row[r]:
 
-        #if they can write
-        if not row[w]:
+            #if they can write
+            if not row[w]:
 
-            #if age column empty
-            if not row[a]:
-                pass
-            #if age column not empty
-            else:
-
-                #check if age is under 10
-                try:
-                    if age < int(10):
-                        pass
-                    else:
+                #if age column empty
+                if not row[a]:
+                    logging.info("Literacy information is nonexistant for person on line: " + str(idn + 1))
+                #if age column not empty
+                else:
+                    if age > int(10):
                         the_file.write('1 DSCR Can Read: yes' + ' Can Write: yes' + '\n')
                         the_file.write('2 DATE '+ y +'\n')
-                except:
-                    pass
-        #if they cannot write
-        else:
-            try:
-                if age < int(10):
-                    pass
-                else:
+
+            #if they cannot write
+            else:
+                if age > int(10):
                     the_file.write('1 DSCR Can Read: yes' + ' Can Write: no' + '\n')
                     the_file.write('2 DATE '+ y +'\n')
-            except:
-                pass
-    #if they cannot read
-    else:
-        #if they can write
-        if not row[w]:
-            try:
-                if age < int(10):
-                    pass
-                else:
+
+        #if they cannot read
+        else:
+            #if they can write
+            if not row[w] and age > int(10):
                     the_file.write('1 DSCR Can Read: no' + ' Can Write: yes' + '\n')
                     the_file.write('2 DATE '+ y +'\n')
-            except:
-                pass
         #if they cannot write
         else:
-            try:
-                if age < int(10):
-                    pass
-                else:
-                    the_file.write('1 DSCR Can Read: no' + ' Can Write: no' + '\n')
-                    the_file.write('2 DATE '+ y +'\n')
-            except:
-                pass
+            if age > int(10):
+                the_file.write('1 DSCR Can Read: no' + ' Can Write: no' + '\n')
+                the_file.write('2 DATE '+ y +'\n')
+    except:
+        logging.info("Could not recognize literacy information: " + row[r] + ' ' + row[w] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #----------------------Literacy Writer 1860-------------------------#
@@ -449,38 +461,30 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y ):
 #a = age column
 #the_file=the_file
 #y = census year
-def __Literacy_Writer_1860__ (row, r, a, the_file, y ):
+def __Literacy_Writer_1860__ (row, r, a, the_file, y, idn ):
     canread = row[r]
     age = row[a]
 
-    #if they can read
-    if not row[r]:
-
-        #if age column empty
-        if not row[a]:
-            pass
-        #if age column not empty
-        else:
-
-            #check if age is under 20
-            try:
-                if age < int(20):
-                    pass
-                else:
+    try:
+        #if they can read
+        if not row[r]:
+            #if age column empty
+            if not row[a]:
+                logging.info("Literacy information is nonexistant for person on line: " + str(idn + 1))
+            #if age column not empty
+            else:
+                #check if age is under 20
+                if age > int(20):
                     the_file.write('1 DSCR Can Read and write: yes' + '\n')
                     the_file.write('2 DATE '+ y +'\n')
-            except:
-                pass
-    #if they cannot read
-    else:
-        try:
-            if age < int(20):
-                pass
-            else:
+        #if they cannot read
+        else:
+            if age > int(20):
                 the_file.write('1 DSCR Can Read and write: no'+ '\n')
                 the_file.write('2 DATE '+ y +'\n')
-        except:
-            pass
+    except:
+        logging.info("Could not recognize literacy information: " + row[r] + " for person in line: " + str(idn + 1))
+
 #-------------------------------------------------------------------#
 #------------------------Child Number Writer------------------------#
 #-------------------------------------------------------------------#

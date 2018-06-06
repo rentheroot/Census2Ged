@@ -22,7 +22,7 @@ def writeName1880 (c , g, config_dict):
                  SexWriter(row,'5-Sex',the_file,idn)
 
                  #Call YBdateWriter function
-                 YBdateWriter (row,'6-Age','1880',the_file)
+                 YBdateWriter (row,'6-Age','1880',the_file,idn)
 
                  #call BPlaceWriter function
                  BPlaceWriter(row,'24-POB',the_file,idn)
@@ -32,15 +32,15 @@ def writeName1880 (c , g, config_dict):
 
                  #call OccupationWriter function
                  if config_dict["Occupation"] == 1:
-                    OccupationWriter(row, config_dict["occupTag"], '13-Occupation', the_file, '1880')
+                    OccupationWriter(row, config_dict["occupTag"], '13-Occupation', the_file, '1880', idn)
 
                  #call RaceWriter function
                  if config_dict["Race"] == 1:
-                    RaceWriter(row,'4-Color', config_dict["raceTag"], the_file, '1880')
+                    RaceWriter(row,'4-Color', config_dict["raceTag"], the_file, '1880',idn)
 
                  #call LiteracyWriter1880 function
                  if config_dict["Literacy"] == 1:
-                    LiteracyWriter1880(row,'22-Cannot read','23-Cannot write', '6-Age',config_dict["literTag"], the_file, '1880')
+                    LiteracyWriter1880(row,'22-Cannot read','23-Cannot write', '6-Age',config_dict["literTag"], the_file, '1880', idn)
 
                  #call DeafWriter1880 function
                  if config_dict["Disability"] == 1:

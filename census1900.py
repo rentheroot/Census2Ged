@@ -32,23 +32,23 @@ def writeName1900 (c , g, config_dict):
 
                  #call ImmigYearWriter function
                  if config_dict["Immigration"] == 1:
-                    ImmigYearWriter(row,"16 Year of immigration to the United States.",config_dict["immigTag"],the_file)
+                    ImmigYearWriter(row,"16 Year of immigration to the United States.",config_dict["immigTag"],the_file,idn)
 
                  #call OccupationWriter function
                  if config_dict["Occupation"] == 1:
-                    OccupationWriter(row, config_dict["occupTag"], "19 Occupation", the_file, '1900')
+                    OccupationWriter(row, config_dict["occupTag"], "19 Occupation", the_file, '1900', idn)
 
                  #call RaceWriter function
                  if config_dict["Race"] == 1:
-                    RaceWriter(row,'5 Color or race',config_dict["raceTag"], the_file, '1900')
+                    RaceWriter(row,'5 Color or race',config_dict["raceTag"], the_file, '1900',idn)
 
                  #call NaturalizedWriter function
                  if config_dict["Naturalize"] == 1:
-                    NaturalizedWriter(row, the_file,config_dict["natuTag"],'18 Naturalization.', '1900' )
+                    NaturalizedWriter(row, the_file,config_dict["natuTag"],'18 Naturalization.', '1900', idn )
 
                  #call LiteracyWriter function
                  if config_dict["Literacy"] == 1:
-                    LiteracyWriter(row,'22 Can read','23 Can write', config_dict["literTag"], the_file, '1900')
+                    LiteracyWriter(row,'22 Can read','23 Can write', config_dict["literTag"], the_file, '1900', idn)
 
                  #call ChildNoWriter function
                  if config_dict["Children Born"] == 1:
