@@ -53,27 +53,27 @@ def writeName1910 (c , g, config_dict):
 
                  #call ChildNoWriter function
                  if config_dict["Children Born"] == 1:
-                    ChildNoWriter(row,'10 Children born','11 Still living',  config_dict["chilTag"], the_file, '1910')
+                    ChildNoWriter(row,'10 Children born','11 Still living',  config_dict["chilTag"], the_file, '1910', idn)
 
                  #call SpeakEnglishWriter function
                  if config_dict["Language"] == 1:
-                    SpeakEnglishWriter(row,'17 English', config_dict["langTag"], the_file, '1910')
+                    SpeakEnglishWriter(row,'17 English', config_dict["langTag"], the_file, '1910', idn)
 
                  #call ArmyWriter function
                  if config_dict["Military"] == 1:
-                    ArmyWriter(row, '30 Army or Navy.', config_dict["militTag"], the_file)
+                    ArmyWriter(row, '30 Army or Navy.', config_dict["militTag"], the_file, idn)
 
                  #call BlindWriter function
                  if config_dict["Disability"] == 1:
-                    BlindWriter(row, '31 Blind', config_dict["disiTag"], the_file)
+                    BlindWriter(row, '31 Blind', config_dict["disiTag"], the_file, idn)
 
                  #call DeafWriter finction
                  if config_dict["Disability"] == 1:
-                    DeafWriter(row, '32 Deaf, etc.', config_dict["disiTag"], the_file)
+                    DeafWriter(row, '32 Deaf, etc.', config_dict["disiTag"], the_file, idn)
 
                  #call PropertyWriter function
                  if config_dict["Property"] == 1:
-                    PropertyWriter(row,'26 Owned/Rented', '27 Free/Mortgage','28 Farm/house','29 # farm', config_dict["propTag"], the_file, '1910' )
+                    PropertyWriter(row,'26 Owned/Rented', '27 Free/Mortgage','28 Farm/house','29 # farm', config_dict["propTag"], the_file, '1910', idn )
 
                  #call FamilyWriter1900 function
                  FamilyWriter1900(row, '4 Relationship','9 Years married.', the_file,idn, '1910',sex)

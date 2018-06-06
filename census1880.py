@@ -44,27 +44,27 @@ def writeName1880 (c , g, config_dict):
 
                  #call DeafWriter1880 function
                  if config_dict["Disability"] == 1:
-                    DeafWriter1880(row, '17-Deaf and Dumb',config_dict["disiTag"], the_file)
+                    DeafWriter1880(row, '17-Deaf and Dumb',config_dict["disiTag"], the_file, idn)
 
                  #call BlindWriter function
                  if config_dict["Disability"] == 1:
-                    BlindWriter(row,'16-Blind', config_dict["disiTag"],the_file)
+                    BlindWriter(row,'16-Blind', config_dict["disiTag"],the_file, idn)
 
                  #call SickOrDisabledWriter function
                  if config_dict["Disability"] == 1:
-                    SickOrDisabledWriter(row,'15-sick or disabled', config_dict["disiTag"],the_file )
+                    SickOrDisabledWriter(row,'15-sick or disabled', config_dict["disiTag"],the_file, idn )
 
                  #call IdioticWriter function
                  if config_dict["Disability"] == 1:
-                    IdioticWriter(row, '18-Idiotic', config_dict["disiTag"],the_file)
+                    IdioticWriter(row, '18-Idiotic', config_dict["disiTag"],the_file, idn)
 
                  #call InsaneWriter function
                  if config_dict["Disability"] == 1:
-                    InsaneWriter(row, '19-Insane', config_dict["disiTag"],the_file)
+                    InsaneWriter(row, '19-Insane', config_dict["disiTag"],the_file, idn)
 
                  #call MaimedWriter function
                  if config_dict["Disability"] == 1:
-                    MaimedWriter(row,'20-Maimed etc.' ,config_dict["disiTag"],config_dict["propTag"],the_file)
+                    MaimedWriter(row,'20-Maimed etc.' ,config_dict["disiTag"],config_dict["propTag"],the_file, idn)
 
                  #call FamilyWriter1880 function
                  FamilyWriter1880(row, '8-Relationship', '12-Married in Year.', the_file,idn, '1880')

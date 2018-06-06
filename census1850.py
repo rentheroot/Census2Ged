@@ -45,11 +45,11 @@ def writeName1850 (c , g, config_dict):
 
                  #call Disabled Writer 1870 function
                  if config_dict["Disability"] == 1:
-                    __Disabled_Writer_1870__(row, 'Deaf-Dumb-Blind-Etc', the_file)
+                    __Disabled_Writer_1870__(row, 'Deaf-Dumb-Blind-Etc', the_file, idn)
 
                  #call Property writer 1850 function
                  if config_dict["Property"] == 1:
-                    __Property_Writer_1850__(row, 'Real-Estate', config_dict["propTag"], the_file , '1850')
+                    __Property_Writer_1850__(row, 'Real-Estate', config_dict["propTag"], the_file , '1850', idn)
 
              #call endfile function
              EndFile(the_file,g)

@@ -52,15 +52,15 @@ def writeName1900 (c , g, config_dict):
 
                  #call ChildNoWriter function
                  if config_dict["Children Born"] == 1:
-                    ChildNoWriter(row,'11 Mother of how many children.','12 Number living.', config_dict["chilTag"],the_file, '1900')
+                    ChildNoWriter(row,'11 Mother of how many children.','12 Number living.', config_dict["chilTag"],the_file, '1900', idn)
 
                  #call SpeakEnglishWriter function
                  if config_dict["Language"] == 1:
-                    SpeakEnglishWriter(row,'24 Can speak English', config_dict["langTag"], the_file, '1900')
+                    SpeakEnglishWriter(row,'24 Can speak English', config_dict["langTag"], the_file, '1900', idn)
 
                  #call PropertyWriter function
                  if config_dict["Property"] == 1:
-                    PropertyWriter(row,'25 Owned or rented', '26 Owned free or mortgaged.','27 Farm or home','28 Number of farm schedule.', config_dict["propTag"],the_file, '1900' )
+                    PropertyWriter(row,'25 Owned or rented', '26 Owned free or mortgaged.','27 Farm or home','28 Number of farm schedule.', config_dict["propTag"],the_file, '1900', idn )
 
                  #call FamilyWriter1900 function
                  FamilyWriter1900(row, '4 Relationship of each person to the head of the family.','10 Years married.', the_file,idn, '1900',sex)

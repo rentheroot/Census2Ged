@@ -47,7 +47,7 @@ def writeName1870 (c , g, config_dict):
 
                  #call Disabled Writer 1870 function
                  if config_dict["Disability"] == 1:
-                    __Disabled_Writer_1870__(row, '18-deaf-and-dumb', config_dict["disiTag"],the_file)
+                    __Disabled_Writer_1870__(row, '18-deaf-and-dumb', config_dict["disiTag"],the_file, idn)
 
                  #call property writer 1860 function
                  if config_dict["Property"] == 1:

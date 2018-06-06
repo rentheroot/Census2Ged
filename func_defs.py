@@ -440,16 +440,14 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y, idn ):
                     the_file.write('2 DATE '+ y +'\n')
 
         #if they cannot read
-        else:
-            #if they can write
-            if not row[w] and age > int(10):
-                    the_file.write('1 DSCR Can Read: no' + ' Can Write: yes' + '\n')
-                    the_file.write('2 DATE '+ y +'\n')
-        #if they cannot write
-        else:
-            if age > int(10):
-                the_file.write('1 DSCR Can Read: no' + ' Can Write: no' + '\n')
+        #if they can write
+        elif not row[w] and age > int(10):
+                the_file.write('1 DSCR Can Read: no' + ' Can Write: yes' + '\n')
                 the_file.write('2 DATE '+ y +'\n')
+        #if they cannot write
+        elif age > int(10):
+            the_file.write('1 DSCR Can Read: no' + ' Can Write: no' + '\n')
+            the_file.write('2 DATE '+ y +'\n')
     except:
         logging.info("Could not recognize literacy information: " + row[r] + ' ' + row[w] + " for person in line: " + str(idn + 1))
 
@@ -494,24 +492,26 @@ def __Literacy_Writer_1860__ (row, r, a, the_file, y, idn ):
 #the_file=the_file
 #y=census year
 #chilTag = Children Born Tag to use
-def ChildNoWriter (row, n,l, chilTag, the_file,y):
+def ChildNoWriter (row, n,l, chilTag, the_file, y, idn):
     if not row[n]:
-        pass
+        logging.info("Child number information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if chilTag == "DSCR":
-            childrenborn = row[n]
-            livingchildren = row[l]
-            the_file.write('1 DSCR Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
-            the_file.write('2 DATE '+y +'\n')
+        try:
+            if chilTag == "DSCR":
+                childrenborn = row[n]
+                livingchildren = row[l]
+                the_file.write('1 DSCR Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
+                the_file.write('2 DATE '+y +'\n')
 
-        #if user has selected a custom tag, use it
-        else:
-            childrenborn = row[n]
-            livingchildren = row[l]
-            the_file.write('1 EVEN Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
-            the_file.write("2 TYPE " + chilTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
-
+            #if user has selected a custom tag, use it
+            else:
+                childrenborn = row[n]
+                livingchildren = row[l]
+                the_file.write('1 EVEN Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
+                the_file.write("2 TYPE " + chilTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+        except:
+            logging.info("Could not recognize child number information: " + row[n] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #------------------------English Ability Writer---------------------#
@@ -522,21 +522,24 @@ def ChildNoWriter (row, n,l, chilTag, the_file,y):
 #y= census year
 #langTag = language spoken Tag to use
 
-def SpeakEnglishWriter (row, e, langTag, the_file,y):
+def SpeakEnglishWriter (row, e, langTag, the_file,y, idn):
     speaksenglish = row[e]
     if not row[e]:
-        pass
+        logging.info("Language information is nonexistant for person on line: " + str(idn + 1))
 
     else:
-        if langTag == "DSCR":
-            the_file.write('1 DSCR Able to speak English: ' + speaksenglish + '\n')
-            the_file.write('2 DATE ' + y + '\n')
+        try:
+            if langTag == "DSCR":
+                the_file.write('1 DSCR Able to speak English: ' + speaksenglish + '\n')
+                the_file.write('2 DATE ' + y + '\n')
 
-        #if user has selected a custom tag, use it
-        else:
-            the_file.write('1 EVEN Able to speak English: ' + speaksenglish + '\n')
-            the_file.write("2 TYPE " + langTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
+            #if user has selected a custom tag, use it
+            else:
+                the_file.write('1 EVEN Able to speak English: ' + speaksenglish + '\n')
+                the_file.write("2 TYPE " + langTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+        except:
+            logging.info("Could not recognize language information: " + row[e] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #-----------------------------Property Writer-----------------------#
@@ -549,22 +552,25 @@ def SpeakEnglishWriter (row, e, langTag, the_file,y):
 #the_file = the_file
 #y= Census Year
 #propTag = tag to use for the property information
-def PropertyWriter(row, o , fm , fh , fs , propTag, the_file , y):
+def PropertyWriter(row, o , fm , fh , fs , propTag, the_file , y, idn):
     ownorrent = row[o]
     freeormort = row[fm]
     farmorhome = row[fh]
     farmschedule = row [fs]
 
     if not row[o]:
-        pass
+        logging.info("Property information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if propTag == "PROP":
-            the_file.write('1 PROP House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
-            the_file.write('2 DATE '+ y +'\n')
-        else:
-            the_file.write('1 EVEN House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
-            the_file.write("2 TYPE " + propTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
+        try:
+            if propTag == "PROP":
+                the_file.write('1 PROP House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
+                the_file.write('2 DATE '+ y +'\n')
+            else:
+                the_file.write('1 EVEN House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
+                the_file.write("2 TYPE " + propTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+        except:
+            logging.info("Could not recognize property information: " + row[o] + ' ' + row[fm] + ' ' + row[fh] + ' ' + row[fs] +" for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #------------------------Property Writer 1860-----------------------#
@@ -575,46 +581,49 @@ def PropertyWriter(row, o , fm , fh , fs , propTag, the_file , y):
 #the_file = the_file
 #y= Census Year
 #propTag = tag to use for the property information
-def __Property_Writer_1860__(row, r, p, the_file , propTag, y):
+def __Property_Writer_1860__(row, r, p, the_file , propTag, y, idn):
     realEstate = row[r]
     personalEstate = row[p]
 
-    #doesn't have real estate
-    if not row[r]:
-        #doesn't have personal estate
-        if not row [p]:
-            pass
-        #has personal estate
-        else:
-            if propTag == "PROP":
-                the_file.write('1 PROP Value of Personal Estate: ' + personalEstate + '\n')
-                the_file.write('2 DATE '+ y +'\n')
+    try:
+        #doesn't have real estate
+        if not row[r]:
+            #doesn't have personal estate
+            if not row [p]:
+                logging.info("Property information is nonexistant for person on line: " + str(idn + 1))
+            #has personal estate
             else:
-                the_file.write('1 EVEN Value of Personal Estate: ' + personalEstate + '\n')
-                the_file.write("2 TYPE " + propTag + '\n')
-                the_file.write("2 DATE " + y + '\n')
+                if propTag == "PROP":
+                    the_file.write('1 PROP Value of Personal Estate: ' + personalEstate + '\n')
+                    the_file.write('2 DATE '+ y +'\n')
+                else:
+                    the_file.write('1 EVEN Value of Personal Estate: ' + personalEstate + '\n')
+                    the_file.write("2 TYPE " + propTag + '\n')
+                    the_file.write("2 DATE " + y + '\n')
 
-    #has real estate
-    else:
-        #doesn't have personal estate
-        if not row [p]:
-            if propTag == "PROP":
-
-                the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
-                the_file.write('2 DATE '+ y +'\n')
-            else:
-                the_file.write('1 EVEN Value of Real Estate: ' + realEstate + '\n')
-                the_file.write("2 TYPE " + propTag + '\n')
-                the_file.write("2 DATE " + y + '\n')
-        #has personal estate
+        #has real estate
         else:
-            if propTag == "PROP":
-                the_file.write('1 PROP Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
-                the_file.write('2 DATE '+ y +'\n')
+            #doesn't have personal estate
+            if not row [p]:
+                if propTag == "PROP":
+
+                    the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
+                    the_file.write('2 DATE '+ y +'\n')
+                else:
+                    the_file.write('1 EVEN Value of Real Estate: ' + realEstate + '\n')
+                    the_file.write("2 TYPE " + propTag + '\n')
+                    the_file.write("2 DATE " + y + '\n')
+            #has personal estate
             else:
-                the_file.write('1 EVEN Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
-                the_file.write("2 TYPE " + propTag + '\n')
-                the_file.write("2 DATE " + y + '\n')
+                if propTag == "PROP":
+                    the_file.write('1 PROP Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
+                    the_file.write('2 DATE '+ y +'\n')
+                else:
+                    the_file.write('1 EVEN Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
+                    the_file.write("2 TYPE " + propTag + '\n')
+                    the_file.write("2 DATE " + y + '\n')
+    except:
+        logging.info("Could not recognize property information: " + row[r] + ' ' + row[p] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #------------------------Property Writer 1850-----------------------#
@@ -624,19 +633,22 @@ def __Property_Writer_1860__(row, r, p, the_file , propTag, y):
 #the_file = the_file
 #y= Census Year
 #propTag = tag to use for the property information
-def __Property_Writer_1850__(row, r, the_file , propTag, y):
+def __Property_Writer_1850__(row, r, the_file , propTag, y, idn):
     realEstate = row[r]
     if not row[r]:
-        pass
+        logging.info("Property information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if propTag == "PROP":
-            the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
-            the_file.write('2 DATE '+ y +'\n')
+        try:
+            if propTag == "PROP":
+                the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
+                the_file.write('2 DATE '+ y +'\n')
 
-        else:
-            the_file.write('1 EVEN Value of Real Estate: ' + realEstate + '\n')
-            the_file.write("2 TYPE " + propTag + '\n')
-            the_file.write("2 DATE " + y + '\n')
+            else:
+                the_file.write('1 EVEN Value of Real Estate: ' + realEstate + '\n')
+                the_file.write("2 TYPE " + propTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
+        except:
+            logging.info("Could not recognize property information: " + row[r] + " for person in line: " + str(idn + 1))
 #-------------------------------------------------------------------#
 #---------------------------Family Writer 1900 format---------------#
 #-------------------------------------------------------------------#
@@ -735,62 +747,41 @@ def FamilyWriter1880(row, r,ym, the_file, idn,y):
         config.familynumber += 1
         the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-
-
         with open('temporaryfamilies.txt', 'a') as new_file:
             new_file.write('0 '+ '@F' + "{0:0=3d}".format(config.familynumber) + '@ FAM\n')
             new_file.write('1 HUSB ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
+    elif relation == 'wife':
 
-    elif relation != 'head':
-        if relation == 'wife':
-            if not row[ym]:
-                the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
-                with open('temporaryfamilies.txt', 'a') as new_file:
-                    new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-                    new_file.write('1 MARR\n')
-
-            else:
-                the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
-
-                marriageyear = y
-
-
-                with open('temporaryfamilies.txt', 'a') as new_file:
-                    new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-                    new_file.write('1 MARR\n')
-                    new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
-        elif relation == 'son':
-
-            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
-
+        if not row[ym]:
+            the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
             with open('temporaryfamilies.txt', 'a') as new_file:
-                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-
-
-
-        elif relation == 'daughter':
-
-            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
-
-            with open('temporaryfamilies.txt', 'a') as new_file:
-                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-
-
-        elif relation == 'child':
-
-            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
-
-            with open('temporaryfamilies.txt', 'a') as new_file:
-                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-
-
+                new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+                new_file.write('1 MARR\n')
         else:
-            print('Other Relation')
+            the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+            marriageyear = y
+            with open('temporaryfamilies.txt', 'a') as new_file:
+                new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+                new_file.write('1 MARR\n')
+                new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
 
+    elif relation == 'son':
+        the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
+    elif relation == 'daughter':
+        the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+
+    elif relation == 'child':
+        the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
     else:
-        print("im lost")
+        print('Other Relation')
 
     return(config.familynumber)
 #-------------------------------------------------------------------#
@@ -801,7 +792,7 @@ def FamilyWriter1880(row, r,ym, the_file, idn,y):
 #the_file=the_file
 #militTag = tag to use for military service information
 
-def ArmyWriter(row, a, militTag, the_file):
+def ArmyWriter(row, a, militTag, the_file,idn):
     if not row[a]:
         pass
     else:
@@ -814,7 +805,6 @@ def ArmyWriter(row, a, militTag, the_file):
             the_file.write('1 EVEN Army or Navy: ' + militarystatus + '\n')
             the_file.write("2 TYPE " + militTag + '\n')
 
-
 #-------------------------------------------------------------------#
 #------------------------------Blind Writer-------------------------#
 #-------------------------------------------------------------------#
@@ -822,7 +812,7 @@ def ArmyWriter(row, a, militTag, the_file):
 #b=Blind cloumn
 #the-file=the_file
 #disiTag = tag to use for disability
-def BlindWriter(row, b, disiTag, the_file):
+def BlindWriter(row, b, disiTag, the_file, idn):
     if not row[b]:
         pass
     else:
@@ -834,8 +824,6 @@ def BlindWriter(row, b, disiTag, the_file):
             the_file.write('1 EVEN Whether Blind: ' + blindness + '\n')
             the_file.write("2 TYPE " + disiTag + '\n')
 
-
-
 #-------------------------------------------------------------------#
 #------------------------------Deaf Writer--------------------------#
 #-------------------------------------------------------------------#
@@ -843,7 +831,7 @@ def BlindWriter(row, b, disiTag, the_file):
 #d=Deaf cloumn
 #the-file=the_file
 #disiTag = tag to use for disability
-def DeafWriter(row, d, disiTag, the_file):
+def DeafWriter(row, d, disiTag, the_file, idn):
     if not row[d]:
         pass
     else:
@@ -863,7 +851,7 @@ def DeafWriter(row, d, disiTag, the_file):
 #d=Deaf cloumn
 #the-file=the_file
 #disiTag = tag to use for disabilty writer
-def DeafWriter1880(row, d,disiTag, the_file):
+def DeafWriter1880(row, d,disiTag, the_file, idn):
     if not row[d]:
         pass
     else:
@@ -883,7 +871,7 @@ def DeafWriter1880(row, d,disiTag, the_file):
 #s=Sick or disabled column
 #the-file=the_file
 #disiTag = tag to use for disabilty writer
-def SickOrDisabledWriter(row, s,disiTag, the_file):
+def SickOrDisabledWriter(row, s,disiTag, the_file, idn):
     if not row[s]:
         pass
     else:
@@ -906,7 +894,7 @@ def SickOrDisabledWriter(row, s,disiTag, the_file):
 #d= Idiotic column
 #the-file=the_file
 #disiTag = tag to use for disabilty writer
-def IdioticWriter(row, d, disiTag, the_file):
+def IdioticWriter(row, d, disiTag, the_file, idn):
     if not row[d]:
         pass
     else:
@@ -926,7 +914,7 @@ def IdioticWriter(row, d, disiTag, the_file):
 #n= Insane column
 #the-file=the_file
 #disiTag = tag to use for disabilty writer
-def InsaneWriter(row, n, disiTag, the_file):
+def InsaneWriter(row, n, disiTag, the_file, idn):
     if not row[n]:
         pass
     else:
@@ -945,7 +933,7 @@ def InsaneWriter(row, n, disiTag, the_file):
 #m= Maimed column
 #the_file=the_file
 #disiTag = tag to use for disabilty writer
-def MaimedWriter(row, m, disiTag, the_file):
+def MaimedWriter(row, m, disiTag, the_file, idn):
     if not row[m]:
         pass
     else:
@@ -965,7 +953,7 @@ def MaimedWriter(row, m, disiTag, the_file):
 #d=disabled cloumn
 #the_file=the_file
 #disiTag = tag to use for disabilty writer
-def __Disabled_Writer_1870__(row, d, disiTag, the_file):
+def __Disabled_Writer_1870__(row, d, disiTag, the_file, idn):
     if not row[d]:
         pass
     else:
