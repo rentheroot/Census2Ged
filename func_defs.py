@@ -678,51 +678,41 @@ def FamilyWriter1900(row, r,ym, the_file, idn,y,sex):
             else:
                 new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
+    elif relation == 'wife':
+        yrsmarried = row[ym]
+        marriageyear = int(yrsmarried)
+        marriageyear = int(y) - marriageyear
 
-    elif relation != 'head':
-        if relation == 'wife':
-            yrsmarried = row[ym]
-            marriageyear = int(yrsmarried)
-            marriageyear = int(y) - marriageyear
+        the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-            the_file.write('1 FAMS ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+            new_file.write('1 MARR\n')
+            new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
 
+    elif relation == 'son':
 
-            with open('temporaryfamilies.txt', 'a') as new_file:
-                new_file.write('1 WIFE ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-                new_file.write('1 MARR\n')
-                new_file.write('2 DATE ABT ' + str(marriageyear) + '\n')
+        the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-        elif relation == 'son':
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
-            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+    elif relation == 'daughter':
 
-            with open('temporaryfamilies.txt', 'a') as new_file:
-                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
+        the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
-        elif relation == 'daughter':
+    elif relation == 'child':
 
-            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
+        the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
 
-            with open('temporaryfamilies.txt', 'a') as new_file:
-                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-
-
-        elif relation == 'child':
-
-            the_file.write('1 FAMC ' + '@F' + "{0:0=3d}".format(config.familynumber) + '@\n')
-
-            with open('temporaryfamilies.txt', 'a') as new_file:
-                new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
-
-
-        else:
-            print('Other Relation')
-
+        with open('temporaryfamilies.txt', 'a') as new_file:
+            new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
 
     else:
-        print("im lost")
+        logging.info("Could not recognize relationship information: " + relation + " for person in line: " + str(idn + 1))
 
     return(config.familynumber)
 #-------------------------------------------------------------------#
@@ -781,7 +771,7 @@ def FamilyWriter1880(row, r,ym, the_file, idn,y):
         with open('temporaryfamilies.txt', 'a') as new_file:
             new_file.write('1 CHIL ' + '@I' + "{0:0=3d}".format(idn) + '@\n')
     else:
-        print('Other Relation')
+        logging.info("Could not recognize relationship information: " + relation + " for person in line: " + str(idn + 1))
 
     return(config.familynumber)
 #-------------------------------------------------------------------#
@@ -794,16 +784,18 @@ def FamilyWriter1880(row, r,ym, the_file, idn,y):
 
 def ArmyWriter(row, a, militTag, the_file,idn):
     if not row[a]:
-        pass
+        logging.info("Military information is nonexistant for person on line: " + str(idn + 1))
     else:
-
-        if militTag == "DSCR":
-            militarystatus = row[a]
-            the_file.write('1 DSCR Army or Navy: ' + militarystatus + '\n')
-        else:
-            militarystatus = row[a]
-            the_file.write('1 EVEN Army or Navy: ' + militarystatus + '\n')
-            the_file.write("2 TYPE " + militTag + '\n')
+        try:
+            if militTag == "DSCR":
+                militarystatus = row[a]
+                the_file.write('1 DSCR Army or Navy: ' + militarystatus + '\n')
+            else:
+                militarystatus = row[a]
+                the_file.write('1 EVEN Army or Navy: ' + militarystatus + '\n')
+                the_file.write("2 TYPE " + militTag + '\n')
+        except:
+            logging.info("Could not recognize military information: " + row[a] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #------------------------------Blind Writer-------------------------#
@@ -814,15 +806,18 @@ def ArmyWriter(row, a, militTag, the_file,idn):
 #disiTag = tag to use for disability
 def BlindWriter(row, b, disiTag, the_file, idn):
     if not row[b]:
-        pass
+        logging.info("Blindness information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if disiTag == "DSCR":
-            blindness = row[b]
-            the_file.write('1 DSCR Whether Blind: ' + blindness + '\n')
-        else:
-            blindness = row[b]
-            the_file.write('1 EVEN Whether Blind: ' + blindness + '\n')
-            the_file.write("2 TYPE " + disiTag + '\n')
+        try:
+            if disiTag == "DSCR":
+                blindness = row[b]
+                the_file.write('1 DSCR Whether Blind: ' + blindness + '\n')
+            else:
+                blindness = row[b]
+                the_file.write('1 EVEN Whether Blind: ' + blindness + '\n')
+                the_file.write("2 TYPE " + disiTag + '\n')
+        except:
+            logging.info("Could not recognize blindness information: " + row[b] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #------------------------------Deaf Writer--------------------------#
@@ -833,15 +828,18 @@ def BlindWriter(row, b, disiTag, the_file, idn):
 #disiTag = tag to use for disability
 def DeafWriter(row, d, disiTag, the_file, idn):
     if not row[d]:
-        pass
+        logging.info("Deafness information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if disiTag == "DSCR":
-            deafness = row[d]
-            the_file.write('1 DSCR Whether Deaf: ' + deafness + '\n')
-        else:
-            deafness = row[d]
-            the_file.write('1 EVEN Whether Deaf: ' + deafness + '\n')
-            the_file.write("2 TYPE " + disiTag + '\n')
+        try:
+            if disiTag == "DSCR":
+                deafness = row[d]
+                the_file.write('1 DSCR Whether Deaf: ' + deafness + '\n')
+            else:
+                deafness = row[d]
+                the_file.write('1 EVEN Whether Deaf: ' + deafness + '\n')
+                the_file.write("2 TYPE " + disiTag + '\n')
+        except:
+            logging.info("Could not recognize deafness information: " + row[d] + " for person in line: " + str(idn + 1))
 
 
 #-------------------------------------------------------------------#
@@ -853,16 +851,19 @@ def DeafWriter(row, d, disiTag, the_file, idn):
 #disiTag = tag to use for disabilty writer
 def DeafWriter1880(row, d,disiTag, the_file, idn):
     if not row[d]:
-        pass
+        logging.info("Deafness information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if disiTag == "DSCR":
-            deafness = row[d]
-            the_file.write('1 DSCR Whether Deaf and Dumb: ' + deafness + '\n')
+        try:
+            if disiTag == "DSCR":
+                deafness = row[d]
+                the_file.write('1 DSCR Whether Deaf and Dumb: ' + deafness + '\n')
 
-        else:
-            deafness = row[d]
-            the_file.write('1 EVEN Whether Deaf: ' + deafness + '\n')
-            the_file.write("2 TYPE " + disiTag + '\n')
+            else:
+                deafness = row[d]
+                the_file.write('1 EVEN Whether Deaf: ' + deafness + '\n')
+                the_file.write("2 TYPE " + disiTag + '\n')
+        except:
+            logging.info("Could not recognize deafness information: " + row[d] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #----------------------Sick or Disabled Writer----------------------#
@@ -873,18 +874,19 @@ def DeafWriter1880(row, d,disiTag, the_file, idn):
 #disiTag = tag to use for disabilty writer
 def SickOrDisabledWriter(row, s,disiTag, the_file, idn):
     if not row[s]:
-        pass
+        logging.info("Sickness/disability information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if disiTag == "DSCR":
+        try:
+            if disiTag == "DSCR":
 
-            sick = row[s]
-            the_file.write('1 DSCR Whether Sick or Disabled: ' + sick + '\n')
-
-
-        else:
-            sick = row[s]
-            the_file.write("1 EVEN Whether Sick or Disabled: " + sick + '\n')
-            the_file.write("2 TYPE " + sick + '\n')
+                sick = row[s]
+                the_file.write('1 DSCR Whether Sick or Disabled: ' + sick + '\n')
+            else:
+                sick = row[s]
+                the_file.write("1 EVEN Whether Sick or Disabled: " + sick + '\n')
+                the_file.write("2 TYPE " + sick + '\n')
+        except:
+            logging.info("Could not recognize sickness/disability information: " + row[s] + " for person in line: " + str(idn + 1))
 
 
 #-------------------------------------------------------------------#
@@ -896,16 +898,19 @@ def SickOrDisabledWriter(row, s,disiTag, the_file, idn):
 #disiTag = tag to use for disabilty writer
 def IdioticWriter(row, d, disiTag, the_file, idn):
     if not row[d]:
-        pass
+        logging.info("Idiocy information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if disiTag == "DSCR":
-            idiot = row[d]
-            the_file.write('1 DSCR Whether Idiotic: ' + idiot + '\n')
+        try:
+            if disiTag == "DSCR":
+                idiot = row[d]
+                the_file.write('1 DSCR Whether Idiotic: ' + idiot + '\n')
 
-        else:
-            idiot = row[d]
-            the_file.write("1 EVEN Whether Idiotic: " + idiot + '\n')
-            the_file.write("2 TYPE " + idiot + '\n')
+            else:
+                idiot = row[d]
+                the_file.write("1 EVEN Whether Idiotic: " + idiot + '\n')
+                the_file.write("2 TYPE " + idiot + '\n')
+        except:
+            logging.info("Could not recognize idiocy information: " + row[d] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #---------------------------Insane Writer---------------------------#
@@ -916,15 +921,18 @@ def IdioticWriter(row, d, disiTag, the_file, idn):
 #disiTag = tag to use for disabilty writer
 def InsaneWriter(row, n, disiTag, the_file, idn):
     if not row[n]:
-        pass
+        logging.info("Insanity information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if disiTag == "DSCR":
-            insane = row[n]
-            the_file.write('1 DSCR Whether Insane: ' + insane + '\n')
-        else:
-            insane = row[n]
-            the_file.write("1 EVEN Whether Insane: " + insane + '\n')
-            the_file.write("2 TYPE " + insane + '\n')
+        try:
+            if disiTag == "DSCR":
+                insane = row[n]
+                the_file.write('1 DSCR Whether Insane: ' + insane + '\n')
+            else:
+                insane = row[n]
+                the_file.write("1 EVEN Whether Insane: " + insane + '\n')
+                the_file.write("2 TYPE " + insane + '\n')
+        except:
+            logging.info("Could not recognize insanity information: " + row[n] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #---------------------------Maimed Writer---------------------------#
@@ -935,15 +943,18 @@ def InsaneWriter(row, n, disiTag, the_file, idn):
 #disiTag = tag to use for disabilty writer
 def MaimedWriter(row, m, disiTag, the_file, idn):
     if not row[m]:
-        pass
+        logging.info("Maimed information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if disiTag == "DSCR":
-            maimed = row[m]
-            the_file.write('1 DSCR Whether Maimed: ' + maimed + '\n')
-        else:
-            maimed = row[m]
-            the_file.write("1 EVEN Whether Maimed: " + maimed + '\n')
-            the_file.write("2 TYPE " + maimed + '\n')
+        try:
+            if disiTag == "DSCR":
+                maimed = row[m]
+                the_file.write('1 DSCR Whether Maimed: ' + maimed + '\n')
+            else:
+                maimed = row[m]
+                the_file.write("1 EVEN Whether Maimed: " + maimed + '\n')
+                the_file.write("2 TYPE " + maimed + '\n')
+        except:
+            logging.info("Could not recognize maimed information: " + row[m] + " for person in line: " + str(idn + 1))
 
 
 #-------------------------------------------------------------------#
@@ -955,15 +966,18 @@ def MaimedWriter(row, m, disiTag, the_file, idn):
 #disiTag = tag to use for disabilty writer
 def __Disabled_Writer_1870__(row, d, disiTag, the_file, idn):
     if not row[d]:
-        pass
+        logging.info("Disability information is nonexistant for person on line: " + str(idn + 1))
     else:
-        if disiTag == "DSCR":
-            disability = row[d]
-            the_file.write('1 DSCR Disability: ' + disability + '\n')
-        else:
-            disability = row[d]
-            the_file.write("1 EVEN Disability: " + disability + '\n')
-            the_file.write("2 TYPE " + disability + '\n')
+        try:
+            if disiTag == "DSCR":
+                disability = row[d]
+                the_file.write('1 DSCR Disability: ' + disability + '\n')
+            else:
+                disability = row[d]
+                the_file.write("1 EVEN Disability: " + disability + '\n')
+                the_file.write("2 TYPE " + disability + '\n')
+        except:
+            logging.info("Could not recognize disability information: " + row[d] + " for person in line: " + str(idn + 1))
 
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#
