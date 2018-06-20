@@ -212,46 +212,46 @@ class Application(tk.Frame):
 
             #set up previous user configurations for USA
             try:
-                if user_config["Race"] == 1:
+                if user_config["UnitedStates"]["Race"] == 1:
                     self.CheckboxRace.select()
-                if user_config["Military"] == 1:
+                if user_config["UnitedStates"]["Military"] == 1:
                     self.CheckboxMilitary.select()
-                if user_config["Literacy"] == 1:
+                if user_config["UnitedStates"]["Literacy"] == 1:
                     self.CheckboxLiteracy.select()
-                if user_config["Immigration"] == 1:
+                if user_config["UnitedStates"]["Immigration"] == 1:
                     self.CheckboxImmigration.select()
-                if user_config["Disability"] == 1:
+                if user_config["UnitedStates"]["Disability"] == 1:
                     self.CheckboxDisability.select()
-                if user_config["Children Born"] == 1:
+                if user_config["UnitedStates"]["Children Born"] == 1:
                     self.CheckboxChildrenBorn.select()
-                if user_config["Occupation"] == 1:
+                if user_config["UnitedStates"]["Occupation"] == 1:
                     self.CheckboxOccupation.select()
-                if user_config["Property"] == 1:
+                if user_config["UnitedStates"]["Property"] == 1:
                     self.CheckboxProperty.select()
-                if user_config["Language"] == 1:
+                if user_config["UnitedStates"]["Language"] == 1:
                     self.CheckboxLanguage.select()
-                if user_config["Naturalize"] == 1:
+                if user_config["UnitedStates"]["Naturalize"] == 1:
                     self.CheckboxNaturalize.select()
-                if user_config ["immigTag"] != "IMMI":
-                    self.immigrationSet.insert(0, user_config["immigTag"])
-                if user_config ["occupTag"] != "OCCU":
-                    self.occupationSet.insert(0, user_config["occupTag"])
-                if user_config ["raceTag"] != "DSCR":
-                    self.raceSet.insert(0, user_config["raceTag"])
-                if user_config ["natuTag"] != "NATU":
-                    self.naturalizeSet.insert(0, user_config["natuTag"])
-                if user_config ["literTag"] != "EDUC":
-                    self.literacySet.insert(0, user_config["literTag"])
-                if user_config ["chilTag"] != "DSCR":
-                    self.childrenBornSet.insert(0, user_config["chilTag"])
-                if user_config ["langTag"] != "DSCR":
-                    self.languageSet.insert(0, user_config["langTag"])
-                if user_config ["militTag"] != "DSCR":
-                    self.militarySet.insert(0, user_config["militTag"])
-                if user_config ["disiTag"] != "DSCR":
-                    self.disabilitySet.insert(0, user_config["disiTag"])
-                if user_config ["propTag"] != "PROP":
-                    self.propertySet.insert(0, user_config["propTag"])
+                if user_config ["UnitedStates"]["immigTag"] != "IMMI":
+                    self.immigrationSet.insert(0, user_config["UnitedStates"]["immigTag"])
+                if user_config ["UnitedStates"]["occupTag"] != "OCCU":
+                    self.occupationSet.insert(0, user_config["UnitedStates"]["occupTag"])
+                if user_config ["UnitedStates"]["raceTag"] != "DSCR":
+                    self.raceSet.insert(0, user_config["UnitedStates"]["raceTag"])
+                if user_config ["UnitedStates"]["natuTag"] != "NATU":
+                    self.naturalizeSet.insert(0, user_config["UnitedStates"]["natuTag"])
+                if user_config ["UnitedStates"]["literTag"] != "EDUC":
+                    self.literacySet.insert(0, user_config["UnitedStates"]["literTag"])
+                if user_config ["UnitedStates"]["chilTag"] != "DSCR":
+                    self.childrenBornSet.insert(0, user_config["UnitedStates"]["chilTag"])
+                if user_config ["UnitedStates"]["langTag"] != "DSCR":
+                    self.languageSet.insert(0, user_config["UnitedStates"]["langTag"])
+                if user_config ["UnitedStates"]["militTag"] != "DSCR":
+                    self.militarySet.insert(0, user_config["UnitedStates"]["militTag"])
+                if user_config ["UnitedStates"]["disiTag"] != "DSCR":
+                    self.disabilitySet.insert(0, user_config["UnitedStates"]["disiTag"])
+                if user_config ["UnitedStates"]["propTag"] != "PROP":
+                    self.propertySet.insert(0, user_config["UnitedStates"]["propTag"])
 
             except:
                 print("nope")
@@ -371,7 +371,6 @@ class Application(tk.Frame):
             self.swedOccupationSet = tk.Entry(self.frame)
             self.swedOccupationSet.grid(row=6,column=1, sticky = "w")
 
-
             #Communion
             self.CheckboxSwedCommunion = tk.Checkbutton(self.frame, text="Communion", variable=self.optionSwedCommunion)
             self.CheckboxSwedCommunion.grid(row=7, sticky="w")
@@ -415,28 +414,32 @@ class Application(tk.Frame):
             #set up previous user configurations for Sweden
             try:
                 #Swedish Occupation
-                if user_config["swedOccupation"] == 1:
+                if user_config["Sweden"]["swedOccupation"] == 1:
                     self.CheckboxSwedOccupation.select()
 
                 #Swedish Comunion
-                if user_config["swedCommunion"] == 1:
+                if user_config["Sweden"]["swedCommunion"] == 1:
                     self.CheckboxSwedCommunion.select()
 
                 #Swedish Examination
-                if user_config["swedExamination"] == 1:
+                if user_config["Sweden"]["swedExamination"] == 1:
                     self.CheckboxSwedExamination.select()
 
                 #Swedish moving in
-                if user_config["swedMovingIn"] == 1:
+                if user_config["Sweden"]["swedMovingIn"] == 1:
                     self.CheckboxSwedMovingIn.select()
 
                 #Swedish moving out
-                if user_config["swedMovingOut"] == 1:
+                if user_config["Sweden"]["swedMovingOut"] == 1:
                     self.CheckboxSwedMovingOut.select()
 
                 #Swedish death
-                if user_config["swedDeath"] == 1:
+                if user_config["Sweden"]["swedDeath"] == 1:
                     self.CheckboxSwedDeath.select()
+
+                #Swedish occupation tag
+                if user_config ["Sweden"]["swedOccupTag"] != "OCCU":
+                    self.swedOccupationSet.insert(0, user_config["Sweden"]["swedOccupTag"])
             except:
                 pass
 
@@ -523,6 +526,14 @@ class Application(tk.Frame):
 
     #quit
     def quit_sequence(self, *args):
+        #set the list of entries
+        unitedStatesVars, swedishVars = self.__Update_Checkbox_List__()
+        #save the current file configuration
+        with open ("config.pickle", 'wb') as config_file:
+            #full dictionary of variables
+            fullVarDict = {"UnitedStates": unitedStatesVars, "Sweden":swedishVars}
+
+            pickle.dump(fullVarDict, config_file, protocol=pickle.HIGHEST_PROTOCOL)
         root.destroy()
 
 #var.get() ---checked / 1
@@ -617,6 +628,8 @@ class Application(tk.Frame):
 
     # create configDictionary with all the values of the fields
     def __Update_Checkbox_List__(self):
+        unitedStatesVars = user_config["UnitedStates"]
+        swedishVars = user_config["Sweden"]
         if self.countrySelect.get() == "United States":
             variable_list ={"Country" : self.countrySelect.get() , 
                             "Year" : self.yearSelect.get(),
@@ -642,7 +655,8 @@ class Application(tk.Frame):
                             "disiTag" : self.disabilitySet.get(),
                             "propTag" : self.propertySet.get(),
                             }
-
+            unitedStatesVars = variable_list
+            print(unitedStatesVars)
         elif self.countrySelect.get() == "Sweden":
             variable_list ={"Country" : self.countrySelect.get() ,
                             "Year" : self.yearSelect.get(), 
@@ -652,15 +666,13 @@ class Application(tk.Frame):
                             "swedExamination" : self.optionSwedExamination.get(),
                             "swedMovingIn" : self.optionSwedMovingIn.get(),
                             "swedMovingOut": self.optionSwedMovingOut.get(),
-                            "swedDeath": self.optionSwedDeath.get()
+                            "swedDeath": self.optionSwedDeath.get(),
+                            "swedOccupTag": self.swedOccupationSet.get()
+                            }
+            swedishVars = variable_list
 
-
-
-            }
-
-
-        print(variable_list)
-        return (variable_list)
+        print(str(unitedStatesVars) + str(swedishVars))
+        return (unitedStatesVars, swedishVars)
 
     def __Submit_Button__(self):
 
@@ -679,14 +691,17 @@ class Application(tk.Frame):
 
 
         #set the list of entries
-        variable_list = self.__Update_Checkbox_List__()
+        unitedStatesVars, swedishVars = self.__Update_Checkbox_List__()
         
         #save the current file configuration
         with open ("config.pickle", 'wb') as config_file:
-            pickle.dump(variable_list, config_file, protocol=pickle.HIGHEST_PROTOCOL)
+            #full dictionary of variables
+            fullVarDict = {"UnitedStates": unitedStatesVars, "Sweden":swedishVars}
+
+            pickle.dump(fullVarDict, config_file, protocol=pickle.HIGHEST_PROTOCOL)
         
         #run the main function
-        self.main(variable_list)
+        self.main(fullVarDict)
 
 
     #based on the name of the gedcom file and year

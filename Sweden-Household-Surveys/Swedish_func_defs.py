@@ -193,8 +193,9 @@ def swedNameWriter(row,n, wordLists,the_file, idn, drange1, drange2, mYear, chil
 				#if words before and after it are first names, make unknown values first names
 				if beforeIndex == "FemaleFirst" or beforeIndex == "MaleFirst" or beforeIndex == "GenderNeutralFirst":
 					if afterIndex == "FemaleFirst" or afterIndex == "MaleFirst" or afterIndex == "GenderNeutralFirst" or afterIndex == "Surname":
-						nameTypes[n] = "GenderNeuralFirst"
-				  
+						nameTypes[n] = "GenderNeutralFirst"
+						with open (bothName, 'a', encoding='utf-8') as the_file:
+				  			the_file.write('\n' + nameList1[n])
 		#-----------Name writer-----------#
 
 		firstNames = []
