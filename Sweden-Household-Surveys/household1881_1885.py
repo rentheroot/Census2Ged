@@ -52,12 +52,12 @@ def writeName1881_1885 (c , g, configDict):
                     BDateWriter(row, 'Birth-Year', 'Birth-Month-Day', 'Birth-Place', '18', the_file)
 
                     #Religious ordinance writer (examination and communion)
-                    if configDict ["swedExamination"] == 1:
-                        examinations = ['Examination1881', 'Examination1882','Examination1883','Examination1884', 'Examination1885']
-                    if configDict["swedCommunion"] == 1:
-                        communions = ['Communion1881', 'Communion1882','Communion1883','Communion1884', 'Communion1885']
-                    
-                    OrdiWriter(row,examinations,communions,the_file)
+
+                    examinations = ['Examination1881', 'Examination1882','Examination1883','Examination1884', 'Examination1885']
+                    communions = ['Communion1881', 'Communion1882','Communion1883','Communion1884', 'Communion1885']
+
+                    if configDict["swedExamination"] == 1 or configDict["swedCommunion"] == 1: 
+                        OrdiWriter(row,examinations,communions,the_file, configDict["swedExamTag"], configDict["swedCommTag"],configDict["swedExamination"],configDict["swedCommunion"])
 
                     #immigration writer
                     if configDict["swedMovingOut"] == 1:

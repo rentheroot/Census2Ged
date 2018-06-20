@@ -440,6 +440,27 @@ class Application(tk.Frame):
                 #Swedish occupation tag
                 if user_config ["Sweden"]["swedOccupTag"] != "OCCU":
                     self.swedOccupationSet.insert(0, user_config["Sweden"]["swedOccupTag"])
+
+                #Swedish communion tag
+                if user_config ["Sweden"]["swedCommTag"] != "ORDI":
+                    self.swedCommunionSet.insert(0, user_config["Sweden"]["swedCommTag"])
+
+                #Swedish examination tag
+                if user_config ["Sweden"]["swedExamTag"] != "ORDI":
+                    self.swedExaminationSet.insert(0, user_config["Sweden"]["swedExamTag"])
+
+                #Swedish moving in tag
+                if user_config ["Sweden"]["swedMoveInTag"] != "IMMI":
+                    self.swedMovingInSet.insert(0, user_config["Sweden"]["swedMoveInTag"])
+
+                #Swedish moving out tag
+                if user_config ["Sweden"]["swedMoveOutTag"] != "IMMI":
+                    self.swedMovingOutSet.insert(0, user_config["Sweden"]["swedMoveOutTag"])
+
+                #Swedish death tag
+                if user_config ["Sweden"]["swedDeathTag"] != "IMMI":
+                    self.swedDeathSet.insert(0, user_config["Sweden"]["swedDeathTag"])
+
             except:
                 pass
 
@@ -527,11 +548,11 @@ class Application(tk.Frame):
     #quit
     def quit_sequence(self, *args):
         #set the list of entries
-        unitedStatesVars, swedishVars = self.__Update_Checkbox_List__()
+        varsMain, unitedStatesVars, swedishVars = self.__Update_Checkbox_List__()
         #save the current file configuration
         with open ("config.pickle", 'wb') as config_file:
             #full dictionary of variables
-            fullVarDict = {"UnitedStates": unitedStatesVars, "Sweden":swedishVars}
+            fullVarDict = {"MainVars": varsMain, "UnitedStates": unitedStatesVars, "Sweden":swedishVars}
 
             pickle.dump(fullVarDict, config_file, protocol=pickle.HIGHEST_PROTOCOL)
         root.destroy()
@@ -630,8 +651,15 @@ class Application(tk.Frame):
     def __Update_Checkbox_List__(self):
         unitedStatesVars = user_config["UnitedStates"]
         swedishVars = user_config["Sweden"]
+        varsMain= {
+                    "Country": self.countrySelect.get(),
+                    "Year" : self.yearSelect.get(), 
+                    "Gedname" : self.gedNameSet.get(),    
+
+                    }
+
         if self.countrySelect.get() == "United States":
-            variable_list ={"Country" : self.countrySelect.get() , 
+            variable_list ={
                             "Year" : self.yearSelect.get(),
                             "Immigration" : self.optionImmigration.get(),
                             "Occupation" : self.optionOccupation.get(),
@@ -658,7 +686,7 @@ class Application(tk.Frame):
             unitedStatesVars = variable_list
             print(unitedStatesVars)
         elif self.countrySelect.get() == "Sweden":
-            variable_list ={"Country" : self.countrySelect.get() ,
+            variable_list ={
                             "Year" : self.yearSelect.get(), 
                             "Gedname" : self.gedNameSet.get(),          
                             "swedOccupation" : self.optionSwedOccupation.get(),
@@ -667,12 +695,16 @@ class Application(tk.Frame):
                             "swedMovingIn" : self.optionSwedMovingIn.get(),
                             "swedMovingOut": self.optionSwedMovingOut.get(),
                             "swedDeath": self.optionSwedDeath.get(),
-                            "swedOccupTag": self.swedOccupationSet.get()
+                            "swedOccupTag": self.swedOccupationSet.get(),
+                            "swedCommTag": self.swedCommunionSet.get(),
+                            "swedExamTag": self.swedExaminationSet.get(),
+                            "swedMoveInTag": self.swedMovingInSet.get(),
+                            "swedMoveOutTag": self.swedMovingOutSet.get(),
+                            "swedDeathTag": self.swedDeathSet.get()
                             }
             swedishVars = variable_list
 
-        print(str(unitedStatesVars) + str(swedishVars))
-        return (unitedStatesVars, swedishVars)
+        return (varsMain, unitedStatesVars, swedishVars)
 
     def __Submit_Button__(self):
 
@@ -690,13 +722,21 @@ class Application(tk.Frame):
             self.naturalizeSet.insert(0, "NATU")
 
 
+        #Swedish
+        #Whether or not to use default Ordinance values
+        if len(self.swedCommunionSet.get()) == 0:
+            self.swedCommunionSet.insert(0, "ORDI")
+        if len(self.swedExaminationSet.get()) == 0:
+            self.swedExaminationSet.insert(0, "ORDI")
+
+
         #set the list of entries
-        unitedStatesVars, swedishVars = self.__Update_Checkbox_List__()
+        varsMain, unitedStatesVars, swedishVars = self.__Update_Checkbox_List__()
         
         #save the current file configuration
         with open ("config.pickle", 'wb') as config_file:
             #full dictionary of variables
-            fullVarDict = {"UnitedStates": unitedStatesVars, "Sweden":swedishVars}
+            fullVarDict = {"MainVars": varsMain, "UnitedStates": unitedStatesVars, "Sweden":swedishVars}
 
             pickle.dump(fullVarDict, config_file, protocol=pickle.HIGHEST_PROTOCOL)
         
@@ -706,9 +746,9 @@ class Application(tk.Frame):
 
     #based on the name of the gedcom file and year
     def main (self, configDictionary):
-        g = configDictionary["Gedname"]
-        y = configDictionary["Year"]
-        c = configDictionary["Country"]
+        g = configDictionary["MainVars"]["Gedname"]
+        y = configDictionary["MainVars"]["Year"]
+        c = configDictionary["MainVars"]["Country"]
 
         g = str(g +'.ged')
 
@@ -717,29 +757,29 @@ class Application(tk.Frame):
 
         if c == 'United States':
             if y == '1850':
-                writeName1850(file_path , g, configDictionary)
+                writeName1850(file_path , g, configDictionary["UnitedStates"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1860':
-                writeName1860(file_path , g, configDictionary)
+                writeName1860(file_path , g, configDictionary["UnitedStates"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1870':
-                writeName1870(file_path , g, configDictionary)
+                writeName1870(file_path , g, configDictionary["UnitedStates"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1880':
-                writeName1880(file_path , g, configDictionary)
+                writeName1880(file_path , g, configDictionary["UnitedStates"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1900':
-                writeName1900(file_path , g, configDictionary)
+                writeName1900(file_path , g, configDictionary["UnitedStates"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1910':
-                writeName1910(file_path, g, configDictionary)
+                writeName1910(file_path, g, configDictionary["UnitedStates"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             else:
                 pass
 
         elif c == "Sweden":
             if y == "1881-1885":
-                writeName1881_1885(file_path , g, configDictionary)
+                writeName1881_1885(file_path , g, configDictionary["Sweden"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
 
                

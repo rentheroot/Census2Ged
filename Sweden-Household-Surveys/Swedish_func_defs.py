@@ -411,37 +411,57 @@ def DDateWriter(row, dy, g):
 #row = current row
 #examinations = the rows for the date of examination
 #communions = the rows for the date of the communion
-def OrdiWriter(row,examinations,communions,g):
-	for exam in examinations:
-		#if nothing is recorded in the exam column, do nothing
-		if not row[exam]:
-			pass
+def OrdiWriter(row,examinations,communions,g, ExamTag, CommTag, yesExam, yesComm):
+	if yesExam == 1:
+		for exam in examinations:
+			print(exam)
+			#if nothing is recorded in the exam column, do nothing
+			if not row[exam]:
+				print("no")
 
-		else:
-			#set up vars for exam date and year
-			examinationDate = row[exam]
-			examYear = exam.replace('Examination','')
+			else:
+				#set up vars for exam date and year
+				examinationDate = row[exam]
+				examYear = exam.replace('Examination','')
+				#format the date
+				fullDate = dateFormatter(examinationDate, examYear)
 
-			#format the date
-			fullDate = dateFormatter(examinationDate, examYear)
-
-			#write in as ordinance fact
-			g.write('1 ORDI Attended Examination\n')
-			g.write('2 DATE ' + fullDate + '\n')
+				if ExamTag == "ORDI":
+					#write in as ordinance fact
+					g.write('1 ORDI Attended Examination\n')
+					g.write('2 DATE ' + fullDate + '\n')
+				else:
+					#write in as custom fact
+					g.write('1 EVEN Attended Examination\n')
+					g.write('2 TYPE ' + ExamTag+ '\n')
+					g.write('2 DATE ' + fullDate + '\n')
 	
-	for communion in communions:
-		if not row[communion]:
-			pass
-		else:
-			#set up vars for communion date and year
-			communionDate = row[communion]
-			communionYear = communion.replace('Communion','')
 
-			fullDate = dateFormatter(communionDate, communionYear)
+	if yesComm == 1:	
+		for communion in communions:
+			print(communion)
+			if not row[communion]:
+				print("no2")
+			else:
+				#set up vars for communion date and year
+				communionDate = row[communion]
+				communionYear = communion.replace('Communion','')
 
-			#write in as ordinance fact
-			g.write('1 ORDI Received Holy Communion\n')
-			g.write('2 DATE ' + fullDate + '\n')
+				fullDate = dateFormatter(communionDate, communionYear)
+
+				if CommTag == "ORDI":
+					#write in as ordinance fact
+					g.write('1 ORDI Received Holy Communion\n')
+					g.write('2 DATE ' + fullDate + '\n')
+				else:
+					#write in as custom fact
+					g.write('1 EVEN Received Holy Communion\n')
+					g.write('2 TYPE ' + CommTag+ '\n')
+					g.write('2 DATE ' + fullDate + '\n')
+
+
+	else:
+		print("no2")
 
 #-------------------------------------------------------------------#
 #----------------------Immigration Writer---------------------------#
