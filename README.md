@@ -33,9 +33,15 @@ Census2Ged picks out gedcom 5.5.1 compliant tags for each piece of information f
 
 ### Swedish Household Examination Tags
 
-| Option Name      | Default Tag | Suggested Tag         |
-|------------------|-------------|-----------------------|
-| Occupation       | OCCU        | Don't Change          |
+| Option Name            | Default Tag | Suggested Tag         |
+|------------------------|-------------|-----------------------|
+| Occupation             | OCCU        | Don't Change          |
+| Communion              | ORDI        | Don't Change          |
+| Examination            | ORDI        | Don't Change          |
+| Moving In Records      | IMMI        | Don't Change          |
+| Moving Out Records     | IMMI        | Don't Change          |
+| Death                  | DEAT        | Don't Change          |
+
 
 
 ## Handling of Custom Tags
@@ -322,6 +328,9 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 - [ ] Attended school within the year
 - [X] Persons over 20 years of age who can not read and write
 - [X] Whether deaf and dumb, blind, insane, idiotic, pauper or convict
+
+### 1850 Census
+
 
 ## Swedish Household Examinations
 Note that the program automatically adds the last name of children based on what it determines to be the father's first name.
