@@ -390,7 +390,7 @@ def BDateWriter(row, y, md, bplace, cYear, g):
 #row = current row
 #dy= death year row
 #g= the gedcom file
-def DDateWriter(row, dy, g):
+def DDateWriter(row, dy, g, deathTag):
 	if not row[dy]:
 		pass
 	else:
@@ -402,8 +402,13 @@ def DDateWriter(row, dy, g):
 		monthDate = deathYear[0]
 		fullDate = dateFormatter(monthDate, year)
 
-		g.write('1 DEAT\n')
-		g.write('2 DATE ' + fullDate + '\n')
+		if deathTag == "DEAT":
+			g.write('1 DEAT\n')
+			g.write('2 DATE ' + fullDate + '\n')
+		else:
+			g.write('1 EVEN\n')
+			g.write('2 TYPE ' + deathTag + '\n')
+			g.write('2 DATE ' + fullDate + '\n')			
 
 #-------------------------------------------------------------------#
 #------------------------Ordinance Writer---------------------------#
@@ -471,11 +476,12 @@ def OrdiWriter(row,examinations,communions,g, ExamTag, CommTag, yesExam, yesComm
 #immiDate = immigration date row
 #movingNumber = moving certificate number row
 #the gedcom file
-def ImmiWriter(row, immiPlace, immiDate, movingNumber, g):
+def ImmiWriter(row, immiPlace, immiDate, movingNumber, g, movingTag):
 	#check if rows are blank or not
 	if not row[immiPlace] and not row[immiDate] and not row[movingNumber]:
 		pass
 	else:
+
 		#set up vars
 		immiPlace = row[immiPlace]
 		immiDate= row[immiDate]
@@ -486,9 +492,15 @@ def ImmiWriter(row, immiPlace, immiDate, movingNumber, g):
 		#format the date
 		fullDate = dateFormatter(immiDate[0], immiDate[1])
 
-		#write the pertinent information to file
-		g.write('1 IMMI Extra Information: ' + immiPlace + '; Moving certificate number: ' + row[movingNumber] +'\n')
-		g.write('2 DATE ' + fullDate + '\n')
+		if movingTag == "IMMI":
+			#write the pertinent information to file
+			g.write('1 IMMI Extra Information: ' + immiPlace + '; Moving certificate number: ' + row[movingNumber] +'\n')
+			g.write('2 DATE ' + fullDate + '\n')
+		else:
+			#write the pertinent information to file
+			g.write('1 EVEN Extra Information: ' + immiPlace + '; Moving certificate number: ' + row[movingNumber] +'\n')
+			g.write('2 TYPE ' + movingTag + '\n')
+			g.write('2 DATE ' + fullDate + '\n')
 
 #-------------------------------------------------------------------#
 #--------------------------------End File---------------------------#

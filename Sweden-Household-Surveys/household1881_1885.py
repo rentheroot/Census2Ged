@@ -61,13 +61,13 @@ def writeName1881_1885 (c , g, configDict):
 
                     #immigration writer
                     if configDict["swedMovingOut"] == 1:
-                        ImmiWriter(row, 'MovedToPlace&Page', 'MovedDate', 'MovingOutNumber', the_file)
+                        ImmiWriter(row, 'MovedToPlace&Page', 'MovedDate', 'MovingOutNumber', the_file, configDict["swedMoveOutTag"])
                     if configDict["swedMovingIn"] == 1:
-                        ImmiWriter(row, 'Moved-Here-From', 'Moved-Date', 'MovingInNumber', the_file)
+                        ImmiWriter(row, 'Moved-Here-From', 'Moved-Date', 'MovingInNumber', the_file, configDict["swedMoveInTag"])
 
                     #Death date writer
                     if configDict["swedDeath"] == 1:
-                        DDateWriter(row,'Death',the_file)
+                        DDateWriter(row,'Death',the_file, configDict['swedDeathTag'])
              
              #call endfile function
              EndFile(the_file,g, idn, childSurnames)

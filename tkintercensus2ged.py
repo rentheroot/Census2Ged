@@ -128,7 +128,7 @@ class Application(tk.Frame):
             includeCustomLabel.grid(row = 4, column = 1, sticky="w")
 
             #---checkbutton widgets---#
-
+ 
             #Immigration
             self.CheckboxImmigration = tk.Checkbutton(self.frame, text="Immigration Year", variable=self.optionImmigration)
             self.CheckboxImmigration.grid(row=5, sticky="w")    
