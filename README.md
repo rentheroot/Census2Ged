@@ -333,7 +333,7 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 
 - [ ] Dwelling houses and number in order of visitation.
 - [ ] Families numbered in the order of visitation.
-- [ ] The name of every person whose usual place of abode on the 1st day of June, 1850, was in this family.
+- [X] The name of every person whose usual place of abode on the 1st day of June, 1850, was in this family.
 
 **DESCRIPTION**
 
