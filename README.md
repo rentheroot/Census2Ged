@@ -331,6 +331,22 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 
 ### 1850 Census
 
+- [ ] Dwelling houses and number in order of visitation.
+- [ ] Families numbered in the order of visitation.
+- [ ] The name of every person whose usual place of abode on the 1st day of June, 1850, was in this family.
+
+**DESCRIPTION**
+
+- [X] Age (calculates approx. birth year)
+- [X] Sex
+- [X] Color - White, black, or mulatto.
+- [X] Profession, occupation, or trade of each male person over 15 years of age.
+- [X] Value of real estate owned.
+- [X] Place of birth, naming the state, territory, or country.
+- [ ] Married within the year.
+- [ ] Attended school within the year.
+- [X] Persons over 20 years of age who can not read and write.
+- [X] Whether deaf and dumb, blind, insane, idiotic, pauper or convict.
 
 ## Swedish Household Examinations
 Note that the program automatically adds the last name of children based on what it determines to be the father's first name.
