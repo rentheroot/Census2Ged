@@ -6,6 +6,7 @@ import logging
 logging.basicConfig(filename='myapp.log', level=logging.DEBUG)
 logging.info('Imported func_defs.py')
 
+
 #-------------------------------------------------------------------#
 #----------------------------Main Source Writer---------------------#
 #-------------------------------------------------------------------#
@@ -61,6 +62,32 @@ def SourceWriter1900(row, the_file, sourceTagsList, dwelling_row, family_row, na
         sourceList.append(', accessed ' + sourceTagsList['accessDateTag'])
     the_file.write("".join(sourceList) + '\n')
 
+#-------------------------------------------------------------------#
+#-------------------------1870 Source Writer------------------------#
+#-------------------------------------------------------------------#
+def SourceWriter1870(row, the_file, sourceTagsList, dwelling_row, family_row, name_row, rollid):
+    dwelling = row[dwelling_row]
+    family = row[family_row]
+    name = row[name_row]
+
+    sourceList = []
+    sourceList.append('2 SOUR @S350@\n3 PAGE '+ rollid)
+
+    if len(sourceTagsList['rollTag']) != 0:
+        sourceList.append(', roll ' + sourceTagsList['rollTag'])
+    if len(sourceTagsList['cityTag']) != 0:
+        sourceList.append(', ' + sourceTagsList['cityTag'])
+    if len(sourceTagsList['pageTag']) != 0:
+        sourceList.append(', p. ' + sourceTagsList['pageTag'])
+    if len(dwelling) != 0:
+        sourceList.append(', dwelling ' + dwelling)
+    if len(dwelling) != 0:
+        sourceList.append(', family ' + family)
+    if len(name) != 0:
+        sourceList.append(', ' + name)
+    if len(sourceTagsList['accessDateTag']) != 0:
+        sourceList.append(', accessed ' + sourceTagsList['accessDateTag'])
+    the_file.write("".join(sourceList) + '\n')
 
 
 #-------------------------------------------------------------------#
@@ -177,9 +204,7 @@ def YBdateWriter (row,a,y,the_file,idn):
                 the_file.write('2 DATE ABT ' + str(y) + '\n')
         except:
             logging.info("Could Not Recognize Birthdate for the : " + row[a] + " year old person on line: " + str(idn + 1))
-#-------------------------------------------------------------------#
-#------------------------Household Number Writer -------------------#
-#-------------------------------------------------------------------#
+
 
 
 #-------------------------------------------------------------------#
@@ -259,7 +284,6 @@ def NameWriter(row, n, r, the_file, idn):
             the_file.write('2 SURN ' + lastname + '\n')
     except:
         logging.info("Could Not Recognize Name: " + row[n] + " for person on line: " + str(idn + 1))
-
 #-------------------------------------------------------------------#
 #---------------------------Sex Writer------------------------------#
 #-------------------------------------------------------------------#
@@ -473,7 +497,7 @@ def LiteracyWriter (row, r,w,literTag, the_file, y, idn ):
 #a = age column
 #the_file=the_file
 #y = census year
-def LiteracyWriter1880 (row, r,w, a, the_file, y, idn ):
+def LiteracyWriter1880 (row, r,w, a, litertag, the_file, y, idn ):
     canread = row[r]
     canwrite = row[w]
     age = row[a]
@@ -491,24 +515,44 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y, idn ):
                 #if age column not empty
                 else:
                     if age > int(10):
-                        the_file.write('1 DSCR Can Read: yes' + ' Can Write: yes' + '\n')
-                        the_file.write('2 DATE '+ y +'\n')
+                        if literTag == "EDUC" or len(literTag) ==0:
+                            the_file.write('1 DSCR Can Read: yes' + ' Can Write: yes' + '\n')
+                            the_file.write('2 DATE '+ y +'\n')
+                        else:
+                            the_file.write("1 EVEN Can Read: yes" + ' Can Write: yes' + '\n' )
+                            the_file.write("2 TYPE " + literTag + '\n')
+                            the_file.write("2 DATE " + y + '\n')
 
             #if they cannot write
             else:
                 if age > int(10):
-                    the_file.write('1 DSCR Can Read: yes' + ' Can Write: no' + '\n')
-                    the_file.write('2 DATE '+ y +'\n')
+                    if literTag == "EDUC" or len(literTag) ==0:
+                        the_file.write('1 DSCR Can Read: yes' + ' Can Write: no' + '\n')
+                        the_file.write('2 DATE '+ y +'\n')
+                    else:
+                        the_file.write("1 EVEN Can Read: yes" + ' Can Write: no' + '\n' )
+                        the_file.write("2 TYPE " + literTag + '\n')
+                        the_file.write("2 DATE " + y + '\n')
 
         #if they cannot read
         #if they can write
         elif not row[w] and age > int(10):
+            if literTag == "EDUC" or len(literTag) ==0:
                 the_file.write('1 DSCR Can Read: no' + ' Can Write: yes' + '\n')
                 the_file.write('2 DATE '+ y +'\n')
+            else:
+                the_file.write("1 EVEN Can Read: no" + ' Can Write: yes' + '\n' )
+                the_file.write("2 TYPE " + literTag + '\n')
+                the_file.write("2 DATE " + y + '\n')
         #if they cannot write
         elif age > int(10):
-            the_file.write('1 DSCR Can Read: no' + ' Can Write: no' + '\n')
-            the_file.write('2 DATE '+ y +'\n')
+            if literTag == "EDUC" or len(literTag) ==0:
+                the_file.write('1 DSCR Can Read: no' + ' Can Write: no' + '\n')
+                the_file.write('2 DATE '+ y +'\n')
+            else:
+                the_file.write("1 EVEN Can Read: no" + ' Can Write: yes' + '\n' )
+                the_file.write("2 TYPE " + literTag + '\n')
+                the_file.write("2 DATE " + y + '\n') 
     except:
         logging.info("Could not recognize literacy information: " + row[r] + ' ' + row[w] + " for person in line: " + str(idn + 1))
 
@@ -520,7 +564,7 @@ def LiteracyWriter1880 (row, r,w, a, the_file, y, idn ):
 #a = age column
 #the_file=the_file
 #y = census year
-def __Literacy_Writer_1860__ (row, r, a, the_file, y, idn ):
+def __Literacy_Writer_1860__ (row, r, a, literacyTag,the_file, y, idn ):
     canread = row[r]
     age = row[a]
 
@@ -1092,9 +1136,7 @@ def EndFile(the_file,g, idn):
                 the_file.write(line)
 
 
-    #clear temporaryfamilies.txt
-    with open('temporaryfamilies.txt', 'w') as new_file:
-        new_file.close
+
 
     #Print Trailer
     the_file.write('0 TRLR\n')
@@ -1121,3 +1163,7 @@ def EndFile(the_file,g, idn):
                 pass
             else:
                 in_file.write(line)
+
+    #clear temporaryfamilies.txt
+    with open('temporaryfamilies.txt', 'w') as new_file:
+       new_file.close

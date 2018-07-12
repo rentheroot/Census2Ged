@@ -1,12 +1,11 @@
 #imports
 import csv
-
 from func_defs import *
 
 
-def writeName1850 (c , g, config_dict):
-    idn = 0
-    with open(g, 'a') as the_file:
+def writeName1850 (c , g, config_dict, source_dict):
+     idn = 0
+     with open(g, 'a') as the_file:
         with open(c) as csvfile:
              reader = csv.DictReader(csvfile)
 
@@ -18,6 +17,10 @@ def writeName1850 (c , g, config_dict):
 
                  #Call NameWriter Function
                  __Name_Writer_No_Relation__(row, 'Name', the_file,idn)
+                 try:
+                    SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                 except:
+                    pass
 
                  #Call SexWriter Function
                  SexWriter(row,'Sex',the_file,idn)
@@ -45,11 +48,11 @@ def writeName1850 (c , g, config_dict):
 
                  #call Disabled Writer 1870 function
                  if config_dict["Disability"] == 1:
-                    __Disabled_Writer_1870__(row, 'Deaf-Dumb-Blind-Etc', the_file, idn)
+                    __Disabled_Writer_1870__(row, 'Deaf-Dumb-Blind-Etc',config_dict["disiTag"], the_file, idn)
 
                  #call Property writer 1850 function
                  if config_dict["Property"] == 1:
-                    __Property_Writer_1850__(row, 'Real-Estate', config_dict["propTag"], the_file , '1850', idn)
+                    __Property_Writer_1850__(row, 'Real-Estate', the_file, config_dict["propTag"], '1850', idn)
 
              #call endfile function
              EndFile(the_file,g)

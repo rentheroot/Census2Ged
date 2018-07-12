@@ -194,6 +194,129 @@ class Application(tk.Frame):
             self.accessDateSet = tk.Entry(self.sourceFrame)
             self.accessDateSet.grid(row=7,column=3, sticky = "w")
         
+        elif value == "1870" or value =="1860" or value =="1850":
+
+            #if there is already a grid, forget it
+            try:
+                self.sourceFrame.grid_forget()
+            except:
+                pass
+
+            self.frame.grid_forget()
+            #create the frame
+            self.sourceFrame = tk.Frame(root)
+            self.sourceFrame.grid(sticky = 'nsew')
+
+            self.guiUpdate(self.countrySelect.get())
+
+
+            ## Make and Grid the Widgets ##
+
+            #label for Source
+            sourceLabel = tk.Label(self.sourceFrame, text="Sourcing",font = "Helvetica 10 bold underline")
+            #render on left side of screen
+            sourceLabel.grid(row = 1, column=2, sticky="ew")
+
+            #label for Source List Name
+            sourceLabel = tk.Label(self.sourceFrame, text="Source List Name")
+            #render on left side of screen
+            sourceLabel.grid(row = 2, column=0, sticky="w")
+
+            #Source List Name combobox
+            self.sourceSet = ttk.Combobox(self.sourceFrame, values= sourceValues, height = 4)
+            #Grid combobox
+            self.sourceSet.grid(row = 2, column=1, sticky = 'w')
+
+            #label for Web Title Entry Box
+            self.sourceLabel = tk.Label(self.sourceFrame, text="Website Title")
+            #render on left side of screen
+            self.sourceLabel.grid(row = 3, column=0, sticky="w")
+
+            #Website Title entry box
+            self.webTitleSet = tk.Entry(self.sourceFrame)
+            self.webTitleSet.grid(row=3,column=1, sticky = "w")
+
+            #label for Format Entry Box
+            self.formatLabel = tk.Label(self.sourceFrame, text="Format")
+            #render on left side of screen
+            self.formatLabel.grid(row = 4, column=0, sticky="w")
+
+            #Format entry box
+            self.formatSet = tk.Entry(self.sourceFrame)
+            self.formatSet.grid(row=4,column=1, sticky = "w")
+
+            #label for State Entry Box
+            self.stateLabel = tk.Label(self.sourceFrame, text="State")
+            #render on left side of screen
+            self.stateLabel.grid(row = 5, column=0, sticky="w")
+
+            #State entry box
+            self.stateSet = tk.Entry(self.sourceFrame)
+            self.stateSet.grid(row=5,column=1, sticky = "w")
+
+            #label for County Entry Box
+            self.countyLabel = tk.Label(self.sourceFrame, text="County")
+            #render on left side of screen
+            self.countyLabel.grid(row = 6, column=0, sticky="w")
+
+            #County entry box
+            self.countySet = tk.Entry(self.sourceFrame)
+            self.countySet.grid(row=6,column=1, sticky = "w")
+
+            #label for Website URL Entry Box
+            self.websiteURLLabel = tk.Label(self.sourceFrame, text="Website URL")
+            #render on left side of screen
+            self.websiteURLLabel.grid(row = 7, column=0, sticky="w")
+
+            #Website URL entry box
+            self.websiteURLSet = tk.Entry(self.sourceFrame)
+            self.websiteURLSet.grid(row=7,column=1, sticky = "w")
+
+            #label for Publish Date Entry Box
+            self.publishDateLabel = tk.Label(self.sourceFrame, text="Publish Date")
+            #render on left side of screen
+            self.publishDateLabel.grid(row = 8, column=0, sticky="w")
+
+            #Publish Date entry box
+            self.publishDateSet = tk.Entry(self.sourceFrame)
+            self.publishDateSet.grid(row=8,column=1, sticky = "w")
+
+            #label for Roll Entry Box
+            self.rollLabel = tk.Label(self.sourceFrame, text="Roll")
+            #render on left side of screen
+            self.rollLabel.grid(row = 2, column=2, sticky="w")
+
+            #Roll Date entry box
+            self.rollSet = tk.Entry(self.sourceFrame)
+            self.rollSet.grid(row=2,column=3, sticky = "w")
+
+            #label for City Entry Box
+            self.cityLabel = tk.Label(self.sourceFrame, text="City")
+            #render on left side of screen
+            self.cityLabel.grid(row = 3, column=2, sticky="w")
+
+            #City Date entry box
+            self.citySet = tk.Entry(self.sourceFrame)
+            self.citySet.grid(row=3,column=3, sticky = "w")
+
+
+            #label for Page Entry Box
+            self.pageLabel = tk.Label(self.sourceFrame, text="Page")
+            #render on left side of screen
+            self.pageLabel.grid(row = 4, column=2, sticky="w")
+
+            #Page entry box
+            self.pageSet = tk.Entry(self.sourceFrame)
+            self.pageSet.grid(row=4,column=3, sticky = "w")
+
+            #label for Access date Entry Box
+            self.accessDateLabel = tk.Label(self.sourceFrame, text="Access Date")
+            #render on left side of screen
+            self.accessDateLabel.grid(row = 5, column=2, sticky="w")
+
+            #Page entry box
+            self.accessDateSet = tk.Entry(self.sourceFrame)
+            self.accessDateSet.grid(row=5,column=3, sticky = "w")        
         else:
             #if there is already a grid, forget it
             try:
@@ -435,30 +558,6 @@ class Application(tk.Frame):
                                  command= lambda : self.quit_sequence(sourceValues))
             self.quit.grid(row =18, column =2,sticky="w")
         
-        #gui updated to English Options
-        if value == "England":
-
-            print("Switched to England")
-
-            #if grid already exists, forget it
-            try:
-                self.frame.grid_forget()
-            except:
-                pass
-
-            #create the frame
-            self.frame = tk.Frame(root)
-            self.frame.grid(sticky = 'nsew')
-
-            #label for Tag Inclusion
-            includeTagLabel = tk.Label(self.frame, text="Tags to include",font = "Helvetica 10 bold underline")
-            #render on left side of screen
-            includeTagLabel.grid(row = 4, column=1, sticky="w")
-
-            #label for custom tagging
-            includeCustomLabel = tk.Label(self.frame, text="Custom tag name",font = "Helvetica 10 bold underline")
-            #render on left side of screen
-            includeCustomLabel.grid(row = 4, column = 1, sticky="w")
 
 
         #gui updated to Swedish Options
@@ -647,8 +746,7 @@ class Application(tk.Frame):
 
         #dictionary of countries
         self.dict = {'United States': ['1850', '1860', '1870', '1880','1900','1910'],
-                    'England': ['1', '2', '3'],
-                    'Sweden':['1881-1885','2','3']}
+                    'Sweden':['1881-1885']}
 
 
         #Label for the whole thing
@@ -696,7 +794,7 @@ class Application(tk.Frame):
 
 
         #set United States as the default value
-        self.countrySelect.set("United States")
+        #self.countrySelect.set("United States")
 
         #render on right side of widget
         self.countryOptions.grid(row = 2, column = 2, sticky="w")
@@ -868,32 +966,46 @@ class Application(tk.Frame):
                             "propTag" : self.propertySet.get(),
                             "Sources": source_list
                             }
-            else:
-                variable_list ={
-                                "Year" : self.yearSelect.get(),
-                                "Immigration" : self.optionImmigration.get(),
-                                "Occupation" : self.optionOccupation.get(),
-                                "Race" : self.optionRace.get(),
-                                "Literacy" : self.optionLiteracy.get(),
-                                "Disability" : self.optionDisability.get(),
-                                "Children Born" : self.optionChildrenBorn.get(),
-                                "Military" : self.optionMilitary.get(),
-                                "Gedname" : self.gedNameSet.get(),
-                                "Property" : self.optionProperty.get(),
-                                "Language" : self.optionLanguage.get(),
-                                "Naturalize" : self.optionNaturalize.get(),
-                                "immigTag" : self.immigrationSet.get(),
-                                "occupTag" : self.occupationSet.get(),
-                                "raceTag" : self.raceSet.get(),
-                                "natuTag" : self.naturalizeSet.get(),
-                                "literTag" : self.literacySet.get(),
-                                "chilTag" : self.childrenBornSet.get(),
-                                "langTag" : self.languageSet.get(),
-                                "militTag" : self.militarySet.get(),
-                                "disiTag" : self.disabilitySet.get(),
-                                "propTag" : self.propertySet.get(),
-                                }
+            elif self.yearSelect.get() == "1870" or self.yearSelect.get() == "1860" or self.yearSelect.get() == "1850":
+                source_list = {       
+                            "sourceListTag" : self.sourceSet.get(),
+                            "webTitleTag" : self.webTitleSet.get(),
+                            "formatTag" : self.formatSet.get(),
+                            "stateTag" : self.stateSet.get(),
+                            "countyTag" : self.countySet.get(),
+                            "websiteURLTag" : self.websiteURLSet.get(),
+                            "publishDateTag" : self.publishDateSet.get(),
+                            "rollTag" : self.rollSet.get(),
+                            "cityTag" : self.citySet.get(),
+                            "pageTag" : self.pageSet.get(),
+                            "accessDateTag" : self.accessDateSet.get()
 
+                            }
+                variable_list ={
+                            "Year" : self.yearSelect.get(),
+                            "Immigration" : self.optionImmigration.get(),
+                            "Occupation" : self.optionOccupation.get(),
+                            "Race" : self.optionRace.get(),
+                            "Literacy" : self.optionLiteracy.get(),
+                            "Disability" : self.optionDisability.get(),
+                            "Children Born" : self.optionChildrenBorn.get(),
+                            "Military" : self.optionMilitary.get(),
+                            "Gedname" : self.gedNameSet.get(),
+                            "Property" : self.optionProperty.get(),
+                            "Language" : self.optionLanguage.get(),
+                            "Naturalize" : self.optionNaturalize.get(),
+                            "immigTag" : self.immigrationSet.get(),
+                            "occupTag" : self.occupationSet.get(),
+                            "raceTag" : self.raceSet.get(),
+                            "natuTag" : self.naturalizeSet.get(),
+                            "literTag" : self.literacySet.get(),
+                            "chilTag" : self.childrenBornSet.get(),
+                            "langTag" : self.languageSet.get(),
+                            "militTag" : self.militarySet.get(),
+                            "disiTag" : self.disabilitySet.get(),
+                            "propTag" : self.propertySet.get(),
+                            "Sources": source_list
+                            }
 
             unitedStatesVars = variable_list
             print(unitedStatesVars)
@@ -950,13 +1062,13 @@ class Application(tk.Frame):
 
         if c == 'United States':
             if y == '1850':
-                writeName1850(file_path , g, configDictionary["UnitedStates"])
+                writeName1850(file_path , g, configDictionary["UnitedStates"], configDictionary["UnitedStates"]["Sources"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1860':
-                writeName1860(file_path , g, configDictionary["UnitedStates"])
+                writeName1860(file_path , g, configDictionary["UnitedStates"], configDictionary["UnitedStates"]["Sources"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1870':
-                writeName1870(file_path , g, configDictionary["UnitedStates"])
+                writeName1870(file_path , g, configDictionary["UnitedStates"], configDictionary["UnitedStates"]["Sources"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1880':
                 writeName1880(file_path , g, configDictionary["UnitedStates"], configDictionary["UnitedStates"]["Sources"])

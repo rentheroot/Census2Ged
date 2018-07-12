@@ -100,7 +100,7 @@ def writeName1880 (c , g, config_dict, source_dict):
                         pass
                  #call MaimedWriter function
                  if config_dict["Disability"] == 1:
-                    MaimedWriter(row,'20-Maimed etc.' ,config_dict["disiTag"],config_dict["propTag"],the_file, idn)
+                    MaimedWriter(row,'20-Maimed etc.' ,config_dict["disiTag"],the_file, idn)
                     try:
                         SourceWriter1900(row, the_file, source_dict, '1-Dwelling', '2-Family','3-Name', 'T9')
                     except:
@@ -110,5 +110,5 @@ def writeName1880 (c , g, config_dict, source_dict):
             #write the source
              MainSourceWriter1900(row, the_file, source_dict, '1880')
             #call endfile function
-             EndFile(the_file,g)
+             EndFile(the_file,g, idn)
                  

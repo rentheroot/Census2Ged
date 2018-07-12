@@ -123,7 +123,7 @@ def writeName1910 (c , g, config_dict, source_dict):
                         pass
                  #call FamilyWriter1900 function
                  FamilyWriter1900(row, '4 Relationship','9 Years married.', the_file,idn, '1910',sex)
-             #write the source
+            #write the source
              MainSourceWriter1900(row, the_file, source_dict, '1910') 
             #call EndFile function
              EndFile(the_file,g, idn)
