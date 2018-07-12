@@ -5,6 +5,60 @@ import logging
 
 logging.basicConfig(filename='myapp.log', level=logging.DEBUG)
 logging.info('Imported func_defs.py')
+#-------------------------------------------------------------------#
+#-----------------------1900 Main Source Writer---------------------#
+#-------------------------------------------------------------------#
+def MainSourceWriter1900(row, the_file, sourceTagsList):
+    try:
+        the_file.write('0 @S001@ SOUR\n')
+        the_file.write('1 ATTR ' + sourceTagsList['sourceListTag'] + '\n')
+        try:
+            the_file.write('1 TITL 1900 U.S. census, ' + sourceTagsList['webTitleTag'] + ', ' +sourceTagsList['formatTag'] + '\n')
+        except:
+            pass
+        try:
+            the_file.write('1 AUTH ' + sourceTagsList['stateTag'] +', ' + sourceTagsList['countyTag'] + '\n')
+        except:
+            pass
+        try:
+            the_file.write('1 PUBL URL: : National Archives and Records Administration, ' + sourceTagsList['publishDateTag'] + '\n')
+        except:
+            pass
+    except:
+        logging.info("Could not write main source record, gedcom unlikely to import correctly") 
+
+#-------------------------------------------------------------------#
+#-------------------------1900 Source Writer------------------------#
+#-------------------------------------------------------------------#
+def SourceWriter1900(row, the_file, sourceTagsList, dwelling_row, family_row, name_row):
+    dwelling = row[dwelling_row]
+    family = row[family_row]
+    name = row[name_row]
+
+    sourceList = []
+    sourceList.append('2 SOUR @S001@\n3 PAGE T623')
+
+    if len(sourceTagsList['rollTag']) != 0:
+        sourceList.append(', roll ' + sourceTagsList['rollTag'])
+    if len(sourceTagsList['cityTag']) != 0:
+        sourceList.append(', ' + sourceTagsList['cityTag'])
+    if len(sourceTagsList['enumDistrictTag']) != 0:
+        sourceList.append(', enumeration district (ED) ' + sourceTagsList['enumDistrictTag'])
+    if len(sourceTagsList['sheetTag']) != 0:
+        sourceList.append(', sheet ' + sourceTagsList['sheetTag'])
+    if len(sourceTagsList['pageTag']) != 0:
+        sourceList.append(', p. ' + sourceTagsList['pageTag'])
+    if len(dwelling) != 0:
+        sourceList.append(', dwelling ' + dwelling)
+    if len(dwelling) != 0:
+        sourceList.append(', family ' + family)
+    if len(name) != 0:
+        sourceList.append(', ' + name)
+    if len(sourceTagsList['accessDateTag']) != 0:
+        sourceList.append(', accessed ' + sourceTagsList['accessDateTag'])
+    the_file.write("".join(sourceList) + '\n')
+
+
 
 #-------------------------------------------------------------------#
 #-------------------Birth Place Writer (Universal)------------------#
@@ -120,6 +174,10 @@ def YBdateWriter (row,a,y,the_file,idn):
                 the_file.write('2 DATE ABT ' + str(y) + '\n')
         except:
             logging.info("Could Not Recognize Birthdate for the : " + row[a] + " year old person on line: " + str(idn + 1))
+#-------------------------------------------------------------------#
+#------------------------Household Number Writer -------------------#
+#-------------------------------------------------------------------#
+
 
 #-------------------------------------------------------------------#
 #----------------Name Writer (No relationship required)-------------#
@@ -664,8 +722,7 @@ def FamilyWriter1900(row, r,ym, the_file, idn,y,sex):
         relation = 'head'
 
     else:
-        relation = row[r]
-        relation = relation.lower()
+        relation = row[r].lower()
 
     if relation == 'head':
         config.familynumber += 1

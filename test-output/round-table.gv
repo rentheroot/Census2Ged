@@ -1,0 +1,128 @@
+// Made With Census2Ged
+graph {
+	"@I073@" [label="Charles Kruse"]
+	"@I006@" [label="Walter Holloway"]
+	"@I040@" [label="William F Buyers"]
+	"@I087@" [label="John W. McClure"]
+	"@I091@" [label="Ollie O Crites"]
+	"@I020@" [label="Myrtle White"]
+	"@I048@" [label="Opal Buyers"]
+	"@I064@" [label="Elsie Dukes"]
+	"@I047@" [label="Winnie Buyers"]
+	"@I058@" [label="Laurence Ingham"]
+	"@I022@" [label="Dorthea White"]
+	"@I036@" [label="Joseph C. Slattery"]
+	"@I049@" [label="Rhuben Buyers"]
+	"@I035@" [label="Margaret "]
+	"@I053@" [label="James Slattery"]
+	"@I080@" [label="Hattie "]
+	"@I011@" [label="Martha "]
+	"@I094@" [label="Harry Fields"]
+	"@I045@" [label="Alva Buyers"]
+	"@I052@" [label="Ed Slattery"]
+	"@I016@" [label="William B White"]
+	"@I017@" [label="Carry "]
+	"@I051@" [label="Fern Buyers"]
+	"@I054@" [label="Francis A. Slattery"]
+	"@I078@" [label="Tracy Loomis"]
+	"@I009@" [label="Leslie Wilkes"]
+	"@I042@" [label="Floyd Buyers"]
+	"@I018@" [label="Terrence White"]
+	"@I97@" [label="Unknown "]
+	"@I075@" [label="Charles jr. Kruse"]
+	"@I083@" [label="George Bowman"]
+	"@I085@" [label="Sadie Bowman"]
+	"@I008@" [label="Cora B "]
+	"@I071@" [label="Charles Holloway"]
+	"@I021@" [label="Harry White"]
+	"@I038@" [label="William J. Lawson"]
+	"@I077@" [label="Josephine "]
+	"@I072@" [label="Effie P. "]
+	"@I065@" [label="Gracie Dukes"]
+	"@I028@" [label="Mabel S. Tholstsap"]
+	"@I068@" [label="Fanny "]
+	"@I002@" [label="Lela Holloway"]
+	"@I076@" [label="William H Loomis"]
+	"@I001@" [label="Alva Holloway"]
+	"@I044@" [label="Sylvia Buyers"]
+	"@I061@" [label="Joseph E. McDill"]
+	"@I96@" [label="Unknown "]
+	"@I095@" [label="John E Dukes"]
+	"@I033@" [label="Alta O. "]
+	"@I050@" [label="Ruth Buyers"]
+	"@I066@" [label="Lorenzo Dukes"]
+	"@I030@" [label="Alice E. O. Tholstsap"]
+	"@I060@" [label="Amanda "]
+	"@I037@" [label="Roy Heaton"]
+	"@I084@" [label="Hugh Bowman"]
+	"@I056@" [label="Viola "]
+	"@I027@" [label="Daniel E. Tholstsap"]
+	"@I057@" [label="Luella Ingham"]
+	"@I024@" [label="Holger J Tholstsap"]
+	"@I059@" [label="Jospeh R. McDill"]
+	"@I005@" [label="Ruth Holloway"]
+	"@I062@" [label="Lem Dukes"]
+	"@I013@" [label="Walter Sargent"]
+	"@I031@" [label="Josephine L Tholstsap"]
+	"@I074@" [label="Liddy "]
+	"@I041@" [label="Anna "]
+	"@I014@" [label="Melvin Sargent"]
+	"@I015@" [label="Laurence Sargent"]
+	"@I004@" [label="Harold Holloway"]
+	"@I090@" [label="Mary P Crites"]
+	"@I029@" [label="Walter J. R. Tholstsap"]
+	"@I070@" [label="Olive McDill"]
+	"@I082@" [label="Robert Bowman"]
+	"@I039@" [label="Jamie M "]
+	"@I079@" [label="John Bowman"]
+	"@I086@" [label="Aila Bowman"]
+	"@I089@" [label="Martha J Crites"]
+	"@I012@" [label="Eva Sargent"]
+	"@I043@" [label="Raymond Buyers"]
+	"@I010@" [label="Philip Sargent"]
+	"@I092@" [label="Minnie E Crites"]
+	"@I034@" [label="Fred Hoffhines"]
+	"@I069@" [label="Hazel McDill"]
+	"@I023@" [label="Basil H White"]
+	"@I007@" [label="Edward C Wilkes"]
+	"@I081@" [label="Lottie Bowman"]
+	"@I025@" [label="Lizzie M "]
+	"@I067@" [label="William B McDill"]
+	"@I093@" [label="Linus R Crites"]
+	"@I063@" [label="Lizzie "]
+	"@I019@" [label="Floyd M. White"]
+	"@I055@" [label="Willard R. Ingham"]
+	"@I003@" [label="Allie Holloway"]
+	"@I026@" [label="Harry G. S. Tholstsap"]
+	"@I046@" [label="Wilton Buyers"]
+	"@I032@" [label="Riley E. Moore"]
+	"@I088@" [label="Ethel E. "]
+	"@I007@" -- "@I008@"
+	"@I079@" -- "@I080@"
+	"@I032@" -- "@I033@"
+	"@I067@" -- "@I068@"
+	"@I087@" -- "@I088@"
+	"@I073@" -- "@I074@"
+	"@I024@" -- "@I025@"
+	"@I076@" -- "@I077@"
+	"@I055@" -- "@I056@"
+	"@I016@" -- "@I017@"
+	"@I059@" -- "@I060@"
+	"@I040@" -- "@I041@"
+	"@I96@" -- "@I97@"
+	"@I96@" -- "@I001@"
+	"@I96@" -- "@I002@"
+	"@I96@" -- "@I003@"
+	"@I96@" -- "@I004@"
+	"@I96@" -- "@I005@"
+	"@I96@" -- "@I006@"
+	"@I010@" -- "@I011@"
+	"@I071@" -- "@I072@"
+	"@I062@" -- "@I063@"
+	"@I038@" -- "@I039@"
+	"@I034@" -- "@I035@"
+	"@I089@" -- "@I090@"
+	"@I089@" -- "@I091@"
+	"@I089@" -- "@I092@"
+	"@I089@" -- "@I093@"
+}

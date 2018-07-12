@@ -1,12 +1,8 @@
-
-config.pickle
 *.pyc
-config.pickle
 test2.ged
 Word-Lists/surname-wikipedia-fixer.py
 test.py
 tempsurnames.txt
-Sweden-Household-Surveys/Swedish_func_defs.py
 Sweden-Household-Surveys/TempBothFirsts.txt
 Sweden-Household-Surveys/TempFemaleFirsts.txt
 Sweden-Household-Surveys/TempMaleFirsts.txt
