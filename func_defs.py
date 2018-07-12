@@ -5,13 +5,14 @@ import logging
 
 logging.basicConfig(filename='myapp.log', level=logging.DEBUG)
 logging.info('Imported func_defs.py')
+
 #-------------------------------------------------------------------#
 #-----------------------1900 Main Source Writer---------------------#
 #-------------------------------------------------------------------#
 def MainSourceWriter1900(row, the_file, sourceTagsList):
     try:
-        the_file.write('0 @S001@ SOUR\n')
-        the_file.write('1 ATTR ' + sourceTagsList['sourceListTag'] + '\n')
+        the_file.write('0 @S350@ SOUR\n')
+        the_file.write('1 ABBR ' + sourceTagsList['sourceListTag'] + '\n')
         try:
             the_file.write('1 TITL 1900 U.S. census, ' + sourceTagsList['webTitleTag'] + ', ' +sourceTagsList['formatTag'] + '\n')
         except:
@@ -21,7 +22,7 @@ def MainSourceWriter1900(row, the_file, sourceTagsList):
         except:
             pass
         try:
-            the_file.write('1 PUBL URL: : National Archives and Records Administration, ' + sourceTagsList['publishDateTag'] + '\n')
+            the_file.write('1 PUBL ' + sourceTagsList['websiteURLTag'] + ': National Archives and Records Administration, ' + sourceTagsList['publishDateTag'] + '\n')
         except:
             pass
     except:
@@ -36,7 +37,7 @@ def SourceWriter1900(row, the_file, sourceTagsList, dwelling_row, family_row, na
     name = row[name_row]
 
     sourceList = []
-    sourceList.append('2 SOUR @S001@\n3 PAGE T623')
+    sourceList.append('2 SOUR @S350@\n3 PAGE T623')
 
     if len(sourceTagsList['rollTag']) != 0:
         sourceList.append(', roll ' + sourceTagsList['rollTag'])
@@ -289,7 +290,7 @@ def ImmigYearWriter(row, I, immigTag, the_file,idn):
 
     else:
         try:
-            if immigTag == "IMMI":
+            if immigTag == "IMMI" or len(immigTag) == 0:
                 immigyear = row[I]
                 the_file.write("1 IMMI\n")
                 the_file.write("2 DATE ABT " + immigyear + '\n')
@@ -327,7 +328,7 @@ def OccupationWriter(row, occuTag,o, the_file, y, idn):
 
     else:
         try:
-            if occuTag == "OCCU":
+            if occuTag == "OCCU" or len(occuTag) == 0:
                 occupation = row[o]
                 the_file.write("1 OCCU " + occupation + '\n')
                 the_file.write("2 DATE " + y +"\n")
@@ -335,7 +336,7 @@ def OccupationWriter(row, occuTag,o, the_file, y, idn):
             #if user has selected a custom tag, use it
             else:
                 occupation = row[o]
-                the_file.write("1 EVEN " + occupation + '\n')
+                the_file.write("1 EVEN " +occupation + '\n')
                 the_file.write("2 TYPE " + occuTag + '\n')
                 the_file.write("2 DATE " + y + '\n')
         except:
@@ -356,7 +357,7 @@ def OccupationWriter1910(row, occuTag, o, I, the_file, y, idn):
 
     else:
         try:
-            if occuTag == "OCCU":
+            if occuTag == "OCCU" or len(occuTag)==0:
 
                 occupation = row[o]
                 industry = row[I]
@@ -390,7 +391,7 @@ def RaceWriter(row, r, raceTag, the_file, y,idn):
 
         try:
 
-            if raceTag == "DSCR":
+            if raceTag == "DSCR" or len(raceTag) == 0:
                 the_file.write('1 DSCR Race: ' + race + '\n')
                 the_file.write('2 DATE ' + y +'\n')
 
@@ -419,7 +420,7 @@ def NaturalizedWriter (row, the_file, natuTag, n, y, idn):
         logging.info("Naturalization information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if natuTag == "NATU":
+            if natuTag == "NATU" or len(natuTag) == 0:
                 the_file.write('1 NATU Naturalization Status: ' + naturalized +'\n')
                 the_file.write('2 DATE ' + y +'\n')
 
@@ -447,7 +448,7 @@ def LiteracyWriter (row, r,w,literTag, the_file, y, idn ):
         logging.info("Literacy information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if literTag == "EDUC":
+            if literTag == "EDUC" or len(literTag) ==0:
 
                 the_file.write('1 DSCR Can Read: ' + canread + ' Can Write: ' + canwrite + '\n')
                 the_file.write('2 DATE '+ y +'\n')
@@ -555,7 +556,7 @@ def ChildNoWriter (row, n,l, chilTag, the_file, y, idn):
         logging.info("Child number information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if chilTag == "DSCR":
+            if chilTag == "DSCR" or len(chilTag) == 0:
                 childrenborn = row[n]
                 livingchildren = row[l]
                 the_file.write('1 DSCR Mother of how many children: ' + childrenborn + ' Number of living children: ' + livingchildren + '\n')
@@ -587,7 +588,7 @@ def SpeakEnglishWriter (row, e, langTag, the_file,y, idn):
 
     else:
         try:
-            if langTag == "DSCR":
+            if langTag == "DSCR" or len(langTag) == 0:
                 the_file.write('1 DSCR Able to speak English: ' + speaksenglish + '\n')
                 the_file.write('2 DATE ' + y + '\n')
 
@@ -620,7 +621,7 @@ def PropertyWriter(row, o , fm , fh , fs , propTag, the_file , y, idn):
         logging.info("Property information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if propTag == "PROP":
+            if propTag == "PROP" or len(propTag) == 0:
                 the_file.write('1 PROP House owned or rented: ' + ownorrent + ' Owned free or mortgaged: ' + freeormort + ' Farm or house: ' + farmorhome + ' Number of Farm Schedule: ' + farmschedule + '\n')
                 the_file.write('2 DATE '+ y +'\n')
             else:
@@ -651,7 +652,7 @@ def __Property_Writer_1860__(row, r, p, the_file , propTag, y, idn):
                 logging.info("Property information is nonexistant for person on line: " + str(idn + 1))
             #has personal estate
             else:
-                if propTag == "PROP":
+                if propTag == "PROP" or len(propTag)==0:
                     the_file.write('1 PROP Value of Personal Estate: ' + personalEstate + '\n')
                     the_file.write('2 DATE '+ y +'\n')
                 else:
@@ -663,7 +664,7 @@ def __Property_Writer_1860__(row, r, p, the_file , propTag, y, idn):
         else:
             #doesn't have personal estate
             if not row [p]:
-                if propTag == "PROP":
+                if propTag == "PROP" or len(propTag) == 0:
 
                     the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
                     the_file.write('2 DATE '+ y +'\n')
@@ -673,7 +674,7 @@ def __Property_Writer_1860__(row, r, p, the_file , propTag, y, idn):
                     the_file.write("2 DATE " + y + '\n')
             #has personal estate
             else:
-                if propTag == "PROP":
+                if propTag == "PROP" or len(propTag)==0:
                     the_file.write('1 PROP Value of Real Estate: ' + realEstate + 'Value of Personal estate: ' + personalEstate + '\n')
                     the_file.write('2 DATE '+ y +'\n')
                 else:
@@ -697,7 +698,7 @@ def __Property_Writer_1850__(row, r, the_file , propTag, y, idn):
         logging.info("Property information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if propTag == "PROP":
+            if propTag == "PROP" or len(propTag) ==0:
                 the_file.write('1 PROP Value of Real Estate: ' + realEstate + '\n')
                 the_file.write('2 DATE '+ y +'\n')
 
@@ -844,7 +845,7 @@ def ArmyWriter(row, a, militTag, the_file,idn):
         logging.info("Military information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if militTag == "DSCR":
+            if militTag == "DSCR" or len(militTag) == 0:
                 militarystatus = row[a]
                 the_file.write('1 DSCR Army or Navy: ' + militarystatus + '\n')
             else:
@@ -866,7 +867,7 @@ def BlindWriter(row, b, disiTag, the_file, idn):
         logging.info("Blindness information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if disiTag == "DSCR":
+            if disiTag == "DSCR" or len(disiTag) == 0:
                 blindness = row[b]
                 the_file.write('1 DSCR Whether Blind: ' + blindness + '\n')
             else:
@@ -888,7 +889,7 @@ def DeafWriter(row, d, disiTag, the_file, idn):
         logging.info("Deafness information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if disiTag == "DSCR":
+            if disiTag == "DSCR" or len(disiTag)==0:
                 deafness = row[d]
                 the_file.write('1 DSCR Whether Deaf: ' + deafness + '\n')
             else:
@@ -911,7 +912,7 @@ def DeafWriter1880(row, d,disiTag, the_file, idn):
         logging.info("Deafness information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if disiTag == "DSCR":
+            if disiTag == "DSCR" or len(disiTag) ==0:
                 deafness = row[d]
                 the_file.write('1 DSCR Whether Deaf and Dumb: ' + deafness + '\n')
 
@@ -934,7 +935,7 @@ def SickOrDisabledWriter(row, s,disiTag, the_file, idn):
         logging.info("Sickness/disability information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if disiTag == "DSCR":
+            if disiTag == "DSCR" or len(disiTag) == 0:
 
                 sick = row[s]
                 the_file.write('1 DSCR Whether Sick or Disabled: ' + sick + '\n')
@@ -958,7 +959,7 @@ def IdioticWriter(row, d, disiTag, the_file, idn):
         logging.info("Idiocy information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if disiTag == "DSCR":
+            if disiTag == "DSCR" or len(disiTag) ==0:
                 idiot = row[d]
                 the_file.write('1 DSCR Whether Idiotic: ' + idiot + '\n')
 
@@ -981,7 +982,7 @@ def InsaneWriter(row, n, disiTag, the_file, idn):
         logging.info("Insanity information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if disiTag == "DSCR":
+            if disiTag == "DSCR" or len(disiTag) == 0:
                 insane = row[n]
                 the_file.write('1 DSCR Whether Insane: ' + insane + '\n')
             else:
@@ -1003,7 +1004,7 @@ def MaimedWriter(row, m, disiTag, the_file, idn):
         logging.info("Maimed information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if disiTag == "DSCR":
+            if disiTag == "DSCR" or len(disiTag) == 0:
                 maimed = row[m]
                 the_file.write('1 DSCR Whether Maimed: ' + maimed + '\n')
             else:
@@ -1026,7 +1027,7 @@ def __Disabled_Writer_1870__(row, d, disiTag, the_file, idn):
         logging.info("Disability information is nonexistant for person on line: " + str(idn + 1))
     else:
         try:
-            if disiTag == "DSCR":
+            if disiTag == "DSCR" or len(disiTag) == 0:
                 disability = row[d]
                 the_file.write('1 DSCR Disability: ' + disability + '\n')
             else:

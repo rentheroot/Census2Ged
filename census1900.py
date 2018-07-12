@@ -23,10 +23,7 @@ def writeName1900 (c , g, config_dict, source_dict):
                     pass
                  #Call SexWriter Function
                  sex = SexWriter(row,"6 Sex",the_file,idn)
-                 try:
-                    SourceWriter1900(row, the_file, source_dict, '1 Number of dwelling house in the order of visitation.', '2 Number of family in the order of visitation.','3 NAME')
-                 except:
-                    pass
+
                  #call YMBdateWriter function
                  YMBdateWriter(row,"7 Year","7 Month",the_file,idn)
                  try:
