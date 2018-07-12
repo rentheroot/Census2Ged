@@ -6,7 +6,7 @@ Like this project? Send a couple dollars my way and/or visit my blog to see what
 Converts census transcriptions and household examinations made in [Genscriber](http://www.genscriber.com/genapps/) to gedcom files. You can see some of my posts about Census2Ged [here](https://famgenealogy.blogspot.com/p/my-programs.html)
 
 ## Screenshots
-![Screenshot of Census2Ged](https://raw.githubusercontent.com/xXReneeXx/Census2Ged/master/screenshot.PNG)
+![Screenshot of Census2Ged](https://raw.githubusercontent.com/xXReneeXx/Census2Ged/master/screenshot2.PNG)
 
 ## Character Encoding
 Currently only the Swedish Household Examination part of the program includes support for **utf-8**, however I hope to change this in the future so all parts of the program support it.
