@@ -7,14 +7,14 @@ logging.basicConfig(filename='myapp.log', level=logging.DEBUG)
 logging.info('Imported func_defs.py')
 
 #-------------------------------------------------------------------#
-#-----------------------1900 Main Source Writer---------------------#
+#----------------------------Main Source Writer---------------------#
 #-------------------------------------------------------------------#
-def MainSourceWriter1900(row, the_file, sourceTagsList):
+def MainSourceWriter1900(row, the_file, sourceTagsList, year):
     try:
         the_file.write('0 @S350@ SOUR\n')
         the_file.write('1 ABBR ' + sourceTagsList['sourceListTag'] + '\n')
         try:
-            the_file.write('1 TITL 1900 U.S. census, ' + sourceTagsList['webTitleTag'] + ', ' +sourceTagsList['formatTag'] + '\n')
+            the_file.write('1 TITL '+ year + ' U.S. census, ' + sourceTagsList['webTitleTag'] + ', ' +sourceTagsList['formatTag'] + '\n')
         except:
             pass
         try:
@@ -28,16 +28,18 @@ def MainSourceWriter1900(row, the_file, sourceTagsList):
     except:
         logging.info("Could not write main source record, gedcom unlikely to import correctly") 
 
+
+
 #-------------------------------------------------------------------#
 #-------------------------1900 Source Writer------------------------#
 #-------------------------------------------------------------------#
-def SourceWriter1900(row, the_file, sourceTagsList, dwelling_row, family_row, name_row):
+def SourceWriter1900(row, the_file, sourceTagsList, dwelling_row, family_row, name_row, rollid):
     dwelling = row[dwelling_row]
     family = row[family_row]
     name = row[name_row]
 
     sourceList = []
-    sourceList.append('2 SOUR @S350@\n3 PAGE T623')
+    sourceList.append('2 SOUR @S350@\n3 PAGE '+ rollid)
 
     if len(sourceTagsList['rollTag']) != 0:
         sourceList.append(', roll ' + sourceTagsList['rollTag'])

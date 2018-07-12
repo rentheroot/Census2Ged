@@ -53,7 +53,7 @@ class Application(tk.Frame):
     #change the source writer based on year selected
     def sourceUpdate(self, value, sourceValues):
 
-        if value == "1900":
+        if value == "1900" or value == "1910" or value == "1880":
 
             #if there is already a grid, forget it
             try:
@@ -826,7 +826,7 @@ class Application(tk.Frame):
                     }
 
         if self.countrySelect.get() == "United States":
-            if self.yearSelect.get() == "1900":
+            if self.yearSelect.get() == "1900" or self.yearSelect.get() == "1910" or self.yearSelect.get() == "1880":
                 source_list = {       
                             "sourceListTag" : self.sourceSet.get(),
                             "webTitleTag" : self.webTitleSet.get(),
@@ -959,13 +959,13 @@ class Application(tk.Frame):
                 writeName1870(file_path , g, configDictionary["UnitedStates"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1880':
-                writeName1880(file_path , g, configDictionary["UnitedStates"])
+                writeName1880(file_path , g, configDictionary["UnitedStates"], configDictionary["UnitedStates"]["Sources"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1900':
                 writeName1900(file_path , g, configDictionary["UnitedStates"], configDictionary["UnitedStates"]["Sources"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             elif y == '1910':
-                writeName1910(file_path, g, configDictionary["UnitedStates"])
+                writeName1910(file_path, g, configDictionary["UnitedStates"],configDictionary["UnitedStates"]["Sources"])
                 tk.messagebox.showinfo("Census2Ged", "The gedcom file is complete.")
             else:
                 pass
