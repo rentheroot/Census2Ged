@@ -16,7 +16,7 @@ def writeName1850 (c , g, config_dict, source_dict):
                  the_file.write('0 ' + '@I' + "{0:0=3d}".format(idn) + '@' + ' INDI\n')
 
                  #Call NameWriter Function
-                 __Name_Writer_No_Relation__(row, 'Name', the_file,idn)
+                 Name_Writer_No_Relation(row, 'Name', the_file,idn)
                  try:
                     SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
                  except:
@@ -27,33 +27,59 @@ def writeName1850 (c , g, config_dict, source_dict):
 
                  #Call YBdateWriter function
                  YBdateWriter (row,'Age','1850',the_file,idn)
-
+                 try:
+                    SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                 except:
+                    pass
                  #call BPlaceWriter function
                  BPlaceWriter(row,'POB',the_file,idn)
-
+                 try:
+                    SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                 except:
+                    pass
                  #call CensusYearWriter function
                  CensusYearWriter(the_file, '1850')
-
+                 try:
+                    SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                 except:
+                    pass
                  #call OccupationWriter function
                  if config_dict["Occupation"] == 1:
                     OccupationWriter(row, config_dict["occupTag"], 'Occupation', the_file, '1850', idn)
-
+                    try:
+                        SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                    except:
+                        pass
                  #call RaceWriter function
                  if config_dict["Race"] == 1:
                     RaceWriter(row,'Color', config_dict["raceTag"], the_file, '1850', idn)
-
+                    try:
+                        SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                    except:
+                        pass
                  #call LiteracyWriter1860 function
                  if config_dict["Literacy"] == 1:
-                    __Literacy_Writer_1860__ (row, 'Read-Write', 'Age', config_dict["literTag"], the_file, '1850', idn )
-
+                    Literacy_Writer_1860 (row, 'Read-Write', 'Age', config_dict["literTag"], the_file, '1850', idn )
+                    try:
+                        SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                    except:
+                        pass
                  #call Disabled Writer 1870 function
                  if config_dict["Disability"] == 1:
-                    __Disabled_Writer_1870__(row, 'Deaf-Dumb-Blind-Etc',config_dict["disiTag"], the_file, idn)
-
+                    Disabled_Writer_1870(row, 'Deaf-Dumb-Blind-Etc.',config_dict["disiTag"], the_file, idn)
+                    try:
+                        SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                    except:
+                        pass
                  #call Property writer 1850 function
                  if config_dict["Property"] == 1:
-                    __Property_Writer_1850__(row, 'Real-Estate', the_file, config_dict["propTag"], '1850', idn)
-
+                    Property_Writer_1850(row, 'Real-Estate', the_file, config_dict["propTag"], '1850', idn)
+                    try:
+                        SourceWriter1870(row, the_file, source_dict, 'Dwelling-House', 'Family','Name', 'M432')
+                    except:
+                        pass             
+             #write the source
+             MainSourceWriter1900(row, the_file, source_dict, '1850') 
              #call endfile function
-             EndFile(the_file,g)
+             EndFile(the_file,g,idn)
                  

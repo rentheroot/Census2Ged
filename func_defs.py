@@ -213,7 +213,7 @@ def YBdateWriter (row,a,y,the_file,idn):
 #n = the Name column row
 #row = row
 #the_file = the_file
-def __Name_Writer_No_Relation__(row, n, the_file,idn):
+def Name_Writer_No_Relation(row, n, the_file,idn):
     #separate values for firstname and lastname
     name = str(row[n]).split()
     try:
@@ -564,7 +564,7 @@ def LiteracyWriter1880 (row, r,w, a, litertag, the_file, y, idn ):
 #a = age column
 #the_file=the_file
 #y = census year
-def __Literacy_Writer_1860__ (row, r, a, literacyTag,the_file, y, idn ):
+def Literacy_Writer_1860 (row, r, a, literacyTag,the_file, y, idn ):
     canread = row[r]
     age = row[a]
 
@@ -686,7 +686,7 @@ def PropertyWriter(row, o , fm , fh , fs , propTag, the_file , y, idn):
 #the_file = the_file
 #y= Census Year
 #propTag = tag to use for the property information
-def __Property_Writer_1860__(row, r, p, the_file , propTag, y, idn):
+def Property_Writer_1860(row, r, p, the_file , propTag, y, idn):
     realEstate = row[r]
     personalEstate = row[p]
 
@@ -738,7 +738,7 @@ def __Property_Writer_1860__(row, r, p, the_file , propTag, y, idn):
 #the_file = the_file
 #y= Census Year
 #propTag = tag to use for the property information
-def __Property_Writer_1850__(row, r, the_file , propTag, y, idn):
+def Property_Writer_1850(row, r, the_file , propTag, y, idn):
     realEstate = row[r]
     if not row[r]:
         logging.info("Property information is nonexistant for person on line: " + str(idn + 1))
@@ -1068,7 +1068,7 @@ def MaimedWriter(row, m, disiTag, the_file, idn):
 #d=disabled cloumn
 #the_file=the_file
 #disiTag = tag to use for disabilty writer
-def __Disabled_Writer_1870__(row, d, disiTag, the_file, idn):
+def Disabled_Writer_1870(row, d, disiTag, the_file, idn):
     if not row[d]:
         logging.info("Disability information is nonexistant for person on line: " + str(idn + 1))
     else:

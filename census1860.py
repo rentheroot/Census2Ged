@@ -16,7 +16,7 @@ def writeName1860 (c , g, config_dict, source_dict):
                  the_file.write('0 ' + '@I' + "{0:0=3d}".format(idn) + '@' + ' INDI\n')
 
                  #Call NameWriter Function
-                 __Name_Writer_No_Relation__(row, '3-name', the_file,idn)
+                 Name_Writer_No_Relation(row, '3-name', the_file,idn)
                  try:
                     SourceWriter1870(row, the_file, source_dict, '1-Dwelling-house', '2-Family','3-name', 'M653')
                  except:
@@ -58,21 +58,21 @@ def writeName1860 (c , g, config_dict, source_dict):
                         pass
                  #call LiteracyWriter1860 function
                  if config_dict["Literacy"] == 1:
-                    __Literacy_Writer_1860__ (row, '13-cannot-R&W', '4-Age', config_dict["literTag"], the_file, '1860', idn )
+                    Literacy_Writer_1860 (row, '13-cannot-R&W', '4-Age', config_dict["literTag"], the_file, '1860', idn )
                     try:
                         SourceWriter1870(row, the_file, source_dict, '1-Dwelling-house', '2-Family','3-name', 'M653')
                     except:
                         pass
                  #call Disabled Writer 1870 function
                  if config_dict["Disability"] == 1:
-                    __Disabled_Writer_1870__(row, '14-Deaf', config_dict["disiTag"], the_file, idn)
+                    Disabled_Writer_1870(row, '14-Deaf', config_dict["disiTag"], the_file, idn)
                     try:
                         SourceWriter1870(row, the_file, source_dict, '1-Dwelling-house', '2-Family','3-name', 'M653')
                     except:
                         pass
                  #call property writer 1860 function
                  if config_dict["Property"] == 1:
-                    __Property_Writer_1860__(row, '8-Real-Estate', '9-Personal-Estate', config_dict["propTag"],the_file , '1860', idn)
+                    Property_Writer_1860(row, '8-Real-Estate', '9-Personal-Estate', config_dict["propTag"],the_file , '1860', idn)
                     try:
                         SourceWriter1870(row, the_file, source_dict, '1-Dwelling-house', '2-Family','3-name', 'M653')
                     except:
@@ -80,5 +80,5 @@ def writeName1860 (c , g, config_dict, source_dict):
              #write the source
              MainSourceWriter1900(row, the_file, source_dict, '1860') 
              #call endfile function
-             EndFile(the_file,g)
+             EndFile(the_file,g,idn)
                  
