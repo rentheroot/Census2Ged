@@ -113,8 +113,8 @@ The goal is to eventually present every piece of information in some way for eve
 STREET, AVENUE, ROAD, ETC.
 HOUSE NUMBER (IN CITIES AND TOWNS)**
 
-- [ ] Number of dwelling in order of visitation
-- [ ] Number of family, in order of visitation
+- [X] Number of dwelling in order of visitation
+- [X] Number of family, in order of visitation
 - [X] Name of each person whose place of abode on April 15, 1910, was in this family. Enter surname first, then the given name and middle initial, if any. Include every person living on April 15, 1910. Omit children born since April 15, 1910
 - [X] Relationship of this person to the head of the family
 
@@ -223,8 +223,8 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 
 **IN CITIES: NAME OF STREET; HOUSE NUMBER**
 
-- [ ] Dwelling houses numbered in order of visitation.
-- [ ] Families numbered in order of visitation.
+- [X] Dwelling houses numbered in order of visitation.
+- [X] Families numbered in order of visitation.
 - [X] The name of every person whose place of abode on the 1st day of June, 1880, was in this family.
 
 **PERSONAL DESCRIPTION:**
@@ -270,8 +270,8 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 
  ### 1870 Census
 
- - [ ] Dwelling houses and number in order of visitation.
- - [ ] Families numbered in the order of visitation.
+ - [X] Dwelling houses and number in order of visitation.
+ - [X] Families numbered in the order of visitation.
  - [X] The name of every person whose place of abode on the 1st day of June, 1870, was in this family.
 
  **DESCRIPTION:**
@@ -308,8 +308,8 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 
  ### 1860 Census
 
- - [ ] Dwelling houses and number in order of visitation
- - [ ] Families numbered in the order of visitation
+ - [X] Dwelling houses and number in order of visitation
+ - [X] Families numbered in the order of visitation
  - [X] The name of every person whose usual place of abode on the 1st day of June, 1860, was in this family
 
  **DESCRIPTION:**
@@ -331,8 +331,8 @@ OF EACH PERSON TEN YEARS OF AGE AND OVER:**
 
 ### 1850 Census
 
-- [ ] Dwelling houses and number in order of visitation.
-- [ ] Families numbered in the order of visitation.
+- [X] Dwelling houses and number in order of visitation.
+- [X] Families numbered in the order of visitation.
 - [X] The name of every person whose usual place of abode on the 1st day of June, 1850, was in this family.
 
 **DESCRIPTION**
